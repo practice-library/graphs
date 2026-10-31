@@ -10,8 +10,8 @@
     "quote": "From $0.10 / input MTok",
     "value": 0.1,
     "unit": "USD per million input tokens",
-    "scope": "claude-haiku-5-5, Claude API base price",
-    "note": "Claude Haiku 5.5 is priced by prompt length: this is the price for prompts up to 100,000 tokens; longer prompts pay more (see the pricing page)."
+    "scope": "claude-haiku-5-5, Claude API base price, \"From\" price (prompts up to 100,000 tokens)",
+    "note": "The page states this price with \"From\": value is the lowest price, for prompts up to 100,000 tokens, not a flat rate. Claude Haiku 5.5 is priced by prompt length and longer prompts pay more (see the pricing page)."
   },
   "edges": [
     {

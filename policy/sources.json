@@ -41,7 +41,7 @@
       "format": "html",
       "maxRequestsPerRun": 10,
       "minIntervalDays": 7,
-      "maxBytes": 5000000,
+      "maxBytes": 10000000,
       "timeoutSeconds": 60
     },
     {
