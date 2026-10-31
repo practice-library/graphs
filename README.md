@@ -24,6 +24,7 @@ spec/                      contracts shared by every domain
     check.json             {"schema": "../schema.json", "instances": "graph/nodes"}
     graph/nodes/<id>.json  one fact per file
     INDEX.md               generated
+    README.md              where the quotes come from, and their licence
 ```
 
 Status: the contracts, checks and source policy exist, and the first vendor graph is `vendors/github` (80 facts from GitHub's documentation, all from `docs.github.com`, the one host in `policy/sources.json`). The scheduled refresh workflow and the PR opener are planned (see `spec/README.md`).
@@ -52,4 +53,4 @@ This repository keeps no onboarding checklist: the settings, files and ruleset a
 
 ## Licence
 
-See `LICENSE`. Quoted text stays under its source's terms and is kept to short quotes with a link.
+See `LICENSE`. Quoted text stays under its source's terms and is kept to short quotes with a link. Each vendor graph's `README.md` names where its quotes come from and under which licence, for example `vendors/github/README.md`.
