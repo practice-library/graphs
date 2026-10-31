@@ -2,8 +2,9 @@
 # A pull request that touches only allowlisted paths may auto-merge, so it must be a date bump and
 # nothing else: every changed file is a modified node whose only changed lines are measuredAt and
 # attrs.fetched_at, with the new measuredAt the date of the new fetched_at, and fetched_at later
-# than before. Any other change to a fact must also touch a path outside the allowlist (the
-# vendor's CHANGES.md), so that a maintainer reviews it.
+# than before. Any other change to a fact fails unless the pull request also touches a path outside
+# the allowlist (such as the vendor's regenerated INDEX.md); it then cannot auto-merge, so a
+# maintainer reviews it.
 #
 # Usage:
 #   scripts/bump-only.sh pr                       in CI, on the pull request's merge commit

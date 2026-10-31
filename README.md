@@ -27,7 +27,7 @@ spec/                      contracts shared by every domain
     README.md              where the quotes come from, and their licence
 ```
 
-Status: the contracts, checks and source policy exist, and there are two vendor graphs: `vendors/github` (80 facts from `docs.github.com`) and `vendors/anthropic` (the Claude API and Claude Code, the first versioned graph, from `platform.claude.com` and `code.claude.com`). Every host they cite is in `policy/sources.json`. The scheduled refresh workflow and the PR opener are planned (see `spec/README.md`).
+Status: the contracts, checks and source policy exist, and there are two vendor graphs: `vendors/github` (from `docs.github.com`) and `vendors/anthropic` (the Claude API and Claude Code, the first versioned graph, from `platform.claude.com` and `code.claude.com`). Every host they cite is in `policy/sources.json`, and `scripts/graph-check.sh` prints each graph's node count. The scheduled refresh workflow and the PR opener are planned (see `spec/README.md`).
 
 The first domain is `vendors`: limits, plans, prices, access rules and terms of public services. A new domain is a new directory with its own `schema.json`; a new vendor is a new directory under its domain. Nothing else changes: every `check.json` is found and checked.
 
@@ -41,7 +41,7 @@ Node types: `vendor`, `product`, `plan`, `price`, `limit`, `rate-limit`, `permis
 
 ## What may merge without review
 
-Each vendor graph's `graph/nodes/` is on the auto-merge allowlist (`.github/automerge-paths.json`, which the organisation's auto-merge reads on the base commit) and has no CODEOWNERS owner; both lists are generated from `scripts/graphs.sh`, one entry per graph. A pull request touching only those paths must be a date bump: the required `bump-only` check accepts it only when every changed file is a modified node whose only changed lines are `measuredAt` and `attrs.fetched_at`, the new `measuredAt` is the date of the new `fetched_at`, and `fetched_at` is later than before. Adding, removing or changing a fact therefore also adds a line to that vendor's `CHANGES.md`, which is outside the allowlist, so a maintainer reviews it.
+Each vendor graph's `graph/nodes/` is on the auto-merge allowlist (`.github/automerge-paths.json`, which the organisation's auto-merge reads on the base commit) and has no CODEOWNERS owner; both lists are generated from `scripts/graphs.sh`, one entry per graph. A pull request touching only those paths must be a date bump: the required `bump-only` check accepts it only when every changed file is a modified node whose only changed lines are `measuredAt` and `attrs.fetched_at`, the new `measuredAt` is the date of the new `fetched_at`, and `fetched_at` is later than before. Adding, removing or changing a fact therefore fails `bump-only` unless the pull request also touches a path outside the allowlist, such as the vendor's regenerated `INDEX.md`; such a pull request cannot auto-merge, so a maintainer reviews it.
 
 ## Checks
 
