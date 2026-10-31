@@ -1,0 +1,18 @@
+[
+  {
+    "id": "limit.a.x",
+    "type": "limit",
+    "name": "X",
+    "source": "https://docs.a.example/x",
+    "measuredAt": "2026-10-24",
+    "attrs": {
+      "verdict": "limited",
+      "fetched_at": "2026-10-24T05:00:00Z",
+      "quote": "Up to 5 per minute.",
+      "value": 5,
+      "unit": "requests",
+      "scope": "free plan"
+    },
+    "edges": []
+  }
+]

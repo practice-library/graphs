@@ -24,6 +24,7 @@
     "needs": [
       "render",
       "selftest",
+      "guards",
       "bump-only",
       "graph-check",
       "discover",
