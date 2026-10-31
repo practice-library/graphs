@@ -1,0 +1,14 @@
+{
+  "id": "release.anthropic.api.claude-opus-5-5",
+  "type": "release",
+  "name": "Claude Opus 5.5",
+  "source": "https://platform.claude.com/docs/en/models/overview",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:44:54Z",
+    "quote": "For long-running agentic coding and knowledge work",
+    "scope": "claude-opus-5-5"
+  },
+  "edges": []
+}

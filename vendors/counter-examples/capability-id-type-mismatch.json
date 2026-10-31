@@ -1,0 +1,22 @@
+{
+  "id": "release.example.widget.streaming",
+  "type": "capability",
+  "name": "Widget streaming",
+  "source": "https://docs.example.com/changelog",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "Added streaming responses."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.example.widget"
+    },
+    {
+      "rel": "introducedIn",
+      "to": "release.example.widget.2-0"
+    }
+  ]
+}

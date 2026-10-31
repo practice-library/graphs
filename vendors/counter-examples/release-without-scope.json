@@ -1,0 +1,15 @@
+{
+  "id": "release.example.widget.2-0",
+  "type": "release",
+  "name": "Widget 2.0",
+  "source": "https://docs.example.com/changelog",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "Widget 2.0 removes the v1 endpoints.",
+    "window": "2026-09-01",
+    "note": "Breaking: the v1 endpoints are removed."
+  },
+  "edges": []
+}

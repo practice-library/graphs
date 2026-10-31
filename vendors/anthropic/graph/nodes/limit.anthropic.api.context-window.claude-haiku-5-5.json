@@ -1,0 +1,21 @@
+{
+  "id": "limit.anthropic.api.context-window.claude-haiku-5-5",
+  "type": "limit",
+  "name": "Claude Haiku 5.5 context window",
+  "source": "https://platform.claude.com/docs/en/models/overview",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T15:44:54Z",
+    "quote": "1M tokens",
+    "value": 1000000,
+    "unit": "tokens",
+    "scope": "claude-haiku-5-5, context window"
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "release.anthropic.api.claude-haiku-5-5"
+    }
+  ]
+}

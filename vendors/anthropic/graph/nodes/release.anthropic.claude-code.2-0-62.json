@@ -1,0 +1,15 @@
+{
+  "id": "release.anthropic.claude-code.2-0-62",
+  "type": "release",
+  "name": "Claude Code 2.0.62",
+  "source": "https://code.claude.com/docs/en/changelog",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:45:05Z",
+    "quote": "Added attribution setting to customize commit and PR bylines (deprecates includeCoAuthoredBy)",
+    "scope": "2.0.62",
+    "window": "2025-12-09"
+  },
+  "edges": []
+}

@@ -1,0 +1,21 @@
+{
+  "id": "rule.anthropic.api.batch-discount",
+  "type": "rule",
+  "name": "Batch API discount",
+  "source": "https://platform.claude.com/docs/en/about-claude/pricing",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:45:43Z",
+    "quote": "The Batch API allows asynchronous processing of large volumes of requests with a 50 percent discount on both input and output tokens.",
+    "value": 50,
+    "unit": "percent discount",
+    "scope": "Message Batches API, input and output tokens"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.anthropic.api"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "release.anthropic.claude-code.1-0-38",
+  "type": "release",
+  "name": "Claude Code 1.0.38",
+  "source": "https://code.claude.com/docs/en/changelog",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:45:05Z",
+    "quote": "Released hooks.",
+    "scope": "1.0.38",
+    "window": "2025-06-30"
+  },
+  "edges": []
+}

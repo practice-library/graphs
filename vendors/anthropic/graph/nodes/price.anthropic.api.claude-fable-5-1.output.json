@@ -1,0 +1,21 @@
+{
+  "id": "price.anthropic.api.claude-fable-5-1.output",
+  "type": "price",
+  "name": "Claude Fable 5.1 output price",
+  "source": "https://platform.claude.com/docs/en/models/overview",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T15:44:54Z",
+    "quote": "$50 / output MTok",
+    "value": 50,
+    "unit": "USD per million output tokens",
+    "scope": "claude-fable-5-1, Claude API base price"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "release.anthropic.api.claude-fable-5-1"
+    }
+  ]
+}

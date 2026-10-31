@@ -1,0 +1,21 @@
+{
+  "id": "limit.anthropic.api.max-output.claude-fable-5-1",
+  "type": "limit",
+  "name": "Claude Fable 5.1 max output",
+  "source": "https://platform.claude.com/docs/en/models/overview",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T15:44:54Z",
+    "quote": "128K tokens",
+    "value": 128000,
+    "unit": "tokens",
+    "scope": "claude-fable-5-1, synchronous Messages API output"
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "release.anthropic.api.claude-fable-5-1"
+    }
+  ]
+}

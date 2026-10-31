@@ -1,0 +1,22 @@
+{
+  "id": "capability.anthropic.claude-code.attribution-setting",
+  "type": "capability",
+  "name": "The attribution setting",
+  "source": "https://code.claude.com/docs/en/changelog",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:45:05Z",
+    "quote": "Added attribution setting to customize commit and PR bylines (deprecates includeCoAuthoredBy)"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.anthropic.claude-code"
+    },
+    {
+      "rel": "introducedIn",
+      "to": "release.anthropic.claude-code.2-0-62"
+    }
+  ]
+}

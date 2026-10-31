@@ -1,0 +1,14 @@
+{
+  "id": "release.anthropic.api.claude-sonnet-5-5",
+  "type": "release",
+  "name": "Claude Sonnet 5.5",
+  "source": "https://platform.claude.com/docs/en/models/overview",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:44:54Z",
+    "quote": "The best combination of speed and intelligence",
+    "scope": "claude-sonnet-5-5"
+  },
+  "edges": []
+}

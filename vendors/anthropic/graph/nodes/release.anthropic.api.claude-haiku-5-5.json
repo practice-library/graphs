@@ -1,0 +1,14 @@
+{
+  "id": "release.anthropic.api.claude-haiku-5-5",
+  "type": "release",
+  "name": "Claude Haiku 5.5",
+  "source": "https://platform.claude.com/docs/en/models/overview",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:44:54Z",
+    "quote": "For high-volume, latency-sensitive tasks such as classification, extraction, and routing",
+    "scope": "claude-haiku-5-5"
+  },
+  "edges": []
+}

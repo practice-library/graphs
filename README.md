@@ -20,14 +20,14 @@ spec/                      contracts shared by every domain
   examples/                nodes that must pass
   counter-examples/        nodes that must fail, one reason each
   check.json               examples must pass; each counter-example, on its own, must fail
-  <vendor>/                one graph per vendor; the first is vendors/github
+  <vendor>/                one graph per vendor: vendors/github, vendors/anthropic
     check.json             {"schema": "../schema.json", "instances": "graph/nodes"}
     graph/nodes/<id>.json  one fact per file
     INDEX.md               generated
     README.md              where the quotes come from, and their licence
 ```
 
-Status: the contracts, checks and source policy exist, and the first vendor graph is `vendors/github` (80 facts from GitHub's documentation, all from `docs.github.com`, the one host in `policy/sources.json`). The scheduled refresh workflow and the PR opener are planned (see `spec/README.md`).
+Status: the contracts, checks and source policy exist, and there are two vendor graphs: `vendors/github` (80 facts from `docs.github.com`) and `vendors/anthropic` (the Claude API and Claude Code, the first versioned graph, from `platform.claude.com` and `code.claude.com`). Every host they cite is in `policy/sources.json`. The scheduled refresh workflow and the PR opener are planned (see `spec/README.md`).
 
 The first domain is `vendors`: limits, plans, prices, access rules and terms of public services. A new domain is a new directory with its own `schema.json`; a new vendor is a new directory under its domain. Nothing else changes: every `check.json` is found and checked.
 
@@ -37,7 +37,7 @@ Each fact is one JSON file named after its id, `<type>.<vendor>.<slug>`; a vendo
 
 `vendors/schema.json` is the organisation's shared fact-node envelope (`spec/node/schema.json` of practice-library/.github, which the schema check always resolves) with this domain's types and a few stricter rules: the id starts with its type, a price carries `value`, `unit` (currency included, for example `USD per million input tokens`) and `scope`, a vendor's root node has no edges, an `unknown` fact has a `note`, dates are real calendar dates and source hosts are lower-case names with a dot. A product or plan belongs to its vendor by its id and its directory. `scripts/graph-check.sh` checks what the schema cannot: each file is named after its id, the id names its vendor, the graph has one root node, every edge points at a node of the same graph, and every source's host is listed for that vendor in `policy/sources.json`.
 
-Node types: `vendor`, `product`, `plan`, `price`, `limit`, `rate-limit`, `permission`, `rule`, `feature`, `term`. Edges: `availableOn`, `requires`, `grantedBy`, `limits`, `appliesTo`, `prohibitedBy`, `supersedes`.
+Node types: `vendor`, `product`, `plan`, `price`, `limit`, `rate-limit`, `permission`, `rule`, `feature`, `term`, `release`, `capability`. Edges: `availableOn`, `requires`, `grantedBy`, `limits`, `appliesTo`, `prohibitedBy`, `supersedes`, and for versioned graphs `hasRelease` (product to release), `introducedIn` and `removedIn` (capability to release). A release names its version or model id in `attrs.scope` and, when stated, its date in `attrs.window` (YYYY-MM-DD); a release flagged breaking has a `note` starting with "Breaking". The shared envelope has no fields of its own for these.
 
 ## What may merge without review
 

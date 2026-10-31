@@ -1,0 +1,15 @@
+{
+  "id": "release.anthropic.claude-code.2-1-0",
+  "type": "release",
+  "name": "Claude Code 2.1.0",
+  "source": "https://code.claude.com/docs/en/changelog",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:45:05Z",
+    "quote": "Added automatic skill hot-reload",
+    "scope": "2.1.0",
+    "window": "2026-01-07"
+  },
+  "edges": []
+}

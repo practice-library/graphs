@@ -1,0 +1,30 @@
+{
+  "id": "product.anthropic.api",
+  "type": "product",
+  "name": "Claude API",
+  "source": "https://platform.claude.com/docs/en/api/overview",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:45:03Z",
+    "quote": "The Claude API is a RESTful API at https://api.anthropic.com that provides programmatic access to Claude models and Claude Managed Agents."
+  },
+  "edges": [
+    {
+      "rel": "hasRelease",
+      "to": "release.anthropic.api.claude-fable-5-1"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.anthropic.api.claude-opus-5-5"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.anthropic.api.claude-sonnet-5-5"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.anthropic.api.claude-haiku-5-5"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "rule.anthropic.api.deprecation.claude-sonnet-4-5",
+  "type": "rule",
+  "name": "Claude Sonnet 4.5 deprecated, retiring November 30, 2026",
+  "source": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T15:44:57Z",
+    "quote": "On September 30, 2026, Anthropic notified developers using Claude Sonnet 4.5 of its upcoming retirement on the Claude API.",
+    "scope": "claude-sonnet-4-5-20250929 on the Claude API",
+    "note": "The same page lists its retirement date as November 30, 2026 and its recommended replacement as claude-sonnet-5-5."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.anthropic.api"
+    }
+  ]
+}

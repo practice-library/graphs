@@ -1,0 +1,21 @@
+{
+  "id": "plan.anthropic.api.start",
+  "type": "plan",
+  "name": "Start usage tier",
+  "source": "https://platform.claude.com/docs/en/api/rate-limits",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T15:45:00Z",
+    "quote": "$500 USD",
+    "value": 500,
+    "unit": "USD per calendar month, spend cap",
+    "scope": "Start tier"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.anthropic.api"
+    }
+  ]
+}

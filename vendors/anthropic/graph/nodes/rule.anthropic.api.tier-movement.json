@@ -1,0 +1,18 @@
+{
+  "id": "rule.anthropic.api.tier-movement",
+  "type": "rule",
+  "name": "How an organization changes usage tier",
+  "source": "https://platform.claude.com/docs/en/api/rate-limits",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:45:00Z",
+    "quote": "Organizations are placed on a tier automatically based on usage history and account standing and can move to a higher tier over time as they use the API."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.anthropic.api"
+    }
+  ]
+}

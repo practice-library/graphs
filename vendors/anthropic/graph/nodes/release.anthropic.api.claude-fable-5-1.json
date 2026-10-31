@@ -1,0 +1,14 @@
+{
+  "id": "release.anthropic.api.claude-fable-5-1",
+  "type": "release",
+  "name": "Claude Fable 5.1",
+  "source": "https://platform.claude.com/docs/en/models/overview",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:44:54Z",
+    "quote": "For demanding reasoning and long-horizon agentic work",
+    "scope": "claude-fable-5-1"
+  },
+  "edges": []
+}

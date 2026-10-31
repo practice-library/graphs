@@ -1,0 +1,22 @@
+{
+  "id": "price.anthropic.api.claude-haiku-5-5.output",
+  "type": "price",
+  "name": "Claude Haiku 5.5 output price",
+  "source": "https://platform.claude.com/docs/en/models/overview",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T15:44:54Z",
+    "quote": "From $0.50 / output MTok",
+    "value": 0.5,
+    "unit": "USD per million output tokens",
+    "scope": "claude-haiku-5-5, Claude API base price",
+    "note": "Claude Haiku 5.5 is priced by prompt length: this is the price for prompts up to 100,000 tokens; longer prompts pay more (see the pricing page)."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "release.anthropic.api.claude-haiku-5-5"
+    }
+  ]
+}

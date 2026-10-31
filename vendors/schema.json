@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/practice-library/graphs/vendors/schema.json",
   "title": "Vendor fact node",
-  "description": "One file under vendors/<vendor>/graph/nodes/, named <id>.json: the shared fact-node envelope of practice-library/.github (spec/node/schema.json), with this domain's type values and a few stricter rules. The id is <type>.<vendor>.<slug>, or vendor.<vendor> for the vendor's root node. That every edge target exists, inside the same vendor graph, is checked by scripts/graph-check.sh, not by this schema.",
+  "description": "One file under vendors/<vendor>/graph/nodes/, named <id>.json: the shared fact-node envelope of practice-library/.github (spec/node/schema.json), with this domain's type values and a few stricter rules. A product links to its releases with hasRelease; a capability points at the release that introduced or removed it with introducedIn or removedIn. The id is <type>.<vendor>.<slug>, or vendor.<vendor> for the vendor's root node. That every edge target exists, inside the same vendor graph, is checked by scripts/graph-check.sh, not by this schema.",
   "$ref": "https://github.com/practice-library/.github/spec/node/schema.json",
   "properties": {
     "type": {
@@ -16,7 +16,9 @@
         "permission",
         "rule",
         "feature",
-        "term"
+        "term",
+        "release",
+        "capability"
       ]
     },
     "source": {
@@ -251,6 +253,44 @@
       "if": {
         "properties": {
           "type": {
+            "const": "release"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^release\\.[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "capability"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^capability\\.[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
             "const": "price"
           }
         },
@@ -287,6 +327,33 @@
             "maxItems": 0
           }
         }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "release"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attrs": {
+            "required": [
+              "scope"
+            ],
+            "properties": {
+              "window": {
+                "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
+              }
+            }
+          }
+        },
+        "description": "A release names its version or model id in attrs.scope and, when the page states it, its release date in attrs.window (YYYY-MM-DD). A release flagged breaking has an attrs.note starting with \"Breaking\"."
       }
     }
   ]

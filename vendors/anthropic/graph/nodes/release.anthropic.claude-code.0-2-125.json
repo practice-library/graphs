@@ -1,0 +1,16 @@
+{
+  "id": "release.anthropic.claude-code.0-2-125",
+  "type": "release",
+  "name": "Claude Code 0.2.125",
+  "source": "https://code.claude.com/docs/en/changelog",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:45:05Z",
+    "quote": "Breaking change: Bedrock ARN passed to ANTHROPIC_MODEL or ANTHROPIC_SMALL_FAST_MODEL should no longer contain an escaped slash",
+    "scope": "0.2.125",
+    "window": "2025-05-21",
+    "note": "Breaking: a Bedrock ARN in ANTHROPIC_MODEL must use / instead of %2F."
+  },
+  "edges": []
+}

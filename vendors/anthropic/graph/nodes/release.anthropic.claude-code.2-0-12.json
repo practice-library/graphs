@@ -1,0 +1,15 @@
+{
+  "id": "release.anthropic.claude-code.2-0-12",
+  "type": "release",
+  "name": "Claude Code 2.0.12",
+  "source": "https://code.claude.com/docs/en/changelog",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:45:05Z",
+    "quote": "Plugin System Released: Extend Claude Code with custom commands, agents, hooks, and MCP servers from marketplaces",
+    "scope": "2.0.12",
+    "window": "2025-10-09"
+  },
+  "edges": []
+}

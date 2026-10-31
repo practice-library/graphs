@@ -1,0 +1,15 @@
+{
+  "id": "release.anthropic.claude-code.2-1-316",
+  "type": "release",
+  "name": "Claude Code 2.1.316",
+  "source": "https://code.claude.com/docs/en/changelog",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:45:05Z",
+    "quote": "Added CLAUDE_CODE_DISABLE_ULTRATHINK, which turns the ultrathink keyword off",
+    "scope": "2.1.316",
+    "window": "2026-10-31"
+  },
+  "edges": []
+}
