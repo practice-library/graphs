@@ -1,0 +1,27 @@
+{
+  "id": "rule.github.actions.private-repos-draw-included-compute",
+  "type": "rule",
+  "name": "Private repositories draw on the plan's included compute",
+  "source": "https://docs.github.com/en/get-started/learning-about-github/githubs-plans",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T16:46:41Z",
+    "quote": "For private repositories, each GitHub account receives storage and a monthly included compute usage, depending on the account's plan.",
+    "scope": "private repositories"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.github.actions"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free-personal"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "product.github.merge-queue",
+  "type": "product",
+  "name": "Merge queue",
+  "source": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T16:47:01Z",
+    "quote": "A merge queue helps increase velocity by automating pull request merges into a busy branch and ensuring the branch is never broken by incompatible changes."
+  },
+  "edges": []
+}

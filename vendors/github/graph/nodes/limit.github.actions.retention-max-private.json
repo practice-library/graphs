@@ -1,0 +1,21 @@
+{
+  "id": "limit.github.actions.retention-max-private",
+  "type": "limit",
+  "name": "Maximum artifact and log retention, private repositories",
+  "source": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T16:46:48Z",
+    "quote": "For private repositories: you can change this retention period to anywhere between 1 day or 400 days.",
+    "value": 400,
+    "unit": "days",
+    "scope": "private repositories, maximum configurable retention"
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.github.actions"
+    }
+  ]
+}

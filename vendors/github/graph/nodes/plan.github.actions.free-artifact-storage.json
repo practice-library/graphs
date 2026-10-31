@@ -1,0 +1,29 @@
+{
+  "id": "plan.github.actions.free-artifact-storage",
+  "type": "plan",
+  "name": "Free plan Actions artifact storage for private repositories",
+  "source": "https://docs.github.com/en/billing/concepts/product-billing/github-actions",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T16:46:43Z",
+    "quote": "Plan Artifact storage Included compute usage (per month) Cache storage (per repository) Custom image storage GitHub Free 500 MB $12 USD 10 GB Not applicable",
+    "value": 500,
+    "unit": "MB",
+    "scope": "private repositories, GitHub Free and GitHub Free for organizations (same 500 MB row), column \"Artifact storage\"; shared with GitHub Packages storage"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free-personal"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free"
+    },
+    {
+      "rel": "limits",
+      "to": "product.github.actions"
+    }
+  ]
+}

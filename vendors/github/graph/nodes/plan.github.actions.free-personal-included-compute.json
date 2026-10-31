@@ -1,0 +1,26 @@
+{
+  "id": "plan.github.actions.free-personal-included-compute",
+  "type": "plan",
+  "name": "Free (personal) included Actions compute for private repositories",
+  "source": "https://docs.github.com/en/billing/concepts/product-billing/github-actions",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T16:46:43Z",
+    "quote": "Plan Artifact storage Included compute usage (per month) Cache storage (per repository) Custom image storage GitHub Free 500 MB $12 USD 10 GB Not applicable",
+    "value": 12,
+    "unit": "USD",
+    "window": "per month",
+    "scope": "private repositories, GitHub Free for personal accounts, column \"Included compute usage (per month)\""
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free-personal"
+    },
+    {
+      "rel": "limits",
+      "to": "product.github.actions"
+    }
+  ]
+}

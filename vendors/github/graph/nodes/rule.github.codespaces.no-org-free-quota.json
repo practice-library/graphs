@@ -1,0 +1,23 @@
+{
+  "id": "rule.github.codespaces.no-org-free-quota",
+  "type": "rule",
+  "name": "No free Codespaces quota for organization plans",
+  "source": "https://docs.github.com/en/billing/concepts/product-billing/github-codespaces",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "denied",
+    "fetched_at": "2026-10-31T16:47:19Z",
+    "quote": "GitHub plans for organizations and enterprises do not include a free quota for GitHub Codespaces.",
+    "scope": "GitHub Free for organizations: no included quota"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.github.codespaces"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free"
+    }
+  ]
+}

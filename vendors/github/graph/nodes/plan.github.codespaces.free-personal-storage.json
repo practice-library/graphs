@@ -1,0 +1,26 @@
+{
+  "id": "plan.github.codespaces.free-personal-storage",
+  "type": "plan",
+  "name": "Free personal account Codespaces storage",
+  "source": "https://docs.github.com/en/billing/concepts/product-billing/github-codespaces",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T16:47:19Z",
+    "quote": "GitHub Free for personal accounts 15 GB-month 120 hrs",
+    "value": 15,
+    "unit": "GB-month",
+    "window": "per month",
+    "scope": "GitHub Free for personal accounts, column \"Storage per month\""
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free-personal"
+    },
+    {
+      "rel": "limits",
+      "to": "product.github.codespaces"
+    }
+  ]
+}

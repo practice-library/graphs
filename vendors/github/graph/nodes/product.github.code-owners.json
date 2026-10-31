@@ -1,0 +1,13 @@
+{
+  "id": "product.github.code-owners",
+  "type": "product",
+  "name": "Code owners",
+  "source": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T16:46:57Z",
+    "quote": "Repository owners can update branch protection rules to ensure that changed code is reviewed by the owners of the changed files."
+  },
+  "edges": []
+}

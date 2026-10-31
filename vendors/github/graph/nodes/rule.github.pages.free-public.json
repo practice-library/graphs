@@ -1,0 +1,27 @@
+{
+  "id": "rule.github.pages.free-public",
+  "type": "rule",
+  "name": "GitHub Pages: public repositories on GitHub Free",
+  "source": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T16:47:17Z",
+    "quote": "GitHub Pages is available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server.",
+    "scope": "public repositories, GitHub Free and GitHub Free for organizations"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.github.pages"
+    },
+    {
+      "rel": "availableOn",
+      "to": "plan.github.free-personal"
+    },
+    {
+      "rel": "availableOn",
+      "to": "plan.github.free"
+    }
+  ]
+}

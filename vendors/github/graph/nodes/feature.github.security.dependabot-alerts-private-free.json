@@ -1,0 +1,28 @@
+{
+  "id": "feature.github.security.dependabot-alerts-private-free",
+  "type": "feature",
+  "name": "Dependabot alerts: private repositories on GitHub Free",
+  "source": "https://docs.github.com/en/code-security/concepts/supply-chain-security/dependabot-alerts",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "unknown",
+    "fetched_at": "2026-10-31T16:48:02Z",
+    "quote": "Dependabot alerts are available for organization-owned and user-owned repositories.",
+    "scope": "private repositories, GitHub Free",
+    "note": "Absent: the Dependabot alerts page (checked) names no visibility or plan restriction for alerts, so private repositories on Free are neither confirmed nor excluded by this page."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.github.dependabot"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free-personal"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free"
+    }
+  ]
+}

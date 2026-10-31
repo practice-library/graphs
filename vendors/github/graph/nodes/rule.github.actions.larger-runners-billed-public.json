@@ -1,0 +1,19 @@
+{
+  "id": "rule.github.actions.larger-runners-billed-public",
+  "type": "rule",
+  "name": "Larger runners are billed even in public repositories",
+  "source": "https://docs.github.com/en/billing/concepts/product-billing/github-actions",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T16:46:43Z",
+    "quote": "Larger runners are billed for public repositories.",
+    "scope": "larger runners, public repositories"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.github.actions"
+    }
+  ]
+}

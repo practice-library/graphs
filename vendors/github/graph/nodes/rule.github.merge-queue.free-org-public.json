@@ -1,0 +1,23 @@
+{
+  "id": "rule.github.merge-queue.free-org-public",
+  "type": "rule",
+  "name": "Merge queue: public repositories owned by an organization",
+  "source": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T16:47:01Z",
+    "quote": "Pull request merge queues are available in any public repository owned by an organization, or in private repositories owned by organizations using GitHub Enterprise Cloud.",
+    "scope": "public repositories owned by an organization, including GitHub Free for organizations"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.github.merge-queue"
+    },
+    {
+      "rel": "availableOn",
+      "to": "plan.github.free"
+    }
+  ]
+}
