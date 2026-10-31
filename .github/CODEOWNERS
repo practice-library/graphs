@@ -1,1 +1,3 @@
+# Generated from templates/.github/CODEOWNERS and policy/constants.json by scripts/render.sh. Do not edit.
+# Every path needs a maintainer review.
 * @practice-library/maintainers

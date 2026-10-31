@@ -5,9 +5,14 @@ Sourced, machine-readable fact graphs, refreshed by workflows and merged only th
 ## Layout
 
 ```
+policy/
+  constants.json           every pin, runner, timeout and trusted author; the workflows are rendered from it
+  sources.json             the hosts a source may name, with the evidence for each
+  check.json               sources.json is checked against spec/sources
+templates/                 the workflows and CODEOWNERS, rendered by scripts/render.sh
 spec/                      contracts shared by every domain
   refresh-report/          what the refresh workflow reports (schema, examples, counter-examples)
-  sources/                 the hosts a source may name and the evidence for each
+  sources/                 the source policy
 <domain>/                  one domain, one schema
   schema.json              the node contract for the domain
   examples/                nodes that must pass
@@ -28,12 +33,9 @@ Node types: `vendor`, `product`, `plan`, `price`, `limit`, `rate-limit`, `permis
 
 ## Checks
 
-Every pull request runs `.github/workflows/checks.yml`: each `check.json` through the organisation's schema check, every contract's counter-examples (which must fail), and the leak scan. Locally:
+Every pull request runs `.github/workflows/checks.yml`. `scripts/discover.sh` lists what the organisation's schema check runs on: every `check.json`, every contract's `examples/` (must pass) and each of its `counter-examples/` (must fail). The leak scan runs on everything, and `scripts/render.sh --check` fails when a generated file differs from its template.
 
-```sh
-scripts/contracts.sh <path to jsonschema 17.2.1>
-et network check --graph vendors/<vendor>
-```
+To change a pin, a runner or a trusted author, edit `policy/constants.json` and run `scripts/render.sh`; never edit a generated file. Locally, `et network check --graph vendors/<vendor>` checks a graph's edges and its `INDEX.md`.
 
 ## Licence
 

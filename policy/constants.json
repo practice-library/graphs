@@ -1,0 +1,20 @@
+{
+  "org": {
+    "repo": "practice-library/.github",
+    "sha": "cb535908f8b5c4314b6a21232dedd9e5b5048c10",
+    "maintainer": "@practice-library/maintainers",
+    "trustedAuthors": ["practice-library[bot]"],
+    "mergeMethod": "merge"
+  },
+  "actions": {
+    "checkout": {
+      "repo": "actions/checkout",
+      "version": "v7.0.1",
+      "sha": "3d3c42e5aac5ba805825da76410c181273ba90b1"
+    }
+  },
+  "runner": {
+    "image": "ubuntu-24.04",
+    "timeoutMinutes": 10
+  }
+}
