@@ -6,6 +6,9 @@
   "type": "object",
   "required": [
     "userAgent",
+    "maxRequestsPerRun",
+    "retryAfterMaxSeconds",
+    "unreadableRunsBeforeIssue",
     "hosts"
   ],
   "additionalProperties": false,
@@ -14,6 +17,24 @@
       "type": "string",
       "pattern": "^practice-library-graphs/[0-9]+ \\(\\+https://github\\.com/practice-library/graphs\\)$",
       "description": "Sent with every request, so a vendor can see who fetches and why."
+    },
+    "maxRequestsPerRun": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 200,
+      "description": "The most requests one refresh run makes across all hosts, robots.txt included. The run stops when it is reached; facts not reached wait for the next run, oldest measuredAt first."
+    },
+    "retryAfterMaxSeconds": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 120,
+      "description": "On 429 or 503, the run waits for Retry-After and retries once only when Retry-After is at most this; otherwise it stops fetching that host for the run."
+    },
+    "unreadableRunsBeforeIssue": {
+      "type": "integer",
+      "minimum": 2,
+      "maximum": 10,
+      "description": "A fact unreadable in this many consecutive reports gets an issue."
     },
     "hosts": {
       "type": "array",
