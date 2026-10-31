@@ -1,0 +1,19 @@
+{
+  "id": "rate-limit.temporal.cloud.namespace-requests",
+  "type": "rate-limit",
+  "name": "Requests per second per Namespace",
+  "source": "https://docs.temporal.io/evaluate/cloud/limits",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:19Z",
+    "quote": "Your requests per second (RPS) limit is dynamic and depends on your capacity mode.",
+    "scope": "per Namespace"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.cloud"
+    }
+  ]
+}

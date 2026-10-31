@@ -1,0 +1,16 @@
+{
+  "id": "release.temporal.server.1-30-1",
+  "type": "release",
+  "name": "Temporal Server v1.30.1",
+  "source": "https://api.github.com/repos/temporalio/temporal/releases/tags/v1.30.1",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:12:43Z",
+    "quote": "DOCKER IMAGE BREAKING CHANGES",
+    "scope": "v1.30.1",
+    "window": "2026-03-02",
+    "note": "Breaking: Docker image changes made for security reasons. There is no v1.30.0 release; v1.30.1 is the first of the 1.30 line."
+  },
+  "edges": []
+}

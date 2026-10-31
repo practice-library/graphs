@@ -1,0 +1,21 @@
+{
+  "id": "limit.temporal.server.payload-warn",
+  "type": "limit",
+  "name": "Payload size warning (self-hosted)",
+  "source": "https://docs.temporal.io/self-hosted-guide/defaults",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:23Z",
+    "quote": "Temporal warns at 512 KB",
+    "value": 512,
+    "unit": "KB",
+    "scope": "blob size per payload, warning"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.server"
+    }
+  ]
+}

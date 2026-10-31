@@ -1,0 +1,22 @@
+{
+  "id": "capability.temporal.server.update-with-start",
+  "type": "capability",
+  "name": "Update-With-Start (GA)",
+  "source": "https://api.github.com/repos/temporalio/temporal/releases/tags/v1.28.0",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:12:37Z",
+    "quote": "Update-With-Start GA"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.server"
+    },
+    {
+      "rel": "introducedIn",
+      "to": "release.temporal.server.1-28-0"
+    }
+  ]
+}

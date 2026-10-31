@@ -1,0 +1,22 @@
+{
+  "id": "limit.temporal.cloud.event-history",
+  "type": "limit",
+  "name": "Event History size (Cloud)",
+  "source": "https://docs.temporal.io/evaluate/cloud/limits",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:19Z",
+    "quote": "Event History is limited to 51,200 Events or 50 MB.",
+    "value": 51200,
+    "unit": "Events",
+    "scope": "per Workflow Execution",
+    "note": "Or 50 MB, whichever comes first."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.cloud"
+    }
+  ]
+}

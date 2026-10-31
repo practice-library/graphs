@@ -1,0 +1,21 @@
+{
+  "id": "rate-limit.temporal.cloud.namespace-actions",
+  "type": "rate-limit",
+  "name": "Actions per second per Namespace",
+  "source": "https://docs.temporal.io/evaluate/cloud/limits",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:19Z",
+    "quote": "Default limit: 500 actions per second (APS).",
+    "value": 500,
+    "unit": "actions per second",
+    "scope": "per Namespace, default"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.cloud"
+    }
+  ]
+}

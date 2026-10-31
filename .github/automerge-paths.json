@@ -2,4 +2,6 @@
 "vendors/anthropic/graph/nodes/"
 ,
 "vendors/github/graph/nodes/"
+,
+"vendors/temporal/graph/nodes/"
 ]}

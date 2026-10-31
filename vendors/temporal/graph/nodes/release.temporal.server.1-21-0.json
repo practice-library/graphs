@@ -1,0 +1,15 @@
+{
+  "id": "release.temporal.server.1-21-0",
+  "type": "release",
+  "name": "Temporal Server v1.21.0",
+  "source": "https://api.github.com/repos/temporalio/temporal/releases/tags/v1.21.0",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:12:22Z",
+    "quote": "2023-06-23T18:55:22Z",
+    "scope": "v1.21.0",
+    "window": "2023-06-23"
+  },
+  "edges": []
+}

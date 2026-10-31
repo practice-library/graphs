@@ -1,0 +1,19 @@
+{
+  "id": "rule.temporal.server.support-window",
+  "type": "rule",
+  "name": "Which server releases are supported",
+  "source": "https://docs.temporal.io/self-hosted-guide/upgrade-server",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "unknown",
+    "fetched_at": "2026-10-31T20:16:26Z",
+    "quote": "We ensure that any consecutive versions are compatible in terms of database schema upgrades, features, and system behavior",
+    "note": "Absent: the upgrade-server page (checked) and the cited release notes state no support window or list of supported releases. The quote is the page's nearest sentence."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.server"
+    }
+  ]
+}

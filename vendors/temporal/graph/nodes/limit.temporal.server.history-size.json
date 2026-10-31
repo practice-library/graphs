@@ -1,0 +1,21 @@
+{
+  "id": "limit.temporal.server.history-size",
+  "type": "limit",
+  "name": "History size limit (self-hosted)",
+  "source": "https://docs.temporal.io/self-hosted-guide/defaults",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:23Z",
+    "quote": "Temporal errors at 50 MB",
+    "value": 50,
+    "unit": "MB",
+    "scope": "Event History total size, error"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.server"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "product.temporal.cloud",
+  "type": "product",
+  "name": "Temporal Cloud",
+  "source": "https://docs.temporal.io/cloud/pricing",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:16:21Z",
+    "quote": "Temporal Cloud is a consumption-based service."
+  },
+  "edges": []
+}

@@ -1,0 +1,23 @@
+{
+  "id": "capability.temporal.server.worker-versioning-v1-v2",
+  "type": "capability",
+  "name": "Worker Versioning V1 (Version Sets) and V2 (Assignment Rules)",
+  "source": "https://api.github.com/repos/temporalio/temporal/releases/tags/v1.32.0",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:12:48Z",
+    "quote": "is the final release containing the deprecated Worker Versioning implementations",
+    "note": "Deprecated since v1.28.0 and sunset in v1.31.0; the v1.32.0 notes plan removal for v1.33, which is not released."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.server"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "release.temporal.server.1-32-0"
+    }
+  ]
+}

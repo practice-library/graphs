@@ -1,0 +1,23 @@
+{
+  "id": "capability.temporal.server.task-queue-priority-fairness",
+  "type": "capability",
+  "name": "Task queue priority and fairness (GA)",
+  "source": "https://api.github.com/repos/temporalio/temporal/releases/tags/v1.31.0",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:12:45Z",
+    "quote": "Task queue priority and fairness features are now GA.",
+    "note": "Priority was a pre-release in v1.28.0 and fairness in v1.29.0; both were public preview in v1.30.1."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.server"
+    },
+    {
+      "rel": "introducedIn",
+      "to": "release.temporal.server.1-31-0"
+    }
+  ]
+}

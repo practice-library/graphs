@@ -1,0 +1,19 @@
+{
+  "id": "rule.temporal.server.sequential-upgrades",
+  "type": "rule",
+  "name": "Upgrade one minor version at a time",
+  "source": "https://docs.temporal.io/self-hosted-guide/upgrade-server",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:26Z",
+    "quote": "Temporal Server should be upgraded sequentially, one minor version at a time.",
+    "scope": "self-hosted upgrades"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.server"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "limit.temporal.server.grpc-message",
+  "type": "limit",
+  "name": "gRPC message size (self-hosted)",
+  "source": "https://docs.temporal.io/self-hosted-guide/defaults",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:23Z",
+    "quote": "gRPC has a limit of 4 MB for each message received.",
+    "value": 4,
+    "unit": "MB",
+    "scope": "each gRPC message received"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.server"
+    }
+  ]
+}

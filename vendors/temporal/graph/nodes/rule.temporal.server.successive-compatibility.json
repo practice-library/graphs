@@ -1,0 +1,19 @@
+{
+  "id": "rule.temporal.server.successive-compatibility",
+  "type": "rule",
+  "name": "Backward compatibility only between successive minor versions",
+  "source": "https://docs.temporal.io/self-hosted-guide/upgrade-server",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:26Z",
+    "quote": "Temporal Server ensures backward compatibility only between two successive minor versions.",
+    "scope": "self-hosted upgrades"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.server"
+    }
+  ]
+}

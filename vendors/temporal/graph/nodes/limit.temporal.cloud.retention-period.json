@@ -1,0 +1,21 @@
+{
+  "id": "limit.temporal.cloud.retention-period",
+  "type": "limit",
+  "name": "Retention Period range",
+  "source": "https://docs.temporal.io/evaluate/cloud/limits",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:19Z",
+    "quote": "You can set the Retention Period between 1 and 90 days.",
+    "value": 90,
+    "unit": "days",
+    "scope": "per Namespace, maximum (minimum 1 day)"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.cloud"
+    }
+  ]
+}

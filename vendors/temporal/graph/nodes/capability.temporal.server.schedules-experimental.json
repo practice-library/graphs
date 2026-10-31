@@ -1,0 +1,22 @@
+{
+  "id": "capability.temporal.server.schedules-experimental",
+  "type": "capability",
+  "name": "Scheduled Workflows (experimental, off by default)",
+  "source": "https://api.github.com/repos/temporalio/temporal/releases/tags/v1.17.0",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:12:17Z",
+    "quote": "Scheduled Workflows (experimental)"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.server"
+    },
+    {
+      "rel": "introducedIn",
+      "to": "release.temporal.server.1-17-0"
+    }
+  ]
+}

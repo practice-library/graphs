@@ -1,0 +1,21 @@
+{
+  "id": "plan.temporal.cloud.developer",
+  "type": "plan",
+  "name": "Developer support plan",
+  "source": "https://docs.temporal.io/cloud/pricing",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:21Z",
+    "quote": "The Developer tier is priced at the greater of $0/month or 10% of your Temporal Cloud consumption.",
+    "value": 0,
+    "unit": "USD per month, minimum support fee",
+    "scope": "Developer plan; or 10% of consumption if greater"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.cloud"
+    }
+  ]
+}

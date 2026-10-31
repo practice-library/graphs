@@ -1,0 +1,16 @@
+{
+  "id": "release.temporal.server.1-24-0",
+  "type": "release",
+  "name": "Temporal Server v1.24.0",
+  "source": "https://api.github.com/repos/temporalio/temporal/releases/tags/v1.24.0",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:12:27Z",
+    "quote": "Please, upgrade to advanced visibility as well as the config keys to setup visibility before upgrading to this version.",
+    "scope": "v1.24.0",
+    "window": "2024-05-31",
+    "note": "Breaking: standard visibility is no longer supported; advanced visibility and new SQL plugin names are required before upgrading."
+  },
+  "edges": []
+}

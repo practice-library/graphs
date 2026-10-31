@@ -1,0 +1,66 @@
+{
+  "id": "product.temporal.server",
+  "type": "product",
+  "name": "Temporal Server",
+  "source": "https://docs.temporal.io/self-hosted-guide/upgrade-server",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:16:26Z",
+    "quote": "If a newer version of the Temporal Server is available, a notification appears in the Temporal Web UI."
+  },
+  "edges": [
+    {
+      "rel": "hasRelease",
+      "to": "release.temporal.server.1-32-0"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.temporal.server.1-31-0"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.temporal.server.1-30-1"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.temporal.server.1-29-0"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.temporal.server.1-28-0"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.temporal.server.1-27-0"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.temporal.server.1-26-2"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.temporal.server.1-25-0"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.temporal.server.1-24-0"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.temporal.server.1-23-0"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.temporal.server.1-21-0"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.temporal.server.1-20-0"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.temporal.server.1-17-0"
+    }
+  ]
+}

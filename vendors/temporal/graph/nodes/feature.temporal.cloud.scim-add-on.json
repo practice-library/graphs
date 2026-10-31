@@ -1,0 +1,25 @@
+{
+  "id": "feature.temporal.cloud.scim-add-on",
+  "type": "feature",
+  "name": "SCIM as an add-on",
+  "source": "https://docs.temporal.io/cloud/pricing",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:21Z",
+    "quote": "SCIM is available as an add-on for the Developer or Business plan (+$500/month).",
+    "value": 500,
+    "unit": "USD per month",
+    "scope": "add-on"
+  },
+  "edges": [
+    {
+      "rel": "availableOn",
+      "to": "plan.temporal.cloud.developer"
+    },
+    {
+      "rel": "availableOn",
+      "to": "plan.temporal.cloud.business"
+    }
+  ]
+}

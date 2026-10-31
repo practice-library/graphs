@@ -1,0 +1,23 @@
+{
+  "id": "capability.temporal.server.worker-versioning",
+  "type": "capability",
+  "name": "Worker Versioning: Worker Deployment APIs (GA)",
+  "source": "https://api.github.com/repos/temporalio/temporal/releases/tags/v1.31.0",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:12:45Z",
+    "quote": "Deployment APIs are now fully GA.",
+    "note": "Public preview since v1.28.0."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.server"
+    },
+    {
+      "rel": "introducedIn",
+      "to": "release.temporal.server.1-31-0"
+    }
+  ]
+}

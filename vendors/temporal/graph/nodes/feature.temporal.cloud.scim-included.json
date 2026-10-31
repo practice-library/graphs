@@ -1,0 +1,22 @@
+{
+  "id": "feature.temporal.cloud.scim-included",
+  "type": "feature",
+  "name": "SCIM included",
+  "source": "https://docs.temporal.io/cloud/pricing",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:16:21Z",
+    "quote": "SCIM (System for Cross-domain Identity Management) is included in the Enterprise or Mission Critical support plans."
+  },
+  "edges": [
+    {
+      "rel": "availableOn",
+      "to": "plan.temporal.cloud.enterprise"
+    },
+    {
+      "rel": "availableOn",
+      "to": "plan.temporal.cloud.mission-critical"
+    }
+  ]
+}

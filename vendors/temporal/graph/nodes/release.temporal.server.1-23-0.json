@@ -1,0 +1,16 @@
+{
+  "id": "release.temporal.server.1-23-0",
+  "type": "release",
+  "name": "Temporal Server v1.23.0",
+  "source": "https://api.github.com/repos/temporalio/temporal/releases/tags/v1.23.0",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:12:25Z",
+    "quote": "fully replaced the use of gogo/protobuf with the official google protobuf runtime.",
+    "scope": "v1.23.0",
+    "window": "2024-03-22",
+    "note": "Breaking: gogo/protobuf is replaced by google.golang.org/protobuf, which changes generated types and rejects invalid UTF-8 in strings."
+  },
+  "edges": []
+}

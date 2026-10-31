@@ -1,0 +1,16 @@
+{
+  "id": "release.temporal.server.1-31-0",
+  "type": "release",
+  "name": "Temporal Server v1.31.0",
+  "source": "https://api.github.com/repos/temporalio/temporal/releases/tags/v1.31.0",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:12:45Z",
+    "quote": "rework of how Nexus errors are handled and converted",
+    "scope": "v1.31.0",
+    "window": "2026-04-29",
+    "note": "Breaking: the Nexus error model is overhauled, and Worker Versioning V1 and V2 APIs are sunset."
+  },
+  "edges": []
+}

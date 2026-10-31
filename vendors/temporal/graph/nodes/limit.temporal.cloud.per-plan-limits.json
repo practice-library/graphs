@@ -1,0 +1,19 @@
+{
+  "id": "limit.temporal.cloud.per-plan-limits",
+  "type": "limit",
+  "name": "Limits that differ by plan",
+  "source": "https://docs.temporal.io/evaluate/cloud/limits",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "unknown",
+    "fetched_at": "2026-10-31T20:16:19Z",
+    "quote": "The following limits apply at the Namespace level.",
+    "note": "Absent: the Cloud limits page (checked) ties no limit to a support plan; limits are stated per account, Project or Namespace. The quote is the page's nearest sentence."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.cloud"
+    }
+  ]
+}
