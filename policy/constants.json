@@ -1,8 +1,8 @@
 {
   "org": {
     "repo": "practice-library/.github",
-    "sha": "f5dc7203e3a718e891bbfdc6833226721e1da3e1",
-    "ref": "v1.1.0",
+    "sha": "1dd90884cca4277db278eb7d4ea17eaebf21e563",
+    "ref": "v2.1.0",
     "maintainer": "@practice-library/maintainers",
     "trustedAuthors": [
       "practice-library[bot]"
@@ -29,7 +29,11 @@
       "graph-check",
       "discover",
       "schema-check",
-      "leak-scan"
+      "leak-scan",
+      "denylist",
+      "removed-paths",
+      "release-note",
+      "schema-loosening"
     ]
   }
 }
