@@ -1,0 +1,22 @@
+{
+  "id": "limit.example.widget-burst",
+  "type": "limit",
+  "name": "Widget burst limit",
+  "source": "https://docs.example.com/limits",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "unknown",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "note": "The limits page does not state a burst limit."
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.example.widget"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.example.free"
+    }
+  ]
+}

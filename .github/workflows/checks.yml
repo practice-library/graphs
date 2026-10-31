@@ -47,6 +47,17 @@ jobs:
       - name: A pull request touching only allowlisted paths is a date bump and nothing else
         run: bash scripts/bump-only.sh pr
 
+  graph-check:
+    name: graph-check
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Edges stay inside each vendor graph; every source host is in policy/sources.json
+        run: bash scripts/graph-check.sh
+
   discover:
     name: discover
     runs-on: ubuntu-24.04
@@ -83,8 +94,8 @@ jobs:
 
   gate:
     if: always()
-    needs: [render, selftest, bump-only, discover, schema-check, leak-scan]
+    needs: [render, selftest, bump-only, graph-check, discover, schema-check, leak-scan]
     uses: practice-library/.github/.github/workflows/gate.yml@cb535908f8b5c4314b6a21232dedd9e5b5048c10
     with:
       needs: ${{ toJSON(needs) }}
-      required: '["render","selftest","bump-only","discover","schema-check","leak-scan"]'
+      required: '["render","selftest","bump-only","graph-check","discover","schema-check","leak-scan"]'

@@ -1,0 +1,26 @@
+{
+  "id": "rate-limit.example.widget-rpm-free",
+  "type": "rate-limit",
+  "name": "Widget requests per minute on Free",
+  "source": "https://docs.example.com/limits",
+  "measuredAt": "2026-13-45",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "Free: 50 requests per minute.",
+    "value": 50,
+    "unit": "requests",
+    "scope": "Free plan",
+    "window": "per minute"
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.example.widget"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.example.free"
+    }
+  ]
+}

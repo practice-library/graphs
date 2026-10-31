@@ -27,7 +27,7 @@ The first domain is `vendors`: limits, plans, prices, access rules and terms of 
 
 ## A fact
 
-Each fact is one JSON file named after its id, `<type>.<vendor>.<slug>`; a vendor's root node is `vendor.<vendor>`. It carries the official page it was read from, the time it was fetched and a short quote copied exactly from that page. A fact that cannot be confirmed is marked `unknown`, never guessed. Edges stay inside one vendor's graph.
+Each fact is one JSON file named after its id, `<type>.<vendor>.<slug>`; a vendor's root node is `vendor.<vendor>`. It carries the official page it was read from, the time it was fetched and a short quote copied exactly from that page. A fact that cannot be confirmed is marked `unknown`, never guessed: it then carries no quote, and its `note` says what could not be confirmed and why. `scripts/graph-check.sh` checks what the schema cannot: each file is named after its id, the id names its vendor, the graph has one root node, every edge points at a node of the same graph, and every source's host is listed for that vendor in `policy/sources.json`.
 
 ## What may merge without review
 

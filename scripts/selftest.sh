@@ -3,6 +3,7 @@
 # (pass or fail) and its inputs; the case passes when the script's exit status matches:
 # 0 for pass, anything but 0 for fail.
 #   selftest/discover/<case>/root/                        scripts/discover.sh <root>
+#   selftest/graph-check/<case>/root/                     scripts/graph-check.sh <root>
 #   selftest/bump-only-file/<case>/{old,new}.json          scripts/bump-only.sh file <old> <new>
 # Other cases compare the script's output with `expect` instead:
 #   selftest/bump-only-classify/<case>/{allow.json,diff}   scripts/bump-only.sh classify (review, bump or reject)
@@ -39,6 +40,7 @@ output_case() { # <case dir> <command...>
 }
 
 for c in selftest/discover/*/; do run_case "${c%/}" bash scripts/discover.sh "${c}root"; done
+for c in selftest/graph-check/*/; do run_case "${c%/}" bash scripts/graph-check.sh "${c}root"; done
 for c in selftest/bump-only-file/*/; do run_case "${c%/}" bash scripts/bump-only.sh file "${c}old.json" "${c}new.json"; done
 for c in selftest/bump-only-classify/*/; do output_case "${c%/}" bash scripts/bump-only.sh classify "${c}allow.json" "${c}diff"; done
 for c in selftest/graphs/*/; do output_case "${c%/}" bash scripts/graphs.sh "${c}root"; done
