@@ -9,7 +9,7 @@
     "fetched_at": "2026-10-31T17:25:57Z",
     "quote": "With GitHub Free, your personal account includes: GitHub Community Support Dependabot alerts Deployment protection rules for public repositories",
     "scope": "GitHub Free for personal accounts; GitHub Free for organizations includes the same features",
-    "note": "Listed with no visibility qualifier, while neighbouring items carry one (\"Deployment protection rules for public repositories\", \"GitHub Pages in public repositories\"). The page does not say \"private\" for Dependabot alerts."
+    "note": "Listed with no visibility qualifier, unlike neighbouring items (\"Deployment protection rules for public repositories\"); the page does not say \"private\" for it. Organizations: the page says \"GitHub Free for organizations includes\" the personal-account features."
   },
   "edges": [
     {

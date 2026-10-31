@@ -9,7 +9,7 @@
     "fetched_at": "2026-10-31T16:47:01Z",
     "quote": "Pull request merge queues are available in any public repository owned by an organization, or in private repositories owned by organizations using GitHub Enterprise Cloud.",
     "scope": "repositories owned by a personal account, public or private: not available",
-    "note": "Denied by exclusion from the quoted list: it names only repositories owned by an organization, so a personal account's repositories are not included. The quote does not name a plan."
+    "note": "Denied by exclusion from the quoted list: it names only repositories owned by an organization, so a personal account's repositories are not included. The quote names no plan for a personal account."
   },
   "edges": [
     {
