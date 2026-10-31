@@ -143,7 +143,7 @@
         "maxBytes": {
           "type": "integer",
           "minimum": 1024,
-          "maximum": 5000000
+          "maximum": 10000000
         },
         "timeoutSeconds": {
           "type": "integer",
