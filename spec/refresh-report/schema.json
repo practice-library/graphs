@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/practice-library/graphs/spec/refresh-report/schema.json",
+  "title": "Refresh report",
+  "description": "What the scheduled refresh workflow found for one graph: one result per node whose source it fetched. The workflow uploads it as a run artifact named refresh-report; the PR opener on the maintainer's machine reads it and opens pull requests. The workflow never pushes and holds no secret; the opener never fetches.",
+  "type": "object",
+  "required": ["schemaVersion", "graph", "commit", "run", "results"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "graph": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*/[a-z0-9][a-z0-9-]*$",
+      "description": "<domain>/<vendor>, the directory of the graph that was refreshed."
+    },
+    "commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$",
+      "description": "The commit whose nodes were read. The opener refuses a report whose commit is not an ancestor of main."
+    },
+    "run": {
+      "type": "object",
+      "required": ["id", "url", "startedAt", "finishedAt"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "integer", "minimum": 1 },
+        "url": { "$ref": "#/$defs/url" },
+        "startedAt": { "$ref": "#/$defs/time" },
+        "finishedAt": { "$ref": "#/$defs/time" }
+      }
+    },
+    "results": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/result" }
+    }
+  },
+  "$defs": {
+    "result": {
+      "type": "object",
+      "required": ["node", "source", "fetchedAt", "outcome"],
+      "additionalProperties": false,
+      "properties": {
+        "node": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+        },
+        "source": { "$ref": "#/$defs/url", "description": "The node's source as it was in the commit." },
+        "finalUrl": { "$ref": "#/$defs/url", "description": "Where the fetch ended after redirects." },
+        "httpStatus": { "type": "integer", "minimum": 100, "maximum": 599 },
+        "fetchedAt": { "$ref": "#/$defs/time" },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$", "description": "Of the page text the quote was searched in." },
+        "outcome": {
+          "enum": ["unchanged", "changed", "unreadable"],
+          "description": "unchanged: the quote is on the page. changed: the page was read and the quote is not on it. unreadable: the page could not be read (HTTP error, redirect to a host not in policy/sources.json, size or time cap, not text)."
+        },
+        "reason": { "type": "string", "minLength": 1, "maxLength": 300 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "outcome": { "const": "unchanged" } }, "required": ["outcome"] },
+          "then": { "required": ["finalUrl", "httpStatus", "sha256"] },
+          "else": { "required": ["reason"] }
+        },
+        {
+          "if": { "properties": { "outcome": { "const": "changed" } }, "required": ["outcome"] },
+          "then": { "required": ["finalUrl", "httpStatus", "sha256"] }
+        }
+      ]
+    },
+    "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+    "time": { "type": "string", "format": "date-time", "pattern": "Z$" }
+  }
+}

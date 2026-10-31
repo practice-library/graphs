@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/practice-library/graphs/spec/sources/schema.json",
+  "title": "Source policy",
+  "description": "policy/sources.json: every host a node's source may name and the refresh workflow may fetch. A host is added by a pull request that carries the evidence below; the refresh workflow fetches nothing else, redirects included.",
+  "type": "object",
+  "required": ["userAgent", "hosts"],
+  "additionalProperties": false,
+  "properties": {
+    "userAgent": {
+      "type": "string",
+      "pattern": "^practice-library-graphs/[0-9]+ \\(\\+https://github\\.com/practice-library/graphs\\)$",
+      "description": "Sent with every request, so a vendor can see who fetches and why."
+    },
+    "hosts": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/host" }
+    }
+  },
+  "$defs": {
+    "host": {
+      "type": "object",
+      "required": ["host", "vendor", "robots", "terms", "format", "maxRequestsPerRun", "minIntervalDays", "maxBytes", "timeoutSeconds"],
+      "additionalProperties": false,
+      "properties": {
+        "host": {
+          "type": "string",
+          "pattern": "^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$"
+        },
+        "vendor": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$",
+          "description": "The vendor directory whose nodes may name this host."
+        },
+        "robots": {
+          "type": "object",
+          "required": ["url", "checkedAt", "verdict"],
+          "additionalProperties": false,
+          "properties": {
+            "url": { "$ref": "#/$defs/url" },
+            "checkedAt": { "$ref": "#/$defs/time" },
+            "verdict": {
+              "enum": ["allowed", "absent"],
+              "description": "allowed: robots.txt permits the paths we fetch. absent: there is no robots.txt. A host whose robots.txt disallows us is not listed at all."
+            },
+            "note": { "type": "string", "minLength": 1, "maxLength": 300 }
+          }
+        },
+        "terms": {
+          "type": "object",
+          "required": ["url", "checkedAt", "quote"],
+          "additionalProperties": false,
+          "properties": {
+            "url": { "$ref": "#/$defs/url" },
+            "checkedAt": { "$ref": "#/$defs/time" },
+            "quote": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500,
+              "description": "The sentence of the site's terms that bears on automated reading, copied exactly."
+            }
+          }
+        },
+        "format": {
+          "enum": ["markdown", "text", "html", "json"],
+          "description": "What the fetched pages are; markdown and text are preferred because the quote is matched in plain text."
+        },
+        "maxRequestsPerRun": { "type": "integer", "minimum": 1, "maximum": 50 },
+        "minIntervalDays": { "type": "integer", "minimum": 1, "maximum": 90 },
+        "maxBytes": { "type": "integer", "minimum": 1024, "maximum": 5000000 },
+        "timeoutSeconds": { "type": "integer", "minimum": 1, "maximum": 60 }
+      }
+    },
+    "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+    "time": { "type": "string", "format": "date-time", "pattern": "Z$" }
+  }
+}
