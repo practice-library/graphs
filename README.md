@@ -33,7 +33,7 @@ Node types: `vendor`, `product`, `plan`, `price`, `limit`, `rate-limit`, `permis
 
 ## Checks
 
-Every pull request runs `.github/workflows/checks.yml`. `scripts/discover.sh` lists what the organisation's schema check runs on: every `check.json`, every contract's `examples/` (must pass) and each of its `counter-examples/` (must fail). The leak scan runs on everything, and `scripts/render.sh --check` fails when a generated file differs from its template.
+Every pull request runs `.github/workflows/checks.yml`. `scripts/discover.sh` lists what the organisation's schema check runs on: every `check.json`, every contract's `examples/` (must pass) and each of its `counter-examples/` (must fail). The leak scan runs on everything, `scripts/render.sh --check` fails when a generated file differs from its template, and `scripts/selftest.sh` runs the cases under `selftest/` that show each script passing and failing where it should. A contract without at least one example and one counter-example fails discovery.
 
 To change a pin, a runner or a trusted author, edit `policy/constants.json` and run `scripts/render.sh`; never edit a generated file. Locally, `et network check --graph vendors/<vendor>` checks a graph's edges and its `INDEX.md`.
 

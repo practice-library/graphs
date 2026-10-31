@@ -23,6 +23,17 @@ jobs:
       - name: Generated files match templates/ and policy/constants.json
         run: bash scripts/render.sh --check
 
+  selftest:
+    name: selftest
+    runs-on: @@runner.image@@
+    timeout-minutes: @@runner.timeoutMinutes@@
+    steps:
+      - uses: @@actions.checkout.repo@@@@@actions.checkout.sha@@ # @@actions.checkout.version@@
+        with:
+          persist-credentials: false
+      - name: The scripts the checks use pass and fail where their cases say
+        run: bash scripts/selftest.sh
+
   discover:
     name: discover
     runs-on: @@runner.image@@
@@ -59,8 +70,8 @@ jobs:
 
   gate:
     if: always()
-    needs: [render, discover, schema-check, leak-scan]
+    needs: [render, selftest, discover, schema-check, leak-scan]
     uses: @@org.repo@@/.github/workflows/gate.yml@@@org.sha@@
     with:
       needs: ${{ toJSON(needs) }}
-      required: '["render","discover","schema-check","leak-scan"]'
+      required: '["render","selftest","discover","schema-check","leak-scan"]'
