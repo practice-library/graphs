@@ -18,7 +18,8 @@
 # and this one renders the auto-merge allowlist twice and compares the two:
 #   selftest/render-allowlist/<case>/{base,head}/          scripts/render.sh in a new git repository holding
 #       base/ (each _check.json renamed check.json), then again with head/ added; prints the lines of
-#       .github/automerge-paths.json that the second render added (+) or removed (-)
+#       .github/automerge-paths.json that the second render added (+) or removed (-), then the paths
+#       array it parses to; a base/.github/denylist.json makes render.sh leave out a graph with a denied term
 # Usage: scripts/selftest.sh
 set -euo pipefail
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -100,8 +101,8 @@ allowlist_change() { # <case dir>: the lines of .github/automerge-paths.json add
   cp -R "$1/head/." "$repo/"
   find "$repo" -type f -name _check.json | while IFS= read -r f; do mv "$f" "$(dirname "$f")/check.json"; done
   bash "$repo/scripts/render.sh" >/dev/null
-  jq -e '.paths | type == "array"' "$repo/.github/automerge-paths.json" >/dev/null || return 1
   $g -C "$repo" diff -U0 -- .github/automerge-paths.json | grep -E '^[-+]' | grep -vE '^(\+\+\+|---) '
+  echo "paths $(jq -ce '.paths | arrays' "$repo/.github/automerge-paths.json")"
 }
 for c in selftest/render-allowlist/*/; do output_case "${c%/}" allowlist_change "${c%/}"; done
 

@@ -1,2 +1,3 @@
 +"vendors/beta/graph/nodes/"
 +,
+paths ["vendors/alpha/graph/nodes/","vendors/beta/graph/nodes/","vendors/gamma/graph/nodes/"]
