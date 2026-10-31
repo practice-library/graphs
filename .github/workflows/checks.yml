@@ -1,0 +1,19 @@
+name: checks
+# Uses the organisation's reusable workflows, pinned to a commit of practice-library/.github.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  leak-scan:
+    uses: practice-library/.github/.github/workflows/leak-scan.yml@0e6f5ed237dd52f9fe02a33f8c6b8ec653a3a2c3
+  gate:
+    if: always()
+    needs: [leak-scan]
+    uses: practice-library/.github/.github/workflows/gate.yml@0e6f5ed237dd52f9fe02a33f8c6b8ec653a3a2c3
+    with:
+      needs: ${{ toJSON(needs) }}
+      required: '["leak-scan"]'
