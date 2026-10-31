@@ -8,7 +8,8 @@
     "verdict": "denied",
     "fetched_at": "2026-10-31T16:46:53Z",
     "quote": "Protected branches are also available in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server.",
-    "scope": "private repositories, GitHub Free and GitHub Free for organizations: not available"
+    "scope": "private repositories, GitHub Free and GitHub Free for organizations: not available",
+    "note": "Denied by exclusion from the quoted list: private repositories are named only with GitHub Pro, GitHub Team, GitHub Enterprise Cloud and GitHub Enterprise Server; the page's previous sentence names GitHub Free for public repositories only."
   },
   "edges": [
     {

@@ -355,6 +355,40 @@
         },
         "description": "A release names its version or model id in attrs.scope and, when the page states it, its release date in attrs.window (YYYY-MM-DD). A release flagged breaking has an attrs.note starting with \"Breaking\"."
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "attrs": {
+            "properties": {
+              "note": {
+                "pattern": "^\\s*[Aa][Bb][Ss][Ee][Nn][Tt]([^A-Za-z]|$)"
+              }
+            },
+            "required": [
+              "note"
+            ]
+          }
+        },
+        "required": [
+          "attrs"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attrs": {
+            "properties": {
+              "verdict": {
+                "const": "unknown"
+              },
+              "note": {
+                "pattern": "^Absent: \\S"
+              }
+            }
+          }
+        },
+        "description": "A fact the page does not state is recorded as absent: verdict unknown and a note starting exactly \"Absent: \" that names the page checked. A note that starts with the word absent in any other form is rejected, so the convention cannot drift. The envelope has no absent verdict yet (practice-library/.github#20)."
+      }
     }
   ]
 }

@@ -8,7 +8,8 @@
     "verdict": "denied",
     "fetched_at": "2026-10-31T16:48:00Z",
     "quote": "Public repositories on GitHub.com Organization-owned repositories on GitHub Team, GitHub Enterprise Cloud, or GitHub Enterprise Server, with GitHub Code Security enabled.",
-    "scope": "private repositories, GitHub Free and GitHub Free for organizations: not available"
+    "scope": "private repositories, GitHub Free and GitHub Free for organizations: not available",
+    "note": "Denied by exclusion from the quoted list: beyond public repositories it names only organization-owned repositories on GitHub Team, Enterprise Cloud or Enterprise Server with Code Security. The quote does not name GitHub Free."
   },
   "edges": [
     {

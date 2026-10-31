@@ -1,0 +1,28 @@
+{
+  "id": "feature.github.security.dependabot-alerts-free-plan",
+  "type": "feature",
+  "name": "Dependabot alerts in the GitHub Free plan's feature list",
+  "source": "https://docs.github.com/en/get-started/learning-about-github/githubs-plans",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T17:25:57Z",
+    "quote": "With GitHub Free, your personal account includes: GitHub Community Support Dependabot alerts Deployment protection rules for public repositories",
+    "scope": "GitHub Free for personal accounts; GitHub Free for organizations includes the same features",
+    "note": "Listed with no visibility qualifier, while neighbouring items carry one (\"Deployment protection rules for public repositories\", \"GitHub Pages in public repositories\"). The page does not say \"private\" for Dependabot alerts."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.github.dependabot"
+    },
+    {
+      "rel": "availableOn",
+      "to": "plan.github.free-personal"
+    },
+    {
+      "rel": "availableOn",
+      "to": "plan.github.free"
+    }
+  ]
+}

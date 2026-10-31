@@ -9,7 +9,7 @@
     "fetched_at": "2026-10-31T16:48:02Z",
     "quote": "Dependabot alerts are available for organization-owned and user-owned repositories.",
     "scope": "private repositories, GitHub Free",
-    "note": "Absent: the Dependabot alerts page (checked) names no visibility or plan restriction for alerts, so private repositories on Free are neither confirmed nor excluded by this page."
+    "note": "Absent: the Dependabot alerts page (checked) names no visibility or plan restriction for alerts. See dependabot-alerts-free-plan for the plans page's list. The quote is the page's nearest sentence; it does not support a plan claim."
   },
   "edges": [
     {
