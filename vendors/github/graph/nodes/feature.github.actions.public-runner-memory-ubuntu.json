@@ -6,11 +6,11 @@
   "measuredAt": "2026-10-31",
   "attrs": {
     "verdict": "allowed",
-    "fetched_at": "2026-10-31T11:49:26Z",
-    "quote": "Linux 4 16 GB 14 GB x64 ubuntu-latest, ubuntu-24.04, ubuntu-22.04, ubuntu-26.04",
+    "fetched_at": "2026-10-31T17:08:17Z",
+    "quote": "Virtual machine / container Processor (CPU) Memory (RAM) Storage (SSD) Architecture Workflow label Linux 1 5 GB 14 GB x64 ubuntu-slim Linux 4 16 GB 14 GB x64 ubuntu-latest, ubuntu-24.04, ubuntu-22.04, ubuntu-26.04",
     "value": 16,
     "unit": "GB",
-    "scope": "ubuntu-latest in public repositories"
+    "scope": "ubuntu-latest in public repositories, column \"Memory (RAM)\""
   },
   "edges": [
     {

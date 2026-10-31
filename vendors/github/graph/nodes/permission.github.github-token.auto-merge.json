@@ -2,11 +2,11 @@
   "id": "permission.github.github-token.auto-merge",
   "type": "permission",
   "name": "pull-requests: write for gh pr merge --auto",
-  "source": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request",
+  "source": "https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/automatically-merging-a-pull-request",
   "measuredAt": "2026-10-31",
   "attrs": {
     "verdict": "unknown",
-    "fetched_at": "2026-10-31T11:55:00Z",
+    "fetched_at": "2026-10-31T17:09:22Z",
     "quote": "People with write permissions to a repository can enable auto-merge for a pull request.",
     "note": "The page says people with write permission can enable auto-merge; it does not say whether GITHUB_TOKEN with pull-requests: write can, so the verdict is unknown."
   },

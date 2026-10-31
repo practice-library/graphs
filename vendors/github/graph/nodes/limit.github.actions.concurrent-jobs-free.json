@@ -6,13 +6,17 @@
   "measuredAt": "2026-10-31",
   "attrs": {
     "verdict": "limited",
-    "fetched_at": "2026-10-31T11:49:26Z",
-    "quote": "| Standard GitHub-hosted runner | Free | 20 | 5 | Not applicable |",
+    "fetched_at": "2026-10-31T17:08:15Z",
+    "quote": "Runner type GitHub plan Total concurrent jobs Maximum concurrent macOS jobs Maximum concurrent GPU jobs Standard GitHub-hosted runner Free 20 5 Not applicable",
     "value": 20,
     "unit": "concurrent jobs",
-    "scope": "standard GitHub-hosted runners, Free plan (macOS max 5)"
+    "scope": "standard GitHub-hosted runners, Free plan, column \"Total concurrent jobs\" (the 5 is \"Maximum concurrent macOS jobs\")"
   },
   "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free-personal"
+    },
     {
       "rel": "appliesTo",
       "to": "plan.github.free"

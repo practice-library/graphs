@@ -2,11 +2,11 @@
   "id": "product.github.auto-merge",
   "type": "product",
   "name": "Auto-merge for pull requests",
-  "source": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request",
+  "source": "https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/automatically-merging-a-pull-request",
   "measuredAt": "2026-10-31",
   "attrs": {
     "verdict": "allowed",
-    "fetched_at": "2026-10-31T12:20:00Z",
+    "fetched_at": "2026-10-31T17:09:22Z",
     "quote": "Auto-merge merges a pull request automatically after all required reviews and status checks pass."
   },
   "edges": []
