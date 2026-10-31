@@ -6,7 +6,9 @@ Each contract is a directory with `schema.json` (JSON Schema 2020-12), `examples
 
 The seam between public CI and the maintainer's machine.
 
-### The refresh run (public CI, no secret, no push)
+### The refresh run (planned: the workflow does not exist yet)
+
+It will run in public CI with no secret and push nothing. Until it exists, these are the rules it is built and tested against.
 
 1. **robots.txt first, every run.** Before fetching any page, the run fetches robots.txt of every host it would read and records each in `robots`. When one disallows a path the run would fetch, or cannot be read (5xx or network error, which counts as a disallow), the run fetches no page and records `aborted`; a 4xx means no robots.txt, recorded as `absent`.
 2. **Only listed hosts.** Pages come only from hosts in `policy/sources.json`, redirects included, within each host's `maxRequestsPerRun`, `maxBytes` and `timeoutSeconds`, with the listed user agent and conditional requests.
@@ -14,7 +16,7 @@ The seam between public CI and the maintainer's machine.
 4. **429 and 503.** With `Retry-After` at most `retryAfterMaxSeconds`, the run waits and retries once; otherwise, or when the retry fails too, it stops fetching that host for the run, and that host's remaining facts are `unreadable` with the status and `retryAfterSeconds` recorded. It never retries a page twice.
 5. **The report.** For each fact fetched: `unchanged` when its quote is in the page text, `changed` when the page was read and the quote is not in it, `unreadable` otherwise, with the reason.
 
-### The PR opener (the maintainer's machine, the organisation's app)
+### The PR opener (planned: the maintainer's machine, the organisation's app)
 
 It downloads the report, validates it against this schema and refuses one whose commit is not on main. Then:
 
@@ -29,7 +31,7 @@ It downloads the report, validates it against this schema and refuses one whose 
 
 ## sources
 
-`policy/sources.json`: the run-wide request cap, the Retry-After limit and how many unreadable runs open an issue; then every host a node may cite, with its robots.txt verdict when it was added, the sentence of its terms that bears on automated reading, the page format and the per-host limits. The robots.txt verdict here is evidence for adding the host; the run still re-reads robots.txt every time. Adding a host is a pull request that carries that evidence. A host whose robots.txt disallows us is not listed.
+`policy/sources.json` (it lists no host yet): the run-wide request cap, the Retry-After limit and how many unreadable runs open an issue; then every host a node may cite, with its robots.txt verdict when it was added, the sentence of its terms that bears on automated reading, the page format and the per-host limits. The robots.txt verdict here is evidence for adding the host; the run still re-reads robots.txt every time. Adding a host is a pull request that carries that evidence. A host whose robots.txt disallows us is not listed.
 
 ## Issue forms
 
