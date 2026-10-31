@@ -1,3 +1,4 @@
 # Generated from templates/.github/CODEOWNERS and policy/constants.json by scripts/render.sh. Do not edit.
-# Every path needs a maintainer review.
+# Every path needs a maintainer review. The vendor graphs' nodes below have no owner: a pull request
+# touching only them is a date bump, which the bump-only check enforces, and may auto-merge.
 * @practice-library/maintainers

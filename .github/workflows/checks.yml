@@ -35,6 +35,18 @@ jobs:
       - name: The scripts the checks use pass and fail where their cases say
         run: bash scripts/selftest.sh
 
+  bump-only:
+    name: bump-only
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - name: A pull request touching only allowlisted paths is a date bump and nothing else
+        run: bash scripts/bump-only.sh pr
+
   discover:
     name: discover
     runs-on: ubuntu-24.04
@@ -71,8 +83,8 @@ jobs:
 
   gate:
     if: always()
-    needs: [render, selftest, discover, schema-check, leak-scan]
+    needs: [render, selftest, bump-only, discover, schema-check, leak-scan]
     uses: practice-library/.github/.github/workflows/gate.yml@cb535908f8b5c4314b6a21232dedd9e5b5048c10
     with:
       needs: ${{ toJSON(needs) }}
-      required: '["render","selftest","discover","schema-check","leak-scan"]'
+      required: '["render","selftest","bump-only","discover","schema-check","leak-scan"]'

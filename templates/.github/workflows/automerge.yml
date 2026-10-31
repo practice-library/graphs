@@ -1,5 +1,7 @@
 name: automerge
 # pull_request_target runs this file as it is on main, never the pull request's copy.
+# allow-paths has one entry per vendor graph (scripts/graphs.sh); CODEOWNERS leaves the same paths
+# without an owner. The required bump-only check accepts only date bumps in them.
 on:
   pull_request_target:
     types: [opened, reopened, synchronize, ready_for_review, converted_to_draft]
@@ -11,6 +13,6 @@ jobs:
   automerge:
     uses: @@org.repo@@/.github/workflows/automerge.yml@@@org.sha@@
     with:
-      allow-paths: '[]'
+      allow-paths: '@@gen.allowPaths@@'
       trusted-authors: '@@org.trustedAuthors@@'
       merge-method: @@org.mergeMethod@@
