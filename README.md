@@ -28,7 +28,7 @@ Node types: `vendor`, `product`, `plan`, `price`, `limit`, `rate-limit`, `permis
 
 ## Checks
 
-Every pull request runs `.github/workflows/gate.yml`: each `check.json` through the organisation's schema check, every contract's counter-examples (which must fail), and the leak scan. Locally:
+Every pull request runs `.github/workflows/checks.yml`: each `check.json` through the organisation's schema check, every contract's counter-examples (which must fail), and the leak scan. Locally:
 
 ```sh
 scripts/contracts.sh <path to jsonschema 17.2.1>

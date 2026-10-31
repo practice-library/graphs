@@ -1,16 +1,14 @@
-name: gate
-# The checks every pull request must pass. The ruleset requires the job "gate / gate".
-# Reusable workflows come from practice-library/.github, pinned to one commit.
+name: checks
+# Uses the organisation's reusable workflows, pinned to a commit of practice-library/.github.
 on:
   pull_request:
     branches: [main]
   push:
     branches: [main]
-  workflow_dispatch:
 permissions:
   contents: read
 concurrency:
-  group: gate-${{ github.ref }}
+  group: checks-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   discover:
@@ -79,7 +77,6 @@ jobs:
 
   leak-scan:
     uses: practice-library/.github/.github/workflows/leak-scan.yml@0e6f5ed237dd52f9fe02a33f8c6b8ec653a3a2c3
-
   gate:
     if: always()
     needs: [discover, schema-check, contracts, leak-scan]
