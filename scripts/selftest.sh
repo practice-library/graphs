@@ -77,6 +77,9 @@ pr_repo() { # <case dir>: prints a git repository whose HEAD is head/ and HEAD^1
 for c in selftest/bump-only-pr/*/; do
   event="pull_request"; [ -f "${c}event" ] && event="$(cat "${c}event")"
   repo="$(pr_repo "${c%/}")"
+  if [ -z "$repo" ] || ! git -C "$repo" rev-parse -q --verify HEAD^1 >/dev/null; then
+    count=$((count + 1)); echo "FAIL ${c%/}: could not build its base and head commits"; failed=1; continue
+  fi
   run_case "${c%/}" env GITHUB_EVENT_NAME="$event" bash -c 'cd "$1" && bash "$2"/scripts/bump-only.sh pr' _ "$repo" "$root"
 done
 

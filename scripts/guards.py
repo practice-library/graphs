@@ -5,13 +5,15 @@ mutant that removes or inverts it (the code must occur exactly once, so a row ca
 run scripts/selftest.sh there and require the named case to report FAIL. A mutant that leaves the case passing
 means the guard is untested.
 
+PINS: behaviour a mutant would only make stricter (or leave neutral for the gate), checked like GUARDS.
+
 BACKSTOPS: early checks that only give a clearer message. Each is removed the same way, and the named case
 must still fail, because the later check the row names catches the same input. A row whose case then passes
 means the early check was carrying the failure alone and belongs in GUARDS.
 
 Before any mutant, one unmutated run must pass every named case. Covered: graph-check.sh, graphs.sh and
 bump-only.sh. Not covered: render.sh (practice-library/graphs#25), the usage checks on argument counts, the
-selftest/ exclusion in graphs.sh and the measuredAt type test in bump-only.sh, which no input reaches alone.
+selftest/ exclusion in graphs.sh (no fixture can show a widened exclusion skipping a real vendor, since every fixture vendor is named a) and the measuredAt type test in bump-only.sh, which no input reaches alone.
 Python 3.9 or later, standard library only. Run: python3 scripts/guards.py
 """
 from __future__ import annotations
@@ -48,8 +50,6 @@ GUARDS = [
     ("a problem makes graph-check exit non-zero", GC, 'exit "$failed"', "exit 0", C + "edge-to-missing-node"),
     ("only a check.json naming graph/nodes is a graph", GR,
      '[ "$instances" = graph/nodes ] && dirname "$f"', 'dirname "$f"', "selftest/graphs/two-graphs-and-a-contract"),
-    ("a change of nothing goes to review", BO,
-     'if ($changes | length) == 0 then "review"', 'if ($changes | length) == 0 then "bump"', K + "no-changes"),
     ("a path outside the allowlist goes to review", BO,
      'elif any($changes[]; allowed(.path) | not) then "review"', 'elif false then "review"', K + "outside-path"),
     ("an added or deleted node is rejected", BO,
@@ -70,17 +70,30 @@ GUARDS = [
     ("fetched_at moves forward", BO,
      "$n[0].attrs.fetched_at > $o[0].attrs.fetched_at", "$n[0].attrs.fetched_at >= $o[0].attrs.fetched_at",
      F + "fetched-at-unchanged"),
-    ("only a pull request is checked", BO,
-     '[ "${GITHUB_EVENT_NAME:-}" = pull_request ] || {', "true || {", P + "not-a-pull-request"),
     ("the allowlist is read from the base commit", BO,
      "git show HEAD^1:.github/automerge-paths.json", "git show HEAD:.github/automerge-paths.json",
-     P + "allowlist-read-from-base"),
-    ("a base commit without an allowlist allows nothing", BO,
-     "echo '[]' > \"$tmp/allow\"", "echo '[\"vendors/\", \".github/\"]' > \"$tmp/allow\"", P + "no-base-allowlist"),
+     P + "head-shrinks-allowlist"),
     ("a rejected pull request fails", BO,
      'reject) die "touches only allowlisted', 'reject) echo "touches only allowlisted', P + "node-added-only"),
     ("every allowlisted change is a date bump", BO,
      'file_check "$tmp/old.json" "$tmp/new.json" >/dev/null ||', "true ||", P + "value-change-only-nodes"),
+    ("every changed file is checked, not only the first", BO,
+     'done < "$tmp/diff"', 'done < <(head -n1 "$tmp/diff")', P + "bump-then-value-change"),
+    ("a nested fetched_at is not one of the two dates", BO,
+     '($o[0] | del(.measuredAt, .attrs.fetched_at)) == ($n[0] | del(.measuredAt, .attrs.fetched_at))',
+     '($o[0] | del(.measuredAt, (.. | .fetched_at?))) == ($n[0] | del(.measuredAt, (.. | .fetched_at?)))',
+     F + "nested-fetched-at-changed"),
+]
+
+PINS = [
+    # Behaviour a mutant would make stricter or leave neutral for the gate, pinned like a guard so it cannot
+    # change unnoticed: (what is pinned, file, code, mutant, the case that must then fail)
+    ("only a pull request is checked", BO,
+     '[ "${GITHUB_EVENT_NAME:-}" = pull_request ] || {', "true || {", P + "not-a-pull-request"),
+    ("a base commit without an allowlist allows nothing", BO,
+     "echo '[]' > \"$tmp/allow\"", "echo '[\"vendors/\", \".github/\"]' > \"$tmp/allow\"", P + "no-base-allowlist"),
+    ("a change of nothing goes to review", BO,
+     'if ($changes | length) == 0 then "review"', 'if ($changes | length) == 0 then "bump"', K + "no-changes"),
 ]
 
 BACKSTOPS = [
@@ -140,10 +153,11 @@ def main() -> int:
     with tempfile.TemporaryDirectory() as tmp:
         copy(tmp)
         base = run(tmp)
-    failed = [f"{row[0]}: {row[4]} does not pass before any mutation"
-              for row in GUARDS + BACKSTOPS if not passed_case(base, row[4])]
+    failed = [f"{row[0]}: its mutant is its code" for row in GUARDS + PINS + BACKSTOPS if row[2] == row[3]]
+    failed += [f"{row[0]}: {row[4]} does not pass before any mutation"
+              for row in GUARDS + PINS + BACKSTOPS if not passed_case(base, row[4])]
     if not failed:
-        for what, path, code, mutant, case in GUARDS:
+        for what, path, code, mutant, case in GUARDS + PINS:
             lines = mutated(path, code, mutant)
             if isinstance(lines, str):
                 failed.append(f"{what}: {lines}")
@@ -161,7 +175,7 @@ def main() -> int:
                 failed.append(f"{what}: without it {case} passes, so it is a guard, not a backstop")
     for f in failed:
         print(f"FAIL {f}")
-    print(f"{len(GUARDS)} guards, {len(BACKSTOPS)} backstops, {len(failed)} failing")
+    print(f"{len(GUARDS)} guards, {len(PINS)} pins, {len(BACKSTOPS)} backstops, {len(failed)} failing")
     return 1 if failed else 0
 
 
