@@ -1,0 +1,22 @@
+{
+  "id": "price.example.widget-input",
+  "type": "price",
+  "name": "Widget input price",
+  "source": "https://docs.example.com/pricing",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "Input: $3 per million tokens.",
+    "value": 3,
+    "unit": "per million input tokens",
+    "currency": "USD",
+    "scope": "Widget, standard tier"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.example.widget"
+    }
+  ]
+}
