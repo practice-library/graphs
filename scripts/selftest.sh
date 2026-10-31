@@ -67,11 +67,11 @@ pr_repo() { # <case dir>: prints a git repository whose HEAD is head/ and HEAD^1
   git -C "$repo" init -q
   cp -R "$1/base/." "$repo/"
   git -C "$repo" add -A
-  git -C "$repo" -c user.name=selftest -c user.email=selftest@example.invalid commit -qm base
+  git -C "$repo" -c user.name=selftest -c user.email=selftest@example.invalid -c commit.gpgsign=false -c core.hooksPath=/dev/null commit -qm base
   find "$repo" -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
   cp -R "$1/head/." "$repo/"
   git -C "$repo" add -A
-  git -C "$repo" -c user.name=selftest -c user.email=selftest@example.invalid commit -qm head
+  git -C "$repo" -c user.name=selftest -c user.email=selftest@example.invalid -c commit.gpgsign=false -c core.hooksPath=/dev/null commit -qm head
   echo "$repo"
 }
 for c in selftest/bump-only-pr/*/; do

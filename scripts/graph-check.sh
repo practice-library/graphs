@@ -37,6 +37,7 @@ while IFS= read -r d; do
               | if ($hosts | index($h)) == null then "\($n.id): source host \($h) is not listed for \($v) in policy/sources.json" else empty end)
         ]
       + (if ($ids | map(select(. == "vendor." + $v)) | length) != 1 then ["the graph needs exactly one root node, vendor.\($v)"] else [] end)
+      + (if ($ids | length) != ($ids | unique | length) then ["two nodes share an id"] else [] end)
     ) | .[]' <<<"$records")"
   if [ -n "$problems" ]; then
     while IFS= read -r p; do echo "FAIL $d: $p"; done <<<"$problems"; failed=1
