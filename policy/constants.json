@@ -19,5 +19,16 @@
   "runner": {
     "image": "ubuntu-24.04",
     "timeoutMinutes": 10
+  },
+  "gate": {
+    "needs": [
+      "render",
+      "selftest",
+      "bump-only",
+      "graph-check",
+      "discover",
+      "schema-check",
+      "leak-scan"
+    ]
   }
 }

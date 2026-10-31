@@ -1,6 +1,7 @@
 name: checks
 # Every check a pull request must pass; the ruleset requires "gate / gate".
 # Reusable workflows come from @@org.repo@@, pinned to the full commit of release @@org.ref@@.
+# The gate's needs and .github/required-checks.json are both rendered from gate.needs in policy/constants.json.
 on:
   pull_request:
     branches: [main]
@@ -58,25 +59,12 @@ jobs:
         run: bash scripts/graph-check.sh
 
   discover:
-    name: discover
-    runs-on: @@runner.image@@
-    timeout-minutes: @@runner.timeoutMinutes@@
-    outputs:
-      targets: ${{ steps.list.outputs.targets }}
-    steps:
-      - uses: @@actions.checkout.repo@@@@@actions.checkout.sha@@ # @@actions.checkout.version@@
-        with:
-          persist-credentials: false
-      - name: Every check.json, contract example and counter-example
-        id: list
-        run: |
-          set -euo pipefail
-          targets="$(bash scripts/discover.sh)"
-          echo "$targets" | jq .
-          echo "targets=$targets" >> "$GITHUB_OUTPUT"
+    uses: @@org.repo@@/.github/workflows/discover.yml@@@org.sha@@ # @@org.ref@@
+    with:
+      check: schema-check
 
   schema-check:
-    name: schema-check (${{ matrix.name }})
+    name: schema-check (${{ matrix.instances }})
     needs: [discover]
     strategy:
       fail-fast: false
@@ -87,14 +75,14 @@ jobs:
       schema: ${{ matrix.schema }}
       instances: ${{ matrix.instances }}
       expect: ${{ matrix.expect }}
+      each: ${{ matrix.each }}
 
   leak-scan:
     uses: @@org.repo@@/.github/workflows/leak-scan.yml@@@org.sha@@ # @@org.ref@@
 
   gate:
     if: always()
-    needs: [render, selftest, bump-only, graph-check, discover, schema-check, leak-scan]
+    needs: @@gate.needs@@
     uses: @@org.repo@@/.github/workflows/gate.yml@@@org.sha@@ # @@org.ref@@
     with:
       needs: ${{ toJSON(needs) }}
-      required: '["render","selftest","bump-only","graph-check","discover","schema-check","leak-scan"]'

@@ -7,6 +7,7 @@
   "attrs": {
     "verdict": "unknown",
     "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "Requests are limited per minute.",
     "note": "The limits page does not state a burst limit."
   },
   "edges": [

@@ -7,6 +7,7 @@
   "attrs": {
     "verdict": "unknown",
     "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "Free: 50 requests per minute.",
     "value": 50,
     "unit": "requests",
     "window": "per minute"

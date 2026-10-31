@@ -1,8 +1,9 @@
 # Generated from templates/.github/workflows/automerge.yml and policy/constants.json by scripts/render.sh. Do not edit.
 name: automerge
 # pull_request_target runs this file as it is on main, never the pull request's copy.
-# allow-paths has one entry per vendor graph (scripts/graphs.sh); CODEOWNERS leaves the same paths
-# without an owner. The required bump-only check accepts only date bumps in them.
+# The allowlist is .github/automerge-paths.json on the base commit: one entry per vendor graph
+# (scripts/graphs.sh), the paths CODEOWNERS leaves without an owner. The required bump-only check
+# accepts only date bumps in them.
 on:
   pull_request_target:
     types: [opened, reopened, synchronize, ready_for_review, converted_to_draft]
@@ -14,6 +15,5 @@ jobs:
   automerge:
     uses: practice-library/.github/.github/workflows/automerge.yml@18375c2eb2205e1095029b00ee8fddb16a55f622 # v1.0.0
     with:
-      allow-paths: '[]'
       trusted-authors: '["practice-library[bot]"]'
       merge-method: merge

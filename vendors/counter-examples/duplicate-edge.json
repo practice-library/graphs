@@ -11,12 +11,12 @@
   },
   "edges": [
     {
-      "rel": "offeredBy",
-      "to": "vendor.example"
+      "rel": "availableOn",
+      "to": "plan.example.free"
     },
     {
-      "rel": "offeredBy",
-      "to": "vendor.example"
+      "rel": "availableOn",
+      "to": "plan.example.free"
     }
   ]
 }
