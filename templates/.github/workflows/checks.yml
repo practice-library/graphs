@@ -35,6 +35,17 @@ jobs:
       - name: The scripts the checks use pass and fail where their cases say
         run: bash scripts/selftest.sh
 
+  guards:
+    name: guards
+    runs-on: @@runner.image@@
+    timeout-minutes: @@runner.timeoutMinutes@@
+    steps:
+      - uses: @@actions.checkout.repo@@@@@actions.checkout.sha@@ # @@actions.checkout.version@@
+        with:
+          persist-credentials: false
+      - name: Every guard in the scripts, mutated, makes a named self-test case fail
+        run: python3 scripts/guards.py
+
   bump-only:
     name: bump-only
     runs-on: @@runner.image@@

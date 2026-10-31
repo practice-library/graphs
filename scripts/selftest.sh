@@ -10,6 +10,11 @@
 # Other cases compare the script's output with `expect` instead:
 #   selftest/bump-only-classify/<case>/{allow.json,diff}   scripts/bump-only.sh classify (review, bump or reject)
 #   selftest/graphs/<case>/root/                           scripts/graphs.sh <root>
+# and these run scripts/bump-only.sh where it must fail or run against a commit:
+#   selftest/bump-only-classify-fails/<case>/{allow.json,diff}  scripts/bump-only.sh classify (expect fail)
+#   selftest/bump-only-pr/<case>/{base,head}/[event]       scripts/bump-only.sh pr in a new git repository
+#       whose first commit is base/ and whose second is head/, with GITHUB_EVENT_NAME from `event`
+#       (pull_request when there is no such file)
 # Usage: scripts/selftest.sh
 set -euo pipefail
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -55,6 +60,28 @@ for c in selftest/graph-check/*/; do run_case "${c%/}" bash scripts/graph-check.
 for c in selftest/bump-only-file/*/; do run_case "${c%/}" bash scripts/bump-only.sh file "${c}old.json" "${c}new.json"; done
 for c in selftest/bump-only-classify/*/; do output_case "${c%/}" bash scripts/bump-only.sh classify "${c}allow.json" "${c}diff"; done
 for c in selftest/graphs/*/; do output_case "${c%/}" bash scripts/graphs.sh "$(stage "${c%/}")"; done
+for c in selftest/bump-only-classify-fails/*/; do run_case "${c%/}" bash scripts/bump-only.sh classify "${c}allow.json" "${c}diff"; done
+pr_repo() { # <case dir>: prints a git repository whose HEAD is head/ and HEAD^1 is base/
+  local repo="$tmp/repo$count"
+  mkdir -p "$repo"
+  git -C "$repo" init -q
+  cp -R "$1/base/." "$repo/"
+  git -C "$repo" add -A
+  git -C "$repo" -c user.name=selftest -c user.email=selftest@example.invalid -c commit.gpgsign=false -c core.hooksPath=/dev/null commit -qm base
+  find "$repo" -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+  cp -R "$1/head/." "$repo/"
+  git -C "$repo" add -A
+  git -C "$repo" -c user.name=selftest -c user.email=selftest@example.invalid -c commit.gpgsign=false -c core.hooksPath=/dev/null commit -qm head
+  echo "$repo"
+}
+for c in selftest/bump-only-pr/*/; do
+  event="pull_request"; [ -f "${c}event" ] && event="$(cat "${c}event")"
+  repo="$(pr_repo "${c%/}")"
+  if [ -z "$repo" ] || ! git -C "$repo" rev-parse -q --verify HEAD^1 >/dev/null; then
+    count=$((count + 1)); echo "FAIL ${c%/}: could not build its base and head commits"; failed=1; continue
+  fi
+  run_case "${c%/}" env GITHUB_EVENT_NAME="$event" bash -c 'cd "$1" && bash "$2"/scripts/bump-only.sh pr' _ "$repo" "$root"
+done
 
 [ "$count" -gt 0 ] || { echo "no self-test case found"; exit 1; }
 echo "$count cases"

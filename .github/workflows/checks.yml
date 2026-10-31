@@ -36,6 +36,17 @@ jobs:
       - name: The scripts the checks use pass and fail where their cases say
         run: bash scripts/selftest.sh
 
+  guards:
+    name: guards
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Every guard in the scripts, mutated, makes a named self-test case fail
+        run: python3 scripts/guards.py
+
   bump-only:
     name: bump-only
     runs-on: ubuntu-24.04
@@ -83,7 +94,7 @@ jobs:
 
   gate:
     if: always()
-    needs: ["render","selftest","bump-only","graph-check","discover","schema-check","leak-scan"]
+    needs: ["render","selftest","guards","bump-only","graph-check","discover","schema-check","leak-scan"]
     uses: practice-library/.github/.github/workflows/gate.yml@f5dc7203e3a718e891bbfdc6833226721e1da3e1 # v1.1.0
     with:
       needs: ${{ toJSON(needs) }}
