@@ -9,5 +9,10 @@
     "fetched_at": "2026-10-31T12:00:00Z",
     "quote": "Widget is a hosted service."
   },
-  "edges": []
+  "edges": [
+    {
+      "rel": "hasRelease",
+      "to": "release.example.widget.2-0"
+    }
+  ]
 }
