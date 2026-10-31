@@ -1,7 +1,7 @@
 # Generated from templates/.github/workflows/checks.yml and policy/constants.json by scripts/render.sh. Do not edit.
 name: checks
 # Every check a pull request must pass; the ruleset requires "gate / gate".
-# Reusable workflows come from practice-library/.github, pinned to the full commit of release v1.0.0.
+# Reusable workflows come from practice-library/.github, pinned to the full commit of release v1.1.0.
 # The gate's needs and .github/required-checks.json are both rendered from gate.needs in policy/constants.json.
 on:
   pull_request:
@@ -60,7 +60,7 @@ jobs:
         run: bash scripts/graph-check.sh
 
   discover:
-    uses: practice-library/.github/.github/workflows/discover.yml@18375c2eb2205e1095029b00ee8fddb16a55f622 # v1.0.0
+    uses: practice-library/.github/.github/workflows/discover.yml@f5dc7203e3a718e891bbfdc6833226721e1da3e1 # v1.1.0
     with:
       check: schema-check
 
@@ -71,7 +71,7 @@ jobs:
       fail-fast: false
       matrix:
         include: ${{ fromJSON(needs.discover.outputs.targets) }}
-    uses: practice-library/.github/.github/workflows/schema-check.yml@18375c2eb2205e1095029b00ee8fddb16a55f622 # v1.0.0
+    uses: practice-library/.github/.github/workflows/schema-check.yml@f5dc7203e3a718e891bbfdc6833226721e1da3e1 # v1.1.0
     with:
       schema: ${{ matrix.schema }}
       instances: ${{ matrix.instances }}
@@ -79,11 +79,11 @@ jobs:
       each: ${{ matrix.each }}
 
   leak-scan:
-    uses: practice-library/.github/.github/workflows/leak-scan.yml@18375c2eb2205e1095029b00ee8fddb16a55f622 # v1.0.0
+    uses: practice-library/.github/.github/workflows/leak-scan.yml@f5dc7203e3a718e891bbfdc6833226721e1da3e1 # v1.1.0
 
   gate:
     if: always()
     needs: ["render","selftest","bump-only","graph-check","discover","schema-check","leak-scan"]
-    uses: practice-library/.github/.github/workflows/gate.yml@18375c2eb2205e1095029b00ee8fddb16a55f622 # v1.0.0
+    uses: practice-library/.github/.github/workflows/gate.yml@f5dc7203e3a718e891bbfdc6833226721e1da3e1 # v1.1.0
     with:
       needs: ${{ toJSON(needs) }}

@@ -6,7 +6,7 @@ Sourced, machine-readable fact graphs, refreshed by workflows and merged only th
 
 ```
 policy/
-  constants.json           every pin (practice-library/.github at v1.0.0), runner, timeout, trusted author
+  constants.json           every pin (practice-library/.github: org.sha, release org.ref), runner, timeout, trusted author
                            and the gate's required jobs; the workflows, CODEOWNERS,
                            .github/required-checks.json and .github/automerge-paths.json are rendered from it
   sources.json             the hosts a source may name, with the evidence for each (none yet)
@@ -44,7 +44,7 @@ Each vendor graph's `graph/nodes/` is on the auto-merge allowlist (`.github/auto
 
 ## Checks
 
-Every pull request runs `.github/workflows/checks.yml`, which calls the reusable workflows of practice-library/.github v1.0.0. Its `discover` finds every tracked `check.json` and the schema check runs each target: a contract's `examples/` must pass, and with `each` every file in its `counter-examples/` must fail on its own, so an empty folder fails too. The leak scan runs on everything, and the gate passes only when its needs are exactly the jobs in `.github/required-checks.json`. Graphs-specific checks stay here: `scripts/render.sh --check` fails when a generated file differs from its template, `bump-only` and `graph-check` (below and above), and `scripts/selftest.sh` runs the cases under `selftest/` that show each script passing and failing where it should. Fixtures there keep their `check.json` as `_check.json`, so discovery never takes them for real targets.
+Every pull request runs `.github/workflows/checks.yml`, which calls the reusable workflows of practice-library/.github at the release pinned in `policy/constants.json`. Its `discover` finds every tracked `check.json` and the schema check runs each target: a contract's `examples/` must pass, and with `each` every file in its `counter-examples/` must fail on its own, so an empty folder fails too. The leak scan runs on everything, and the gate passes only when its needs are exactly the jobs in `.github/required-checks.json`. Graphs-specific checks stay here: `scripts/render.sh --check` fails when a generated file differs from its template, `bump-only` and `graph-check` (below and above), and `scripts/selftest.sh` runs the cases under `selftest/` that show each script passing and failing where it should. Fixtures there keep their `check.json` as `_check.json`, so discovery never takes them for real targets.
 
 To change a pin, a runner, a trusted author or the gate's jobs, edit `policy/constants.json` and run `scripts/render.sh`; never edit a generated file. Dependabot (`.github/dependabot.yml`, the organisation's consumer template) proposes new pins; its pull request is finished by moving the pin into `policy/constants.json` and rendering.
 
