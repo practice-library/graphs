@@ -5,6 +5,8 @@ name: checks
 on:
   pull_request:
     branches: [main]
+    # labeled and unlabeled re-run schema-loosening when a maintainer adds or removes its label.
+    types: [opened, synchronize, reopened, labeled, unlabeled]
   push:
     branches: [main]
 permissions:
@@ -82,14 +84,51 @@ jobs:
       matrix:
         include: ${{ fromJSON(needs.discover.outputs.targets) }}
     uses: @@org.repo@@/.github/workflows/schema-check.yml@@@org.sha@@ # @@org.ref@@
+    # Every key a check.json row may carry, so none is dropped (the consumer kit of @@org.repo@@).
     with:
       schema: ${{ matrix.schema }}
       instances: ${{ matrix.instances }}
+      resolve: ${{ matrix.resolve }}
+      guards: ${{ matrix.guards }}
       expect: ${{ matrix.expect }}
       each: ${{ matrix.each }}
+      mode: ${{ matrix.mode }}
+      resolve-ids: ${{ matrix.resolve-ids }}
 
   leak-scan:
     uses: @@org.repo@@/.github/workflows/leak-scan.yml@@@org.sha@@ # @@org.ref@@
+
+  denylist:
+    permissions:
+      contents: read
+      pull-requests: read
+    uses: @@org.repo@@/.github/workflows/guard.yml@@@org.sha@@ # @@org.ref@@
+    with:
+      guard: denylist
+
+  removed-paths:
+    permissions:
+      contents: read
+      pull-requests: read
+    uses: @@org.repo@@/.github/workflows/guard.yml@@@org.sha@@ # @@org.ref@@
+    with:
+      guard: removed-paths
+
+  release-note:
+    permissions:
+      contents: read
+      pull-requests: read
+    uses: @@org.repo@@/.github/workflows/guard.yml@@@org.sha@@ # @@org.ref@@
+    with:
+      guard: release-note
+
+  schema-loosening:
+    permissions:
+      contents: read
+      pull-requests: read
+    uses: @@org.repo@@/.github/workflows/guard.yml@@@org.sha@@ # @@org.ref@@
+    with:
+      guard: schema-loosening
 
   gate:
     if: always()

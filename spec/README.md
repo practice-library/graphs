@@ -1,5 +1,7 @@
 # Contracts
 
+`refresh-report` and `sources` now live in practice-library/.github (since v2.1.0), with the `$id`s `https://github.com/practice-library/.github/spec/refresh-report/schema.json` and `https://github.com/practice-library/.github/spec/sources/schema.json`. The copies here are kept unchanged for one release, so existing references keep resolving, and are removed in the release after. `policy/sources.json` is already validated against the .github copy (`policy/check.json`).
+
 Each contract is a directory with `schema.json` (JSON Schema 2020-12), `examples/` that must pass and `counter-examples/` that must fail, each for one named reason. Its `check.json` lists two targets for the organisation's schema check: the examples with expect pass, and the counter-examples with expect fail and `each`, so every one of them must fail on its own. The node schema of every domain is checked the same way. Code that reads or writes these files is generated from, or tested against, these schemas.
 
 ## refresh-report

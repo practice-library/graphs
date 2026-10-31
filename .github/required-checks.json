@@ -1,1 +1,1 @@
-{"jobs": ["render","selftest","guards","bump-only","graph-check","discover","schema-check","leak-scan"]}
+{"jobs": ["render","selftest","guards","bump-only","graph-check","discover","schema-check","leak-scan","denylist","removed-paths","release-note","schema-loosening"]}

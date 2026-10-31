@@ -1,1 +1,1 @@
-{"schema": "../spec/sources/schema.json", "instances": "sources.json"}
+{"schema": "sources.schema.json", "instances": "sources.json", "resolve": "policy/upstream/practice-library-.github/v2.1.0/spec/sources/schema.json", "resolve-ids": "https://github.com/practice-library/.github/spec/sources/schema.json"}
