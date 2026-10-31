@@ -3,5 +3,26 @@
   "maxRequestsPerRun": 50,
   "retryAfterMaxSeconds": 60,
   "unreadableRunsBeforeIssue": 3,
-  "hosts": []
+  "hosts": [
+    {
+      "host": "docs.github.com",
+      "vendor": "github",
+      "robots": {
+        "url": "https://docs.github.com/robots.txt",
+        "checkedAt": "2026-10-31T14:52:11Z",
+        "verdict": "allowed",
+        "note": "robots.txt is the single line User-agent: * with no Disallow."
+      },
+      "terms": {
+        "url": "https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies",
+        "checkedAt": "2026-10-31T14:52:21Z",
+        "quote": "Scraping refers to extracting information from our Service via an automated process, such as a bot or webcrawler."
+      },
+      "format": "html",
+      "maxRequestsPerRun": 45,
+      "minIntervalDays": 7,
+      "maxBytes": 2000000,
+      "timeoutSeconds": 30
+    }
+  ]
 }

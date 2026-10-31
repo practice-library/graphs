@@ -1,0 +1,13 @@
+{
+  "id": "vendor.github",
+  "type": "vendor",
+  "name": "GitHub",
+  "source": "https://docs.github.com/en/get-started/start-your-journey/what-is-github",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T14:52:40Z",
+    "quote": "GitHub is a platform for building software."
+  },
+  "edges": []
+}
