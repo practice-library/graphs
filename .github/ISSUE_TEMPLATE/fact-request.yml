@@ -2,17 +2,11 @@ name: Fact request
 description: Ask for a fact the graph does not have yet.
 labels: [fact-request]
 body:
-  - type: dropdown
+  - type: input
     id: graph
     attributes:
       label: Graph
-      description: The domain and vendor the fact belongs to.
-      options:
-        - vendors/anthropic
-        - vendors/cloudflare
-        - vendors/supabase
-        - vendors/temporal
-        - vendors/orca
+      description: The graph the fact belongs to, as <domain>/<vendor>, for example vendors/<vendor>. The graphs are the directories under each domain; name a new one if none fits.
     validations:
       required: true
   - type: textarea
