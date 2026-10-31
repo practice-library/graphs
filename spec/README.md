@@ -31,7 +31,7 @@ It downloads the report, validates it against this schema and refuses one whose 
 
 ## sources
 
-`policy/sources.json` (it lists no host yet): the run-wide request cap, the Retry-After limit and how many unreadable runs open an issue; then every host a node may cite, with its robots.txt verdict when it was added, the sentence of its terms that bears on automated reading, the page format and the per-host limits. The robots.txt verdict here is evidence for adding the host; the run still re-reads robots.txt every time. Adding a host is a pull request that carries that evidence. A host whose robots.txt disallows us is not listed.
+`policy/sources.json`: the run-wide request cap, the Retry-After limit and how many unreadable runs open an issue; then every host a node may cite, with its robots.txt verdict when it was added, the sentence of its terms that bears on automated reading, the page format and the per-host limits. The robots.txt verdict here is evidence for adding the host; the run still re-reads robots.txt every time. Adding a host is a pull request that carries that evidence. A host whose robots.txt disallows us is not listed.
 
 ## Issue forms
 

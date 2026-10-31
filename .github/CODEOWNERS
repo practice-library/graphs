@@ -2,3 +2,4 @@
 # Every path needs a maintainer review. The vendor graphs' nodes below have no owner: a pull request
 # touching only them is a date bump, which the bump-only check enforces, and may auto-merge.
 * @practice-library/maintainers
+/vendors/github/graph/nodes/
