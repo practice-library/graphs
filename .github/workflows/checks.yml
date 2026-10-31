@@ -1,7 +1,7 @@
 # Generated from templates/.github/workflows/checks.yml and policy/constants.json by scripts/render.sh. Do not edit.
 name: checks
 # Every check a pull request must pass; the ruleset requires "gate / gate".
-# Reusable workflows come from practice-library/.github, pinned to one commit.
+# Reusable workflows come from practice-library/.github, pinned to the full commit of release v1.0.0.
 on:
   pull_request:
     branches: [main]
@@ -83,19 +83,19 @@ jobs:
       fail-fast: false
       matrix:
         include: ${{ fromJSON(needs.discover.outputs.targets) }}
-    uses: practice-library/.github/.github/workflows/schema-check.yml@cb535908f8b5c4314b6a21232dedd9e5b5048c10
+    uses: practice-library/.github/.github/workflows/schema-check.yml@18375c2eb2205e1095029b00ee8fddb16a55f622 # v1.0.0
     with:
       schema: ${{ matrix.schema }}
       instances: ${{ matrix.instances }}
       expect: ${{ matrix.expect }}
 
   leak-scan:
-    uses: practice-library/.github/.github/workflows/leak-scan.yml@cb535908f8b5c4314b6a21232dedd9e5b5048c10
+    uses: practice-library/.github/.github/workflows/leak-scan.yml@18375c2eb2205e1095029b00ee8fddb16a55f622 # v1.0.0
 
   gate:
     if: always()
     needs: [render, selftest, bump-only, graph-check, discover, schema-check, leak-scan]
-    uses: practice-library/.github/.github/workflows/gate.yml@cb535908f8b5c4314b6a21232dedd9e5b5048c10
+    uses: practice-library/.github/.github/workflows/gate.yml@18375c2eb2205e1095029b00ee8fddb16a55f622 # v1.0.0
     with:
       needs: ${{ toJSON(needs) }}
       required: '["render","selftest","bump-only","graph-check","discover","schema-check","leak-scan"]'

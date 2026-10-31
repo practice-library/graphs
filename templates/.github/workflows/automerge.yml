@@ -11,7 +11,7 @@ permissions:
   pull-requests: write
 jobs:
   automerge:
-    uses: @@org.repo@@/.github/workflows/automerge.yml@@@org.sha@@
+    uses: @@org.repo@@/.github/workflows/automerge.yml@@@org.sha@@ # @@org.ref@@
     with:
       allow-paths: '@@gen.allowPaths@@'
       trusted-authors: '@@org.trustedAuthors@@'
