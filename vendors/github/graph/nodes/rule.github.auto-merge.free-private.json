@@ -8,7 +8,8 @@
     "verdict": "denied",
     "fetched_at": "2026-10-31T16:47:53Z",
     "quote": "Auto-merge for pull requests is available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server.",
-    "scope": "private repositories, GitHub Free and GitHub Free for organizations: not available"
+    "scope": "private repositories, GitHub Free and GitHub Free for organizations: not available",
+    "note": "Denied by exclusion from the quoted list: it names GitHub Free only for public repositories, and GitHub Pro, GitHub Team, GitHub Enterprise Cloud and GitHub Enterprise Server for private ones."
   },
   "edges": [
     {

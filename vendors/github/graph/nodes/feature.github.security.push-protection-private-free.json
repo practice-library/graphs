@@ -9,7 +9,7 @@
     "fetched_at": "2026-10-31T16:47:58Z",
     "quote": "Requires GitHub Secret Protection to be enabled",
     "scope": "private repositories, GitHub Free",
-    "note": "Absent: the push protection page (checked) states only that it requires GitHub Secret Protection, not which plans may enable it on private repositories; the secret scanning page names GitHub Team or Enterprise Cloud."
+    "note": "Absent: the push protection page (checked) says only that it requires GitHub Secret Protection, not which plans may enable it on private repositories; the secret scanning page names GitHub Team or Enterprise Cloud. The quote is the page's nearest sentence; it does not support a plan claim."
   },
   "edges": [
     {
