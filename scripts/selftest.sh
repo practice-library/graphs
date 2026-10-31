@@ -15,6 +15,10 @@
 #   selftest/bump-only-pr/<case>/{base,head}/[event]       scripts/bump-only.sh pr in a new git repository
 #       whose first commit is base/ and whose second is head/, with GITHUB_EVENT_NAME from `event`
 #       (pull_request when there is no such file)
+# and this one renders the auto-merge allowlist twice and compares the two:
+#   selftest/render-allowlist/<case>/{base,head}/          scripts/render.sh in a new git repository holding
+#       base/ (each _check.json renamed check.json), then again with head/ added; prints the lines of
+#       .github/automerge-paths.json that the second render added (+) or removed (-)
 # Usage: scripts/selftest.sh
 set -euo pipefail
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -82,6 +86,24 @@ for c in selftest/bump-only-pr/*/; do
   fi
   run_case "${c%/}" env GITHUB_EVENT_NAME="$event" bash -c 'cd "$1" && bash "$2"/scripts/bump-only.sh pr' _ "$repo" "$root"
 done
+
+allowlist_change() { # <case dir>: the lines of .github/automerge-paths.json added or removed by head/
+  local repo="$tmp/render$count" g="git -c user.name=selftest -c user.email=selftest@example.invalid -c commit.gpgsign=false -c core.hooksPath=/dev/null"
+  mkdir -p "$repo/scripts" "$repo/templates/.github" "$repo/policy"
+  cp scripts/render.sh scripts/graphs.sh "$repo/scripts/"
+  cp templates/.github/automerge-paths.json "$repo/templates/.github/"
+  cp policy/constants.json "$repo/policy/"
+  cp -R "$1/base/." "$repo/"
+  find "$repo" -type f -name _check.json | while IFS= read -r f; do mv "$f" "$(dirname "$f")/check.json"; done
+  bash "$repo/scripts/render.sh" >/dev/null
+  $g -C "$repo" init -q && $g -C "$repo" add -A && $g -C "$repo" commit -qm base
+  cp -R "$1/head/." "$repo/"
+  find "$repo" -type f -name _check.json | while IFS= read -r f; do mv "$f" "$(dirname "$f")/check.json"; done
+  bash "$repo/scripts/render.sh" >/dev/null
+  jq -e '.paths | type == "array"' "$repo/.github/automerge-paths.json" >/dev/null || return 1
+  $g -C "$repo" diff -U0 -- .github/automerge-paths.json | grep -E '^[-+]' | grep -vE '^(\+\+\+|---) '
+}
+for c in selftest/render-allowlist/*/; do output_case "${c%/}" allowlist_change "${c%/}"; done
 
 [ "$count" -gt 0 ] || { echo "no self-test case found"; exit 1; }
 echo "$count cases"

@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 # Renders every file under templates/ to the same path at the repository root, replacing
 # @@a.b.c@@ with that value from policy/constants.json (arrays and objects as compact JSON).
-# @@gen.allowPaths@@ and @@gen.unowned@@ are generated from scripts/graphs.sh: one auto-merge
+# @@gen.allowPathLines@@ and @@gen.unowned@@ are generated from scripts/graphs.sh: one auto-merge
 # allowlist entry and one CODEOWNERS line without an owner per vendor graph, the same list in both.
+# The allowlist writes each path on a line of its own and each separating comma on a line of its
+# own, so adding a graph adds its own line (and one comma line) and changes no other entry's line.
 # @@gate.needs@@ is written both as the gate's needs and as .github/required-checks.json.
 # A rendered .json file carries no header (JSON has no comments). A placeholder whose value is
 # missing is an error.
@@ -18,7 +20,8 @@ constants="policy/constants.json"
 graphs="$(bash scripts/graphs.sh)"
 values="$(jq -c --arg graphs "$graphs" '
   ($graphs | split("\n") | map(select(length > 0))) as $g
-  | . + {gen: {allowPaths: ($g | map(. + "/graph/nodes/")), unowned: ($g | map("/" + . + "/graph/nodes/") | join("\n"))}}' "$constants")"
+  | . + {gen: {allowPathLines: ("\n" + ($g | map((. + "/graph/nodes/" | tojson) + "\n") | join(",\n"))),
+               unowned: ($g | map("/" + . + "/graph/nodes/") | join("\n"))}}' "$constants")"
 failed=0
 while IFS= read -r t; do
   out="${t#templates/}"
