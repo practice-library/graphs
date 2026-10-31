@@ -20,14 +20,14 @@ spec/                      contracts shared by every domain
   examples/                nodes that must pass
   counter-examples/        nodes that must fail, one reason each
   check.json               examples must pass; each counter-example, on its own, must fail
-  <vendor>/                one graph per vendor: vendors/github, vendors/anthropic, vendors/temporal
+  <vendor>/                one graph per vendor, such as vendors/github
     check.json             {"schema": "../schema.json", "instances": "graph/nodes"}
     graph/nodes/<id>.json  one fact per file
     INDEX.md               generated
     README.md              where the quotes come from, and their licence
 ```
 
-Status: the contracts, checks and source policy exist, and there are three vendor graphs: `vendors/github` (from `docs.github.com`), `vendors/anthropic` (the Claude API and Claude Code, the first versioned graph, from `platform.claude.com` and `code.claude.com`) and `vendors/temporal` (Temporal Server releases and Temporal Cloud limits and plans, from `docs.temporal.io` and the server's release notes on `api.github.com`). Every host they cite is in `policy/sources.json`, and `scripts/graph-check.sh` prints each graph's node count. The scheduled refresh workflow and the PR opener are planned (see `spec/README.md`).
+Status: the contracts, checks and source policy exist, and there are three vendor graphs under `vendors/`, each with a README naming its sources and their terms. Every host they cite is in `policy/sources.json`, and `scripts/graph-check.sh` prints each graph's node count. The scheduled refresh workflow and the PR opener are planned (see `spec/README.md`).
 
 The first domain is `vendors`: limits, plans, prices, access rules and terms of public services. A new domain is a new directory with its own `schema.json`; a new vendor is a new directory under its domain. Nothing else changes: every `check.json` is found and checked.
 
