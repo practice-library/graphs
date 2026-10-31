@@ -1,0 +1,4 @@
+{
+  "schema": "../spec/sources/schema.json",
+  "instances": "sources.json"
+}

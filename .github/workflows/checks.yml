@@ -1,5 +1,7 @@
+# Generated from templates/.github/workflows/checks.yml and policy/constants.json by scripts/render.sh. Do not edit.
 name: checks
-# Uses the organisation's reusable workflows, pinned to a commit of practice-library/.github.
+# Every check a pull request must pass; the ruleset requires "gate / gate".
+# Reusable workflows come from practice-library/.github, pinned to one commit.
 on:
   pull_request:
     branches: [main]
@@ -11,6 +13,51 @@ concurrency:
   group: checks-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  render:
+    name: render
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Generated files match templates/ and policy/constants.json
+        run: bash scripts/render.sh --check
+
+  selftest:
+    name: selftest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: The scripts the checks use pass and fail where their cases say
+        run: bash scripts/selftest.sh
+
+  bump-only:
+    name: bump-only
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - name: A pull request touching only allowlisted paths is a date bump and nothing else
+        run: bash scripts/bump-only.sh pr
+
+  graph-check:
+    name: graph-check
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Edges stay inside each vendor graph; every source host is in policy/sources.json
+        run: bash scripts/graph-check.sh
+
   discover:
     name: discover
     runs-on: ubuntu-24.04
@@ -21,66 +68,34 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - name: Every check.json, with its paths made relative to the repository root
+      - name: Every check.json, contract example and counter-example
         id: list
-        shell: bash
         run: |
           set -euo pipefail
-          targets="$(git ls-files -- 'check.json' '*/check.json' | while IFS= read -r f; do
-            d="$(dirname "$f")"
-            jq -c --arg d "$d" --arg f "$f" '
-              if (keys | sort) != ["instances", "schema"] then error($f + ": keys must be exactly schema and instances")
-              else {target: $d, schema: ($d + "/" + .schema), instances: ($d + "/" + .instances)} end' "$f"
-          done | jq -sc '.')"
-          [ "$(jq 'length' <<<"$targets")" -gt 0 ] || { echo "::error::no check.json found"; exit 1; }
-          while IFS= read -r p; do
-            [ -e "$p" ] || { echo "::error::$p does not exist"; exit 1; }
-          done < <(jq -r '.[] | .schema, .instances' <<<"$targets")
-          echo "$targets"
+          targets="$(bash scripts/discover.sh)"
+          echo "$targets" | jq .
           echo "targets=$targets" >> "$GITHUB_OUTPUT"
 
   schema-check:
+    name: schema-check (${{ matrix.name }})
     needs: [discover]
     strategy:
       fail-fast: false
       matrix:
         include: ${{ fromJSON(needs.discover.outputs.targets) }}
-    uses: practice-library/.github/.github/workflows/schema-check.yml@0e6f5ed237dd52f9fe02a33f8c6b8ec653a3a2c3
+    uses: practice-library/.github/.github/workflows/schema-check.yml@cb535908f8b5c4314b6a21232dedd9e5b5048c10
     with:
       schema: ${{ matrix.schema }}
       instances: ${{ matrix.instances }}
-
-  contracts:
-    name: contracts
-    runs-on: ubuntu-24.04
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-      # The same tool and pin as practice-library/.github's schema-check. Its expect input is not
-      # public, so the counter-examples (which must fail) run here.
-      - name: Fetch jsonschema 17.2.1, pinned by sha256
-        shell: bash
-        env:
-          TOOL_URL: https://github.com/sourcemeta/jsonschema/releases/download/v17.2.1/jsonschema-17.2.1-linux-x86_64.zip
-          TOOL_SHA256: 9ffee3cfbe0fe1343d9d36bcce9e6036ec4d73e4b29f656c039fca6118da2f35
-        run: |
-          set -euo pipefail
-          dir="$RUNNER_TEMP/tools/jsonschema"
-          mkdir -p "$dir"
-          curl -fsSL --retry 3 "$TOOL_URL" -o "$dir/archive"
-          echo "$TOOL_SHA256  $dir/archive" | sha256sum -c -
-          unzip -q "$dir/archive" -d "$dir"
-      - name: Schemas are valid, examples pass, counter-examples are rejected
-        run: bash scripts/contracts.sh "$RUNNER_TEMP/tools/jsonschema/jsonschema-17.2.1-linux-x86_64/bin/jsonschema"
+      expect: ${{ matrix.expect }}
 
   leak-scan:
-    uses: practice-library/.github/.github/workflows/leak-scan.yml@0e6f5ed237dd52f9fe02a33f8c6b8ec653a3a2c3
+    uses: practice-library/.github/.github/workflows/leak-scan.yml@cb535908f8b5c4314b6a21232dedd9e5b5048c10
+
   gate:
     if: always()
-    needs: [discover, schema-check, contracts, leak-scan]
-    uses: practice-library/.github/.github/workflows/gate.yml@0e6f5ed237dd52f9fe02a33f8c6b8ec653a3a2c3
+    needs: [render, selftest, bump-only, graph-check, discover, schema-check, leak-scan]
+    uses: practice-library/.github/.github/workflows/gate.yml@cb535908f8b5c4314b6a21232dedd9e5b5048c10
     with:
       needs: ${{ toJSON(needs) }}
-      required: '["discover","schema-check","contracts","leak-scan"]'
+      required: '["render","selftest","bump-only","graph-check","discover","schema-check","leak-scan"]'

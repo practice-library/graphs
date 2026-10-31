@@ -4,7 +4,13 @@
   "title": "Source policy",
   "description": "policy/sources.json: every host a node's source may name and the refresh workflow may fetch. A host is added by a pull request that carries the evidence below; the refresh workflow fetches nothing else, redirects included.",
   "type": "object",
-  "required": ["userAgent", "hosts"],
+  "required": [
+    "userAgent",
+    "maxRequestsPerRun",
+    "retryAfterMaxSeconds",
+    "unreadableRunsBeforeIssue",
+    "hosts"
+  ],
   "additionalProperties": false,
   "properties": {
     "userAgent": {
@@ -12,16 +18,46 @@
       "pattern": "^practice-library-graphs/[0-9]+ \\(\\+https://github\\.com/practice-library/graphs\\)$",
       "description": "Sent with every request, so a vendor can see who fetches and why."
     },
+    "maxRequestsPerRun": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 200,
+      "description": "The most requests one refresh run makes across all hosts, robots.txt included. The run stops when it is reached; facts not reached wait for the next run, oldest measuredAt first."
+    },
+    "retryAfterMaxSeconds": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 120,
+      "description": "On 429 or 503, the run waits for Retry-After and retries once only when Retry-After is at most this; otherwise it stops fetching that host for the run."
+    },
+    "unreadableRunsBeforeIssue": {
+      "type": "integer",
+      "minimum": 2,
+      "maximum": 10,
+      "description": "A fact unreadable in this many consecutive reports gets an issue."
+    },
     "hosts": {
       "type": "array",
-      "minItems": 1,
-      "items": { "$ref": "#/$defs/host" }
+      "items": {
+        "$ref": "#/$defs/host"
+      },
+      "description": "Empty until a host is added with its evidence; the refresh workflow then fetches nothing."
     }
   },
   "$defs": {
     "host": {
       "type": "object",
-      "required": ["host", "vendor", "robots", "terms", "format", "maxRequestsPerRun", "minIntervalDays", "maxBytes", "timeoutSeconds"],
+      "required": [
+        "host",
+        "vendor",
+        "robots",
+        "terms",
+        "format",
+        "maxRequestsPerRun",
+        "minIntervalDays",
+        "maxBytes",
+        "timeoutSeconds"
+      ],
       "additionalProperties": false,
       "properties": {
         "host": {
@@ -35,25 +71,48 @@
         },
         "robots": {
           "type": "object",
-          "required": ["url", "checkedAt", "verdict"],
+          "required": [
+            "url",
+            "checkedAt",
+            "verdict"
+          ],
           "additionalProperties": false,
           "properties": {
-            "url": { "$ref": "#/$defs/url" },
-            "checkedAt": { "$ref": "#/$defs/time" },
+            "url": {
+              "$ref": "#/$defs/url"
+            },
+            "checkedAt": {
+              "$ref": "#/$defs/time"
+            },
             "verdict": {
-              "enum": ["allowed", "absent"],
+              "enum": [
+                "allowed",
+                "absent"
+              ],
               "description": "allowed: robots.txt permits the paths we fetch. absent: there is no robots.txt. A host whose robots.txt disallows us is not listed at all."
             },
-            "note": { "type": "string", "minLength": 1, "maxLength": 300 }
+            "note": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            }
           }
         },
         "terms": {
           "type": "object",
-          "required": ["url", "checkedAt", "quote"],
+          "required": [
+            "url",
+            "checkedAt",
+            "quote"
+          ],
           "additionalProperties": false,
           "properties": {
-            "url": { "$ref": "#/$defs/url" },
-            "checkedAt": { "$ref": "#/$defs/time" },
+            "url": {
+              "$ref": "#/$defs/url"
+            },
+            "checkedAt": {
+              "$ref": "#/$defs/time"
+            },
             "quote": {
               "type": "string",
               "minLength": 1,
@@ -63,16 +122,44 @@
           }
         },
         "format": {
-          "enum": ["markdown", "text", "html", "json"],
+          "enum": [
+            "markdown",
+            "text",
+            "html",
+            "json"
+          ],
           "description": "What the fetched pages are; markdown and text are preferred because the quote is matched in plain text."
         },
-        "maxRequestsPerRun": { "type": "integer", "minimum": 1, "maximum": 50 },
-        "minIntervalDays": { "type": "integer", "minimum": 1, "maximum": 90 },
-        "maxBytes": { "type": "integer", "minimum": 1024, "maximum": 5000000 },
-        "timeoutSeconds": { "type": "integer", "minimum": 1, "maximum": 60 }
+        "maxRequestsPerRun": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 50
+        },
+        "minIntervalDays": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 90
+        },
+        "maxBytes": {
+          "type": "integer",
+          "minimum": 1024,
+          "maximum": 5000000
+        },
+        "timeoutSeconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 60
+        }
       }
     },
-    "url": { "type": "string", "format": "uri", "pattern": "^https://" },
-    "time": { "type": "string", "format": "date-time", "pattern": "Z$" }
+    "url": {
+      "type": "string",
+      "maxLength": 2000,
+      "pattern": "^https://[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(\\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)+(/[!-~]*)?$"
+    },
+    "time": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]{1,9})?Z$"
+    }
   }
 }

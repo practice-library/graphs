@@ -8,5 +8,14 @@
     "startedAt": "2026-10-31T12:00:00Z",
     "finishedAt": "2026-10-31T12:03:00Z"
   },
+  "requests": 1,
+  "robots": [
+    {
+      "host": "docs.example.com",
+      "fetchedAt": "2026-10-31T12:00:30Z",
+      "httpStatus": 200,
+      "verdict": "allowed"
+    }
+  ],
   "results": []
 }

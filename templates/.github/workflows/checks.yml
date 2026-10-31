@@ -1,0 +1,100 @@
+name: checks
+# Every check a pull request must pass; the ruleset requires "gate / gate".
+# Reusable workflows come from @@org.repo@@, pinned to one commit.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  render:
+    name: render
+    runs-on: @@runner.image@@
+    timeout-minutes: @@runner.timeoutMinutes@@
+    steps:
+      - uses: @@actions.checkout.repo@@@@@actions.checkout.sha@@ # @@actions.checkout.version@@
+        with:
+          persist-credentials: false
+      - name: Generated files match templates/ and policy/constants.json
+        run: bash scripts/render.sh --check
+
+  selftest:
+    name: selftest
+    runs-on: @@runner.image@@
+    timeout-minutes: @@runner.timeoutMinutes@@
+    steps:
+      - uses: @@actions.checkout.repo@@@@@actions.checkout.sha@@ # @@actions.checkout.version@@
+        with:
+          persist-credentials: false
+      - name: The scripts the checks use pass and fail where their cases say
+        run: bash scripts/selftest.sh
+
+  bump-only:
+    name: bump-only
+    runs-on: @@runner.image@@
+    timeout-minutes: @@runner.timeoutMinutes@@
+    steps:
+      - uses: @@actions.checkout.repo@@@@@actions.checkout.sha@@ # @@actions.checkout.version@@
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - name: A pull request touching only allowlisted paths is a date bump and nothing else
+        run: bash scripts/bump-only.sh pr
+
+  graph-check:
+    name: graph-check
+    runs-on: @@runner.image@@
+    timeout-minutes: @@runner.timeoutMinutes@@
+    steps:
+      - uses: @@actions.checkout.repo@@@@@actions.checkout.sha@@ # @@actions.checkout.version@@
+        with:
+          persist-credentials: false
+      - name: Edges stay inside each vendor graph; every source host is in policy/sources.json
+        run: bash scripts/graph-check.sh
+
+  discover:
+    name: discover
+    runs-on: @@runner.image@@
+    timeout-minutes: @@runner.timeoutMinutes@@
+    outputs:
+      targets: ${{ steps.list.outputs.targets }}
+    steps:
+      - uses: @@actions.checkout.repo@@@@@actions.checkout.sha@@ # @@actions.checkout.version@@
+        with:
+          persist-credentials: false
+      - name: Every check.json, contract example and counter-example
+        id: list
+        run: |
+          set -euo pipefail
+          targets="$(bash scripts/discover.sh)"
+          echo "$targets" | jq .
+          echo "targets=$targets" >> "$GITHUB_OUTPUT"
+
+  schema-check:
+    name: schema-check (${{ matrix.name }})
+    needs: [discover]
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.discover.outputs.targets) }}
+    uses: @@org.repo@@/.github/workflows/schema-check.yml@@@org.sha@@
+    with:
+      schema: ${{ matrix.schema }}
+      instances: ${{ matrix.instances }}
+      expect: ${{ matrix.expect }}
+
+  leak-scan:
+    uses: @@org.repo@@/.github/workflows/leak-scan.yml@@@org.sha@@
+
+  gate:
+    if: always()
+    needs: [render, selftest, bump-only, graph-check, discover, schema-check, leak-scan]
+    uses: @@org.repo@@/.github/workflows/gate.yml@@@org.sha@@
+    with:
+      needs: ${{ toJSON(needs) }}
+      required: '["render","selftest","bump-only","graph-check","discover","schema-check","leak-scan"]'
