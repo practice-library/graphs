@@ -1,0 +1,23 @@
+{
+  "id": "rule.github.protected-branches.required-status-checks",
+  "type": "rule",
+  "name": "Required status checks are a branch protection setting",
+  "source": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T16:46:53Z",
+    "quote": "After enabling required status checks, all required status checks must pass before collaborators can merge changes into the protected branch.",
+    "scope": "wherever protected branches are available; on GitHub Free, public repositories only"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.github.protected-branches"
+    },
+    {
+      "rel": "requires",
+      "to": "rule.github.protected-branches.free-public"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "product.github.protected-branches",
+  "type": "product",
+  "name": "Protected branches",
+  "source": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T16:46:53Z",
+    "quote": "You can protect important branches by setting branch protection rules, which define whether collaborators can delete or force push to the branch and set requirements for any pushes to the branch, such as passing status checks or a linear commit history."
+  },
+  "edges": []
+}

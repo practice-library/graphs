@@ -1,0 +1,28 @@
+{
+  "id": "rule.github.actions.included-compute-not-minutes",
+  "type": "rule",
+  "name": "Included Actions compute is money, not minutes",
+  "source": "https://docs.github.com/en/billing/concepts/product-billing/github-actions",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T16:46:43Z",
+    "quote": "The included compute usage is expressed as a monetary amount, not a fixed number of minutes or other usage units.",
+    "scope": "private repositories, every plan",
+    "note": "The page gives no minute count for GitHub Free; a minute figure would have to be derived from the per-minute rate, and is not recorded here."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.github.actions"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free-personal"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "product.github.packages",
+  "type": "product",
+  "name": "GitHub Packages",
+  "source": "https://docs.github.com/en/billing/concepts/product-billing/github-packages",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T16:47:14Z",
+    "quote": "GitHub Packages usage is free for public packages."
+  },
+  "edges": []
+}

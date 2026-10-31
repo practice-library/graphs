@@ -1,0 +1,32 @@
+{
+  "id": "feature.github.security.push-protection-private-free",
+  "type": "feature",
+  "name": "Push protection for repositories: private repositories on GitHub Free",
+  "source": "https://docs.github.com/en/code-security/concepts/secret-security/push-protection",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "unknown",
+    "fetched_at": "2026-10-31T16:47:58Z",
+    "quote": "Requires GitHub Secret Protection to be enabled",
+    "scope": "private repositories, GitHub Free",
+    "note": "Absent: the push protection page (checked) states only that it requires GitHub Secret Protection, not which plans may enable it on private repositories; the secret scanning page names GitHub Team or Enterprise Cloud."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.github.secret-scanning"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free-personal"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free"
+    },
+    {
+      "rel": "requires",
+      "to": "feature.github.security.secret-scanning-org-private"
+    }
+  ]
+}

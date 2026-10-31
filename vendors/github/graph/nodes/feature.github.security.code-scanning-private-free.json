@@ -1,0 +1,27 @@
+{
+  "id": "feature.github.security.code-scanning-private-free",
+  "type": "feature",
+  "name": "Code scanning: private repositories on GitHub Free",
+  "source": "https://docs.github.com/en/code-security/concepts/code-scanning/code-scanning",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "denied",
+    "fetched_at": "2026-10-31T16:48:00Z",
+    "quote": "Public repositories on GitHub.com Organization-owned repositories on GitHub Team, GitHub Enterprise Cloud, or GitHub Enterprise Server, with GitHub Code Security enabled.",
+    "scope": "private repositories, GitHub Free and GitHub Free for organizations: not available"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.github.code-scanning"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free-personal"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free"
+    }
+  ]
+}

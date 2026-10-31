@@ -1,0 +1,27 @@
+{
+  "id": "rule.github.actions.larger-runners-team-enterprise",
+  "type": "rule",
+  "name": "Larger runners: GitHub Team and Enterprise Cloud only",
+  "source": "https://docs.github.com/en/actions/concepts/runners/larger-runners",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "denied",
+    "fetched_at": "2026-10-31T16:46:50Z",
+    "quote": "Larger runners are only available for organizations and enterprises using the GitHub Team or GitHub Enterprise Cloud plans.",
+    "scope": "GitHub Free (personal and organizations): not available"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.github.actions"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free-personal"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free"
+    }
+  ]
+}

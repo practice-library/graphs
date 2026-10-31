@@ -1,0 +1,21 @@
+{
+  "id": "price.github.actions.standard-linux-per-minute",
+  "type": "price",
+  "name": "Standard Linux runner price per minute",
+  "source": "https://docs.github.com/en/billing/concepts/product-billing/github-actions",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T16:46:43Z",
+    "quote": "As a guide, $300 USD covers 50,000 minutes on a standard Linux runner at $0.006 USD per minute.",
+    "value": 0.006,
+    "unit": "USD per minute",
+    "scope": "standard GitHub-hosted Linux runner, private repositories"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.github.actions"
+    }
+  ]
+}

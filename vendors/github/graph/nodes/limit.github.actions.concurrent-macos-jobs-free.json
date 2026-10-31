@@ -1,0 +1,30 @@
+{
+  "id": "limit.github.actions.concurrent-macos-jobs-free",
+  "type": "limit",
+  "name": "Concurrent macOS jobs on the Free plan",
+  "source": "https://docs.github.com/en/actions/reference/limits",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T16:46:45Z",
+    "quote": "Runner type GitHub plan Total concurrent jobs Maximum concurrent macOS jobs Maximum concurrent GPU jobs Standard GitHub-hosted runner Free 20 5 Not applicable",
+    "value": 5,
+    "unit": "concurrent macOS jobs",
+    "scope": "standard GitHub-hosted runners, Free plan, column \"Maximum concurrent macOS jobs\" (the 20 is \"Total concurrent jobs\")",
+    "note": "The page also says: the maximum concurrent macOS jobs is shared across standard GitHub-hosted runners and GitHub-hosted larger runners."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free-personal"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free"
+    },
+    {
+      "rel": "limits",
+      "to": "product.github.actions"
+    }
+  ]
+}

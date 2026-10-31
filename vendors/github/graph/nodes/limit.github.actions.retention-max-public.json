@@ -1,0 +1,21 @@
+{
+  "id": "limit.github.actions.retention-max-public",
+  "type": "limit",
+  "name": "Maximum artifact and log retention, public repositories",
+  "source": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T16:46:48Z",
+    "quote": "For public repositories: you can change this retention period to anywhere between 1 day or 90 days.",
+    "value": 90,
+    "unit": "days",
+    "scope": "public repositories, maximum configurable retention"
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.github.actions"
+    }
+  ]
+}

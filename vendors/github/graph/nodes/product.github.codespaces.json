@@ -1,0 +1,13 @@
+{
+  "id": "product.github.codespaces",
+  "type": "product",
+  "name": "GitHub Codespaces",
+  "source": "https://docs.github.com/en/billing/concepts/product-billing/github-codespaces",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T16:47:19Z",
+    "quote": "All GitHub personal accounts include a quota of free compute time and storage for GitHub Codespaces."
+  },
+  "edges": []
+}

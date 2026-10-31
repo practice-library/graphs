@@ -1,0 +1,30 @@
+{
+  "id": "plan.github.packages.free-data-transfer",
+  "type": "plan",
+  "name": "Free plan GitHub Packages data transfer for private packages",
+  "source": "https://docs.github.com/en/billing/concepts/product-billing/github-packages",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T16:47:14Z",
+    "quote": "Plan Storage Data transfer (per month) GitHub Free 500MB 1GB",
+    "value": 1,
+    "unit": "GB",
+    "window": "per month",
+    "scope": "private packages, GitHub Free (GitHub Free for organizations has the same row), column \"Data transfer (per month)\""
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free-personal"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free"
+    },
+    {
+      "rel": "limits",
+      "to": "product.github.packages"
+    }
+  ]
+}

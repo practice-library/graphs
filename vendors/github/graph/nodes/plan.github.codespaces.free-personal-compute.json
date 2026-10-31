@@ -1,0 +1,26 @@
+{
+  "id": "plan.github.codespaces.free-personal-compute",
+  "type": "plan",
+  "name": "Free personal account Codespaces compute",
+  "source": "https://docs.github.com/en/billing/concepts/product-billing/github-codespaces",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T16:47:19Z",
+    "quote": "GitHub Free for personal accounts 15 GB-month 120 hrs",
+    "value": 120,
+    "unit": "hours",
+    "window": "per month",
+    "scope": "GitHub Free for personal accounts, column \"Compute time per month\" (the plans page calls these core hours)"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "plan.github.free-personal"
+    },
+    {
+      "rel": "limits",
+      "to": "product.github.codespaces"
+    }
+  ]
+}
