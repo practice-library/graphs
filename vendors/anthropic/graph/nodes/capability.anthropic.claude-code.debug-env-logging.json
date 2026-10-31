@@ -1,0 +1,22 @@
+{
+  "id": "capability.anthropic.claude-code.debug-env-logging",
+  "type": "capability",
+  "name": "DEBUG=true request logging",
+  "source": "https://code.claude.com/docs/en/changelog",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:45:05Z",
+    "quote": "Removed DEBUG=true in favor of ANTHROPIC_LOG=debug, to log all requests"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.anthropic.claude-code"
+    },
+    {
+      "rel": "removedIn",
+      "to": "release.anthropic.claude-code.0-2-125"
+    }
+  ]
+}

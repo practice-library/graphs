@@ -1,0 +1,16 @@
+{
+  "id": "release.anthropic.claude-code.0-2-117",
+  "type": "release",
+  "name": "Claude Code 0.2.117",
+  "source": "https://code.claude.com/docs/en/changelog",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:45:05Z",
+    "quote": "JSON output now returns nested message objects, for forwards-compatibility as we introduce new metadata fields",
+    "scope": "0.2.117",
+    "window": "2025-05-17",
+    "note": "Breaking: the changelog marks this a breaking change; --print JSON output now returns nested message objects."
+  },
+  "edges": []
+}

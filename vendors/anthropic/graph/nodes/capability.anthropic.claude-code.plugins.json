@@ -1,0 +1,22 @@
+{
+  "id": "capability.anthropic.claude-code.plugins",
+  "type": "capability",
+  "name": "Plugins",
+  "source": "https://code.claude.com/docs/en/changelog",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:45:05Z",
+    "quote": "Plugin System Released: Extend Claude Code with custom commands, agents, hooks, and MCP servers from marketplaces"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.anthropic.claude-code"
+    },
+    {
+      "rel": "introducedIn",
+      "to": "release.anthropic.claude-code.2-0-12"
+    }
+  ]
+}

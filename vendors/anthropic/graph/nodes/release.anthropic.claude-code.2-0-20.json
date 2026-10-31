@@ -1,0 +1,15 @@
+{
+  "id": "release.anthropic.claude-code.2-0-20",
+  "type": "release",
+  "name": "Claude Code 2.0.20",
+  "source": "https://code.claude.com/docs/en/changelog",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:45:05Z",
+    "quote": "Added support for Claude Skills",
+    "scope": "2.0.20",
+    "window": "2025-10-16"
+  },
+  "edges": []
+}

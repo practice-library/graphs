@@ -1,0 +1,22 @@
+{
+  "id": "rule.anthropic.api.cache-read-price",
+  "type": "rule",
+  "name": "Prompt cache read price",
+  "source": "https://platform.claude.com/docs/en/about-claude/pricing",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:45:43Z",
+    "quote": "A cache hit costs 10% of the standard input price",
+    "value": 10,
+    "unit": "percent of the base input price",
+    "scope": "prompt cache reads",
+    "note": "The pricing page lists lower rates for some models: 0.025x on Claude Fable 5.1 and Claude Mythos 5.1, 0.05x on Claude Opus 5.5 and Claude Sonnet 5.5."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.anthropic.api"
+    }
+  ]
+}

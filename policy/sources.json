@@ -23,6 +23,46 @@
       "minIntervalDays": 7,
       "maxBytes": 2000000,
       "timeoutSeconds": 30
+    },
+    {
+      "host": "code.claude.com",
+      "vendor": "anthropic",
+      "robots": {
+        "url": "https://code.claude.com/robots.txt",
+        "checkedAt": "2026-10-31T15:47:31Z",
+        "verdict": "allowed",
+        "note": "User-agent: * disallows only /cdn-cgi/ and /_next/ (allowing /_next/image); the cited pages are under /docs/. It also declares Content-Signal: ai-train=yes, search=yes, ai-input=yes."
+      },
+      "terms": {
+        "url": "https://www.anthropic.com/legal/consumer-terms",
+        "checkedAt": "2026-10-31T15:04:44Z",
+        "quote": "To crawl, scrape, or otherwise harvest data or information from our Services other than as permitted under these Terms."
+      },
+      "format": "html",
+      "maxRequestsPerRun": 10,
+      "minIntervalDays": 7,
+      "maxBytes": 5000000,
+      "timeoutSeconds": 60
+    },
+    {
+      "host": "platform.claude.com",
+      "vendor": "anthropic",
+      "robots": {
+        "url": "https://platform.claude.com/robots.txt",
+        "checkedAt": "2026-10-31T15:47:32Z",
+        "verdict": "allowed",
+        "note": "User-Agent: * disallows only /api/; the cited pages are under /docs/."
+      },
+      "terms": {
+        "url": "https://www.anthropic.com/legal/consumer-terms",
+        "checkedAt": "2026-10-31T15:04:44Z",
+        "quote": "To crawl, scrape, or otherwise harvest data or information from our Services other than as permitted under these Terms."
+      },
+      "format": "html",
+      "maxRequestsPerRun": 10,
+      "minIntervalDays": 7,
+      "maxBytes": 2000000,
+      "timeoutSeconds": 30
     }
   ]
 }

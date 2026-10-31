@@ -1,0 +1,21 @@
+{
+  "id": "rule.anthropic.api.retirement-notice",
+  "type": "rule",
+  "name": "At least 60 days notice before a model retires",
+  "source": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:44:57Z",
+    "quote": "Anthropic notifies customers with active deployments for models with upcoming retirements, providing at least 60 days’ notice before model retirement for publicly released models.",
+    "value": 60,
+    "unit": "days",
+    "scope": "publicly released models"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.anthropic.api"
+    }
+  ]
+}

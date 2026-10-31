@@ -1,0 +1,21 @@
+{
+  "id": "plan.anthropic.api.scale",
+  "type": "plan",
+  "name": "Scale usage tier",
+  "source": "https://platform.claude.com/docs/en/api/rate-limits",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T15:45:00Z",
+    "quote": "$200,000 USD",
+    "value": 200000,
+    "unit": "USD per calendar month, spend cap",
+    "scope": "Scale tier"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.anthropic.api"
+    }
+  ]
+}

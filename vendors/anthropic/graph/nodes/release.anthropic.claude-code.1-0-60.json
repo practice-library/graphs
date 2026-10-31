@@ -1,0 +1,15 @@
+{
+  "id": "release.anthropic.claude-code.1-0-60",
+  "type": "release",
+  "name": "Claude Code 1.0.60",
+  "source": "https://code.claude.com/docs/en/changelog",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:45:05Z",
+    "quote": "You can now create custom subagents for specialized tasks!",
+    "scope": "1.0.60",
+    "window": "2025-07-24"
+  },
+  "edges": []
+}

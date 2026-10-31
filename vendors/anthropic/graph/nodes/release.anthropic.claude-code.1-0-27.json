@@ -1,0 +1,15 @@
+{
+  "id": "release.anthropic.claude-code.1-0-27",
+  "type": "release",
+  "name": "Claude Code 1.0.27",
+  "source": "https://code.claude.com/docs/en/changelog",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:45:05Z",
+    "quote": "Streamable HTTP MCP servers are now supported",
+    "scope": "1.0.27",
+    "window": "2025-06-18"
+  },
+  "edges": []
+}

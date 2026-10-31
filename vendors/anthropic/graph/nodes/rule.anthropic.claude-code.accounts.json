@@ -1,0 +1,19 @@
+{
+  "id": "rule.anthropic.claude-code.accounts",
+  "type": "rule",
+  "name": "Accounts that include Claude Code",
+  "source": "https://code.claude.com/docs/en/setup",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T15:45:08Z",
+    "quote": "Claude Code requires a Pro, Max, Ultra, Team, Enterprise, or Console account.",
+    "scope": "Pro, Max, Ultra, Team, Enterprise or Console account"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.anthropic.claude-code"
+    }
+  ]
+}

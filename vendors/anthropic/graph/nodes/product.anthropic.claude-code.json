@@ -1,0 +1,70 @@
+{
+  "id": "product.anthropic.claude-code",
+  "type": "product",
+  "name": "Claude Code",
+  "source": "https://code.claude.com/docs/en/overview",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:45:10Z",
+    "quote": "Claude Code is an AI-powered coding assistant that helps you build features, fix bugs, and automate development tasks."
+  },
+  "edges": [
+    {
+      "rel": "hasRelease",
+      "to": "release.anthropic.claude-code.2-1-316"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.anthropic.claude-code.2-1-75"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.anthropic.claude-code.2-1-0"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.anthropic.claude-code.2-0-62"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.anthropic.claude-code.2-0-20"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.anthropic.claude-code.2-0-12"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.anthropic.claude-code.2-0-0"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.anthropic.claude-code.1-0-60"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.anthropic.claude-code.1-0-38"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.anthropic.claude-code.1-0-27"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.anthropic.claude-code.1-0-0"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.anthropic.claude-code.0-2-125"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.anthropic.claude-code.0-2-117"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.anthropic.claude-code.0-2-54"
+    }
+  ]
+}

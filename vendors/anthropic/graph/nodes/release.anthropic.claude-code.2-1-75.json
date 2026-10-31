@@ -1,0 +1,16 @@
+{
+  "id": "release.anthropic.claude-code.2-1-75",
+  "type": "release",
+  "name": "Claude Code 2.1.75",
+  "source": "https://code.claude.com/docs/en/changelog",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:45:05Z",
+    "quote": "Breaking change: Removed deprecated Windows managed settings fallback",
+    "scope": "2.1.75",
+    "window": "2026-03-13",
+    "note": "Breaking: the managed settings fallback under C:\\ProgramData\\ClaudeCode is removed."
+  },
+  "edges": []
+}

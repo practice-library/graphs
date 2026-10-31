@@ -1,0 +1,22 @@
+{
+  "id": "capability.anthropic.claude-code.mcp-sse-transport",
+  "type": "capability",
+  "name": "MCP servers over SSE",
+  "source": "https://code.claude.com/docs/en/changelog",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T15:45:05Z",
+    "quote": "Added support for MCP SSE transport"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.anthropic.claude-code"
+    },
+    {
+      "rel": "introducedIn",
+      "to": "release.anthropic.claude-code.0-2-54"
+    }
+  ]
+}
