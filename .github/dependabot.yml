@@ -1,0 +1,11 @@
+# practice-library/.github's consumer template (consumer/.github/dependabot.yml, release v1.0.0).
+# Dependabot proposes new pins for the reusable workflows and actions this repository uses. It edits
+# the rendered workflows, so its pull request fails the render check until the new pin is put in
+# policy/constants.json and scripts/render.sh is run on the same branch; a maintainer reviews it.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5

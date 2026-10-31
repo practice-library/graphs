@@ -1,9 +1,12 @@
 {
   "org": {
     "repo": "practice-library/.github",
-    "sha": "cb535908f8b5c4314b6a21232dedd9e5b5048c10",
+    "sha": "18375c2eb2205e1095029b00ee8fddb16a55f622",
+    "ref": "v1.0.0",
     "maintainer": "@practice-library/maintainers",
-    "trustedAuthors": ["practice-library[bot]"],
+    "trustedAuthors": [
+      "practice-library[bot]"
+    ],
     "mergeMethod": "merge"
   },
   "actions": {
@@ -16,5 +19,16 @@
   "runner": {
     "image": "ubuntu-24.04",
     "timeoutMinutes": 10
+  },
+  "gate": {
+    "needs": [
+      "render",
+      "selftest",
+      "bump-only",
+      "graph-check",
+      "discover",
+      "schema-check",
+      "leak-scan"
+    ]
   }
 }

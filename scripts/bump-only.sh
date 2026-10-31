@@ -48,9 +48,13 @@ pr() {
   [ "${GITHUB_EVENT_NAME:-}" = pull_request ] || { echo "not a pull request: nothing to check"; return 0; }
   local tmp verdict path
   tmp="$(mktemp -d)"
-  # The allowlist auto-merge uses: main's automerge.yml, which pull_request_target runs.
-  git show HEAD^1:.github/workflows/automerge.yml | sed -n "s/^ *allow-paths: '\(.*\)'$/\1/p" > "$tmp/allow"
-  jq -e 'type == "array"' "$tmp/allow" >/dev/null || die "cannot read allow-paths from main's automerge.yml"
+  # The allowlist auto-merge uses: .github/automerge-paths.json on the base commit, none when absent.
+  if git cat-file -e HEAD^1:.github/automerge-paths.json 2>/dev/null; then
+    git show HEAD^1:.github/automerge-paths.json | jq -c '.paths' > "$tmp/allow" || die "main's .github/automerge-paths.json is not valid JSON"
+  else
+    echo '[]' > "$tmp/allow"
+  fi
+  jq -e 'type == "array"' "$tmp/allow" >/dev/null || die "main's .github/automerge-paths.json has no paths array"
   git diff --no-renames --name-status HEAD^1 HEAD > "$tmp/diff"
   verdict="$(classify "$tmp/allow" "$tmp/diff")"
   case "$verdict" in

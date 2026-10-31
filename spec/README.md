@@ -1,6 +1,6 @@
 # Contracts
 
-Each contract is a directory with `schema.json` (JSON Schema 2020-12), `examples/` that must pass and `counter-examples/` that must fail, each for one named reason. `scripts/discover.sh` lists them all, including the node schema of every domain, for the organisation's schema check: the examples with expect pass, each counter-example on its own with expect fail. Code that reads or writes these files is generated from, or tested against, these schemas.
+Each contract is a directory with `schema.json` (JSON Schema 2020-12), `examples/` that must pass and `counter-examples/` that must fail, each for one named reason. Its `check.json` lists two targets for the organisation's schema check: the examples with expect pass, and the counter-examples with expect fail and `each`, so every one of them must fail on its own. The node schema of every domain is checked the same way. Code that reads or writes these files is generated from, or tested against, these schemas.
 
 ## refresh-report
 

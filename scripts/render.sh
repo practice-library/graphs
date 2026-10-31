@@ -3,7 +3,9 @@
 # @@a.b.c@@ with that value from policy/constants.json (arrays and objects as compact JSON).
 # @@gen.allowPaths@@ and @@gen.unowned@@ are generated from scripts/graphs.sh: one auto-merge
 # allowlist entry and one CODEOWNERS line without an owner per vendor graph, the same list in both.
-# A placeholder whose value is missing is an error.
+# @@gate.needs@@ is written both as the gate's needs and as .github/required-checks.json.
+# A rendered .json file carries no header (JSON has no comments). A placeholder whose value is
+# missing is an error.
 # Usage: scripts/render.sh          write the rendered files
 #        scripts/render.sh --check  write nothing; fail when a rendered file differs or is missing
 set -euo pipefail
@@ -27,8 +29,13 @@ while IFS= read -r t; do
       | if $v == null then error($t + ": no value for @@" + .k + "@@ in policy/constants.json")
         elif ($v | type) == "string" then $v
         else ($v | tojson) end)' "$t")"
-  header="# Generated from $t and $constants by scripts/render.sh. Do not edit."
-  content="$header"$'\n'"$rendered"
+  # JSON has no comments, so a rendered .json file carries no header; it must still parse.
+  if [ "${out##*.}" = json ]; then
+    jq -e . >/dev/null <<<"$rendered" || { echo "FAIL $t does not render to valid JSON"; failed=1; continue; }
+    content="$rendered"
+  else
+    content="# Generated from $t and $constants by scripts/render.sh. Do not edit."$'\n'"$rendered"
+  fi
   if [ "$mode" = --check ]; then
     if [ ! -f "$out" ] || [ "$(cat "$out")" != "$content" ]; then
       echo "FAIL $out differs from $t rendered; run scripts/render.sh"; failed=1

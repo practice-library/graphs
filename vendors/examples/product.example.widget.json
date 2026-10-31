@@ -9,10 +9,5 @@
     "fetched_at": "2026-10-31T12:00:00Z",
     "quote": "Widget is a hosted service."
   },
-  "edges": [
-    {
-      "rel": "offeredBy",
-      "to": "vendor.example"
-    }
-  ]
+  "edges": []
 }
