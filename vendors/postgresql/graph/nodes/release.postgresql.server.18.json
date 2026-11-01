@@ -1,16 +1,16 @@
 {
   "id": "release.postgresql.server.18",
   "type": "release",
-  "name": "PostgreSQL 18 (current minor 18.6)",
+  "name": "PostgreSQL 18 (major version)",
   "source": "https://www.postgresql.org/support/versioning/",
   "measuredAt": "2026-11-01",
   "attrs": {
     "verdict": "allowed",
     "fetched_at": "2026-11-01T07:13:50Z",
     "quote": "18 18.6 Yes September 25, 2025 November 14, 2030",
-    "scope": "18.6",
+    "scope": "18",
     "window": "2025-09-25",
-    "note": "Supported. First release 2025-09-25; final release 2030-11-14 per the versioning page; the current major version."
+    "note": "Supported. 18.0 first released 2025-09-25; final release 2030-11-14. Current minor 18.6 per the versioning page; the current major version."
   },
   "edges": []
 }

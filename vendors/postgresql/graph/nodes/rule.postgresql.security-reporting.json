@@ -9,7 +9,7 @@
     "fetched_at": "2026-11-01T07:13:56Z",
     "quote": "For security vulnerabilities in PostgreSQL or any of the installers linked from the PostgreSQL download page, please email security@postgresql.org.",
     "scope": "PostgreSQL and the installers linked from its download page",
-    "note": "The project offers no bug bounties. It is a CVE Numbering Authority. Fixes go into the next scheduled minor release, or an out-of-cycle release in exceptional cases."
+    "note": "The project offers no bug bounties. It is a CVE Numbering Authority. It aims to ship fixes in the next scheduled minor release, but may include a fix in a later release."
   },
   "edges": [
     {

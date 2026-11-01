@@ -1,16 +1,16 @@
 {
   "id": "release.postgresql.server.16",
   "type": "release",
-  "name": "PostgreSQL 16 (current minor 16.15)",
+  "name": "PostgreSQL 16 (major version)",
   "source": "https://www.postgresql.org/support/versioning/",
   "measuredAt": "2026-11-01",
   "attrs": {
     "verdict": "allowed",
     "fetched_at": "2026-11-01T07:13:50Z",
     "quote": "16 16.15 Yes September 14, 2023 November 9, 2028",
-    "scope": "16.15",
+    "scope": "16",
     "window": "2023-09-14",
-    "note": "Supported. First release 2023-09-14; final release 2028-11-09 per the versioning page."
+    "note": "Supported. 16.0 first released 2023-09-14; final release 2028-11-09. Current minor 16.15 per the versioning page."
   },
   "edges": []
 }

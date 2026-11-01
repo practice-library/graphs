@@ -1,0 +1,20 @@
+{
+  "id": "rule.postgresql.trademark-business-name",
+  "type": "rule",
+  "name": "The marks may not be used in a business or trade name",
+  "source": "https://www.postgresql.org/about/policies/trademarks/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "denied",
+    "fetched_at": "2026-11-01T07:14:05Z",
+    "quote": "Do not use the marks in a business name or trade name.",
+    "scope": "business names and trade names",
+    "note": "Listed among the policy’s general restrictions, alongside not registering a trademark that contains the marks or a variant."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "vendor.postgresql"
+    }
+  ]
+}

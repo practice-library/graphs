@@ -1,0 +1,20 @@
+{
+  "id": "rule.postgresql.trademark-naming-approval",
+  "type": "rule",
+  "name": "Company, product or domain names need prior approval",
+  "source": "https://www.postgresql.org/about/policies/trademarks/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T07:14:05Z",
+    "quote": "if you want to use our marks (or some variant of them) in your company name, product name or domain name, you must obtain prior approval",
+    "scope": "company, product and domain names using Postgres, PostgreSQL or a variant",
+    "note": "Approval is sought by contacting the PostgreSQL Community Association of Canada."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "vendor.postgresql"
+    }
+  ]
+}
