@@ -9,7 +9,7 @@
     "fetched_at": "2026-11-01T08:10:12Z",
     "quote": "durable namespace and home inbox",
     "scope": "orchestration messages, inbox and ask questions",
-    "note": "Absent: the docs say a Run is durable and relays are durable, but the files read name no storage location or retention period."
+    "note": "Absent: docs/site/content/docs/cli/orchestration.mdx and src/cli/specs/orchestration.ts (checked) say Runs and relays are durable but name no storage location, retention period or what marks a message read beyond check."
   },
   "edges": [
     {

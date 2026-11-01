@@ -9,7 +9,7 @@
     "fetched_at": "2026-11-01T08:16:15Z",
     "quote": "Reset one explicit orchestration state scope",
     "scope": "orca orchestration reset --all | --tasks | --messages",
-    "note": "Marked destructive in its spec. Exactly what each scope deletes is not stated in the files read."
+    "note": "Marked destructive in its spec. Exactly what each scope deletes is not stated in src/cli/specs/orchestration.ts or orchestration.mdx (checked)."
   },
   "edges": [
     {

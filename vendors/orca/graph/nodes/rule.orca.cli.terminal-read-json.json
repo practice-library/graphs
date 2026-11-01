@@ -9,7 +9,7 @@
     "fetched_at": "2026-11-01T08:11:10Z",
     "quote": "printResult(result, json, formatTerminalRead)",
     "scope": "orca terminal read --json and orca terminal list --json",
-    "note": "terminal list also uses printResult. So, per rule.orca.cli.json-output, control characters in tail lines and titles are escaped and stdout is valid JSON."
+    "note": "terminal list also uses printResult, so control characters in tail lines and titles are escaped as rule.orca.cli.json-output describes. That is this repository reading, not an upstream promise."
   },
   "edges": [
     {

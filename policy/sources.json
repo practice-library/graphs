@@ -359,7 +359,7 @@
         "quote": "Scraping refers to extracting information from our Service via an automated process, such as a bot or webcrawler."
       },
       "format": "text",
-      "maxRequestsPerRun": 27,
+      "maxRequestsPerRun": 28,
       "minIntervalDays": 7,
       "maxBytes": 200000,
       "timeoutSeconds": 30

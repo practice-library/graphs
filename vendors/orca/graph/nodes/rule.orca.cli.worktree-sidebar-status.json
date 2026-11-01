@@ -1,15 +1,15 @@
 {
-  "id": "rule.orca.cli.worktree-status-priority",
+  "id": "rule.orca.cli.worktree-sidebar-status",
   "type": "rule",
-  "name": "Agent evidence overrides the title heuristic, permission first",
+  "name": "sidebarStatus: the desktop sidebar dot, with more values",
   "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/shared/worktree-status-rollup.ts",
   "measuredAt": "2026-11-01",
   "attrs": {
     "verdict": "limited",
     "fetched_at": "2026-11-01T08:12:25Z",
     "quote": "Overlay explicit agent evidence on the terminal-title heuristic",
-    "scope": "the status shown for a worktree",
-    "note": "Order: permission, failed, working, monitoring, retained failed, unconfirmed, interrupted, done, then the heuristic. A blocked or waiting agent counts as permission."
+    "scope": "the optional sidebarStatus field of a worktree ps row",
+    "note": "Values add failed, monitoring, interrupted, unconfirmed. Order: permission, failed, working, monitoring, retained failed, unconfirmed, interrupted, done, then the title heuristic. Older hosts omit it."
   },
   "edges": [
     {

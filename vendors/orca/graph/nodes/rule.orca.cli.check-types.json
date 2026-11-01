@@ -1,14 +1,15 @@
 {
   "id": "rule.orca.cli.check-types",
   "type": "rule",
-  "name": "--types only sets the wake condition",
+  "name": "--types sets the wake condition and filters only --peek and --all",
   "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration.ts",
   "measuredAt": "2026-11-01",
   "attrs": {
     "verdict": "limited",
     "fetched_at": "2026-11-01T08:16:15Z",
     "quote": "--types is the wake condition for --wait; a returned Delivery is always the whole FIFO batch, so it is never filtered by type.",
-    "scope": "orca orchestration check --types"
+    "scope": "orca orchestration check --types",
+    "note": "The same note adds: Only --peek and --all filter their rows. Without --wait it has no effect on consuming checks."
   },
   "edges": [
     {

@@ -9,7 +9,7 @@
     "fetched_at": "2026-11-01T08:16:15Z",
     "quote": "Create a new Orca-managed worktree",
     "scope": "orca worktree create",
-    "note": "Absent: the create spec and the files read do not state where the checkout folder is placed. The quote is the spec summary; it does not support a location claim."
+    "note": "Absent: src/cli/specs/core.ts (checked), docs/site/content/docs/cli/overview.mdx and reference.mdx (checked) do not state where the checkout folder is placed. The quote does not support a location."
   },
   "edges": [
     {

@@ -9,7 +9,7 @@
     "fetched_at": "2026-11-01T08:11:10Z",
     "quote": "Chained commands such as wait && send need a failing exit for an unsatisfied condition.",
     "scope": "orca terminal wait --for exit|tui-idle",
-    "note": "On timeout the result has satisfied false. The RPC waits --timeout-ms plus 5 seconds."
+    "note": "The handler sets exit 1 when the result reports satisfied false. The RPC waits --timeout-ms plus 5 seconds."
   },
   "edges": [
     {

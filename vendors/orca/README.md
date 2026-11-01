@@ -17,7 +17,7 @@ Only two hosts, both recorded in `policy/sources.json`:
   - command definitions: `src/cli/specs/` (core, orchestration, orchestration workers, terminal close, send, daemon and pane title, worktree set, listing notes);
   - CLI behaviour: `src/cli/` (output, errors, entry point, worktree removal request and warnings, terminal handlers, worktree ps verdicts);
   - shared types and host code: `src/shared/` (envelope, flags, worktree contracts, status rollup) and `src/main/` (worktree removal and its preflight, status projection);
-  - documentation: `docs/site/content/docs/cli/` (overview, orchestration);
+  - documentation: `docs/site/content/docs/cli/` (overview, orchestration, reference);
   - `LICENSE`.
 - **`api.github.com`:** the commit endpoint, for the release date.
 
@@ -43,7 +43,7 @@ Breadth (questions 1 to 6) for the four groups:
    - `rule.orca.cli.json-success-envelope`;
    - `rule.orca.cli.json-failure-envelope`;
    - `rule.orca.cli.local-error-envelope`.
-4. **Errors:** `rule.orca.cli.error-exit-code`. `rule.orca.cli.error-codes` is `unknown`: no catalogue was found, and its note lists the codes the files name. Commands with their own exit rules have their own nodes.
+4. **Errors:** `rule.orca.cli.error-exit-code`. `rule.orca.cli.error-codes` is `unknown`: no catalogue was found, and its note lists the codes the files name. #64 named `src/cli/cli-exit-code.ts`, which does not exist at the pinned commit. Commands with their own exit rules have their own nodes.
 5. **Effects:** in each capability node's note.
 6. **Force:** in these groups only `worktree rm` takes `--force`: `permission.orca.cli.worktree-rm-force` and `permission.orca.cli.worktree-rm-force-pty`. `rule.orca.cli.worktree-rm-hook-failure` is what `--force` does not waive. `terminal-daemon restart` requires `--yes`.
 
@@ -58,17 +58,18 @@ Depth:
    - the two `--force` permissions.
 9. **States:**
    - `rule.orca.cli.worktree-status-values` (`active`, `working`, `permission`, `done`, `inactive`; there is no idle or busy);
-   - `-status-heuristic`, `-status-priority` and `worktree-ps-terminal-verdict`;
+   - `-status-heuristic` and `-status-merge` (the row takes the highest status of its terminals: permission, working, done, active, inactive);
+   - `-sidebar-status` (the optional sidebar field, which has more values) and `worktree-ps-terminal-verdict`;
    - `worktree-listing-scope`.
 10. **worktree set:** `rule.orca.cli.worktree-set-fields`. Where the metadata is stored is not stated.
-11. **Handles:** `rule.orca.cli.terminal-handle-server`. `terminal-handle-lifetime` is `unknown`.
+11. **Handles:** `rule.orca.cli.terminal-handle-server` and `terminal-handle-lifetime` (runtime-scoped: reacquire after a restart).
 12. **create, send and wait:** `rule.orca.cli.terminal-create-tab`, `terminal-send-raw`, `terminal-send-retry` and `terminal-wait-exit` (exit 1 when not satisfied).
 13. **Encoding:**
     - `rule.orca.cli.terminal-read-stripped` (escape sequences are stripped by default);
     - `terminal-read-json` (read and list print through the shared JSON printer);
     - `json-output` (`JSON.stringify`, which escapes U+0000 to U+001F);
     - `check-keepalive`: `check --wait` writes JSON lines to stderr, which mix into the output if stderr is merged with stdout.
-14. **close:** `rule.orca.cli.terminal-close-scope` and `terminal-close-all`. What close refuses is not stated.
+14. **close:** `rule.orca.cli.terminal-close-scope`, `terminal-close-all` and `terminal-close-unverifiable` (bulk close fails if it cannot confirm every terminal stopped).
 15. **Daemon:** `rule.orca.cli.terminal-daemon-restart` (ends every process), `terminal-daemon-recheck` and `terminal-daemon-status`.
 16. **Projects, repos and references:** answered in slice 2.
 17. **What removing a project deletes:** answered in slice 2.
@@ -81,7 +82,7 @@ Depth:
     - `coordinator-retired` and `request-show-absent`.
 20. **Messages:** `rule.orca.cli.send-types`. `message-store` is `unknown`: no storage location or retention period is stated.
 21. **check:**
-    - `rule.orca.cli.check-default`, `check-replay`, `check-types` and `check-keepalive`;
+    - `rule.orca.cli.check-default`, `check-replay`, `check-types` (the wake condition for `--wait`; it filters only `--peek` and `--all`) and `check-keepalive`;
     - `limit.orca.cli.check-peek-rows`.
 
 Limits: `limit.orca.cli.ask-timeout` (30 minutes), `check-peek-rows`, `worker-list-rows`, `task-list-brief` and `terminal-read-default-lines`.
@@ -89,7 +90,7 @@ Limits: `limit.orca.cli.ask-timeout` (30 minutes), `check-peek-rows`, `worker-li
 ## Not covered in this slice
 
 These are 238 of the 288 commands that `orca agent-context --json` lists at the pinned tag. They follow in slices 2 to 4.
-- **Unnamed command:** one top-level command is counted but not named here. Its name contains a word this organisation's content denylist rejects (#64).
+- **Unnamed commands:** four commands are counted but not named here: one top-level command and the three `speech` commands. Each name contains a word this organisation's content denylist rejects (#64).
 - **Hidden command:** a hidden, deprecated `terminal stop` is defined in the spec but absent from that list, so it is not a node.
 
 - `account` (4): `add`, `list`, `rm`, `select`.
@@ -115,10 +116,10 @@ These are 238 of the 288 commands that `orca agent-context --json` lists at the 
 - `project` (7): `list`, `setup-clone`, `setup-create`, `setup-delete`, `setup-existing-folder`, `setup-update`, `setups`.
 - `reference` (4): `add`, `find`, `list`, `remove`.
 - `repo` (6): `add`, `list`, `search-refs`, `set`, `set-base-ref`, `show`.
-- `serve` (5): ``, `restore resume`, `service install`, `service status`, `service uninstall`.
+- `serve` (5): `serve` itself, `restore resume`, `service install`, `service status`, `service uninstall`.
 - `set` (5): `credentials`, `device`, `headers`, `media`, `offline`.
 - `skills` (6): `get`, `install`, `installed`, `list`, `share`, `update`.
-- `speech` (3): `openai-key clear`, `openai-key set`, `openai-key status`.
+- `speech` (3): counted, not named. Their names contain a word the content denylist rejects.
 - `storage` (6): `local clear`, `local get`, `local set`, `session clear`, `session get`, `session set`.
 - `tab` (13): `close`, `create`, `current`, `list`, `profile clone`, `profile create`, `profile delete`, `profile list`, `profile set`, `profile show`, `profile use-default`, `show`, `switch`.
 - `vm` (1): `recipe doctor`.

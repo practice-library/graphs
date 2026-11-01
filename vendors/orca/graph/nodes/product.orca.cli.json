@@ -8,7 +8,7 @@
     "verdict": "allowed",
     "fetched_at": "2026-11-01T08:10:13Z",
     "quote": "The Orca CLI is the `orca` command-line interface for scripting a running Orca editor from any shell.",
-    "note": "It ships with the desktop app. On Linux the command is orca-ide. Most commands talk to the running Orca runtime."
+    "note": "It ships with the desktop app. On Linux the command is orca-ide."
   },
   "edges": [
     {

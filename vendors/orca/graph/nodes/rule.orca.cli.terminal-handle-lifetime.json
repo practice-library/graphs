@@ -1,15 +1,14 @@
 {
   "id": "rule.orca.cli.terminal-handle-lifetime",
   "type": "rule",
-  "name": "How long a terminal handle stays valid",
-  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/cli-error.ts",
+  "name": "Handles are runtime-scoped; reacquire them after a restart",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/docs/site/content/docs/cli/reference.mdx",
   "measuredAt": "2026-11-01",
   "attrs": {
-    "verdict": "unknown",
-    "fetched_at": "2026-11-01T08:10:09Z",
-    "quote": "code === 'terminal_handle_stale'",
-    "scope": "terminal handles across close, rename and restart",
-    "note": "Absent: the files read name the stale-handle error but do not say how long a handle lives, or whether it survives an app or daemon restart."
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:41:22Z",
+    "quote": "Terminal handles are runtime-scoped. If Orca restarts or a command reports a stale terminal handle, run `orca terminal list --json` and reacquire the handle.",
+    "scope": "terminal handles across an Orca restart"
   },
   "edges": [
     {

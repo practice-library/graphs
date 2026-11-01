@@ -9,7 +9,7 @@
     "fetched_at": "2026-11-01T08:10:10Z",
     "quote": "console.log(JSON.stringify(prepareComputerCliJsonResult(response), null, 2))",
     "scope": "every command that prints through printResult",
-    "note": "Without --json a per-command formatter prints text. JSON.stringify escapes U+0000 to U+001F inside strings, so this output is valid JSON."
+    "note": "Without --json a per-command formatter prints text. This repository reads it as valid JSON because JSON.stringify escapes U+0000 to U+001F; no upstream promise of valid JSON was found."
   },
   "edges": [
     {

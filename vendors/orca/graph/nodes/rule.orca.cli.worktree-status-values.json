@@ -9,7 +9,7 @@
     "fetched_at": "2026-11-01T08:12:09Z",
     "quote": "export type RuntimeWorktreeStatus = 'active' | 'working' | 'permission' | 'done' | 'inactive'",
     "scope": "status field of worktree ps rows",
-    "note": "There is no idle or busy value. Each agent row has its own state; a worktree row also has an optional workingMode."
+    "note": "There is no idle or busy value. A row also has an optional workingMode and an optional sidebarStatus (rule.orca.cli.worktree-sidebar-status), which has more values."
   },
   "edges": [
     {

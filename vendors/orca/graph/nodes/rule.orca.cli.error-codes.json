@@ -9,7 +9,7 @@
     "fetched_at": "2026-11-01T08:10:09Z",
     "quote": "if (code === 'selector_not_found' && context.worktreeSelector) {",
     "scope": "error.code values",
-    "note": "Absent: no catalogue in the files read. Codes they name: selector_not_found, selector_ambiguous, terminal_handle_stale, runtime_unavailable, runtime_timeout, invalid_argument, runtime_error, worktree_archive_hook_failed, worktree_removal_in_progress."
+    "note": "Absent: no catalogue in src/cli/ (checked). Named: selector_not_found, selector_ambiguous, terminal_handle_stale, runtime_unavailable, runtime_timeout, invalid_argument, runtime_error, incompatible_runtime, accessibility_error, worktree_archive_hook_failed, worktree_removal_in_progress."
   },
   "edges": [
     {
