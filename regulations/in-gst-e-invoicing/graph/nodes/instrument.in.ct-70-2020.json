@@ -1,0 +1,27 @@
+{
+  "id": "instrument.in.ct-70-2020",
+  "type": "instrument",
+  "name": "Central Tax notification 70/2020: amends 13/2020",
+  "source": "https://egazette.gov.in/WriteReadData/2020/222145.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T06:40:17Z",
+    "quote": "hereby makes the following further amendments in the notification of the Government of India in the Ministry of Finance (Department of Revenue), No. 13/2020",
+    "window": "2020-09-30"
+  },
+  "edges": [
+    {
+      "rel": "issuedBy",
+      "to": "authority.in.mof-revenue"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.ct-13-2020"
+    }
+  ]
+}

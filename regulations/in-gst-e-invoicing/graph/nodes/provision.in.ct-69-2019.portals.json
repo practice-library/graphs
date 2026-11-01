@@ -1,0 +1,22 @@
+{
+  "id": "provision.in.ct-69-2019.portals",
+  "type": "provision",
+  "name": "Ten e-invoice portals notified from 1 January 2020",
+  "source": "https://egazette.gov.in/WriteReadData/2019/214686.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:04:07Z",
+    "quote": "This notification shall come into force with effect from the 1stday of January, 2020.",
+    "scope": "preparation of invoices under rule 48(4)",
+    "window": "2020-01-01",
+    "status": "in-force",
+    "note": "www.einvoice1.gst.gov.in to www.einvoice10.gst.gov.in, websites managed by the Goods and Services Tax Network, are the Common Goods and Services Tax Electronic Portal for rule 48(4)."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-69-2019"
+    }
+  ]
+}

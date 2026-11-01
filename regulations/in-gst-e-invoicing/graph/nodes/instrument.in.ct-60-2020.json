@@ -1,0 +1,28 @@
+{
+  "id": "instrument.in.ct-60-2020",
+  "type": "instrument",
+  "name": "Central Tax notification 60/2020: CGST (Ninth Amendment) Rules, 2020",
+  "source": "https://egazette.gov.in/WriteReadData/2020/220781.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T06:04:32Z",
+    "quote": "These rules may be called the Central Goods and Services Tax (Ninth Amendment) Rules, 2020.",
+    "window": "2020-07-30",
+    "note": "Substitutes FORM GST INV-01, the format and schema of the e-invoice."
+  },
+  "edges": [
+    {
+      "rel": "issuedBy",
+      "to": "authority.in.mof-revenue"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.cgst-rules-2017"
+    }
+  ]
+}

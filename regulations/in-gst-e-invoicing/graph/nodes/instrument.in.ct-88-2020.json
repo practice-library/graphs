@@ -1,0 +1,27 @@
+{
+  "id": "instrument.in.ct-88-2020",
+  "type": "instrument",
+  "name": "Central Tax notification 88/2020: amends 13/2020",
+  "source": "https://egazette.gov.in/WriteReadData/2020/223036.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T06:05:11Z",
+    "quote": "hereby makes the following further amendments in the notification",
+    "window": "2020-11-10"
+  },
+  "edges": [
+    {
+      "rel": "issuedBy",
+      "to": "authority.in.mof-revenue"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.ct-13-2020"
+    }
+  ]
+}

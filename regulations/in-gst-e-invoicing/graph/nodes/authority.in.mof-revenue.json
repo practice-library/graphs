@@ -1,0 +1,19 @@
+{
+  "id": "authority.in.mof-revenue",
+  "type": "authority",
+  "name": "Ministry of Finance, Department of Revenue",
+  "source": "https://egazette.gov.in/WriteReadData/2020/220781.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T06:04:32Z",
+    "quote": "in the Ministry of Finance (Department of Revenue)",
+    "note": "Central Tax notifications are issued by the Government or the Central Government on the recommendations of the GST Council."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
+    }
+  ]
+}

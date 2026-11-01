@@ -1,0 +1,26 @@
+{
+  "id": "provision.in.ct-68-2019.r48-4",
+  "type": "provision",
+  "name": "Rule 48(4): notified persons prepare invoices with an IRN from the portal",
+  "source": "https://egazette.gov.in/WriteReadData/2019/214686.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:04:07Z",
+    "quote": "The invoice shall be prepared by such class of registered persons as may be notified by the Government, on the recommendations of the Council, by including such particulars contained in FORM GST INV-01 after obtaining an Invoice Reference Number",
+    "scope": "classes of registered persons notified by the Government",
+    "window": "2019-12-13",
+    "status": "in-force",
+    "note": "The information is uploaded on the Common Goods and Services Tax Electronic Portal. In force on publication of the Eighth Amendment Rules, 13 December 2019; the obligation reaches a class only when a notification names it."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-68-2019"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.cgst-rules-2017"
+    }
+  ]
+}

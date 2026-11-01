@@ -1,0 +1,19 @@
+{
+  "id": "timeline.in.ct-73-2020.upload-time-limit",
+  "type": "timeline",
+  "name": "Standing time limit for uploading to the portal",
+  "source": "https://egazette.gov.in/WriteReadData/2020/222200.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "unknown",
+    "fetched_at": "2026-11-01T06:04:59Z",
+    "quote": "within thirty days from the date of such invoice, failing which the same shall not be treated as an invoice",
+    "note": "Absent: no standing limit in 68/2019, 69/2019, 13/2020 or its amendments to 04/2026, 02/2020, 60/2020, 72/2020, 14/2022 or 05/2026. 73/2020 set thirty days only for invoices of 1 to 31 October 2020 not prepared under rule 48(4)."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-73-2020"
+    }
+  ]
+}

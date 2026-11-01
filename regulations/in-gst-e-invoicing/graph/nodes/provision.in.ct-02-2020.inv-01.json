@@ -1,0 +1,26 @@
+{
+  "id": "provision.in.ct-02-2020.inv-01",
+  "type": "provision",
+  "name": "FORM INV-01 as substituted on 1 January 2020",
+  "source": "https://egazette.gov.in/WriteReadData/2020/215129.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:04:12Z",
+    "quote": "for FORM INV-01, the following form shall be substituted",
+    "scope": "invoices prepared under rule 48(4)",
+    "window": "2020-01-01",
+    "status": "superseded",
+    "note": "In force on publication, 1 January 2020. Substituted again by 60/2020 on 30 July 2020."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-02-2020"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.cgst-rules-2017"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "obligation.in.ct-13-2020.threshold",
+  "type": "obligation",
+  "name": "Notification 13/2020 as made: one hundred crore rupees",
+  "source": "https://egazette.gov.in/WriteReadData/2020/218849.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:04:22Z",
+    "quote": "whose aggregate turnover in a financial year exceeds one hundred crore rupees, as a class of registered person who shall prepare invoice and other prescribed documents",
+    "scope": "registered persons, for supplies to registered persons",
+    "window": "2020-10-01",
+    "status": "superseded",
+    "value": 100,
+    "unit": "crore rupees",
+    "note": "Amended to five hundred crore rupees by 61/2020 before it came into force."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-13-2020"
+    },
+    {
+      "rel": "supersedes",
+      "to": "obligation.in.ct-70-2019.threshold"
+    }
+  ]
+}

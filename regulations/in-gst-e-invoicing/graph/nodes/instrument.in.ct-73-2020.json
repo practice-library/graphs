@@ -1,0 +1,23 @@
+{
+  "id": "instrument.in.ct-73-2020",
+  "type": "instrument",
+  "name": "Central Tax notification 73/2020: special procedure for October 2020",
+  "source": "https://egazette.gov.in/WriteReadData/2020/222200.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T06:04:59Z",
+    "quote": "follow the special procedure such that the said persons shall obtain an Invoice Reference Number (IRN) for such invoice",
+    "window": "2020-10-01"
+  },
+  "edges": [
+    {
+      "rel": "issuedBy",
+      "to": "authority.in.mof-revenue"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
+    }
+  ]
+}

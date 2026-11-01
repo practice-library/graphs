@@ -1,0 +1,26 @@
+{
+  "id": "provision.in.ct-70-2020.exports",
+  "type": "provision",
+  "name": "Exports added",
+  "source": "https://egazette.gov.in/WriteReadData/2020/222145.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:40:17Z",
+    "quote": "the words ―or for exports‖ shall be inserted",
+    "scope": "the notified class of registered persons",
+    "window": "2020-10-01",
+    "status": "in-force",
+    "note": "Published 30 September 2020; it amends notification 13/2020, which came into force on 1 October 2020."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-70-2020"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.ct-13-2020"
+    }
+  ]
+}

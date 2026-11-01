@@ -1,0 +1,26 @@
+{
+  "id": "exemption.in.ct-23-2021.government",
+  "type": "exemption",
+  "name": "Government departments and local authorities are excluded",
+  "source": "https://egazette.gov.in/WriteReadData/2021/227318.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:05:28Z",
+    "quote": "the words “a government department, a local authority,” shall be inserted",
+    "scope": "government departments and local authorities",
+    "window": "2021-06-01",
+    "status": "in-force",
+    "note": "In force on publication, 1 June 2021; the notification states no other date."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-23-2021"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.ct-13-2020"
+    }
+  ]
+}

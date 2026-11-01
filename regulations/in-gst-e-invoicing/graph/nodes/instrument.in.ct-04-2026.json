@@ -1,0 +1,27 @@
+{
+  "id": "instrument.in.ct-04-2026",
+  "type": "instrument",
+  "name": "Central Tax notification 04/2026: amends 13/2020 from 1 January 2027",
+  "source": "https://egazette.gov.in/WriteReadData/2026/277451.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T06:51:36Z",
+    "quote": "hereby makes the further following amendments in notification of the Government of India in the Ministry of Finance, Department of Revenue, No. 13/2020",
+    "window": "2026-10-26"
+  },
+  "edges": [
+    {
+      "rel": "issuedBy",
+      "to": "authority.in.mof-revenue"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.ct-13-2020"
+    }
+  ]
+}

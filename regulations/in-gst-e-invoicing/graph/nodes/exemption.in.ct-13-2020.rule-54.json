@@ -1,0 +1,22 @@
+{
+  "id": "exemption.in.ct-13-2020.rule-54",
+  "type": "exemption",
+  "name": "Persons referred to in rule 54(2) to (4A) are excluded",
+  "source": "https://egazette.gov.in/WriteReadData/2020/218849.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:04:22Z",
+    "quote": "other than those referred to in sub-rules (2), (3), (4) and (4A) of rule 54 of the said rules",
+    "scope": "registered persons referred to in rule 54(2), (3), (4) and (4A) of the CGST Rules",
+    "window": "2020-10-01",
+    "status": "in-force",
+    "note": "Rule 54 itself is not quoted in this graph, so the classes those sub-rules describe are not named here."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-13-2020"
+    }
+  ]
+}

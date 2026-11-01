@@ -1,0 +1,30 @@
+{
+  "id": "provision.in.ct-60-2020.inv-01",
+  "type": "provision",
+  "name": "FORM GST INV-01: the e-invoice format and schema",
+  "source": "https://egazette.gov.in/WriteReadData/2020/220781.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:04:32Z",
+    "quote": "for FORM GST INV-01, the following form shall be substituted",
+    "scope": "invoices prepared under rule 48(4)",
+    "window": "2020-07-30",
+    "status": "in-force",
+    "note": "The form lists each field with its cardinality. In force on publication, 30 July 2020. Notification 05/2026 amends it from 1 January 2027 (provision.in.ct-05-2026.inv-01-v1-2)."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-60-2020"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.cgst-rules-2017"
+    },
+    {
+      "rel": "supersedes",
+      "to": "provision.in.ct-02-2020.inv-01"
+    }
+  ]
+}

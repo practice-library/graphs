@@ -1,0 +1,23 @@
+{
+  "id": "instrument.in.ct-69-2019",
+  "type": "instrument",
+  "name": "Central Tax notification 69/2019: the e-invoice portals",
+  "source": "https://egazette.gov.in/WriteReadData/2019/214686.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T06:04:07Z",
+    "quote": "notifies the following as the Common Goods and Services Tax Electronic Portal for the purpose of preparation of the invoice",
+    "window": "2019-12-13"
+  },
+  "edges": [
+    {
+      "rel": "issuedBy",
+      "to": "authority.in.mof-revenue"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
+    }
+  ]
+}

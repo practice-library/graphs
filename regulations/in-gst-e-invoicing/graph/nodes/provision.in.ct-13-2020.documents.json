@@ -1,0 +1,22 @@
+{
+  "id": "provision.in.ct-13-2020.documents",
+  "type": "provision",
+  "name": "Invoices and other prescribed documents, for supplies to registered persons",
+  "source": "https://egazette.gov.in/WriteReadData/2020/218849.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:04:22Z",
+    "quote": "in respect of supply of goods or services or both to a registered person",
+    "scope": "the notified class of registered persons",
+    "window": "2020-10-01",
+    "status": "in-force",
+    "note": "The class prepares invoice and other prescribed documents; FORM GST INV-01 names them (provision.in.ct-60-2020.document-types). From 1 January 2027, 04/2026 replaces this wording (provision.in.ct-04-2026.supplies)."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-13-2020"
+    }
+  ]
+}

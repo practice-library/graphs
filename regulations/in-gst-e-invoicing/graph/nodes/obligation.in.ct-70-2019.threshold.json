@@ -1,0 +1,24 @@
+{
+  "id": "obligation.in.ct-70-2019.threshold",
+  "type": "obligation",
+  "name": "Notification 70/2019: one hundred crore rupees from 1 April 2020",
+  "source": "https://egazette.gov.in/WriteReadData/2019/214686.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:04:07Z",
+    "quote": "whose aggregate turnover in a financial year exceeds one hundred crore rupees, as a class of registered person who shall prepare invoice in terms of sub-rule (4) of rule 48",
+    "scope": "registered persons, for supplies to registered persons",
+    "window": "2020-04-01",
+    "status": "superseded",
+    "value": 100,
+    "unit": "crore rupees",
+    "note": "Superseded by notification 13/2020, dated 21 March 2020, before it came into force."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-70-2019"
+    }
+  ]
+}

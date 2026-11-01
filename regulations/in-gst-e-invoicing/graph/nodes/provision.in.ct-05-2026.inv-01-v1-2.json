@@ -1,0 +1,26 @@
+{
+  "id": "provision.in.ct-05-2026.inv-01-v1-2",
+  "type": "provision",
+  "name": "From 1 January 2027: FORM GST INV-01 schema version 1.2",
+  "source": "https://egazette.gov.in/WriteReadData/2026/277451.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:51:36Z",
+    "quote": "in FORM GST INV-01 with effect from 1st day of January, 2027",
+    "scope": "invoices prepared under rule 48(4)",
+    "window": "2027-01-01",
+    "status": "notified-not-in-force",
+    "note": "Version 1.2 adds the supply types SEZWPA, SEZWPNA, RCMDOM (domestic supply from unregistered person under RCM) and RCMIMP (import of services)."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-05-2026"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.cgst-rules-2017"
+    }
+  ]
+}

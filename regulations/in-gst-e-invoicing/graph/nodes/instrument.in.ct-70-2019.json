@@ -1,0 +1,24 @@
+{
+  "id": "instrument.in.ct-70-2019",
+  "type": "instrument",
+  "name": "Central Tax notification 70/2019: first class of persons (superseded)",
+  "source": "https://egazette.gov.in/WriteReadData/2019/214686.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T06:04:07Z",
+    "quote": "This notification shall come into force from the 1st day of April, 2020.",
+    "window": "2019-12-13",
+    "note": "Superseded by notification 13/2020 before it came into force."
+  },
+  "edges": [
+    {
+      "rel": "issuedBy",
+      "to": "authority.in.mof-revenue"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
+    }
+  ]
+}
