@@ -1,0 +1,20 @@
+{
+  "id": "rule.postgresql.unsupported-13",
+  "type": "rule",
+  "name": "PostgreSQL 13 and older are unsupported",
+  "source": "https://www.postgresql.org/support/versioning/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T07:13:50Z",
+    "quote": "13 13.23 No September 24, 2020 November 13, 2025",
+    "scope": "major versions 13 and older",
+    "note": "Version 14 reaches its final release on 2026-11-12, after which it is unsupported too."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.postgresql.server"
+    }
+  ]
+}

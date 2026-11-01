@@ -1,0 +1,22 @@
+{
+  "id": "limit.postgresql.server.rows-per-table",
+  "type": "limit",
+  "name": "Rows per table",
+  "source": "https://www.postgresql.org/docs/current/limits.html",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T07:13:58Z",
+    "quote": "rows per table limited by the number of tuples that can fit onto 4,294,967,295 pages",
+    "value": 4294967295,
+    "unit": "pages",
+    "scope": "one table",
+    "note": "No fixed row count; rows are limited by how many fit onto 4,294,967,295 pages."
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.postgresql.server"
+    }
+  ]
+}

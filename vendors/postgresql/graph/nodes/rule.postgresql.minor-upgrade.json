@@ -1,0 +1,20 @@
+{
+  "id": "rule.postgresql.minor-upgrade",
+  "type": "rule",
+  "name": "Minor upgrades need no dump and restore",
+  "source": "https://www.postgresql.org/support/versioning/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T07:13:50Z",
+    "quote": "Minor release upgrades do not require a dump and restore; you simply stop the database server, install the updated binaries, and restart the server.",
+    "scope": "upgrades within one major version",
+    "note": "Minor releases never change the internal storage format. Release notes may still list extra steps."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.postgresql.server"
+    }
+  ]
+}

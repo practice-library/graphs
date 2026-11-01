@@ -1,0 +1,21 @@
+{
+  "id": "limit.postgresql.server.field-size",
+  "type": "limit",
+  "name": "Field size",
+  "source": "https://www.postgresql.org/docs/current/limits.html",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T07:13:58Z",
+    "quote": "field size 1 GB",
+    "value": 1,
+    "unit": "GB",
+    "scope": "one field value"
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.postgresql.server"
+    }
+  ]
+}

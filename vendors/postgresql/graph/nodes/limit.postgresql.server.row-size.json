@@ -1,0 +1,22 @@
+{
+  "id": "limit.postgresql.server.row-size",
+  "type": "limit",
+  "name": "Row (tuple) size",
+  "source": "https://www.postgresql.org/docs/current/limits.html",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T07:13:58Z",
+    "quote": "the tuple being stored must fit in a single 8192-byte heap page",
+    "value": 8192,
+    "unit": "bytes",
+    "scope": "one row, with the default page size",
+    "note": "Large variable-length values are stored out of line (TOAST), leaving an 18-byte pointer in the row."
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.postgresql.server"
+    }
+  ]
+}

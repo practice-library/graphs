@@ -1,0 +1,16 @@
+{
+  "id": "release.postgresql.server.14",
+  "type": "release",
+  "name": "PostgreSQL 14 (current minor 14.24)",
+  "source": "https://www.postgresql.org/support/versioning/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T07:13:50Z",
+    "quote": "14 14.24 Yes September 30, 2021 November 12, 2026",
+    "scope": "14.24",
+    "window": "2021-09-30",
+    "note": "Supported. First release 2021-09-30; final release 2026-11-12 per the versioning page."
+  },
+  "edges": []
+}

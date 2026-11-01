@@ -1,0 +1,20 @@
+{
+  "id": "rule.postgresql.storage-format",
+  "type": "rule",
+  "name": "Minor releases keep the storage format; major releases may change it",
+  "source": "https://www.postgresql.org/docs/current/upgrading.html",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T07:14:02Z",
+    "quote": "Minor releases never change the internal storage format and are always compatible with earlier and later minor releases of the same major version number.",
+    "scope": "releases of one major version",
+    "note": "For major releases the internal storage format may change. The documentation describes three methods: pg_dumpall, pg_upgrade and replication."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.postgresql.server"
+    }
+  ]
+}

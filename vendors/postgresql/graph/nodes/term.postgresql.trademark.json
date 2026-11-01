@@ -1,0 +1,19 @@
+{
+  "id": "term.postgresql.trademark",
+  "type": "term",
+  "name": "Postgres and PostgreSQL are registered trademarks",
+  "source": "https://www.postgresql.org/about/policies/trademarks/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T07:14:05Z",
+    "quote": "the terms Postgres and PostgreSQL and the Elephant Logo (Slonik) are all registered trademarks of the PostgreSQL Community Association of Canada",
+    "scope": "the names Postgres and PostgreSQL and the Elephant Logo"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "vendor.postgresql"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "release.postgresql.server.minor-2026-08-13",
+  "type": "release",
+  "name": "Latest minor releases: 18.6, 17.11, 16.15, 15.19, 14.24",
+  "source": "https://www.postgresql.org/docs/18/release-18-6.html",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T07:15:08Z",
+    "quote": "Release date: 2026-08-13",
+    "scope": "18.6, 17.11, 16.15, 15.19, 14.24",
+    "window": "2026-08-13",
+    "note": "The release notes of 18.6 give this date; the versioning page lists these as the current minors of each supported major. 18.5 was never released."
+  },
+  "edges": []
+}

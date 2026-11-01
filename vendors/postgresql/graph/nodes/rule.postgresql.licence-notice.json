@@ -1,0 +1,19 @@
+{
+  "id": "rule.postgresql.licence-notice",
+  "type": "rule",
+  "name": "Copies must keep the copyright notice and licence paragraphs",
+  "source": "https://www.postgresql.org/about/licence/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T07:13:12Z",
+    "quote": "provided that the above copyright notice and this paragraph and the following two paragraphs appear in all copies",
+    "scope": "all copies of the software and its documentation"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.postgresql.server"
+    }
+  ]
+}

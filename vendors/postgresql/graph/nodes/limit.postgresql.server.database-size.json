@@ -1,0 +1,20 @@
+{
+  "id": "limit.postgresql.server.database-size",
+  "type": "limit",
+  "name": "Database size",
+  "source": "https://www.postgresql.org/docs/current/limits.html",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T07:13:58Z",
+    "quote": "database size unlimited",
+    "scope": "one database",
+    "note": "The documentation lists no upper limit; practical limits such as disk space may apply first."
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.postgresql.server"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "term.postgresql.licence",
+  "type": "term",
+  "name": "Licence: PostgreSQL License",
+  "source": "https://www.postgresql.org/about/licence/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T07:13:12Z",
+    "quote": "PostgreSQL is released under the PostgreSQL License, a liberal Open Source license, similar to the BSD or MIT licenses.",
+    "scope": "PostgreSQL License",
+    "note": "It permits use, copying, modification and distribution of the software and its documentation for any purpose, without fee."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.postgresql.server"
+    }
+  ]
+}

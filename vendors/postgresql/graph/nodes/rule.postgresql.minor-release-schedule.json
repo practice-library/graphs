@@ -1,0 +1,20 @@
+{
+  "id": "rule.postgresql.minor-release-schedule",
+  "type": "rule",
+  "name": "Minor releases at least quarterly, on a set schedule",
+  "source": "https://www.postgresql.org/developer/roadmap/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T07:14:08Z",
+    "quote": "The target date for these releases are, unless otherwise stated, the second Thursday of February, May, August, and November.",
+    "scope": "every supported major version",
+    "note": "Next scheduled minor releases: 2026-11-12, 2027-02-11, 2027-05-13, 2027-08-12. Extra releases may be made for important bug or security fixes."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.postgresql.server"
+    }
+  ]
+}
