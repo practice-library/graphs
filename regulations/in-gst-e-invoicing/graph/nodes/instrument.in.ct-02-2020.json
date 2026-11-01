@@ -1,0 +1,28 @@
+{
+  "id": "instrument.in.ct-02-2020",
+  "type": "instrument",
+  "name": "Central Tax notification 02/2020: CGST (Amendment) Rules, 2020",
+  "source": "https://egazette.gov.in/WriteReadData/2020/215129.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T06:04:12Z",
+    "quote": "These rules may be called the Central Goods and Services Tax (Amendment) Rules, 2020.",
+    "window": "2020-01-01",
+    "note": "Among other changes, substitutes FORM INV-01, which 60/2020 substituted again."
+  },
+  "edges": [
+    {
+      "rel": "issuedBy",
+      "to": "authority.in.mof-revenue"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.cgst-rules-2017"
+    }
+  ]
+}

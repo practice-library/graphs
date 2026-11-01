@@ -1,0 +1,26 @@
+{
+  "id": "provision.in.ct-04-2026.supplies",
+  "type": "provision",
+  "name": "From 1 January 2027: reverse-charge supplies from unregistered persons and import of services added",
+  "source": "https://egazette.gov.in/WriteReadData/2026/277451.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:51:36Z",
+    "quote": "supply of goods or services or both received from an unregistered person where the tax is payable on reverse charge basis by the recipient of such goods or services or both; or (iv) import of services",
+    "scope": "the notified class of registered persons",
+    "window": "2027-01-01",
+    "status": "notified-not-in-force",
+    "note": "Substitutes the supply wording of 13/2020 with four kinds: to registered persons, for exports, received from unregistered persons under reverse charge, and import of services. Notified 26 October 2026."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-04-2026"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.ct-13-2020"
+    }
+  ]
+}

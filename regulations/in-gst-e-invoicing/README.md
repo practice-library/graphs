@@ -17,6 +17,7 @@ Every quote is copied from the Gazette of India, Extraordinary, Part II, Section
 | Gazette dated | notifications used | source |
 |---|---|---|
 | 13 December 2019 | 68/2019 (rule 48(4) to (6)), 69/2019 (portals), 70/2019 | https://egazette.gov.in/WriteReadData/2019/214686.pdf |
+| 1 January 2020 | 02/2020 (FORM INV-01, since replaced) | https://egazette.gov.in/WriteReadData/2020/215129.pdf |
 | 21 March 2020 | 13/2020 | https://egazette.gov.in/WriteReadData/2020/218849.pdf |
 | 30 July 2020 | 60/2020 (FORM GST INV-01), 61/2020 | https://egazette.gov.in/WriteReadData/2020/220781.pdf |
 | 30 September 2020 | 70/2020 | https://egazette.gov.in/WriteReadData/2020/222145.pdf |
@@ -29,8 +30,13 @@ Every quote is copied from the Gazette of India, Extraordinary, Part II, Section
 | 5 July 2022 | 14/2022 (rule 46(s)) | https://egazette.gov.in/WriteReadData/2022/237097.pdf |
 | 1 August 2022 | 17/2022 | https://egazette.gov.in/WriteReadData/2022/237796.pdf |
 | 10 May 2023 | 10/2023 | https://egazette.gov.in/WriteReadData/2023/245793.pdf |
+| 26 October 2026 | 04/2026 (supplies from 1 January 2027), 05/2026 (FORM GST INV-01 version 1.2) | https://egazette.gov.in/WriteReadData/2026/277451.pdf |
 
-**How they were found:** with the e-Gazette text search, which matches only a notification's subject line. The phrases searched were "sub-rule (4) of rule 48", "Invoice Registration Portal" and "e-invoice". Each notification's own note on what last amended 13/2020 was then followed. A notification whose subject line uses none of those phrases could have been missed.
+**How they were found:**
+- **Text search:** the e-Gazette text search, which matches only a notification's subject line. The phrases searched were "sub-rule (4) of rule 48", "Invoice Registration Portal" and "e-invoice". That search missed 04/2026.
+- **Date scan:** 04/2026 was then found by scanning the Gazettes published from 26 to 31 October 2026.
+- **Cross-check:** each amendment's own note on what last amended 13/2020 was followed. The note in 04/2026 says 13/2020 was "last amended" by 10/2023, so no amendment to 13/2020 between them is missing.
+- **Limit:** changes to rule 48 or to 69/2019 that are neither in these notes nor in matching subject lines could still have been missed.
 
 **Hosts not used:** the tax administration's websites and the e-invoice portal are not cited. Their website policies require permission before material is reproduced (`policy/blocked-hosts.md`).
 
@@ -40,6 +46,7 @@ Every quote is copied from the Gazette of India, Extraordinary, Part II, Section
 
 - Portal advisories, FAQs, and the API and schema specifications published outside the Gazette.
 - Time limits for uploading set outside the Gazette (see question 9).
+- The many other changes in 05/2026 (registration, returns and others). Only its paragraph 67, on FORM GST INV-01, is used.
 - The State GST and Integrated GST counterparts, e-way bills and case law.
 - The text of rule 54. Notification 13/2020 excludes the persons referred to in rule 54(2) to (4A), and this graph does not name them.
 
@@ -61,15 +68,22 @@ The acceptance questions are in practice-library/graphs#57. These nodes answer t
    - `exemption.in.ct-61-2020.sez-unit`;
    - `exemption.in.ct-23-2021.government`;
    - the Commissioner's power to exempt, in `provision.in.ct-72-2020.r48-4-proviso`.
-5. **Documents and supplies:** `provision.in.ct-13-2020.documents` (supplies to registered persons) and `provision.in.ct-70-2020.exports` (exports). The texts say "invoice and other prescribed documents" without listing those documents, and the node's note says so.
+5. **Documents and supplies:**
+   - `provision.in.ct-60-2020.document-types`: invoices, credit notes and debit notes, per FORM GST INV-01.
+   - `provision.in.ct-13-2020.documents` and `provision.in.ct-70-2020.exports`: supplies to registered persons, and exports.
+   - From 1 January 2027 (notified, not yet in force): reverse-charge supplies received from unregistered persons and import of services, in `provision.in.ct-04-2026.supplies`, with the matching form change in `provision.in.ct-05-2026.inv-01-v1-2`.
 6. **The portal:** `provision.in.ct-69-2019.portals`, from 1 January 2020.
 7. **Contents:**
-   - `provision.in.ct-60-2020.inv-01` (FORM GST INV-01);
+   - `provision.in.ct-60-2020.inv-01` (FORM GST INV-01), which supersedes the 02/2020 form (`provision.in.ct-02-2020.inv-01`);
    - `provision.in.ct-60-2020.irn` (the portal generates the IRN);
    - `provision.in.ct-72-2020.r46-r` (the QR code carrying the IRN).
 8. **Consequence:** `provision.in.ct-68-2019.r48-5`: the invoice is not treated as an invoice. Persons above the threshold who are not required to issue e-invoices declare so under `provision.in.ct-14-2022.r46-s`.
-9. **Time limits:** `timeline.in.cgst-rules-2017.upload-time-limit` is absent. No Gazette text checked sets a standing limit. Notification 73/2020 set thirty days for October 2020 only.
-10. **Amendments:** each amending notification has an instrument node with an `amends` edge, to `instrument.in.ct-13-2020` or to `instrument.in.cgst-rules-2017`. Notification 13/2020 `supersedes` 70/2019. The thresholds form a `supersedes` chain.
+9. **Time limits:** `timeline.in.ct-73-2020.upload-time-limit` is absent, and its note names the texts checked. This narrows #57's question. 73/2020 did set a limit, thirty days, but only for October 2020 invoices not prepared under rule 48(4). The schema has no status for a period that has ended, so that limit is given in the note rather than as its own timeline node (#61).
+10. **Amendments:** each amending notification has an instrument node with an `amends` edge, to `instrument.in.ct-13-2020` or to `instrument.in.cgst-rules-2017`.
+    - Notification 13/2020 `supersedes` 70/2019.
+    - The thresholds form a `supersedes` chain.
+    - The 60/2020 form supersedes the 02/2020 form.
+    - The 2027 changes are `notified-not-in-force`. Their notes name the nodes they will replace. When they come into force, those nodes become `superseded` and gain `supersedes` edges.
 
 ## Conventions
 
@@ -77,7 +91,7 @@ These follow `regulations/in-commercial-communications`:
 - A fact made by a notification has an id under that notification, such as `provision.in.ct-68-2019.r48-4`.
 - Each fact is `partOf` its notification and carries an `amends` edge to what it changes.
 - Replaced text stays with status `superseded`.
-- `commencedBy` is not used, because each notification states its own date. That date is the fact's window, and the note says where no date is stated.
+- `commencedBy` is not used. A fact's window is its notification's stated date where there is one. Where there is none, it is the date the amended text takes effect, or the publication date, and the note says which.
 - Notification numbers are written as printed, so 05/2021 becomes `ct-05-2021`.
 
 ## Attribution

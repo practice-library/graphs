@@ -11,7 +11,7 @@
     "scope": "invoices prepared under rule 48(4)",
     "window": "2020-07-30",
     "status": "in-force",
-    "note": "The form lists each field with its cardinality. In force on publication, 30 July 2020."
+    "note": "The form lists each field with its cardinality. In force on publication, 30 July 2020. Notification 05/2026 amends it from 1 January 2027 (provision.in.ct-05-2026.inv-01-v1-2)."
   },
   "edges": [
     {
@@ -21,6 +21,10 @@
     {
       "rel": "amends",
       "to": "instrument.in.cgst-rules-2017"
+    },
+    {
+      "rel": "supersedes",
+      "to": "provision.in.ct-02-2020.inv-01"
     }
   ]
 }

@@ -1,0 +1,26 @@
+{
+  "id": "provision.in.ct-60-2020.document-types",
+  "type": "provision",
+  "name": "Documents covered: invoices, credit notes and debit notes (FORM GST INV-01)",
+  "source": "https://egazette.gov.in/WriteReadData/2020/220781.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:04:32Z",
+    "quote": "Type of Document: INV for Invoice, CRN for Credit Note, DBN for Debit note.",
+    "scope": "documents prepared under rule 48(4)",
+    "window": "2020-07-30",
+    "status": "in-force",
+    "note": "The same form lists the supply types B2B, B2C, SEZWP, SEZWOP, EXPWP, EXPWOP and DEXP. Notification 13/2020 limits the class to supplies to registered persons and exports."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-60-2020"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.cgst-rules-2017"
+    }
+  ]
+}

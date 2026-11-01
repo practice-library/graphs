@@ -159,9 +159,9 @@
         "quote": "Department of Publication shall not be liable for any loss or damage whatsoever, including incidental or consequential loss or damage, arising out of, or in connection with, any use of or reliance on the information from this website."
       },
       "format": "pdf",
-      "maxRequestsPerRun": 14,
+      "maxRequestsPerRun": 16,
       "minIntervalDays": 30,
-      "maxBytes": 3000000,
+      "maxBytes": 7000000,
       "timeoutSeconds": 60
     },
     {
