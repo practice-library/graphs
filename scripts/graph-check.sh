@@ -6,7 +6,7 @@
 #   every edge points at a node of the same graph, so edges stay inside the graph;
 #   every source's host is listed in policy/sources.json for this graph (its "vendor" is the directory name);
 #   in a regulation graph, a status agrees with its window on measuredAt: in-force from the window on,
-#   notified-not-in-force before it.
+#   notified-not-in-force before it (draft and superseded are not compared with a date).
 # Usage: scripts/graph-check.sh [root]
 set -euo pipefail
 root="${1:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
@@ -19,8 +19,8 @@ cd "$root"
 [ -f policy/sources.json ] || { echo "FAIL policy/sources.json is missing"; exit 1; }
 
 failed=0
-check() { # <graph dir> <name the ids carry> <root id>
-  local d="$1" v="$2" rootid="$3" key nodes records problems
+check() { # <graph dir> <name the ids carry> <root id> <domain>
+  local d="$1" v="$2" rootid="$3" dom="$4" key nodes records problems
   key="$(basename "$d")"
   nodes="$(find "$d/graph/nodes" -maxdepth 1 -type f -name '*.json' 2>/dev/null | LC_ALL=C sort)"
   if [ -z "$nodes" ]; then echo "FAIL $d: no node in graph/nodes"; failed=1; return; fi
@@ -28,7 +28,7 @@ check() { # <graph dir> <name the ids carry> <root id>
   records="$(while IFS= read -r f; do
       jq -c --arg file "$(basename "$f")" '{file: $file, node: .}' "$f" || echo '{"unreadable": true}'
     done <<<"$nodes" | jq -sc '.')"
-  problems="$(jq -r --arg v "$v" --arg k "$key" --arg root "$rootid" --arg d "$d" --slurpfile s policy/sources.json '
+  problems="$(jq -r --arg v "$v" --arg k "$key" --arg root "$rootid" --arg d "$d" --arg dom "$dom" --slurpfile s policy/sources.json '
     ([.[] | select(.unreadable) | "a node file is not valid JSON"]) +
     ( [.[] | select(.unreadable | not)] as $r
       | ($r | map(.node.id)) as $ids
@@ -41,7 +41,7 @@ check() { # <graph dir> <name the ids carry> <root id>
               | "\($n.id): edge \(.rel) points at \(.to), which is not a node of \($d)"),
             (($n.source | sub("^https://"; "") | split("/")[0]) as $h
               | if ($hosts | index($h)) == null then "\($n.id): source host \($h) is not listed for \($k) in policy/sources.json" else empty end),
-            (($n.attrs.status? // null) as $st | ($n.attrs.window? // null) as $w
+            (select($dom == "regulations") | ($n.attrs.status? // null) as $st | ($n.attrs.window? // null) as $w
               | if $st == "in-force" and ($w == null or $w > $n.measuredAt) then "\($n.id): in-force but its window \($w) is after measuredAt \($n.measuredAt)"
                 elif $st == "notified-not-in-force" and ($w == null or $w <= $n.measuredAt) then "\($n.id): notified-not-in-force but its window \($w) is not after measuredAt \($n.measuredAt)"
                 else empty end)
@@ -59,13 +59,13 @@ check() { # <graph dir> <name the ids carry> <root id>
 while IFS= read -r d; do
   [ -z "$d" ] && continue # no vendor graph
   vendor="$(basename "$d")"
-  check "$d" "$vendor" "vendor.$vendor"
+  check "$d" "$vendor" "vendor.$vendor" vendors
 done <<<"$vendor_graphs"
 while IFS= read -r d; do
   [ -n "$d" ] || continue
   name="$(basename "$d")"
   if ! [[ "$name" =~ ^[a-z]{2}-[a-z0-9]+(-[a-z0-9]+)*$ ]]; then echo "FAIL $d: a regulation graph is named <jurisdiction>-<topic>, such as in-data-governance"; failed=1; continue; fi
   jurisdiction="${name%%-*}"
-  check "$d" "$jurisdiction" "jurisdiction.$jurisdiction"
+  check "$d" "$jurisdiction" "jurisdiction.$jurisdiction" regulations
 done <<<"$regulation_graphs"
 exit "$failed"

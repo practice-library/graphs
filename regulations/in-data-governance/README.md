@@ -61,6 +61,12 @@ The acceptance questions are in practice-library/graphs#37. These nodes answer t
 
 **Known gap:** `instrument.in.so-5458-2026` is recorded as absent, with no edges. Secondary sources (law-firm and compliance notes) report an order under section 43, S.O. 5458(E) dated 5 October 2026, that changes the wording of sections 9(1) and 10(2)(c)(ii). Its gazette copy was not located, so its text, its date and whether it reaches anything else are unconfirmed. Questions 8 and 9 are answered from Rules 10 and 13, and from section 10(2)(a). Those reports do not name them, but this graph has not read the order.
 
+## Conventions of the schema
+
+- **Absence:** a fact the text checked does not state is `unknown`, with a note starting `Absent: `. The shared envelope also offers an `absent` verdict; `regulations/schema.json` forbids it, so absence has exactly one form, as #37 set out.
+- **Ids:** an id has at most one part after its instrument (`<type>.<jurisdiction>.<instrument>[.<part>]`). That the instrument segment names an instrument node of the graph is not checked.
+- **Hosts:** #37 listed four hosts to clear. Two refused this repository's user agent, even for robots.txt, and are not used.
+
 ## How the edges are used, and where this differs from #37
 
 The ten answers work node by node, but four edges are used more loosely than #37 defined them, and applicability covers one more type:

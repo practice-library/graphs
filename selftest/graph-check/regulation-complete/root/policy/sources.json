@@ -3,7 +3,7 @@
   "hosts": [
     {
       "host": "gazette.zz.example",
-      "vendor": "zz-data",
+      "vendor": "zz-data-gov2",
       "robots": {
         "url": "https://gazette.zz.example/robots.txt",
         "checkedAt": "2026-10-31T12:00:00Z",

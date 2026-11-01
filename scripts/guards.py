@@ -58,6 +58,8 @@ GUARDS = [
     ("an empty vendor list checks no vendor graph", GC, '[ -z "$d" ] && continue # no vendor graph', "true",
      C + "regulation-complete"),
     ("an empty regulation list checks no regulation graph", GC, '[ -n "$d" ] || continue', "true", C + "complete"),
+    ("status is compared with window only in regulation graphs", GC,
+     'select($dom == "regulations")', "select(true)", C + "vendor-status-not-compared"),
     ("in-force needs its window on or before measuredAt", GC,
      'if $st == "in-force" and ($w == null or $w > $n.measuredAt)', "if false", C + "regulation-in-force-a-day-early"),
     ("in force from exactly the window date", GC, "or $w > $n.measuredAt)", "or $w >= $n.measuredAt)", C + "regulation-complete"),
