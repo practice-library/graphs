@@ -16,6 +16,14 @@
     "ee137ca14b2b82e0260af847c00da288a537e04d976690626093f5a2821f170d",
     "fc7102cbf25323e689546826773dbdfdaffb1f248fae196347565dfce23b9b76"
   ],
+  "exemptPaths": [
+    {
+      "glob": "vendors/stablyai/**",
+      "terms": [
+        "4223500be1e62b1ace4e10381cba51c0df85565e4651821b4642e2a5bebc42d8"
+      ]
+    }
+  ],
   "allowAuthorNames": [
     "1fa92c0eae1f2a69a3c8ece519d3e3a4495c7a68e171c73dc676e8f0397d3fe6"
   ]
