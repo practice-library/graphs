@@ -1,0 +1,25 @@
+{
+  "id": "provision.in.ct-72-2020.r46-r",
+  "type": "provision",
+  "name": "The invoice carries a QR code with the IRN (rule 46(r))",
+  "source": "https://egazette.gov.in/WriteReadData/2020/222164.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:07:01Z",
+    "quote": "Quick Reference code, having embedded Invoice Reference Number (IRN) in it, in case invoice has been issued in the manner prescribed under sub-rule (4) of rule 48",
+    "scope": "invoices issued under rule 48(4)",
+    "window": "2020-09-30",
+    "status": "in-force"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-72-2020"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.cgst-rules-2017"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "provision.in.ct-13-2020.documents",
+  "type": "provision",
+  "name": "Invoices and other prescribed documents, for supplies to registered persons",
+  "source": "https://egazette.gov.in/WriteReadData/2020/218849.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:04:22Z",
+    "quote": "in respect of supply of goods or services or both to a registered person",
+    "scope": "the notified class of registered persons",
+    "window": "2020-10-01",
+    "status": "in-force",
+    "note": "The class prepares invoice and other prescribed documents. The Gazette texts checked do not list those documents by name, and supplies to unregistered persons are not covered."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-13-2020"
+    }
+  ]
+}

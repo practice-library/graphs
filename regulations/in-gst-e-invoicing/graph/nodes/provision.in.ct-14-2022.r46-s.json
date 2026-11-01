@@ -1,0 +1,26 @@
+{
+  "id": "provision.in.ct-14-2022.r46-s",
+  "type": "provision",
+  "name": "Persons above the threshold who are not required must declare so on the invoice (rule 46(s))",
+  "source": "https://egazette.gov.in/WriteReadData/2022/237097.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:05:45Z",
+    "quote": "we are not required to prepare an invoice in terms of the provisions of the said sub-rule",
+    "scope": "registered persons with turnover above the notified threshold who are not required to issue e-invoices",
+    "window": "2022-07-05",
+    "status": "in-force",
+    "note": "In force on publication, 5 July 2022, under the rules’ general commencement clause."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-14-2022"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.cgst-rules-2017"
+    }
+  ]
+}

@@ -145,6 +145,26 @@
       "timeoutSeconds": 60
     },
     {
+      "host": "egazette.gov.in",
+      "vendor": "in-gst-e-invoicing",
+      "robots": {
+        "url": "https://egazette.gov.in/robots.txt",
+        "checkedAt": "2026-11-01T03:47:32Z",
+        "verdict": "absent",
+        "note": "robots.txt returns 404 Not Found."
+      },
+      "terms": {
+        "url": "https://egazette.gov.in/Disclaimer.aspx",
+        "checkedAt": "2026-11-01T03:48:08Z",
+        "quote": "Department of Publication shall not be liable for any loss or damage whatsoever, including incidental or consequential loss or damage, arising out of, or in connection with, any use of or reliance on the information from this website."
+      },
+      "format": "pdf",
+      "maxRequestsPerRun": 14,
+      "minIntervalDays": 30,
+      "maxBytes": 3000000,
+      "timeoutSeconds": 60
+    },
+    {
       "host": "www.cert-in.org.in",
       "vendor": "in-data-governance",
       "robots": {

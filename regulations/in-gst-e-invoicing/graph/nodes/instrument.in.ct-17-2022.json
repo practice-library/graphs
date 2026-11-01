@@ -1,0 +1,27 @@
+{
+  "id": "instrument.in.ct-17-2022",
+  "type": "instrument",
+  "name": "Central Tax notification 17/2022: amends 13/2020",
+  "source": "https://egazette.gov.in/WriteReadData/2022/237796.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T06:05:52Z",
+    "quote": "hereby makes the following further amendment",
+    "window": "2022-08-01"
+  },
+  "edges": [
+    {
+      "rel": "issuedBy",
+      "to": "authority.in.mof-revenue"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.ct-13-2020"
+    }
+  ]
+}

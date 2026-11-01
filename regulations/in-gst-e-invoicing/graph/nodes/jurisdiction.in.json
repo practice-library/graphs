@@ -1,0 +1,13 @@
+{
+  "id": "jurisdiction.in",
+  "type": "jurisdiction",
+  "name": "India",
+  "source": "https://egazette.gov.in/WriteReadData/2020/218849.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T06:04:22Z",
+    "quote": "the notification of the Government of India in the Ministry of Finance, Department of Revenue"
+  },
+  "edges": []
+}

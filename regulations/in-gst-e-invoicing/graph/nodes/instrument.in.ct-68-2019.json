@@ -1,0 +1,28 @@
+{
+  "id": "instrument.in.ct-68-2019",
+  "type": "instrument",
+  "name": "Central Tax notification 68/2019: CGST (Eighth Amendment) Rules, 2019",
+  "source": "https://egazette.gov.in/WriteReadData/2019/214686.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T06:04:07Z",
+    "quote": "These rules may be called the Central Goods and Services Tax (Eighth Amendment) Rules, 2019.",
+    "window": "2019-12-13",
+    "note": "Inserts sub-rules (4) to (6) in rule 48. In force on publication; the Gazette is dated 13 December 2019."
+  },
+  "edges": [
+    {
+      "rel": "issuedBy",
+      "to": "authority.in.mof-revenue"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.cgst-rules-2017"
+    }
+  ]
+}

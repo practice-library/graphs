@@ -1,0 +1,32 @@
+{
+  "id": "obligation.in.ct-10-2023.threshold",
+  "type": "obligation",
+  "name": "Threshold from 1 August 2023: five crore rupees",
+  "source": "https://egazette.gov.in/WriteReadData/2023/245793.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:06:00Z",
+    "quote": "with effect from the 1st day of August, 2023, for the words ―ten crore rupees‖, the words ―five crore rupees‖ shall be substituted",
+    "scope": "registered persons whose aggregate turnover in any preceding financial year from 2017-18 onwards exceeds the threshold, for supplies to registered persons or for exports",
+    "window": "2023-08-01",
+    "status": "in-force",
+    "value": 5,
+    "unit": "crore rupees",
+    "note": "The current threshold on 2026-11-01. Exclusions are in the exemption nodes."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-10-2023"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.ct-13-2020"
+    },
+    {
+      "rel": "supersedes",
+      "to": "obligation.in.ct-17-2022.threshold"
+    }
+  ]
+}

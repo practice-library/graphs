@@ -1,0 +1,31 @@
+{
+  "id": "obligation.in.ct-88-2020.threshold",
+  "type": "obligation",
+  "name": "Threshold from 1 January 2021: one hundred crore rupees",
+  "source": "https://egazette.gov.in/WriteReadData/2020/223036.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:05:11Z",
+    "quote": "with effect from the 1st day of January, 2021, for the words ―five hundred crore rupees‖, the words ―one hundred crore rupees‖ shall be substituted",
+    "scope": "registered persons whose aggregate turnover in any preceding financial year from 2017-18 onwards exceeds the threshold, for supplies to registered persons or for exports",
+    "window": "2021-01-01",
+    "status": "superseded",
+    "value": 100,
+    "unit": "crore rupees"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-88-2020"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.ct-13-2020"
+    },
+    {
+      "rel": "supersedes",
+      "to": "obligation.in.ct-61-2020.threshold"
+    }
+  ]
+}

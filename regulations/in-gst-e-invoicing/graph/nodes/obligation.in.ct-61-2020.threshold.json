@@ -1,0 +1,32 @@
+{
+  "id": "obligation.in.ct-61-2020.threshold",
+  "type": "obligation",
+  "name": "Threshold from 1 October 2020: five hundred crore rupees",
+  "source": "https://egazette.gov.in/WriteReadData/2020/220781.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:04:32Z",
+    "quote": "for the words ―one hundred crore rupees‖, the words ―five hundred crore rupees‖ shall be substituted",
+    "scope": "registered persons whose aggregate turnover in any preceding financial year from 2017-18 onwards exceeds the threshold, for supplies to registered persons or for exports",
+    "window": "2020-10-01",
+    "status": "superseded",
+    "value": 500,
+    "unit": "crore rupees",
+    "note": "Published 30 July 2020, before notification 13/2020 came into force on 1 October 2020, so e-invoicing began at five hundred crore rupees."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-61-2020"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.ct-13-2020"
+    },
+    {
+      "rel": "supersedes",
+      "to": "obligation.in.ct-13-2020.threshold"
+    }
+  ]
+}

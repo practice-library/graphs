@@ -1,0 +1,19 @@
+{
+  "id": "timeline.in.cgst-rules-2017.upload-time-limit",
+  "type": "timeline",
+  "name": "Standing time limit for uploading to the portal",
+  "source": "https://egazette.gov.in/WriteReadData/2020/222200.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "unknown",
+    "fetched_at": "2026-11-01T06:04:59Z",
+    "quote": "within thirty days from the date of such invoice, failing which the same shall not be treated as an invoice",
+    "note": "Absent: none of the Gazette texts checked sets a standing time limit. Notification 73/2020 set thirty days only for invoices of 1 to 31 October 2020 not first prepared under rule 48(4)."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.cgst-rules-2017"
+    }
+  ]
+}

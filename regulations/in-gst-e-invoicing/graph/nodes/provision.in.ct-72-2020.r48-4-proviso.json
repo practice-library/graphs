@@ -1,0 +1,25 @@
+{
+  "id": "provision.in.ct-72-2020.r48-4-proviso",
+  "type": "provision",
+  "name": "The Commissioner may exempt persons by notification (proviso to rule 48(4))",
+  "source": "https://egazette.gov.in/WriteReadData/2020/222164.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:07:01Z",
+    "quote": "the Commissioner may, on the recommendations of the Council, by notification, exempt a person or a class of registered persons from issuance of invoice under this sub-rule for a specified period",
+    "scope": "any person or class of registered persons the Commissioner notifies",
+    "window": "2020-09-30",
+    "status": "in-force"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-72-2020"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.cgst-rules-2017"
+    }
+  ]
+}

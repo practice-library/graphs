@@ -1,0 +1,26 @@
+{
+  "id": "provision.in.ct-60-2020.irn",
+  "type": "provision",
+  "name": "The Invoice Registration Portal generates the IRN",
+  "source": "https://egazette.gov.in/WriteReadData/2020/220781.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:04:32Z",
+    "quote": "The Invoice Registration Portal (IRP) will generate this IRN",
+    "scope": "invoices prepared under rule 48(4)",
+    "window": "2020-07-30",
+    "status": "in-force",
+    "note": "From the IRN field of FORM GST INV-01: the supplier does not fill it, and the e-invoice is valid only with the IRN."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-60-2020"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.cgst-rules-2017"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "provision.in.ct-68-2019.r48-5",
+  "type": "provision",
+  "name": "Not issued under rule 48(4): not treated as an invoice (rule 48(5))",
+  "source": "https://egazette.gov.in/WriteReadData/2019/214686.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:04:07Z",
+    "quote": "Every invoice issued by a person to whom sub-rule (4) applies in any manner other than the manner specified in the said sub-rule shall not be treated as an invoice.",
+    "scope": "persons to whom rule 48(4) applies",
+    "window": "2019-12-13",
+    "status": "in-force"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-68-2019"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.cgst-rules-2017"
+    }
+  ]
+}

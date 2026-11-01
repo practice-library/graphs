@@ -1,0 +1,24 @@
+{
+  "id": "instrument.in.cgst-rules-2017",
+  "type": "instrument",
+  "name": "Central Goods and Services Tax Rules, 2017",
+  "source": "https://egazette.gov.in/WriteReadData/2019/214686.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T06:04:07Z",
+    "quote": "vide notification No. 3/2017-Central Tax, dated the 19th June, 2017",
+    "window": "2017-06-19",
+    "note": "Notification No. 3/2017-Central Tax is dated 19 June 2017. This graph does not quote the principal rules, only the amendments below."
+  },
+  "edges": [
+    {
+      "rel": "issuedBy",
+      "to": "authority.in.mof-revenue"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
+    }
+  ]
+}

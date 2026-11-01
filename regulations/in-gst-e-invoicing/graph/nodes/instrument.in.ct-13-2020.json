@@ -1,0 +1,28 @@
+{
+  "id": "instrument.in.ct-13-2020",
+  "type": "instrument",
+  "name": "Central Tax notification 13/2020: the class of persons under rule 48(4)",
+  "source": "https://egazette.gov.in/WriteReadData/2020/218849.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T06:04:22Z",
+    "quote": "This notification shall come into force from the 1st October, 2020.",
+    "window": "2020-03-21",
+    "note": "The operative notification. Amended by 61/2020, 70/2020, 88/2020, 05/2021, 23/2021, 01/2022, 17/2022 and 10/2023."
+  },
+  "edges": [
+    {
+      "rel": "issuedBy",
+      "to": "authority.in.mof-revenue"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
+    },
+    {
+      "rel": "supersedes",
+      "to": "instrument.in.ct-70-2019"
+    }
+  ]
+}

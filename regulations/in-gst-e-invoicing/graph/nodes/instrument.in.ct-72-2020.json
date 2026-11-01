@@ -1,0 +1,28 @@
+{
+  "id": "instrument.in.ct-72-2020",
+  "type": "instrument",
+  "name": "Central Tax notification 72/2020: CGST (Eleventh Amendment) Rules, 2020",
+  "source": "https://egazette.gov.in/WriteReadData/2020/222164.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T06:07:01Z",
+    "quote": "These rules may be called the Central Goods and Services Tax (Eleventh Amendment) Rules, 2020.",
+    "window": "2020-09-30",
+    "note": "Inserts rule 46(r) (QR code with the IRN) and a proviso to rule 48(4)."
+  },
+  "edges": [
+    {
+      "rel": "issuedBy",
+      "to": "authority.in.mof-revenue"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.cgst-rules-2017"
+    }
+  ]
+}
