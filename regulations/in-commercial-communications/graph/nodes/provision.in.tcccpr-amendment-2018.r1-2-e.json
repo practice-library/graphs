@@ -1,0 +1,30 @@
+{
+  "id": "provision.in.tcccpr-amendment-2018.r1-2-e",
+  "type": "provision",
+  "name": "Regulations 23, 29, 25(5) and 25(6) in force after 150 days (r. 1(2)(e) as substituted)",
+  "source": "https://egazette.gov.in/WriteReadData/2018/194224.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:43:08Z",
+    "quote": "regulations 23, 29 and sub-regulations (5) and (6) of regulation 25 of these regulations shall come into force after 150 days",
+    "scope": "principal regulations 23, 29, 25(5) and 25(6)",
+    "window": "2018-12-16",
+    "status": "in-force",
+    "note": "window is computed: 150 days after publication in the Official Gazette, dated 19 July 2018. Clause (e) was substituted on 21 December 2018, after that date."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2018"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "supersedes",
+      "to": "provision.in.tcccpr-2018.r1-2-e"
+    }
+  ]
+}

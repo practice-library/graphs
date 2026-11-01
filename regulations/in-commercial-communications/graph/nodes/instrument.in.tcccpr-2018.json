@@ -1,0 +1,24 @@
+{
+  "id": "instrument.in.tcccpr-2018",
+  "type": "instrument",
+  "name": "Telecom Commercial Communications Customer Preference Regulations, 2018 (6 of 2018)",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "These regulations may be called the Telecom Commercial Communications Customer Preference Regulations, 2018.",
+    "window": "2018-07-19",
+    "note": "Published in the Gazette of India, Extraordinary, Part III, Section 4, dated 19 July 2018. Regulation 38 repeals the 2010 regulations (6 of 2010), saving parts of them until these come into force in their entirety."
+  },
+  "edges": [
+    {
+      "rel": "issuedBy",
+      "to": "authority.in.trai"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
+    }
+  ]
+}

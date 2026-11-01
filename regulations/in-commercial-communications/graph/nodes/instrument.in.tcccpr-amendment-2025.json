@@ -1,0 +1,28 @@
+{
+  "id": "instrument.in.tcccpr-amendment-2025",
+  "type": "instrument",
+  "name": "TCCCP (Second Amendment) Regulations, 2025 (1 of 2025)",
+  "source": "https://egazette.gov.in/WriteReadData/2025/261096.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:50:12Z",
+    "quote": "These regulations may be called the Telecom Commercial Communications Customer Preference (Second Amendment) Regulations, 2025 ( 1 of 2025).",
+    "window": "2025-02-12",
+    "note": "The Gazette is dated 12 February 2025. It substitutes regulations 3, 4, 22, 25, 27, 28, 29 and 33, inserts 28A and 34A, and amends definitions, regulations 23, 24, 26, 35 and Schedules I to V."
+  },
+  "edges": [
+    {
+      "rel": "issuedBy",
+      "to": "authority.in.trai"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
+    }
+  ]
+}

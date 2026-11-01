@@ -1,0 +1,25 @@
+{
+  "id": "obligation.in.tcccpr-2018.r32",
+  "type": "obligation",
+  "name": "Business and legal entities must register before sending (r. 32)",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "No business or legal entity not registered with the access provider for the purpose of sending commercial communications under these regulations shall make commercial communication",
+    "scope": "business or legal entities",
+    "window": "2018-11-16",
+    "status": "in-force"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-2018.r1-2-d"
+    }
+  ]
+}

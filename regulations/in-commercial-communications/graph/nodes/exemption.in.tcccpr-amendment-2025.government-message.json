@@ -1,0 +1,29 @@
+{
+  "id": "exemption.in.tcccpr-amendment-2025.government-message",
+  "type": "exemption",
+  "name": "Government Messages need no consent and cannot be blocked (r. 2(za))",
+  "source": "https://egazette.gov.in/WriteReadData/2025/261096.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:50:12Z",
+    "quote": "There shall not be any requirement of seeking Consent for receipt of these communications nor shall there be any option in the Preference Register to block such communications",
+    "scope": "Government Messages or Voice Calls sent through the DLT platform on the directions of a government, a constitutional body or the Authority",
+    "window": "2025-03-14",
+    "status": "in-force"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2025"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2025.r1-3"
+    }
+  ]
+}

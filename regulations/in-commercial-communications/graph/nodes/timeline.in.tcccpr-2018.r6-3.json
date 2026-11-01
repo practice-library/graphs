@@ -1,0 +1,27 @@
+{
+  "id": "timeline.in.tcccpr-2018.r6-3",
+  "type": "timeline",
+  "name": "Preference request acknowledged within fifteen minutes (r. 6(3))",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "to duly acknowledge the receipt within fifteen minutes of the request made by the customer",
+    "scope": "Access Providers",
+    "window": "2018-10-17",
+    "status": "in-force",
+    "value": 15,
+    "unit": "minutes"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-2018.r1-2-c"
+    }
+  ]
+}

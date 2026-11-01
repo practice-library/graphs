@@ -1,0 +1,32 @@
+{
+  "id": "penalty.in.tcccpr-amendment-2025.r27-1-a",
+  "type": "penalty",
+  "name": "Valid complaint declared invalid: 1,000 rupees a count (r. 27(1)(a))",
+  "source": "https://egazette.gov.in/WriteReadData/2025/261096.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:50:12Z",
+    "quote": "an amount of one thousand rupees per count of valid complaint that is declared invalid",
+    "scope": "Originating Access Providers, per Licensed Service Area per calendar month",
+    "window": "2025-03-14",
+    "status": "in-force",
+    "value": 1000,
+    "unit": "rupees",
+    "note": "Charged to the Access Provider that registered the Headers or Content Templates when the UCC came from those."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2025"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2025.r1-3"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "obligation.in.tcccpr-amendment-2025.r22-1-e",
+  "type": "obligation",
+  "name": "At most two Telemarketers between Sender and recipient (r. 22(1)(e))",
+  "source": "https://egazette.gov.in/WriteReadData/2025/261096.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:50:12Z",
+    "quote": "there shall not be more than two Telemarketers i.e. one Telemarketer with Aggregator Function and one Telemarketer with Delivery Function",
+    "scope": "Access Providers, for each message chain",
+    "window": "2025-03-14",
+    "status": "in-force"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2025"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2025.r1-3"
+    }
+  ]
+}

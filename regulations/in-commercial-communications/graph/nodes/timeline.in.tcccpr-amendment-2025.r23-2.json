@@ -1,0 +1,36 @@
+{
+  "id": "timeline.in.tcccpr-amendment-2025.r23-2",
+  "type": "timeline",
+  "name": "Complaint within seven days of receipt (r. 23(2))",
+  "source": "https://egazette.gov.in/WriteReadData/2025/261096.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:50:12Z",
+    "quote": "every such complaint shall be made by a subscriber or recipient within seven days of receipt of the unsolicited commercial communication",
+    "scope": "subscribers or recipients",
+    "window": "2025-03-14",
+    "status": "in-force",
+    "value": 7,
+    "unit": "days",
+    "note": "Modes: SMS or call to 1909, IVRS, an approved app, a web portal with OTP, or e-mail to the Access Provider. A complaint after seven days is kept as a report."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2025"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "supersedes",
+      "to": "timeline.in.tcccpr-2018.r23-2"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2025.r1-3"
+    }
+  ]
+}

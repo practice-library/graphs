@@ -1,0 +1,31 @@
+{
+  "id": "timeline.in.tcccpr-amendment-2026.r25-6-a",
+  "type": "timeline",
+  "name": "First violation: outgoing services barred for fifteen days (r. 25(6)(a))",
+  "source": "https://egazette.gov.in/WriteReadData/2026/276548.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:51:50Z",
+    "quote": "for the first instance of violation, outgoing services of all telecom resources including PRI/SIP trunks, SIMs etc. allotted to the Sender shall be barred by all the Access Providers for a period of fifteen days",
+    "scope": "Senders found to have sent UCC",
+    "window": "2026-10-18",
+    "status": "in-force",
+    "value": 15,
+    "unit": "days"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2026"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2026.r1-3"
+    }
+  ]
+}

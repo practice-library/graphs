@@ -1,0 +1,29 @@
+{
+  "id": "obligation.in.tcccpr-amendment-2025.r3-1",
+  "type": "obligation",
+  "name": "Only registered Headers or special-series numbers (r. 3(1))",
+  "source": "https://egazette.gov.in/WriteReadData/2025/261096.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:50:12Z",
+    "quote": "Every Access Provider shall ensure that any commercial communication using its network takes place only using registered headers or the number resources allotted to the Senders from special series assigned for the purpose of commercial communication.",
+    "scope": "Access Providers",
+    "window": "2025-03-14",
+    "status": "in-force"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2025"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2025.r1-3"
+    }
+  ]
+}

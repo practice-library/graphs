@@ -1,0 +1,26 @@
+{
+  "id": "obligation.in.tcccpr-2018.r6",
+  "type": "obligation",
+  "name": "Customer Preference Registration Facility, free and 24x7 (r. 6)",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "to provide following modes, free of cost, to the customer, as per his choice, to register, modify or de register preference(s)",
+    "scope": "Access Providers",
+    "window": "2018-10-17",
+    "status": "in-force",
+    "note": "Modes: SMS or call to 1909, IVRS, USSD, an approved mobile app, a web portal with OTP. Preferences cover categories of content, modes, time bands and day types."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-2018.r1-2-c"
+    }
+  ]
+}

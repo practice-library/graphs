@@ -1,0 +1,34 @@
+{
+  "id": "provision.in.tcccpr-amendment-2026.r2-ah",
+  "type": "provision",
+  "name": "Deletes the 2025 limit on inferred consent (r. 2(ah))",
+  "source": "https://egazette.gov.in/WriteReadData/2026/276548.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:51:50Z",
+    "quote": "in clause (ah), the first proviso",
+    "scope": "Senders relying on inferred consent",
+    "window": "2026-10-18",
+    "status": "in-force",
+    "note": "The first proviso to clause (ah), which ended inferred consent with the contract, is deleted."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2026"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "supersedes",
+      "to": "provision.in.tcccpr-amendment-2025.r2-ah"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2026.r1-3"
+    }
+  ]
+}

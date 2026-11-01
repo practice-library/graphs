@@ -1,0 +1,25 @@
+{
+  "id": "provision.in.tcccpr-amendment-2018.r1-2-g",
+  "type": "provision",
+  "name": "Regulations 26, 27 and 25(1) to (4) in force from 28 February 2019 (r. 1(2)(g))",
+  "source": "https://egazette.gov.in/WriteReadData/2018/194224.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:43:08Z",
+    "quote": "regulations 26, 27 and sub-regulations (1), (2), (3) and (4) of regulation 25 of these regulations shall come into force from the 28th day of February, 2019",
+    "scope": "principal regulations 26, 27 and 25(1) to 25(4)",
+    "window": "2019-02-28",
+    "status": "in-force"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2018"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    }
+  ]
+}

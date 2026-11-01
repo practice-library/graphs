@@ -1,0 +1,31 @@
+{
+  "id": "timeline.in.tcccpr-amendment-2026.r25-4-d",
+  "type": "timeline",
+  "name": "OAP acts within three business days (r. 25(4)(d))",
+  "source": "https://egazette.gov.in/WriteReadData/2026/276548.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:51:50Z",
+    "quote": "within three business days from the date of receipt of complaint by the OAP, and communicate to TAP to inform the complainant about the action taken against the complaint",
+    "scope": "Originating Access Providers, for SMS complaints against registered Senders or RTMs",
+    "window": "2026-10-18",
+    "status": "in-force",
+    "value": 3,
+    "unit": "business days"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2026"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2026.r1-3"
+    }
+  ]
+}

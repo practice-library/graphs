@@ -1,0 +1,30 @@
+{
+  "id": "provision.in.tcccpr-amendment-2026.schedule-2-categories",
+  "type": "provision",
+  "name": "Opt-out categories from 2026: BLOCK PROMO and eight categories (Schedule-II item 1)",
+  "source": "https://egazette.gov.in/WriteReadData/2026/276548.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:51:50Z",
+    "quote": "all preferences registered under FULLY BLOCK category shall be migrated to BLOCK PROMO category within fifteen days",
+    "scope": "customers, through Access Providers",
+    "window": "2026-10-18",
+    "status": "in-force",
+    "note": "FULLY BLOCK is removed. BLOCK PROMO blocks promotional communications only; categories 1 to 8 are banking and finance, real estate, education, health, consumer goods and automobiles, communication and IT, tourism, food."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2026"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2026.r1-3"
+    }
+  ]
+}

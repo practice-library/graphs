@@ -1,0 +1,28 @@
+{
+  "id": "definition.in.tcccpr-amendment-2026.explicit-consent",
+  "type": "definition",
+  "name": "Explicit Consent (r. 2(y), as substituted in 2026)",
+  "source": "https://egazette.gov.in/WriteReadData/2026/276548.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:51:50Z",
+    "quote": "verified directly from the Recipient in a robust and verifiable manner and recorded by Consent Registrar",
+    "window": "2026-10-18",
+    "note": "Or obtained by the Sender by verifiable means outside the Consent Registration Function and then registered in the Consent Register as the Authority specifies."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2026"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2026.r1-3"
+    }
+  ]
+}

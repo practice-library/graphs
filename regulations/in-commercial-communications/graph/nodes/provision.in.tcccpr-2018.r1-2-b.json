@@ -1,0 +1,22 @@
+{
+  "id": "provision.in.tcccpr-2018.r1-2-b",
+  "type": "provision",
+  "name": "Principal regulations in force after 30 days (r. 1(2)(b))",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "regulations 4,5,11,15,28,34, 35 and 36 of these regulations shall come into force after 30 days",
+    "scope": "regulations 4, 5, 11, 15, 28, 34, 35 and 36",
+    "window": "2018-08-18",
+    "status": "in-force",
+    "note": "window is computed: 30 days after publication in the Official Gazette, dated 19 July 2018."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-2018"
+    }
+  ]
+}

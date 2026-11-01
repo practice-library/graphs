@@ -1,0 +1,22 @@
+{
+  "id": "provision.in.tcccpr-2018.r1-2-e",
+  "type": "provision",
+  "name": "Principal r. 1(2)(e) as made: six regulations after 150 days",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "regulations 23, 24, 25, 26, 27, 29 of these regulations shall come into force after 150 days",
+    "scope": "regulations 23 to 27 and 29",
+    "window": "2018-12-16",
+    "status": "superseded",
+    "note": "Substituted by the Amendment Regulations, 2018 (10 of 2018), which moved regulation 24 to 31 January 2019 and regulations 26, 27 and 25(1) to (4) to 28 February 2019."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-2018"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "obligation.in.tcccpr-amendment-2025.r3-2",
+  "type": "obligation",
+  "name": "No commercial communication by an unregistered Sender (r. 3(2))",
+  "source": "https://egazette.gov.in/WriteReadData/2025/261096.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:50:12Z",
+    "quote": "No Sender, who is not registered with any Access Provider for the purpose of sending commercial communications under these regulations, shall make any commercial communication",
+    "scope": "Senders",
+    "window": "2025-03-14",
+    "status": "in-force",
+    "note": "Such a Sender’s telecom resources may be suspended or disconnected. Substituted regulation 3 of the principal regulations."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2025"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2025.r1-3"
+    }
+  ]
+}

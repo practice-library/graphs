@@ -1,0 +1,24 @@
+{
+  "id": "instrument.in.tcccpr-amendment-2018",
+  "type": "instrument",
+  "name": "TCCCP (Amendment) Regulations, 2018 (10 of 2018)",
+  "source": "https://egazette.gov.in/WriteReadData/2018/194224.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:43:08Z",
+    "quote": "These regulations may be called the Telecom Commercial Communications Customer Preference (Amendment) Regulations, 2018 (10 of 2018).",
+    "window": "2018-12-21",
+    "note": "In force on publication; the Gazette is dated 21 December 2018. It changes only the commencement dates in regulation 1(2) of the principal regulations."
+  },
+  "edges": [
+    {
+      "rel": "issuedBy",
+      "to": "authority.in.trai"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    }
+  ]
+}

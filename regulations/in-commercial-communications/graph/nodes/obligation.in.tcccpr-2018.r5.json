@@ -1,0 +1,26 @@
+{
+  "id": "obligation.in.tcccpr-2018.r5",
+  "type": "obligation",
+  "name": "Access Providers build the ecosystem (r. 5)",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "Every Access Provider shall develop or cause to develop an ecosystem with the following functions to regulate the delivery of the commercial communications",
+    "scope": "Access Providers",
+    "window": "2018-08-18",
+    "status": "in-force",
+    "note": "Functions: record preferences and consents, handle revocation, register entities and Senders, run pre-delivery checks, take and investigate complaints, act against unregistered Senders."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-2018.r1-2-b"
+    }
+  ]
+}

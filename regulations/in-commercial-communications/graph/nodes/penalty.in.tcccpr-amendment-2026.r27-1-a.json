@@ -1,0 +1,31 @@
+{
+  "id": "penalty.in.tcccpr-amendment-2026.r27-1-a",
+  "type": "penalty",
+  "name": "Failure to scrub against preference and consent: 1,000 rupees a count (r. 27(1)(a))",
+  "source": "https://egazette.gov.in/WriteReadData/2026/276548.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:51:50Z",
+    "quote": "where UCC has originated due to failure of the OAP to carry out scrubbing in accordance with the preference and consent of the customer",
+    "scope": "Originating Access Providers",
+    "window": "2026-10-18",
+    "status": "in-force",
+    "value": 1000,
+    "unit": "rupees"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2026"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2026.r1-3"
+    }
+  ]
+}

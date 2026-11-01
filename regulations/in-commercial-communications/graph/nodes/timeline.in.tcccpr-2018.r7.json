@@ -1,0 +1,27 @@
+{
+  "id": "timeline.in.tcccpr-2018.r7",
+  "type": "timeline",
+  "name": "Preference takes effect within twenty-four hours (r. 7)",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "no delivery of commercial communication is made or blocked in contravention to the Subscribers’ preference after twenty-four hours",
+    "scope": "Access Providers",
+    "window": "2018-11-16",
+    "status": "in-force",
+    "value": 24,
+    "unit": "hours"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-2018.r1-2-d"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "timeline.in.tcccpr-amendment-2026.service-consent",
+  "type": "timeline",
+  "name": "Explicit consent for service calls and messages lasts seven days (r. 2(bh))",
+  "source": "https://egazette.gov.in/WriteReadData/2026/276548.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:51:50Z",
+    "quote": "Provided that such Explicit Consent shall be valid for a period of seven days or until revoked by the customer, whichever is earlier",
+    "scope": "Senders of service messages or voice calls that need Explicit Consent",
+    "window": "2026-10-18",
+    "status": "in-force",
+    "value": 7,
+    "unit": "days",
+    "note": "The customer may renew it for further seven-day periods."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2026"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2026.r1-3"
+    }
+  ]
+}

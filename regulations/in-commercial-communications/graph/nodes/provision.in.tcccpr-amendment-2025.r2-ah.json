@@ -1,0 +1,30 @@
+{
+  "id": "provision.in.tcccpr-amendment-2025.r2-ah",
+  "type": "provision",
+  "name": "Inferred consent ends with the contract (2025 proviso to r. 2(ah))",
+  "source": "https://egazette.gov.in/WriteReadData/2025/261096.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:50:12Z",
+    "quote": "Provided that such consent shall not extend beyond duration / discharge of the contract between the Sender and the Recipient",
+    "scope": "Senders relying on inferred consent",
+    "window": "2025-03-14",
+    "status": "superseded",
+    "note": "Inserted in 2025 and deleted by the Third Amendment, 2026 (see provision.in.tcccpr-amendment-2026.r2-ah)."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2025"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2025.r1-3"
+    }
+  ]
+}
