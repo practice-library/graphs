@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.worktree-rm-hook-failure",
+  "type": "rule",
+  "name": "A failed archive hook blocks removal; --force does not waive it",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/core.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "denied",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "With --run-hooks, a failed archive hook blocks the removal: nothing is stopped, deleted or deregistered, and the command exits non-zero with error code worktree_archive_hook_failed. --force does not waive this.",
+    "scope": "orca worktree rm --run-hooks",
+    "note": "--allow-failed-archive-hook deletes anyway after the hook has failed; it requires --run-hooks."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.worktree.rm"
+    }
+  ]
+}

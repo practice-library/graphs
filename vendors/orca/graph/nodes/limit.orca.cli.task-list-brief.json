@@ -1,0 +1,21 @@
+{
+  "id": "limit.orca.cli.task-list-brief",
+  "type": "limit",
+  "name": "task-list --brief caps each spec at 160 characters",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "--brief collapses whitespace and caps each spec at 160 characters.",
+    "value": 160,
+    "unit": "characters",
+    "scope": "each spec in orchestration task-list --brief"
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "capability.orca.cli.orchestration.task-list"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "limit.orca.cli.ask-timeout",
+  "type": "limit",
+  "name": "orchestration ask: at most 30 minutes per wait",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "--timeout-ms accepts 1 to 1800000 ms per wait (default 600000 = 10 minutes, max 30 minutes); larger values are rejected.",
+    "value": 1800000,
+    "unit": "ms",
+    "scope": "one wait of orchestration ask",
+    "note": "Default 600000 ms. A timeout leaves the question pending; resume with the original message ID."
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "capability.orca.cli.orchestration.ask"
+    }
+  ]
+}

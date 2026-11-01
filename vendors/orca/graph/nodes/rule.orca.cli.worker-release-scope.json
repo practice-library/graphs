@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.worker-release-scope",
+  "type": "rule",
+  "name": "worker-release closes only the settled worker agent terminal",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration-worker-specs.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:16Z",
+    "quote": "closes only the exact coordinator-owned agent terminal of that worker.",
+    "scope": "orca orchestration worker-release, settled workers",
+    "note": "Never closes setup terminals, configured tabs, reused, pre-existing or taken-over terminals, or unproven identities. Output is archived first, so worker-read still works."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.orchestration.worker-release"
+    }
+  ]
+}

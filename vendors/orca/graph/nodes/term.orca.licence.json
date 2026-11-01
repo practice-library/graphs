@@ -1,0 +1,20 @@
+{
+  "id": "term.orca.licence",
+  "type": "term",
+  "name": "Licence: MIT",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/LICENSE",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:12:53Z",
+    "quote": "MIT License",
+    "scope": "MIT",
+    "note": "Permits use, copying, modification and distribution, provided the copyright and permission notice are included in all copies or substantial portions."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.orca.cli"
+    }
+  ]
+}

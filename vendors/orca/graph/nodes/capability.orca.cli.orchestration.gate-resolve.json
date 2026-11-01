@@ -1,0 +1,20 @@
+{
+  "id": "capability.orca.cli.orchestration.gate-resolve",
+  "type": "capability",
+  "name": "orca orchestration gate-resolve",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "Resolve a pending decision gate",
+    "scope": "orca orchestration gate-resolve --id <gate_id> --resolution <text> [--from <handle>] [--retry-request <id>] [--json]",
+    "note": "Effect: writes: a gate resolution. Flags besides the global ones: --id, --resolution, --from, --retry-request."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.orca.cli"
+    }
+  ]
+}

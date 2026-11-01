@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.json-failure-envelope",
+  "type": "rule",
+  "name": "Failure envelope: id, ok false, error code/message/data",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/shared/runtime-rpc-envelope.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:10:56Z",
+    "quote": "export type RuntimeRpcFailure = {",
+    "scope": "--json output of a failed command",
+    "note": "Fields: id, ok (false), error.code, error.message, optional error.data (recovery hints such as nextSteps), optional _meta.runtimeId (string or null)."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.orca.cli"
+    }
+  ]
+}

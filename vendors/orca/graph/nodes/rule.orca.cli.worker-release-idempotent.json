@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.worker-release-idempotent",
+  "type": "rule",
+  "name": "worker-release is idempotent",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration-worker-specs.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:16Z",
+    "quote": "Idempotent: repeating the call reports already_released.",
+    "scope": "orca orchestration worker-release",
+    "note": "Only release_unknown exits 1; retained, release_pending and already_released exit 0."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.orchestration.worker-release"
+    }
+  ]
+}

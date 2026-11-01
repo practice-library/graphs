@@ -1,0 +1,24 @@
+{
+  "id": "rule.orca.cli.terminal-read-json",
+  "type": "rule",
+  "name": "terminal read and list print through the shared JSON printer",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/handlers/terminal.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:11:10Z",
+    "quote": "printResult(result, json, formatTerminalRead)",
+    "scope": "orca terminal read --json and orca terminal list --json",
+    "note": "terminal list also uses printResult, so control characters in tail lines and titles are escaped as rule.orca.cli.json-output describes. That is this repository reading, not an upstream promise."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.terminal.read"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.terminal.list"
+    }
+  ]
+}

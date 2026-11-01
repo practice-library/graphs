@@ -1,0 +1,20 @@
+{
+  "id": "capability.orca.cli.terminal-daemon.status",
+  "type": "capability",
+  "name": "orca terminal-daemon status",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/terminal-daemon.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T08:16:17Z",
+    "quote": "Report whether the terminal daemon is running, its process ceiling, and whether it still has its program files",
+    "scope": "orca terminal-daemon status [--json]",
+    "note": "Effect: reads. Flags besides the global ones: none."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.orca.cli"
+    }
+  ]
+}

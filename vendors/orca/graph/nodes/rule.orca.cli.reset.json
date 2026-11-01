@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.reset",
+  "type": "rule",
+  "name": "reset clears one named orchestration state scope",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "Reset one explicit orchestration state scope",
+    "scope": "orca orchestration reset --all | --tasks | --messages",
+    "note": "Marked destructive in its spec. Exactly what each scope deletes is not stated in src/cli/specs/orchestration.ts or orchestration.mdx (checked)."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.orchestration.reset"
+    }
+  ]
+}

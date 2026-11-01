@@ -1,0 +1,19 @@
+{
+  "id": "rule.orca.cli.worker-abandon",
+  "type": "rule",
+  "name": "worker-abandon fences without stopping anything",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration-worker-specs.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:16Z",
+    "quote": "Retains all possibly-live resources and performs no process or filesystem action.",
+    "scope": "orca orchestration worker-abandon"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.orchestration.worker-abandon"
+    }
+  ]
+}

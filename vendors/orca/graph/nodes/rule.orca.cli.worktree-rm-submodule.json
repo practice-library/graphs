@@ -1,0 +1,19 @@
+{
+  "id": "rule.orca.cli.worktree-rm-submodule",
+  "type": "rule",
+  "name": "rm refuses checkouts with submodules before stopping terminals",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/main/git/worktree-removal-preflight.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "denied",
+    "fetched_at": "2026-11-01T08:11:28Z",
+    "quote": "Git refuses these even when clean; refuse before teardown instead of after terminals stop.",
+    "scope": "Git worktrees containing a submodule checkout, without --force"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.worktree.rm"
+    }
+  ]
+}

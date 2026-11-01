@@ -1,0 +1,22 @@
+{
+  "id": "limit.orca.cli.terminal-read-default-lines",
+  "type": "limit",
+  "name": "terminal read tail previews default to 120 lines",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/core.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "default 120 for tail previews",
+    "value": 120,
+    "unit": "lines",
+    "scope": "a terminal read tail preview without --limit",
+    "note": "Page older retained output with --cursor and --limit."
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "capability.orca.cli.terminal.read"
+    }
+  ]
+}

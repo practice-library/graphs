@@ -1,0 +1,23 @@
+{
+  "id": "rule.orca.cli.worktree-listing-scope",
+  "type": "rule",
+  "name": "An empty answer for an uncovered host is not evidence",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/worktree-listing-scope-notes.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:19Z",
+    "quote": "A host named under `not covered` may still have workspaces; an empty answer for it is not evidence that it has none.",
+    "scope": "worktree list and worktree ps"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.worktree.list"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.worktree.ps"
+    }
+  ]
+}

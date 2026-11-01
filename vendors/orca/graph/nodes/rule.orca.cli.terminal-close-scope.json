@@ -1,0 +1,19 @@
+{
+  "id": "rule.orca.cli.terminal-close-scope",
+  "type": "rule",
+  "name": "terminal close: one pane, its tab, or every terminal of a workspace",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/terminal-close.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:16Z",
+    "quote": "Without --all, closes one terminal pane/session; add --tab to close its whole tab.",
+    "scope": "orca terminal close"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.terminal.close"
+    }
+  ]
+}
