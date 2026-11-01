@@ -59,11 +59,24 @@ The acceptance questions are in practice-library/graphs#37. These nodes answer t
    - `obligation.in.dpdp-act-2023.s10-2-a`.
 10. **Penalties and grievances:** `penalty.in.dpdp-act-2023.schedule-1` to `-7` (item 6 has no fixed amount and is not a node), and `timeline.in.dpdp-rules-2025.r14-3`.
 
-**Known gap:** `instrument.in.so-5458-2026` is recorded as absent. A 2026 order under section 43 is reported to correct the wording of sections 9(1) and 10(2)(c)(ii), but its gazette copy was not located. Questions 8 and 9 are therefore answered from Rules 10 and 13, which it does not touch.
+**Known gap:** `instrument.in.so-5458-2026` is recorded as absent, with no edges. Secondary sources (law-firm and compliance notes) report an order under section 43, S.O. 5458(E) dated 5 October 2026, that changes the wording of sections 9(1) and 10(2)(c)(ii). Its gazette copy was not located, so its text, its date and whether it reaches anything else are unconfirmed. Questions 8 and 9 are answered from Rules 10 and 13, and from section 10(2)(a). Those reports do not name them, but this graph has not read the order.
+
+## How the edges are used, and where this differs from #37
+
+The ten answers work node by node, but four edges are used more loosely than #37 defined them, and applicability covers one more type:
+- **`partOf`:** #37 has it from a provision to its instrument. Here obligations, timelines, penalties and exemptions are also `partOf` their instrument directly, because no provision node sits between them.
+- **`imposes`** (a provision to the duty it creates) is not used yet, for the same reason. Each duty names its rule or section in its id, such as `r7-1` or `s10-2-a`, instead.
+- **`madeUnder`:** #37 points it at the enabling provision. Here it points at the Act as a whole. The CERT-In directions carry no `madeUnder`, because section 70B(6) of the IT Act is not a node.
+- **`commencedBy`:** #37 points it at the notification that brought a provision into force. Here it points at the commencement provision. For the Act that is a clause of G.S.R. 843(E), which matches #37. For the Rules it is rule 1(3) or 1(4) of the Rules themselves, because the Rules commence by their own rule 1.
+- **Applicability** (`scope`, `window`, `status`) is required on `provision` as well as on obligations, timelines, penalties and exemptions, because the commencement provisions carry the dates.
+
+Adding provision nodes, so that each duty hangs off its provision through `imposes`, would make every edge match #37. That is left for a later change (#46).
 
 ## Status changes with time
 
 `attrs.status` is true on `measuredAt`. `scripts/graph-check.sh` fails a node whose status disagrees with its window on that date. A refresh that moves `measuredAt` past a window must therefore also change the status. For example, rule 4 and sections 6(9) and 27(1)(d) of the Act come into force on 13 November 2026.
+
+The windows of 13 November 2026 and 13 May 2027 are computed: one year and eighteen months after publication. Each gazette is dated Thursday, 13 November 2025, the date the notifications count from. A barcode on the gazettes reads 14112025, which this graph does not use.
 
 ## Attribution
 

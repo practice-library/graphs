@@ -64,7 +64,7 @@ done <<<"$vendor_graphs"
 while IFS= read -r d; do
   [ -n "$d" ] || continue
   name="$(basename "$d")"
-  if ! [[ "$name" =~ ^[a-z]{2}-[a-z0-9][a-z0-9-]*$ ]]; then echo "FAIL $d: a regulation graph is named <jurisdiction>-<topic>, such as in-data-governance"; failed=1; continue; fi
+  if ! [[ "$name" =~ ^[a-z]{2}-[a-z0-9]+(-[a-z0-9]+)*$ ]]; then echo "FAIL $d: a regulation graph is named <jurisdiction>-<topic>, such as in-data-governance"; failed=1; continue; fi
   jurisdiction="${name%%-*}"
   check "$d" "$jurisdiction" "jurisdiction.$jurisdiction"
 done <<<"$regulation_graphs"

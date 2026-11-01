@@ -1,6 +1,6 @@
 {
-  "id": "obligation.zz.data-act-2025.absent",
-  "type": "obligation",
+  "id": "definition.zz.data-act-2025.absent",
+  "type": "definition",
   "name": "obligation.zz.data-act-2025.absent",
   "source": "https://gazette.example.org/2025/1.pdf",
   "measuredAt": "2026-11-01",
