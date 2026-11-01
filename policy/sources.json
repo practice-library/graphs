@@ -199,7 +199,7 @@
         "quote": "Scraping does not refer to the collection of information through our API."
       },
       "format": "json",
-      "maxRequestsPerRun": 3,
+      "maxRequestsPerRun": 4,
       "minIntervalDays": 7,
       "maxBytes": 2000000,
       "timeoutSeconds": 30

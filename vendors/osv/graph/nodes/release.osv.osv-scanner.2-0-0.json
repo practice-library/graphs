@@ -10,7 +10,7 @@
     "quote": "This release includes several breaking changes aimed at future-proofing OSV-Scanner.",
     "scope": "v2.0.0",
     "window": "2025-03-17",
-    "note": "Breaking: V2 changes the CLI and output; see its migration guide. No release from v2.0.1 to v2.7.0 is flagged breaking in the cited notes."
+    "note": "Breaking: V2 changes the CLI and output; see its migration guide."
   },
   "edges": []
 }

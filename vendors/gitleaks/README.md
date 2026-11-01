@@ -13,7 +13,7 @@ Facts about gitleaks, the open-source secret scanner (MIT), one per file in `gra
 1. **Licence:** `term.gitleaks.licence`.
 2. **Latest release:** `release.gitleaks.gitleaks.8-30-1`.
 3. **Releases flagged breaking:** `rule.gitleaks.breaking-releases` is absent. None of the 30 most recent releases flags one.
-4. **Config format and keys:** `feature.gitleaks.config.rules`, `.config.entropy` and `.config.keywords`.
+4. **Config format and keys:** `feature.gitleaks.config.format` (TOML), `feature.gitleaks.config.rules`, `.config.entropy` and `.config.keywords`.
 5. **Extending the defaults:** `feature.gitleaks.config.extend`.
 6. **Scan modes:** `feature.gitleaks.command.git`, `.command.dir` and `.command.stdin`, and `rule.gitleaks.detect-protect-deprecated`.
 7. **Exit code:** `rule.gitleaks.exit-code-leaks`.

@@ -21,10 +21,12 @@ Facts about OSV (Open Source Vulnerabilities): the OSV.dev database and API, the
 6. **Limits:**
    - `rate-limit.osv.api`: none;
    - `limit.osv.api.response-size`: 32 MiB over HTTP/1.1;
+   - `limit.osv.api.query-page-size`: 1,000 vulnerabilities per page of `/v1/query`;
+   - `limit.osv.api.querybatch-page-size`: 3,000 vulnerabilities per page of a whole `/v1/querybatch` (1,000 for one query in it);
    - `limit.osv.api.querybatch-size`: absent.
 7. **Authentication:** `permission.osv.api.authentication` is absent. The pages checked mention no key.
 8. **Bulk download:** `feature.osv.bulk.all-zip`.
-9. **OSV-Scanner releases:** `release.osv.osv-scanner.2-7-0` (latest) and `release.osv.osv-scanner.2-0-0` (breaking).
+9. **OSV-Scanner releases:** `release.osv.osv-scanner.2-7-0` (latest) and `release.osv.osv-scanner.2-0-0` (breaking). `rule.osv.osv-scanner.breaking-releases` covers the 30 most recent releases.
 10. **Lockfiles:** `feature.osv.osv-scanner.lockfiles`.
 
 ## Attribution

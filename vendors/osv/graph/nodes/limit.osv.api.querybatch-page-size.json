@@ -1,0 +1,22 @@
+{
+  "id": "limit.osv.api.querybatch-page-size",
+  "type": "limit",
+  "name": "Page size of POST /v1/querybatch",
+  "source": "https://google.github.io/osv.dev/post-v1-querybatch/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:17:54Z",
+    "quote": "The entire queryset returns more than 3,000 vulnerabilities total",
+    "value": 3000,
+    "unit": "vulnerabilities",
+    "scope": "POST /v1/querybatch, whole queryset; 1,000 for one query in it",
+    "note": "Pagination also occurs when one query in the batch returns more than 1,000 vulnerabilities. The page says these numbers can vary slightly and may change in the future."
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.osv.api"
+    }
+  ]
+}
