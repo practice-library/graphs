@@ -1,7 +1,7 @@
 {
   "id": "rule.orca.cli.worktree-status-merge",
   "type": "rule",
-  "name": "A worktree row takes the highest status of its terminals",
+  "name": "A worktree row keeps the highest status merged into it",
   "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/main/runtime/runtime-worktree-status-projection.ts",
   "measuredAt": "2026-11-01",
   "attrs": {
@@ -9,7 +9,7 @@
     "fetched_at": "2026-11-01T08:12:24Z",
     "quote": "const WORKTREE_STATUS_PRIORITY: Record<RuntimeWorktreeStatus, number> = {",
     "scope": "the status field of a worktree ps row",
-    "note": "Priority: inactive 0, active 1, done 2, working 3, permission 4. When a terminal reports a higher status, the row takes it (mergeWorktreeSummaryStatus)."
+    "note": "Priority: inactive 0, active 1, done 2, working 3, permission 4. mergeWorktreeSummaryStatus replaces the row status only with a higher one."
   },
   "edges": [
     {

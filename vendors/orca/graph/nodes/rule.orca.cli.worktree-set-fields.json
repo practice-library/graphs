@@ -9,7 +9,7 @@
     "fetched_at": "2026-11-01T08:16:18Z",
     "quote": "Each link flag updates its own field and leaves unrelated links unchanged.",
     "scope": "orca worktree set",
-    "note": "Display name, links, comment, board status, read state and parent. Where the host stores this metadata is not stated in the files read."
+    "note": "Display name, links, comment, board status, read state and parent. Where the host stores this metadata is not stated in src/cli/specs/worktree-set.ts."
   },
   "edges": [
     {

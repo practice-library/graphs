@@ -58,7 +58,7 @@ Depth:
    - the two `--force` permissions.
 9. **States:**
    - `rule.orca.cli.worktree-status-values` (`active`, `working`, `permission`, `done`, `inactive`; there is no idle or busy);
-   - `-status-heuristic` and `-status-merge` (the row takes the highest status of its terminals: permission, working, done, active, inactive);
+   - `-status-heuristic` and `-status-merge` (the row keeps the highest status merged into it: permission, working, done, active, inactive);
    - `-sidebar-status` (the optional sidebar field, which has more values) and `worktree-ps-terminal-verdict`;
    - `worktree-listing-scope`.
 10. **worktree set:** `rule.orca.cli.worktree-set-fields`. Where the metadata is stored is not stated.
