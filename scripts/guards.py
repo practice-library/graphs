@@ -11,8 +11,8 @@ BACKSTOPS: early checks that only give a clearer message. Each is removed the sa
 must still fail, because the later check the row names catches the same input. A row whose case then passes
 means the early check was carrying the failure alone and belongs in GUARDS.
 
-Before any mutant, one unmutated run must pass every named case. Covered: graph-check.sh, graphs.sh and
-bump-only.sh. Not covered: render.sh (practice-library/graphs#25), the usage checks on argument counts, the
+Before any mutant, one unmutated run must pass every named case. Covered: graph-check.sh, graphs.sh,
+quote-value.py and bump-only.sh. Not covered: render.sh (practice-library/graphs#25), the usage checks on argument counts, the
 missing-directory exit in graphs.sh (without it, find reports the missing directory and lists nothing, the same output) and the measuredAt type test in bump-only.sh, which no input reaches alone.
 Python 3.9 or later, standard library only. Run: python3 scripts/guards.py
 """
@@ -25,7 +25,7 @@ import sys
 import tempfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-GC, BO, GR = "scripts/graph-check.sh", "scripts/bump-only.sh", "scripts/graphs.sh"
+GC, BO, GR, QV = "scripts/graph-check.sh", "scripts/bump-only.sh", "scripts/graphs.sh", "scripts/quote-value.py"
 C = "selftest/graph-check/"
 F, K, P = "selftest/bump-only-file/", "selftest/bump-only-classify/", "selftest/bump-only-pr/"
 
@@ -75,6 +75,10 @@ GUARDS = [
     ("two node values may not share an id", GC,
      "if ($ids | length) != ($ids | unique | length) then", "if false then", C + "two-values-in-one-file"),
     ("a problem makes graph-check exit non-zero", GC, 'exit "$failed"', "exit 0", C + "edge-to-missing-node"),
+    ("graph-check runs the quote-value check on each vendor graph", GC,
+     'if ! misses="$(python3 "$here/quote-value.py" "$d")"; then', "if false; then", C + "value-not-in-quote"),
+    ("a numeric value must be one of the numbers its quote states", QV,
+     "if not covers(quote, value, unit):", "if False:", C + "value-not-in-quote"),
     ("only a check.json naming graph/nodes is a graph", GR,
      '[ "$instances" = graph/nodes ] && dirname "$f"', 'dirname "$f"', "selftest/graphs/two-graphs-and-a-contract"),
     ("graphs.sh lists vendors only, unless another domain is named", GR,

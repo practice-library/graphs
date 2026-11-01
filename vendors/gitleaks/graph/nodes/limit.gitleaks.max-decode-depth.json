@@ -6,8 +6,8 @@
   "measuredAt": "2026-11-01",
   "attrs": {
     "verdict": "limited",
-    "fetched_at": "2026-11-01T05:16:14Z",
-    "quote": "allow recursive decoding up to this depth (default",
+    "fetched_at": "2026-11-01T13:17:23Z",
+    "quote": "allow recursive decoding up to this depth (default \"0\", no decoding is done)",
     "value": 0,
     "unit": "levels",
     "scope": "--max-decode-depth; default 0, no decoding"

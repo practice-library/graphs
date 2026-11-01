@@ -6,7 +6,9 @@
 #   every edge points at a node of the same graph, so edges stay inside the graph;
 #   every source's host is listed in policy/sources.json for this graph (its "vendor" is the directory name);
 #   in a regulation graph, a status agrees with its window on measuredAt: in-force from the window on,
-#   notified-not-in-force before it (draft and superseded are not compared with a date).
+#   notified-not-in-force before it (draft and superseded are not compared with a date);
+#   in a vendor graph, a node whose attrs.value is a number states that number in its quote (scripts/quote-value.py).
+#   Regulation graphs are not checked for this yet (#69).
 # Usage: scripts/graph-check.sh [root]
 set -euo pipefail
 root="${1:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
@@ -60,6 +62,7 @@ while IFS= read -r d; do
   [ -z "$d" ] && continue # no vendor graph
   vendor="$(basename "$d")"
   check "$d" "$vendor" "vendor.$vendor" vendors
+  if ! misses="$(python3 "$here/quote-value.py" "$d")"; then echo "$misses"; failed=1; fi
 done <<<"$vendor_graphs"
 while IFS= read -r d; do
   [ -n "$d" ] || continue
