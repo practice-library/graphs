@@ -1,0 +1,18 @@
+{
+  "id": "feature.osv.api.vulns",
+  "type": "feature",
+  "name": "GET /v1/vulns/{id}",
+  "source": "https://google.github.io/osv.dev/get-v1-vulns/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:18:04Z",
+    "quote": "Returns vulnerability information for a given vulnerability id."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.osv.api"
+    }
+  ]
+}

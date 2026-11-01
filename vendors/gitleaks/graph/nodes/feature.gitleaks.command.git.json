@@ -1,0 +1,19 @@
+{
+  "id": "feature.gitleaks.command.git",
+  "type": "feature",
+  "name": "Scan mode: git",
+  "source": "https://raw.githubusercontent.com/gitleaks/gitleaks/master/README.md",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:16:14Z",
+    "quote": "command lets you scan local git repos.",
+    "note": "Scans patches from git log -p; --log-opts passes options to git log."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.gitleaks.gitleaks"
+    }
+  ]
+}

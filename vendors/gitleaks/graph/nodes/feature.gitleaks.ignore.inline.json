@@ -1,0 +1,19 @@
+{
+  "id": "feature.gitleaks.ignore.inline",
+  "type": "feature",
+  "name": "Ignore a finding inline: gitleaks:allow",
+  "source": "https://raw.githubusercontent.com/gitleaks/gitleaks/master/README.md",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:16:14Z",
+    "quote": "comment to that line which will instruct gitleaks",
+    "note": "A gitleaks:allow comment on the line ignores that secret; --ignore-gitleaks-allow turns this off."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.gitleaks.gitleaks"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "vendor.osv",
+  "type": "vendor",
+  "name": "OSV (Open Source Vulnerabilities)",
+  "source": "https://osv.dev/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:15:11Z",
+    "quote": "A distributed vulnerability database for Open Source"
+  },
+  "edges": []
+}

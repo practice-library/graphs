@@ -1,0 +1,15 @@
+{
+  "id": "release.osv.schema.1-9-2",
+  "type": "release",
+  "name": "OSV schema 1.9.2",
+  "source": "https://ossf.github.io/osv-schema/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:15:16Z",
+    "quote": "Version 1.9.2 (October 13, 2026)",
+    "scope": "1.9.2",
+    "window": "2026-10-13"
+  },
+  "edges": []
+}

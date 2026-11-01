@@ -1,0 +1,19 @@
+{
+  "id": "rate-limit.osv.api",
+  "type": "rate-limit",
+  "name": "API rate limit: none",
+  "source": "https://google.github.io/osv.dev/faq/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:15:35Z",
+    "quote": "Currently there is not a limit on the API.",
+    "note": "The FAQ answers No to whether the API is rate limited."
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.osv.api"
+    }
+  ]
+}

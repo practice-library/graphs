@@ -1,0 +1,19 @@
+{
+  "id": "rule.gitleaks.detect-protect-deprecated",
+  "type": "rule",
+  "name": "detect and protect are deprecated (since v8.19.0)",
+  "source": "https://raw.githubusercontent.com/gitleaks/gitleaks/master/README.md",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:16:14Z",
+    "quote": "v8.19.0 introduced a change that deprecated `detect` and `protect`.",
+    "note": "They still work but are hidden from --help; git, dir and stdin replace them."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.gitleaks.gitleaks"
+    }
+  ]
+}

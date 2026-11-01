@@ -1,0 +1,19 @@
+{
+  "id": "limit.gitleaks.max-target-megabytes",
+  "type": "limit",
+  "name": "Skip files above a size",
+  "source": "https://raw.githubusercontent.com/gitleaks/gitleaks/master/README.md",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:16:14Z",
+    "quote": "files larger than this will be skipped",
+    "scope": "--max-target-megabytes; no default stated"
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.gitleaks.gitleaks"
+    }
+  ]
+}

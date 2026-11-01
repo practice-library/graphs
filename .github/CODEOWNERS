@@ -4,4 +4,6 @@
 * @practice-library/maintainers
 /vendors/anthropic/graph/nodes/
 /vendors/github/graph/nodes/
+/vendors/gitleaks/graph/nodes/
+/vendors/osv/graph/nodes/
 /vendors/temporal/graph/nodes/

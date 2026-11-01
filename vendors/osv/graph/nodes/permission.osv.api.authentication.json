@@ -1,0 +1,19 @@
+{
+  "id": "permission.osv.api.authentication",
+  "type": "permission",
+  "name": "API key or authentication",
+  "source": "https://google.github.io/osv.dev/post-v1-query/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "unknown",
+    "fetched_at": "2026-11-01T05:17:37Z",
+    "quote": "Lists vulnerabilities for given package and version.",
+    "note": "Absent: the query, querybatch and vulns pages (checked) mention no API key or authentication; their samples call api.osv.dev with plain curl."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.osv.api"
+    }
+  ]
+}

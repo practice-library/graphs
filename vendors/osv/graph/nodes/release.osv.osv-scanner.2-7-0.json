@@ -1,0 +1,16 @@
+{
+  "id": "release.osv.osv-scanner.2-7-0",
+  "type": "release",
+  "name": "OSV-Scanner v2.7.0 (latest)",
+  "source": "https://api.github.com/repos/google/osv-scanner/releases/tags/v2.7.0",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:16:42Z",
+    "quote": "2026-10-12T01:32:07Z",
+    "scope": "v2.7.0",
+    "window": "2026-10-12",
+    "note": "The latest release on 2026-11-01, not marked pre-release."
+  },
+  "edges": []
+}

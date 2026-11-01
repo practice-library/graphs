@@ -1,0 +1,19 @@
+{
+  "id": "feature.osv.covered-ecosystems",
+  "type": "feature",
+  "name": "Covered ecosystems",
+  "source": "https://google.github.io/osv.dev/data/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:15:14Z",
+    "quote": "Between the data served in OSV and the data converted to OSV the following ecosystems are covered.",
+    "note": "AlmaLinux, Alpine, Android, Bitnami, crates.io, Curl, Debian, Git (incl. C/C++), GitHub Actions, Go, Haskell, Hex, Julia, Linux kernel, Maven, npm, NuGet, opam, OSS-Fuzz, Packagist, Pub, PyPI, Python, R, Rocky Linux, Root, RubyGems, SwiftURL, Ubuntu OS."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.osv.osv-dev"
+    }
+  ]
+}

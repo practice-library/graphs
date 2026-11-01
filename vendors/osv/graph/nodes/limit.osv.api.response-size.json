@@ -1,0 +1,21 @@
+{
+  "id": "limit.osv.api.response-size",
+  "type": "limit",
+  "name": "API response size over HTTP/1.1",
+  "source": "https://google.github.io/osv.dev/faq/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:15:35Z",
+    "quote": "The API has a response size limit of 32MiB when using HTTP/1.1.",
+    "value": 32,
+    "unit": "MiB",
+    "scope": "HTTP/1.1; no limit over HTTP/2"
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.osv.api"
+    }
+  ]
+}

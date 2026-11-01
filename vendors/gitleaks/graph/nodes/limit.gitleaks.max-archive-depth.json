@@ -1,0 +1,21 @@
+{
+  "id": "limit.gitleaks.max-archive-depth",
+  "type": "limit",
+  "name": "Nested archive depth",
+  "source": "https://raw.githubusercontent.com/gitleaks/gitleaks/master/README.md",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:16:14Z",
+    "quote": "allow scanning into nested archives up to this depth (default",
+    "value": 0,
+    "unit": "levels",
+    "scope": "--max-archive-depth; default 0, no archive traversal"
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.gitleaks.gitleaks"
+    }
+  ]
+}

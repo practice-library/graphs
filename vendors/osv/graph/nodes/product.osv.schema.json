@@ -1,0 +1,18 @@
+{
+  "id": "product.osv.schema",
+  "type": "product",
+  "name": "OSV schema",
+  "source": "https://ossf.github.io/osv-schema/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:15:16Z",
+    "quote": "Open Source Vulnerability format"
+  },
+  "edges": [
+    {
+      "rel": "hasRelease",
+      "to": "release.osv.schema.1-9-2"
+    }
+  ]
+}

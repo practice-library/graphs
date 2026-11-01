@@ -1,0 +1,22 @@
+{
+  "id": "product.osv.osv-scanner",
+  "type": "product",
+  "name": "OSV-Scanner",
+  "source": "https://api.github.com/repos/google/osv-scanner/releases/tags/v2.7.0",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:16:42Z",
+    "quote": "2026-10-12T01:32:07Z"
+  },
+  "edges": [
+    {
+      "rel": "hasRelease",
+      "to": "release.osv.osv-scanner.2-7-0"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.osv.osv-scanner.2-0-0"
+    }
+  ]
+}

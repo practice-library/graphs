@@ -1,0 +1,20 @@
+{
+  "id": "rule.osv.schema.required-fields",
+  "type": "rule",
+  "name": "Required fields: id, modified, schema_version",
+  "source": "https://ossf.github.io/osv-schema/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:15:16Z",
+    "quote": "The id and modified fields are required.",
+    "scope": "every OSV record",
+    "note": "For schema versions above 1.0.0, schema_version is also required; all other fields are optional."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.osv.schema"
+    }
+  ]
+}

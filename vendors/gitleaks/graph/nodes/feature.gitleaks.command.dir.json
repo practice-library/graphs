@@ -1,0 +1,18 @@
+{
+  "id": "feature.gitleaks.command.dir",
+  "type": "feature",
+  "name": "Scan mode: dir (aliases files, directory)",
+  "source": "https://raw.githubusercontent.com/gitleaks/gitleaks/master/README.md",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:16:14Z",
+    "quote": "command lets you scan directories and files."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.gitleaks.gitleaks"
+    }
+  ]
+}
