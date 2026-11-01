@@ -1,5 +1,5 @@
 [
-  {"schema": "sources.schema.json", "instances": "sources.json", "resolve": "upstream/practice-library-.github/v2.4.0/spec/sources/schema.json", "resolve-ids": "https://github.com/practice-library/.github/spec/sources/schema.json"},
-  {"schema": "sources.schema.json", "instances": "../spec/sources/examples", "resolve": "upstream/practice-library-.github/v2.4.0/spec/sources/schema.json", "resolve-ids": "https://github.com/practice-library/.github/spec/sources/schema.json"},
-  {"schema": "sources.schema.json", "instances": "../spec/sources/counter-examples", "expect": "fail", "each": "true", "resolve": "upstream/practice-library-.github/v2.4.0/spec/sources/schema.json", "resolve-ids": "https://github.com/practice-library/.github/spec/sources/schema.json"}
+  {"schema": "sources.schema.json", "instances": "sources.json", "resolve": "upstream/practice-library-.github/v2.6.0/spec/sources/schema.json", "resolve-ids": "https://github.com/practice-library/.github/spec/sources/schema.json"},
+  {"schema": "sources.schema.json", "instances": "../spec/sources/examples", "resolve": "upstream/practice-library-.github/v2.6.0/spec/sources/schema.json", "resolve-ids": "https://github.com/practice-library/.github/spec/sources/schema.json"},
+  {"schema": "sources.schema.json", "instances": "../spec/sources/counter-examples", "expect": "fail", "each": "true", "resolve": "upstream/practice-library-.github/v2.6.0/spec/sources/schema.json", "resolve-ids": "https://github.com/practice-library/.github/spec/sources/schema.json"}
 ]

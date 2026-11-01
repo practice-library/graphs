@@ -1,8 +1,8 @@
 {
   "org": {
     "repo": "practice-library/.github",
-    "sha": "75a03317883e16f7ad93f1239dc53c9d0e1c4cc1",
-    "ref": "v2.4.0",
+    "sha": "1927f933ff655934a99660161efc0ca277eea8f0",
+    "ref": "v2.6.0",
     "maintainer": "@practice-library/maintainers",
     "trustedAuthors": [
       "practice-library[bot]"
