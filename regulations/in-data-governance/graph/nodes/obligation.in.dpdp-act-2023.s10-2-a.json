@@ -1,0 +1,26 @@
+{
+  "id": "obligation.in.dpdp-act-2023.s10-2-a",
+  "type": "obligation",
+  "name": "Significant Data Fiduciary: Data Protection Officer based in India",
+  "source": "https://egazette.gov.in/WriteReadData/2023/248045.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T03:49:43Z",
+    "quote": "appoint a Data Protection Officer who shall",
+    "scope": "Significant Data Fiduciary",
+    "window": "2027-05-13",
+    "status": "notified-not-in-force",
+    "note": "Section 10(2)(a): the officer represents it, is based in India, answers to its Board of Directors or similar body, and is the grievance point of contact. Section 10(2)(b): an independent data auditor."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.dpdp-act-2023"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.gsr-843-2025.c"
+    }
+  ]
+}

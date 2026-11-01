@@ -1,0 +1,21 @@
+{
+  "id": "provision.in.dpdp-rules-2025.r1-2",
+  "type": "provision",
+  "name": "Rules in force on publication",
+  "source": "https://egazette.gov.in/WriteReadData/2025/267650.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T03:49:51Z",
+    "quote": "Rules 1, 2 and 17 to 21 shall come into force on the date of their publication in the Official Gazette.",
+    "scope": "rules 1, 2 and 17 to 21",
+    "window": "2025-11-13",
+    "status": "in-force"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.dpdp-rules-2025"
+    }
+  ]
+}

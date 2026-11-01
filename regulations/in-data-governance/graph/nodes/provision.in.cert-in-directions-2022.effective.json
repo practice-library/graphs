@@ -1,0 +1,22 @@
+{
+  "id": "provision.in.cert-in-directions-2022.effective",
+  "type": "provision",
+  "name": "CERT-In directions effective after 60 days",
+  "source": "https://www.cert-in.org.in/PDF/CERT-In_Directions_70B_28.04.2022.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T03:49:39Z",
+    "quote": "This direction will become effective after 60 days from the date on which it is issued.",
+    "scope": "service providers, intermediaries, data centres, body corporate and Government organisations",
+    "window": "2022-06-27",
+    "status": "in-force",
+    "note": "window is computed: 60 days after the issue date, 28 April 2022."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.cert-in-directions-2022"
+    }
+  ]
+}

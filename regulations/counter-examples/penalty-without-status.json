@@ -1,0 +1,22 @@
+{
+  "id": "penalty.zz.data-act-2025.schedule-1",
+  "type": "penalty",
+  "name": "penalty.zz.data-act-2025.schedule-1",
+  "source": "https://gazette.example.org/2025/1.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T04:00:00Z",
+    "quote": "May extend to ten crore rupees.",
+    "scope": "every holder",
+    "window": "2027-01-31",
+    "value": 10,
+    "unit": "crore rupees"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.zz.data-act-2025"
+    }
+  ]
+}

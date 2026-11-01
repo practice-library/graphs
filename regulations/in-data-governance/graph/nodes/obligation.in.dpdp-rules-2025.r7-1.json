@@ -1,0 +1,26 @@
+{
+  "id": "obligation.in.dpdp-rules-2025.r7-1",
+  "type": "obligation",
+  "name": "Breach: intimation to each affected Data Principal",
+  "source": "https://egazette.gov.in/WriteReadData/2025/267650.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T03:49:51Z",
+    "quote": "intimate to each affected Data Principal, in a concise, clear and plain manner and without delay",
+    "scope": "Data Fiduciary",
+    "window": "2027-05-13",
+    "status": "notified-not-in-force",
+    "note": "Contents: description, nature, extent and timing; likely consequences; mitigation measures; safety measures she may take; business contact of a person who can answer queries."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.dpdp-rules-2025"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.dpdp-rules-2025.r1-4"
+    }
+  ]
+}

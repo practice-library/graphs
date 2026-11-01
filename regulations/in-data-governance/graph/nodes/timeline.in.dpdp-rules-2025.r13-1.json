@@ -1,0 +1,28 @@
+{
+  "id": "timeline.in.dpdp-rules-2025.r13-1",
+  "type": "timeline",
+  "name": "Significant Data Fiduciary: DPIA and audit every twelve months",
+  "source": "https://egazette.gov.in/WriteReadData/2025/267650.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T03:49:51Z",
+    "quote": "once in every period of twelve months from the date on which it is notified as such or is included in the class of Data Fiduciaries notified as such, undertake a Data Protection Impact Assessment and an audit",
+    "scope": "Significant Data Fiduciary",
+    "window": "2027-05-13",
+    "status": "notified-not-in-force",
+    "value": 12,
+    "unit": "months",
+    "note": "Rule 13(2): the assessor furnishes the Board a report of significant observations."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.dpdp-rules-2025"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.dpdp-rules-2025.r1-4"
+    }
+  ]
+}

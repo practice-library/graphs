@@ -1,0 +1,19 @@
+{
+  "id": "instrument.in.dpdp-act-2023",
+  "type": "instrument",
+  "name": "Digital Personal Data Protection Act, 2023 (22 of 2023)",
+  "source": "https://egazette.gov.in/WriteReadData/2023/248045.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T03:49:43Z",
+    "quote": "An Act to provide for the processing of digital personal data in a manner that recognises both the right of individuals to protect their personal data and the need to process such personal data for lawful purposes",
+    "window": "2023-08-11"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
+    }
+  ]
+}

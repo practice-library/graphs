@@ -1,0 +1,28 @@
+{
+  "id": "timeline.in.dpdp-rules-2025.r7-2-b",
+  "type": "timeline",
+  "name": "Breach: detailed report to the Board within 72 hours",
+  "source": "https://egazette.gov.in/WriteReadData/2025/267650.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T03:49:51Z",
+    "quote": "of becoming aware of the breach, or within such longer period as the Board may allow on a request made in writing in this behalf",
+    "scope": "Data Fiduciary",
+    "window": "2027-05-13",
+    "status": "notified-not-in-force",
+    "value": 72,
+    "unit": "hours",
+    "note": "Rule 7(2)(b) reads: within seventy-two hours. Contents: updated details, facts and reasons, mitigation, findings on who caused it, remedial measures, and a report on intimations to Data Principals."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.dpdp-rules-2025"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.dpdp-rules-2025.r1-4"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "instrument.zz.data-act-2025",
+  "type": "instrument",
+  "name": "instrument.zz.data-act-2025",
+  "source": "https://gazette.example.org/2025/1.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T04:00:00Z",
+    "quote": "An Act to provide for examples.",
+    "window": "2025-01-31"
+  },
+  "edges": [
+    {
+      "rel": "issuedBy",
+      "to": "authority.zz.ministry"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.zz"
+    }
+  ]
+}

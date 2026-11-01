@@ -1,0 +1,13 @@
+{
+  "id": "instrument.yy.act2",
+  "type": "instrument",
+  "name": "instrument.yy.act2",
+  "source": "https://gazette.zz.example/1.pdf",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "q"
+  },
+  "edges": []
+}

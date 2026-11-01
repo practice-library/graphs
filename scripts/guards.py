@@ -13,7 +13,7 @@ means the early check was carrying the failure alone and belongs in GUARDS.
 
 Before any mutant, one unmutated run must pass every named case. Covered: graph-check.sh, graphs.sh and
 bump-only.sh. Not covered: render.sh (practice-library/graphs#25), the usage checks on argument counts, the
-selftest/ exclusion in graphs.sh (no fixture can show a widened exclusion skipping a real vendor, since every fixture vendor is named a) and the measuredAt type test in bump-only.sh, which no input reaches alone.
+missing-directory exit in graphs.sh (without it, find reports the missing directory and lists nothing, the same output) and the measuredAt type test in bump-only.sh, which no input reaches alone.
 Python 3.9 or later, standard library only. Run: python3 scripts/guards.py
 """
 from __future__ import annotations
@@ -32,7 +32,7 @@ F, K, P = "selftest/bump-only-file/", "selftest/bump-only-classify/", "selftest/
 GUARDS = [
     # (what the guard keeps true, file, code, mutant, the case that must then fail)
     ("a graph without nodes fails", GC,
-     'then echo "FAIL $d: no node in graph/nodes"; failed=1; continue; fi', "then continue; fi", C + "empty-graph"),
+     'then echo "FAIL $d: no node in graph/nodes"; failed=1; return; fi', "then return; fi", C + "empty-graph"),
     ("a node file that is not JSON fails", GC,
      'select(.unreadable) | "a node file is not valid JSON"', 'select(false) | "a node file is not valid JSON"',
      C + "node-not-json"),
@@ -42,7 +42,34 @@ GUARDS = [
      "select((.to as $t | $ids | index($t)) == null)", "select(false)", C + "edge-to-other-vendor"),
     ("every source host is listed", GC, "if ($hosts | index($h)) == null", "if false", C + "source-host-not-listed"),
     ("a host listed for another vendor does not count", GC,
-     "map(select(.vendor == $v) | .host)", "map(.host)", C + "host-listed-for-other-vendor"),
+     "map(select(.vendor == $k) | .host)", "map(.host)", C + "host-listed-for-other-vendor"),
+    ("a host listed for another regulation graph does not count", GC,
+     "map(select(.vendor == $k) | .host)", "map(select(.vendor | startswith($v)) | .host)", C + "regulation-host-listed-for-other-graph"),
+    ("regulation graphs are checked", GC,
+     'regulation_graphs="$(bash "$here/graphs.sh" "$root" regulations)"', 'regulation_graphs=""', C + "regulation-no-root"),
+    ("a regulation graph's ids and root name its jurisdiction", GC,
+     'jurisdiction="${name%%-*}"', 'jurisdiction="$name"', C + "regulation-complete"),
+    ("a regulation graph is named <jurisdiction>-<topic>", GC,
+     'if ! [[ "$name" =~ ^[a-z]{2}-[a-z0-9]+(-[a-z0-9]+)*$ ]]', "if false", C + "regulation-name-without-topic"),
+    ("a regulation graph's name does not end in a hyphen", GC,
+     "[a-z0-9]+(-[a-z0-9]+)*$ ]]", "[a-z0-9-]+$ ]]", C + "regulation-name-trailing-hyphen"),
+    ("a jurisdiction is two letters", GC,
+     "=~ ^[a-z]{2}-", "=~ ^[a-z]+-", C + "regulation-name-not-a-jurisdiction"),
+    ("an empty vendor list checks no vendor graph", GC, '[ -z "$d" ] && continue # no vendor graph', "true",
+     C + "regulation-complete"),
+    ("an empty regulation list checks no regulation graph", GC, '[ -n "$d" ] || continue', "true", C + "complete"),
+    ("status is compared with window only in regulation graphs", GC,
+     'select($dom == "regulations")', "select(true)", C + "vendor-status-not-compared"),
+    ("in-force needs its window on or before measuredAt", GC,
+     'if $st == "in-force" and ($w == null or $w > $n.measuredAt)', "if false", C + "regulation-in-force-a-day-early"),
+    ("in force from exactly the window date", GC, "or $w > $n.measuredAt)", "or $w >= $n.measuredAt)", C + "regulation-complete"),
+    ("in-force without a window fails", GC, "($w == null or $w > $n.measuredAt)", "($w > $n.measuredAt)",
+     C + "regulation-in-force-without-window"),
+    ("notified-not-in-force needs its window after measuredAt", GC,
+     'elif $st == "notified-not-in-force" and ($w == null or $w <= $n.measuredAt)', "elif false",
+     C + "regulation-not-in-force-on-its-window"),
+    ("not in force on the window date itself", GC, "or $w <= $n.measuredAt)", "or $w < $n.measuredAt)",
+     C + "regulation-not-in-force-on-its-window"),
     ("a graph has exactly one root node", GC, '!= 1 then ["the graph needs', '> 1 then ["the graph needs',
      C + "no-root-node"),
     ("two node values may not share an id", GC,
@@ -50,6 +77,12 @@ GUARDS = [
     ("a problem makes graph-check exit non-zero", GC, 'exit "$failed"', "exit 0", C + "edge-to-missing-node"),
     ("only a check.json naming graph/nodes is a graph", GR,
      '[ "$instances" = graph/nodes ] && dirname "$f"', 'dirname "$f"', "selftest/graphs/two-graphs-and-a-contract"),
+    ("graphs.sh lists vendors only, unless another domain is named", GR,
+     'domain="${2:-vendors}"', 'domain="${2:-.}"', "selftest/graphs/regulations-not-in-default"),
+    ("graphs.sh lists only inside the domain directory", GR,
+     'find "$domain" -mindepth 2 -maxdepth 2', "find . -mindepth 3 -maxdepth 3", "selftest/graphs/regulations-not-in-default"),
+    ("graphs.sh lists the domain it is given", GR,
+     'domain="${2:-vendors}"', 'domain="vendors"', "selftest/graphs/regulations-when-named"),
     ("a path outside the allowlist goes to review", BO,
      'elif any($changes[]; allowed(.path) | not) then "review"', 'elif false then "review"', K + "outside-path"),
     ("an added or deleted node is rejected", BO,
@@ -101,6 +134,8 @@ BACKSTOPS = [
     ("a missing policy/sources.json fails", GC,
      '[ -f policy/sources.json ] || { echo "FAIL policy/sources.json is missing"; exit 1; }', "true",
      C + "no-sources-json", "jq --slurpfile on the missing file fails under set -e"),
+    ("notified-not-in-force without a window fails", GC, "($w == null or $w <= $n.measuredAt)", "($w <= $n.measuredAt)",
+     C + "regulation-not-in-force-without-window", "jq orders null before every string, so null <= measuredAt holds"),
     ("a check.json that is not JSON fails", GR,
      '|| { echo "$f: not valid JSON" >&2; exit 1; }', "", C + "check-json-not-json",
      "the jq call fails inside the command substitution under set -e"),

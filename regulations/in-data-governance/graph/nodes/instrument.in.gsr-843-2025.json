@@ -1,0 +1,23 @@
+{
+  "id": "instrument.in.gsr-843-2025",
+  "type": "instrument",
+  "name": "Commencement of the DPDP Act, 2023 (G.S.R. 843(E))",
+  "source": "https://egazette.gov.in/WriteReadData/2025/267647.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T04:12:39Z",
+    "quote": "the Central Government hereby appoints",
+    "window": "2025-11-13"
+  },
+  "edges": [
+    {
+      "rel": "issuedBy",
+      "to": "authority.in.meity"
+    },
+    {
+      "rel": "madeUnder",
+      "to": "instrument.in.dpdp-act-2023"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "timeline.in.dpdp-rules-2025.r8-2",
+  "type": "timeline",
+  "name": "Erasure: notice at least 48 hours before",
+  "source": "https://egazette.gov.in/WriteReadData/2025/267650.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T03:49:51Z",
+    "quote": "hours before completion of the time period for erasure of personal data under this rule, the Data Fiduciary shall inform the Data Principal",
+    "scope": "Data Fiduciary",
+    "window": "2027-05-13",
+    "status": "notified-not-in-force",
+    "value": 48,
+    "unit": "hours",
+    "note": "Rule 8(2) reads: At least forty-eight hours before completion of the time period for erasure."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.dpdp-rules-2025"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.dpdp-rules-2025.r1-4"
+    }
+  ]
+}

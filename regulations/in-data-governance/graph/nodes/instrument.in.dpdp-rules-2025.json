@@ -1,0 +1,27 @@
+{
+  "id": "instrument.in.dpdp-rules-2025",
+  "type": "instrument",
+  "name": "Digital Personal Data Protection Rules, 2025 (G.S.R. 846(E))",
+  "source": "https://egazette.gov.in/WriteReadData/2025/267650.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T03:49:51Z",
+    "quote": "These rules may be called the Digital Personal Data Protection Rules, 2025.",
+    "window": "2025-11-13"
+  },
+  "edges": [
+    {
+      "rel": "issuedBy",
+      "to": "authority.in.meity"
+    },
+    {
+      "rel": "madeUnder",
+      "to": "instrument.in.dpdp-act-2023"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
+    }
+  ]
+}

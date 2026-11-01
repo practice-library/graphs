@@ -1,0 +1,13 @@
+{
+  "id": "authority.in.cert-in",
+  "type": "authority",
+  "name": "Indian Computer Emergency Response Team (CERT-In)",
+  "source": "https://www.cert-in.org.in/PDF/CERT-In_Directions_70B_28.04.2022.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T03:49:39Z",
+    "quote": "shall serve as the national agency for performing the following functions in the area of cyber security"
+  },
+  "edges": []
+}

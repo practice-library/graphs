@@ -1,0 +1,25 @@
+{
+  "id": "obligation.zz.data-act-2025.s2-1",
+  "type": "obligation",
+  "name": "obligation.zz.data-act-2025.s2-1",
+  "source": "https://gazette.example.org/2025/1.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T04:00:00Z",
+    "quote": "Every holder shall tell the Board without delay.",
+    "scope": "every holder",
+    "window": "2026-13-01",
+    "status": "in-force"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.zz.data-act-2025"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.zz.data-act-2025.s2"
+    }
+  ]
+}

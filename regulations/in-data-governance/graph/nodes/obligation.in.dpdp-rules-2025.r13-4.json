@@ -1,0 +1,26 @@
+{
+  "id": "obligation.in.dpdp-rules-2025.r13-4",
+  "type": "obligation",
+  "name": "Significant Data Fiduciary: specified data stays in India",
+  "source": "https://egazette.gov.in/WriteReadData/2025/267650.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T03:49:51Z",
+    "quote": "is processed subject to the restriction that the personal data and the traffic data pertaining to its flow is not transferred outside the territory of India",
+    "scope": "Significant Data Fiduciary",
+    "window": "2027-05-13",
+    "status": "notified-not-in-force",
+    "note": "Applies to personal data the Central Government specifies on a committee's recommendation."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.dpdp-rules-2025"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.dpdp-rules-2025.r1-4"
+    }
+  ]
+}
