@@ -323,6 +323,26 @@
       "minIntervalDays": 7,
       "maxBytes": 1000000,
       "timeoutSeconds": 30
+    },
+    {
+      "host": "www.postgresql.org",
+      "vendor": "postgresql",
+      "robots": {
+        "url": "https://www.postgresql.org/robots.txt",
+        "checkedAt": "2026-11-01T07:13:09Z",
+        "verdict": "allowed",
+        "note": "Disallows /admin/, /account/, /docs/devel/, /list/, /search/ and some /message-id/ paths; none is cited."
+      },
+      "terms": {
+        "url": "https://www.postgresql.org/about/licence/",
+        "checkedAt": "2026-11-01T07:13:12Z",
+        "quote": "Permission to use, copy, modify, and distribute this software and its documentation for any purpose, without fee, and without a written agreement is hereby granted"
+      },
+      "format": "html",
+      "maxRequestsPerRun": 13,
+      "minIntervalDays": 7,
+      "maxBytes": 500000,
+      "timeoutSeconds": 30
     }
   ]
 }

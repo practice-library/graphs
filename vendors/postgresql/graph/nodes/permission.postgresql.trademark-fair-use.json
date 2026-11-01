@@ -1,0 +1,20 @@
+{
+  "id": "permission.postgresql.trademark-fair-use",
+  "type": "permission",
+  "name": "Fair use of the name in true factual statements",
+  "source": "https://www.postgresql.org/about/policies/trademarks/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T07:14:05Z",
+    "quote": "You may make fair use of Postgres or PostgreSQL to refer to the software in true factual statements.",
+    "scope": "true factual statements, without implying affiliation or endorsement",
+    "note": "For example, saying software runs on or is derived from PostgreSQL. Not on competing databases, nor implying sponsorship by the project. Uses the policy does not discuss need permission from the Association."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "vendor.postgresql"
+    }
+  ]
+}

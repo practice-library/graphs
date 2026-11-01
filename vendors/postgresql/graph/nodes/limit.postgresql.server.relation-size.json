@@ -1,0 +1,21 @@
+{
+  "id": "limit.postgresql.server.relation-size",
+  "type": "limit",
+  "name": "Table (relation) size",
+  "source": "https://www.postgresql.org/docs/current/limits.html",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T07:13:58Z",
+    "quote": "relation size 32 TB with the default BLCKSZ of 8192 bytes",
+    "value": 32,
+    "unit": "TB",
+    "scope": "one table or index, with the default 8192-byte block size"
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.postgresql.server"
+    }
+  ]
+}

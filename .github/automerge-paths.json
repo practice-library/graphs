@@ -7,5 +7,7 @@
 ,
 "vendors/osv/graph/nodes/"
 ,
+"vendors/postgresql/graph/nodes/"
+,
 "vendors/temporal/graph/nodes/"
 ]}

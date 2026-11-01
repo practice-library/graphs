@@ -1,0 +1,16 @@
+{
+  "id": "release.postgresql.server.15",
+  "type": "release",
+  "name": "PostgreSQL 15 (major version)",
+  "source": "https://www.postgresql.org/support/versioning/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T07:13:50Z",
+    "quote": "15 15.19 Yes October 13, 2022 November 11, 2027",
+    "scope": "15",
+    "window": "2022-10-13",
+    "note": "Supported. 15.0 first released 2022-10-13; final release 2027-11-11. Current minor 15.19 per the versioning page."
+  },
+  "edges": []
+}

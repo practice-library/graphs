@@ -1,0 +1,13 @@
+{
+  "id": "vendor.postgresql",
+  "type": "vendor",
+  "name": "PostgreSQL",
+  "source": "https://www.postgresql.org/about/licence/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T07:13:12Z",
+    "quote": "PostgreSQL Database Management System (also known as Postgres, formerly as Postgres95)"
+  },
+  "edges": []
+}

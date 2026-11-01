@@ -1,0 +1,21 @@
+{
+  "id": "limit.postgresql.server.columns-per-index",
+  "type": "limit",
+  "name": "Columns per index",
+  "source": "https://www.postgresql.org/docs/current/limits.html",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T07:13:58Z",
+    "quote": "columns per index 32 can be increased by recompiling PostgreSQL",
+    "value": 32,
+    "unit": "columns",
+    "scope": "one index, default build"
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.postgresql.server"
+    }
+  ]
+}

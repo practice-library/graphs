@@ -1,0 +1,54 @@
+{
+  "id": "product.postgresql.server",
+  "type": "product",
+  "name": "PostgreSQL (database server)",
+  "source": "https://www.postgresql.org/support/versioning/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T07:13:50Z",
+    "quote": "The PostgreSQL Global Development Group releases a new major version containing new features about once a year."
+  },
+  "edges": [
+    {
+      "rel": "hasRelease",
+      "to": "release.postgresql.server.18"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.postgresql.server.17"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.postgresql.server.16"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.postgresql.server.15"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.postgresql.server.14"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.postgresql.server.18-6"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.postgresql.server.17-11"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.postgresql.server.16-15"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.postgresql.server.15-19"
+    },
+    {
+      "rel": "hasRelease",
+      "to": "release.postgresql.server.14-24"
+    }
+  ]
+}

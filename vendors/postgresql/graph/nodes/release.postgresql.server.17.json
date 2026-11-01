@@ -1,0 +1,16 @@
+{
+  "id": "release.postgresql.server.17",
+  "type": "release",
+  "name": "PostgreSQL 17 (major version)",
+  "source": "https://www.postgresql.org/support/versioning/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T07:13:50Z",
+    "quote": "17 17.11 Yes September 26, 2024 November 8, 2029",
+    "scope": "17",
+    "window": "2024-09-26",
+    "note": "Supported. 17.0 first released 2024-09-26; final release 2029-11-08. Current minor 17.11 per the versioning page."
+  },
+  "edges": []
+}

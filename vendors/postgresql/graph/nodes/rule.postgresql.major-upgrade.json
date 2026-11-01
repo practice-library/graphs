@@ -1,0 +1,20 @@
+{
+  "id": "rule.postgresql.major-upgrade",
+  "type": "rule",
+  "name": "Major upgrades need dump/reload or pg_upgrade",
+  "source": "https://www.postgresql.org/support/versioning/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T07:13:50Z",
+    "quote": "A dump/reload of the database or use of the pg_upgrade application is required for major upgrades.",
+    "scope": "upgrades between major versions",
+    "note": "Intervening major versions may be skipped, but the release notes of each should be read first."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.postgresql.server"
+    }
+  ]
+}

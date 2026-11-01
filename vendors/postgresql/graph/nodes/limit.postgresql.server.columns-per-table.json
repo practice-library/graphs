@@ -1,0 +1,22 @@
+{
+  "id": "limit.postgresql.server.columns-per-table",
+  "type": "limit",
+  "name": "Columns per table",
+  "source": "https://www.postgresql.org/docs/current/limits.html",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T07:13:58Z",
+    "quote": "columns per table 1,600 further limited by tuple size fitting on a single page",
+    "value": 1600,
+    "unit": "columns",
+    "scope": "one table",
+    "note": "Dropped columns also count toward the limit."
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.postgresql.server"
+    }
+  ]
+}

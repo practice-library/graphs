@@ -1,0 +1,21 @@
+{
+  "id": "limit.postgresql.server.identifier-length",
+  "type": "limit",
+  "name": "Identifier length",
+  "source": "https://www.postgresql.org/docs/current/limits.html",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T07:13:58Z",
+    "quote": "identifier length 63 bytes can be increased by recompiling PostgreSQL",
+    "value": 63,
+    "unit": "bytes",
+    "scope": "names of tables, columns and other objects, default build"
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.postgresql.server"
+    }
+  ]
+}

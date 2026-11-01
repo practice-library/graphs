@@ -1,0 +1,16 @@
+{
+  "id": "release.postgresql.server.15-19",
+  "type": "release",
+  "name": "PostgreSQL 15.19 (current minor of 15)",
+  "source": "https://www.postgresql.org/docs/15/release-15-19.html",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T07:22:08Z",
+    "quote": "Release date: 2026-08-13",
+    "scope": "15.19",
+    "window": "2026-08-13",
+    "note": "The current minor of 15 per the versioning page; the date is from its own release notes."
+  },
+  "edges": []
+}

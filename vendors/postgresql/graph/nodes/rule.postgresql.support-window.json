@@ -1,0 +1,22 @@
+{
+  "id": "rule.postgresql.support-window",
+  "type": "rule",
+  "name": "Each major version is supported for five years",
+  "source": "https://www.postgresql.org/support/versioning/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T07:13:50Z",
+    "quote": "The PostgreSQL Global Development Group supports a major version for 5 years after its initial release.",
+    "value": 5,
+    "unit": "years",
+    "scope": "each major version, from its initial release",
+    "note": "After this, a final minor version is released and the major version becomes unsupported (end-of-life)."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.postgresql.server"
+    }
+  ]
+}
