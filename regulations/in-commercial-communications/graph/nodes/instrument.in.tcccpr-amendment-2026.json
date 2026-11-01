@@ -1,0 +1,28 @@
+{
+  "id": "instrument.in.tcccpr-amendment-2026",
+  "type": "instrument",
+  "name": "TCCCP (Third Amendment) Regulations, 2026 (05 of 2026)",
+  "source": "https://egazette.gov.in/WriteReadData/2026/276548.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:51:50Z",
+    "quote": "These regulations may be called the Telecom Commercial Communications Customer Preference (Third Amendment) Regulations, 2026 (05 of 2026).",
+    "window": "2026-09-18",
+    "note": "The Gazette is dated 18 September 2026. It substitutes regulations 4, 25, 29 and 34A, inserts 21A, 25A and 35A, and amends definitions, regulations 3, 11, 13, 22 to 24, 26, 27, 35 and Schedules I, II and IV."
+  },
+  "edges": [
+    {
+      "rel": "issuedBy",
+      "to": "authority.in.trai"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
+    }
+  ]
+}

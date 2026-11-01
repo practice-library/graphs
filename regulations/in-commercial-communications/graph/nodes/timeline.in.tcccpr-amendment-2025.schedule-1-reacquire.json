@@ -1,0 +1,31 @@
+{
+  "id": "timeline.in.tcccpr-amendment-2025.schedule-1-reacquire",
+  "type": "timeline",
+  "name": "No new consent request for 90 days after a revocation (Schedule-I)",
+  "source": "https://egazette.gov.in/WriteReadData/2025/261096.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:50:12Z",
+    "quote": "the Sender shall be allowed to re-acquire consent of such customer only after ninety (90) days from the date of revoking consent or opting-out",
+    "scope": "Senders",
+    "window": "2025-04-13",
+    "status": "in-force",
+    "value": 90,
+    "unit": "days"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2025"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2025.r1-3-late"
+    }
+  ]
+}

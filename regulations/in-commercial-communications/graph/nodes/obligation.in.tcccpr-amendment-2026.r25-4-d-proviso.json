@@ -1,0 +1,30 @@
+{
+  "id": "obligation.in.tcccpr-amendment-2026.r25-4-d-proviso",
+  "type": "obligation",
+  "name": "Five wrongly categorised templates in ninety days suspend the Sender (proviso to r. 25(4)(d)(ii))",
+  "source": "https://egazette.gov.in/WriteReadData/2026/276548.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:51:50Z",
+    "quote": "if five content templates of such Sender are blacklisted for registration under wrong category during the last ninety days",
+    "scope": "registered Senders",
+    "window": "2026-12-17",
+    "status": "notified-not-in-force",
+    "note": "The OAP suspends the Sender for one month or until all its content templates are reverified, whichever is later."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2026"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2026.r1-3-b"
+    }
+  ]
+}

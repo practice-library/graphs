@@ -1,0 +1,26 @@
+{
+  "id": "provision.in.tcccpr-2018.schedule-2-modes",
+  "type": "provision",
+  "name": "Modes a customer can opt out of (Schedule-II item 2)",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "Customer can opt-out of any or all of following category(ies) of mode(s) of communication",
+    "scope": "customers, through Access Providers",
+    "window": "2018-11-16",
+    "status": "in-force",
+    "note": "Voice Call, SMS, Auto Dialer Call Pre-recorded (With Announcement), Auto Dialer Call (With Connectivity to live agent) and Robo-Calls. The 2026 amendment changed only the notes of item 2. Window: the regulation 8 date."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-2018.r1-2-d"
+    }
+  ]
+}

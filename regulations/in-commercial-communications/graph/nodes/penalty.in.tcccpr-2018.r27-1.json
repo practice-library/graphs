@@ -1,0 +1,28 @@
+{
+  "id": "penalty.in.tcccpr-2018.r27-1",
+  "type": "penalty",
+  "name": "UCC from RTMs: tiered amounts per count (r. 27, as made)",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "Rupees one thousand per count",
+    "scope": "Originating Access Providers, per Licensed Service Area per calendar month",
+    "window": "2019-02-28",
+    "status": "superseded",
+    "value": 1000,
+    "unit": "rupees",
+    "note": "1,000 rupees a count up to 100 counts, 5,000 above 100 and 10,000 above 1,000, capped at fifty lakh a month. Substituted in 2025."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2018.r1-2-g"
+    }
+  ]
+}

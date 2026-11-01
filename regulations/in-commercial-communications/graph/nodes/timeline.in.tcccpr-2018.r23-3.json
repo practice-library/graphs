@@ -1,0 +1,27 @@
+{
+  "id": "timeline.in.tcccpr-2018.r23-3",
+  "type": "timeline",
+  "name": "Complaint acknowledged within fifteen minutes (r. 23(3))",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "to duly acknowledge the receipt within fifteen minutes of the complaint or report made by the customer with unique reference number",
+    "scope": "Access Providers",
+    "window": "2018-12-16",
+    "status": "in-force",
+    "value": 15,
+    "unit": "minutes"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2018.r1-2-e"
+    }
+  ]
+}

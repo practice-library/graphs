@@ -1,0 +1,31 @@
+{
+  "id": "penalty.in.tcccpr-amendment-2025.r27-1-b",
+  "type": "penalty",
+  "name": "Header or template registered against the rules: 5,000 rupees a count (r. 27(1)(b))",
+  "source": "https://egazette.gov.in/WriteReadData/2025/261096.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:50:12Z",
+    "quote": "an amount of five thousand rupees per count of registration found not to be in accordance with these regulations",
+    "scope": "Access Providers registering Headers and Content Templates",
+    "window": "2025-03-14",
+    "status": "in-force",
+    "value": 5000,
+    "unit": "rupees"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2025"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2025.r1-3"
+    }
+  ]
+}

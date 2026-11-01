@@ -1,0 +1,22 @@
+{
+  "id": "provision.in.tcccpr-amendment-2026.r1-3-b",
+  "type": "provision",
+  "name": "Third Amendment Annexure items in force after ninety days (r. 1(3)(b))",
+  "source": "https://egazette.gov.in/WriteReadData/2026/276548.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:51:50Z",
+    "quote": "the amendments listed in Annexure, which shall come into force after ninety days",
+    "scope": "the Annexure: regulation 23(1)(c) (appeal), the opening of regulation 25 (corroboration with AI-detected senders) and the proviso to regulation 25(4)(d)(ii)",
+    "window": "2026-12-17",
+    "status": "notified-not-in-force",
+    "note": "window is computed: 90 days after publication in the Official Gazette, dated 18 September 2026."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2026"
+    }
+  ]
+}

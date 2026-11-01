@@ -1,0 +1,28 @@
+{
+  "id": "timeline.in.tcccpr-2018.schedule-2-revocation",
+  "type": "timeline",
+  "name": "Revocation removes the consent within 1 business day (Schedule-II)",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "from the consent register within 1 business day",
+    "scope": "Access Providers, on a customer’s request to revoke consent",
+    "window": "2018-11-16",
+    "status": "in-force",
+    "value": 1,
+    "unit": "business days",
+    "note": "Schedule-II is the Code of Practice for preferences and consents required by regulation 8, in force from the 120-day date."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-2018.r1-2-d"
+    }
+  ]
+}

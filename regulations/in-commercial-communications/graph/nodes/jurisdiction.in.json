@@ -1,0 +1,13 @@
+{
+  "id": "jurisdiction.in",
+  "type": "jurisdiction",
+  "name": "India",
+  "source": "https://egazette.gov.in/WriteReadData/2025/261096.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:50:12Z",
+    "quote": "These regulations shall apply throughout the territory of India."
+  },
+  "edges": []
+}

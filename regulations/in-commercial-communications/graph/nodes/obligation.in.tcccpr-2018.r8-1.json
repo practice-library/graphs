@@ -1,0 +1,26 @@
+{
+  "id": "obligation.in.tcccpr-2018.r8-1",
+  "type": "obligation",
+  "name": "Five Codes of Practice (r. 8(1))",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "Develop Code(s) of Practice to establish system and make arrangements to govern the specified activities",
+    "scope": "Access Providers",
+    "window": "2018-11-16",
+    "status": "in-force",
+    "note": "For entities, preferences and consents, complaints, UCC detection and monthly reports (Schedules I to V)."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-2018.r1-2-d"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "provision.in.tcccpr-2018.r1-2-a",
+  "type": "provision",
+  "name": "Principal regulations in force on publication (r. 1(2)(a))",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "Except as otherwise provided in clause (b), (c), (d) and (e) these regulations shall come into force from the date of their publication in the Official Gazette",
+    "scope": "regulations not named in clauses (b) to (e) of regulation 1(2)",
+    "window": "2018-07-19",
+    "status": "in-force"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-2018"
+    }
+  ]
+}

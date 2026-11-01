@@ -1,0 +1,34 @@
+{
+  "id": "obligation.in.tcccpr-amendment-2025.r25-5-d",
+  "type": "obligation",
+  "name": "Suspension at five complainants in ten days (r. 25(5)(d), 2025)",
+  "source": "https://egazette.gov.in/WriteReadData/2025/261096.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:50:12Z",
+    "quote": "if it is found that number of complaints against the Sender are from five or more than five unique Recipients during last ten days",
+    "scope": "Originating Access Providers, for unregistered telemarketers",
+    "window": "2025-04-13",
+    "status": "superseded",
+    "note": "Regulation 25 was substituted again by the Third Amendment, 2026."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2025"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "supersedes",
+      "to": "obligation.in.tcccpr-2018.r25-5-c"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2025.r1-3-late"
+    }
+  ]
+}

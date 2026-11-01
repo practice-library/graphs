@@ -1,0 +1,30 @@
+{
+  "id": "obligation.in.tcccpr-amendment-2025.r22-1-c",
+  "type": "obligation",
+  "name": "Annual self-certification of Headers and templates (r. 22(1)(c))",
+  "source": "https://egazette.gov.in/WriteReadData/2025/261096.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:50:12Z",
+    "quote": "develop a mechanism for the registered Senders and RTMs to self-certify annually",
+    "scope": "registered Senders and RTMs, through their Access Providers",
+    "window": "2025-03-14",
+    "status": "in-force",
+    "note": "A Sender or RTM that does not certify its registration details, Headers, Content Templates and Consent Templates is suspended automatically, or the uncertified items are."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2025"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2025.r1-3"
+    }
+  ]
+}

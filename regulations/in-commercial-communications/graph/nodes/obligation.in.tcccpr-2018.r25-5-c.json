@@ -1,0 +1,26 @@
+{
+  "id": "obligation.in.tcccpr-2018.r25-5-c",
+  "type": "obligation",
+  "name": "Usage cap at ten complainants in seven days (r. 25(5)(c), as made)",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "number of complaints against the sender are from ten or more than ten recipients over a period of last seven days",
+    "scope": "Originating Access Providers, for unregistered telemarketers",
+    "window": "2018-12-16",
+    "status": "superseded",
+    "note": "Regulation 25 was substituted in 2025 and again in 2026."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2018.r1-2-e"
+    }
+  ]
+}

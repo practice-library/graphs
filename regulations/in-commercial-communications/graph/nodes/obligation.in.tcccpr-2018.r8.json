@@ -1,0 +1,26 @@
+{
+  "id": "obligation.in.tcccpr-2018.r8",
+  "type": "obligation",
+  "name": "Register Senders, Headers, Content Templates and Consent Templates (r. 8)",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "Register Sender(s) and assign the header(s), header root(s);",
+    "scope": "Access Providers, before allowing commercial communication",
+    "window": "2018-11-16",
+    "status": "in-force",
+    "note": "Regulation 8(3) to (5): register Senders and assign headers, register Content Templates, register Consent Templates."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-2018.r1-2-d"
+    }
+  ]
+}

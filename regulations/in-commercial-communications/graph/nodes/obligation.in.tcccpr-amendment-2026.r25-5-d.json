@@ -1,0 +1,34 @@
+{
+  "id": "obligation.in.tcccpr-amendment-2026.r25-5-d",
+  "type": "obligation",
+  "name": "Suspension at three complaints with an AI flag, or five, in ten days (r. 25(5)(d))",
+  "source": "https://egazette.gov.in/WriteReadData/2026/276548.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:51:50Z",
+    "quote": "if there are five or more complaints against the Sender from unique Recipients during the last ten days across all Access Providers",
+    "scope": "Originating Access Providers, for complaints against unregistered telemarketers",
+    "window": "2026-10-18",
+    "status": "in-force",
+    "note": "Also at three or more complaints if a CLI of the Sender was flagged by the AI system in those ten days. The OAP suspends and investigates. Corroboration with AI-detected senders in the opening of regulation 25 starts 2026-12-17."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2026"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "supersedes",
+      "to": "obligation.in.tcccpr-amendment-2025.r25-5-d"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2026.r1-3"
+    }
+  ]
+}

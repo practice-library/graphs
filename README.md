@@ -32,7 +32,7 @@ Status: the contracts, checks and source policy exist, and there are vendor grap
 
 The first domain is `vendors`: limits, plans, prices, access rules and terms of public services. A new domain is a new directory with its own `schema.json`; a new vendor is a new directory under its domain. Nothing else changes: every `check.json` is found and checked.
 
-The second domain is `regulations`: dated rules from official legal texts, one graph per jurisdiction and topic. The first is `regulations/in-data-governance`: India's Digital Personal Data Protection Act, 2023 and Rules, 2025, and the CERT-In directions of 2022, from `egazette.gov.in` and `www.cert-in.org.in`. Its README maps each of its ten acceptance questions to the nodes that answer it.
+The second domain is `regulations`: dated rules from official legal texts, one graph per jurisdiction and topic. The first is `regulations/in-data-governance`: India's Digital Personal Data Protection Act, 2023 and Rules, 2025, and the CERT-In directions of 2022, from `egazette.gov.in` and `www.cert-in.org.in`. The second is `regulations/in-commercial-communications`: the Telecom Commercial Communications Customer Preference Regulations, 2018 and their amendments of 2018, 2025 and 2026, from `egazette.gov.in` only. Each README maps its graph's ten acceptance questions to the nodes that answer them.
 
 ## A regulation fact
 

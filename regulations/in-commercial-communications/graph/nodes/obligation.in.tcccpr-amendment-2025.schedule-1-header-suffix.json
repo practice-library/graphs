@@ -1,0 +1,30 @@
+{
+  "id": "obligation.in.tcccpr-amendment-2025.schedule-1-header-suffix",
+  "type": "obligation",
+  "name": "Header suffix shows the message type (Schedule-I)",
+  "source": "https://egazette.gov.in/WriteReadData/2025/261096.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:50:12Z",
+    "quote": "for Promotional, Service, Transactional, and Government Messages, respectively",
+    "scope": "Access Providers, for registered Headers",
+    "window": "2025-04-13",
+    "status": "in-force",
+    "note": "Headers carry the suffix -P, -S, -T or -G so that recipients can tell Promotional, Service, Transactional and Government Messages apart."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2025"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2025.r1-3-late"
+    }
+  ]
+}

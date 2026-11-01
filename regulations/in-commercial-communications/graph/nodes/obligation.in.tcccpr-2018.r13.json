@@ -1,0 +1,26 @@
+{
+  "id": "obligation.in.tcccpr-2018.r13",
+  "type": "obligation",
+  "name": "Access Providers run the system on permissioned, private DLT (r. 13)",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "Access Providers shall adopt Distributed Ledger Technology (DLT) with permissioned and private DLT networks",
+    "scope": "Access Providers",
+    "window": "2018-10-17",
+    "status": "in-force",
+    "note": "Registration of entities, preferences, consents and complaints is recorded on these ledgers; regulation 14 lets Access Providers authorise DLT network operators."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-2018.r1-2-c"
+    }
+  ]
+}

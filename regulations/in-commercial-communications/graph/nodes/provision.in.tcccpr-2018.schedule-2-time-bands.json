@@ -1,0 +1,26 @@
+{
+  "id": "provision.in.tcccpr-2018.schedule-2-time-bands",
+  "type": "provision",
+  "name": "Time bands before 10:00 and after 21:00 are off by default (Schedule-II)",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "Time Bands (i), (ii), (iii) and (ix) shall be default OFF for all customers",
+    "scope": "all customers, including those who registered no preference",
+    "window": "2018-11-16",
+    "status": "in-force",
+    "note": "Bands (i) to (iii) are 00:00 to 10:00 and band (ix) is 21:00 to 24:00, so preference-based delivery runs 10:00 to 21:00 unless the customer switches a band on. Window: the regulation 8 date, as Schedule-II states none."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-2018.r1-2-d"
+    }
+  ]
+}

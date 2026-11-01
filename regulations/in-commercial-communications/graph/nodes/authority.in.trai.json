@@ -1,0 +1,18 @@
+{
+  "id": "authority.in.trai",
+  "type": "authority",
+  "name": "Telecom Regulatory Authority of India (TRAI)",
+  "source": "https://egazette.gov.in/WriteReadData/2018/194224.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:43:08Z",
+    "quote": "the Telecom Regulatory Authority of India hereby makes the following regulations to amend the Telecom Commercial Communications Customer Preference Regulations, 2018 (6 of 2018)"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
+    }
+  ]
+}

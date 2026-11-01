@@ -1,0 +1,22 @@
+{
+  "id": "provision.in.tcccpr-2018.r1-2-c",
+  "type": "provision",
+  "name": "Principal regulations in force after 90 days (r. 1(2)(c))",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "regulations 6, 13 and 14 of these regulations shall come into force after 90 days",
+    "scope": "regulations 6, 13 and 14",
+    "window": "2018-10-17",
+    "status": "in-force",
+    "note": "window is computed: 90 days after publication in the Official Gazette, dated 19 July 2018."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-2018"
+    }
+  ]
+}

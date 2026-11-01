@@ -1,0 +1,28 @@
+{
+  "id": "definition.in.tcccpr-amendment-2026.consent",
+  "type": "definition",
+  "name": "Consent (r. 2(k), as substituted in 2026)",
+  "source": "https://egazette.gov.in/WriteReadData/2026/276548.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:51:50Z",
+    "quote": "“Consent” means any voluntary permission, either explicit or inferred, given by the customer to Sender to receive Commercial Communication related to specific purpose, product or service.",
+    "window": "2026-10-18",
+    "note": "Explanation 3: nothing in these regulations exempts the Sender from its obligations under the Digital Personal Data Protection Act, 2023."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2026"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2026.r1-3"
+    }
+  ]
+}

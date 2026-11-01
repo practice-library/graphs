@@ -1,0 +1,28 @@
+{
+  "id": "timeline.in.tcccpr-2018.r23-2",
+  "type": "timeline",
+  "name": "Complaint within three days of receipt (r. 23(2), as made)",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "every such complaint shall be made by a subscriber within three days of receipt of the unsolicited commercial communication",
+    "scope": "subscribers",
+    "window": "2018-12-16",
+    "status": "superseded",
+    "value": 3,
+    "unit": "days",
+    "note": "Replaced by seven days in the Second Amendment, 2025."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2018.r1-2-e"
+    }
+  ]
+}
