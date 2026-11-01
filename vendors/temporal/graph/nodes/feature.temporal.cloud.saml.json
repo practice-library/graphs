@@ -1,0 +1,31 @@
+{
+  "id": "feature.temporal.cloud.saml",
+  "type": "feature",
+  "name": "SAML included on every plan",
+  "source": "https://docs.temporal.io/cloud/pricing",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:16:21Z",
+    "quote": "All Core Features - SAML included - SCIM (Add-on)",
+    "note": "The quote is the Developer column; every plan column of the table lists SAML included."
+  },
+  "edges": [
+    {
+      "rel": "availableOn",
+      "to": "plan.temporal.cloud.developer"
+    },
+    {
+      "rel": "availableOn",
+      "to": "plan.temporal.cloud.business"
+    },
+    {
+      "rel": "availableOn",
+      "to": "plan.temporal.cloud.enterprise"
+    },
+    {
+      "rel": "availableOn",
+      "to": "plan.temporal.cloud.mission-critical"
+    }
+  ]
+}

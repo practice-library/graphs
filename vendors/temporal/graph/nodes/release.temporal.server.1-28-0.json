@@ -1,0 +1,16 @@
+{
+  "id": "release.temporal.server.1-28-0",
+  "type": "release",
+  "name": "Temporal Server v1.28.0",
+  "source": "https://api.github.com/repos/temporalio/temporal/releases/tags/v1.28.0",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:12:37Z",
+    "quote": "This is due to breaking changes between v1.27.2 and v1.28.0.",
+    "scope": "v1.28.0",
+    "window": "2025-06-27",
+    "note": "Breaking: Worker Versioning users on v1.27.x must delete all Worker Deployments before upgrading and recreate them after."
+  },
+  "edges": []
+}

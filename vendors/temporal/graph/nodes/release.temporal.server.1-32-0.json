@@ -1,0 +1,16 @@
+{
+  "id": "release.temporal.server.1-32-0",
+  "type": "release",
+  "name": "Temporal Server v1.32.0",
+  "source": "https://api.github.com/repos/temporalio/temporal/releases/tags/v1.32.0",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:12:48Z",
+    "quote": "It is now the default and includes breaking changes.",
+    "scope": "v1.32.0",
+    "window": "2026-09-11",
+    "note": "Breaking: the unified visibility query converter becomes the default."
+  },
+  "edges": []
+}

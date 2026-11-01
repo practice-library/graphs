@@ -1,0 +1,16 @@
+{
+  "id": "release.temporal.server.1-26-2",
+  "type": "release",
+  "name": "Temporal Server v1.26.2",
+  "source": "https://api.github.com/repos/temporalio/temporal/releases/tags/v1.26.2",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:12:32Z",
+    "quote": "BREAKING CHANGE 💥 If you provide a custom metrics handler",
+    "scope": "v1.26.2",
+    "window": "2024-12-23",
+    "note": "Breaking: a custom metrics handler passed with WithCustomMetricsHandler must be updated to the new batch interface."
+  },
+  "edges": []
+}

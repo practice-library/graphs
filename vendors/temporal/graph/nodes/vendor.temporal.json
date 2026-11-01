@@ -1,0 +1,13 @@
+{
+  "id": "vendor.temporal",
+  "type": "vendor",
+  "name": "Temporal",
+  "source": "https://docs.temporal.io/evaluate/cloud/limits",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:16:19Z",
+    "quote": "Temporal Cloud uses throttling priorities similar to the open source server."
+  },
+  "edges": []
+}

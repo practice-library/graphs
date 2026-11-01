@@ -1,0 +1,21 @@
+{
+  "id": "limit.temporal.cloud.default-retention-period",
+  "type": "limit",
+  "name": "Default Retention Period",
+  "source": "https://docs.temporal.io/evaluate/cloud/limits",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:19Z",
+    "quote": "Temporal Cloud sets the default Retention Period to 30 days.",
+    "value": 30,
+    "unit": "days",
+    "scope": "per Namespace, default"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.cloud"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "capability.temporal.server.update-with-start-preview",
+  "type": "capability",
+  "name": "Update-With-Start (public preview)",
+  "source": "https://api.github.com/repos/temporalio/temporal/releases/tags/v1.26.2",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:12:32Z",
+    "quote": "Workflow Update-With-Start (public preview)"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.server"
+    },
+    {
+      "rel": "introducedIn",
+      "to": "release.temporal.server.1-26-2"
+    }
+  ]
+}

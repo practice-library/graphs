@@ -1,0 +1,19 @@
+{
+  "id": "rate-limit.temporal.cloud.namespace-operations",
+  "type": "rate-limit",
+  "name": "Operations per second per Namespace",
+  "source": "https://docs.temporal.io/evaluate/cloud/limits",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:19Z",
+    "quote": "Your operations per second (OPS) limit is dynamic and depends on your capacity mode.",
+    "scope": "per Namespace"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.cloud"
+    }
+  ]
+}

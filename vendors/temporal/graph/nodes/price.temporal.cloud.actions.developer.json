@@ -1,0 +1,21 @@
+{
+  "id": "price.temporal.cloud.actions.developer",
+  "type": "price",
+  "name": "Actions price on the Developer plan",
+  "source": "https://docs.temporal.io/cloud/pricing",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:21Z",
+    "quote": "The Developer plan is billed at $50 per million Actions at every volume.",
+    "value": 50,
+    "unit": "USD per million Actions",
+    "scope": "Developer plan, every volume"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "plan.temporal.cloud.developer"
+    }
+  ]
+}

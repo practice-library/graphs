@@ -1,0 +1,22 @@
+{
+  "id": "capability.temporal.server.standalone-activities",
+  "type": "capability",
+  "name": "Standalone Activities (GA)",
+  "source": "https://api.github.com/repos/temporalio/temporal/releases/tags/v1.32.0",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:12:48Z",
+    "quote": "Activities and start delay are now enabled by default"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.server"
+    },
+    {
+      "rel": "introducedIn",
+      "to": "release.temporal.server.1-32-0"
+    }
+  ]
+}

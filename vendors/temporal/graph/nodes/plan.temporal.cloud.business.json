@@ -1,0 +1,21 @@
+{
+  "id": "plan.temporal.cloud.business",
+  "type": "plan",
+  "name": "Business support plan",
+  "source": "https://docs.temporal.io/cloud/pricing",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:21Z",
+    "quote": "The Business tier is priced at the greater of $500/month or 10% of Temporal Cloud consumption.",
+    "value": 500,
+    "unit": "USD per month, minimum support fee",
+    "scope": "Business plan; or 10% of consumption if greater"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.cloud"
+    }
+  ]
+}

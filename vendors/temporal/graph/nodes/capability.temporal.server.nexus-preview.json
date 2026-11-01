@@ -1,0 +1,22 @@
+{
+  "id": "capability.temporal.server.nexus-preview",
+  "type": "capability",
+  "name": "Nexus (first release)",
+  "source": "https://api.github.com/repos/temporalio/temporal/releases/tags/v1.25.0",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:12:30Z",
+    "quote": "uses the Nexus RPC protocol to allow calling across namespace and cluster boundaries."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.server"
+    },
+    {
+      "rel": "introducedIn",
+      "to": "release.temporal.server.1-25-0"
+    }
+  ]
+}

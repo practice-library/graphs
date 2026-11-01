@@ -1,0 +1,21 @@
+{
+  "id": "rate-limit.temporal.cloud.visibility-api",
+  "type": "rate-limit",
+  "name": "Visibility API calls per second",
+  "source": "https://docs.temporal.io/evaluate/cloud/limits",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:19Z",
+    "quote": "Default limit: 30 Visibility API calls per second",
+    "value": 30,
+    "unit": "calls per second",
+    "scope": "per Namespace; not configurable"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.cloud"
+    }
+  ]
+}

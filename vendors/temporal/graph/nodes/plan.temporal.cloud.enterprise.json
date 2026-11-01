@@ -1,0 +1,20 @@
+{
+  "id": "plan.temporal.cloud.enterprise",
+  "type": "plan",
+  "name": "Enterprise support plan",
+  "source": "https://docs.temporal.io/cloud/pricing",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:21Z",
+    "quote": "The Enterprise and Mission Critical Support plans must be paid annually.",
+    "scope": "Enterprise plan",
+    "note": "Priced through sales; paid annually."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.cloud"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "capability.temporal.server.workflow-update",
+  "type": "capability",
+  "name": "Workflow Update (GA)",
+  "source": "https://api.github.com/repos/temporalio/temporal/releases/tags/v1.26.2",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:12:32Z",
+    "quote": "Workflow Update GA",
+    "note": "Earlier stages: alpha in v1.20.0, preview in v1.21.0, public preview in v1.25.0."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.server"
+    },
+    {
+      "rel": "introducedIn",
+      "to": "release.temporal.server.1-26-2"
+    }
+  ]
+}

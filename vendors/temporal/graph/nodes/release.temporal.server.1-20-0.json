@@ -1,0 +1,16 @@
+{
+  "id": "release.temporal.server.1-20-0",
+  "type": "release",
+  "name": "Temporal Server v1.20.0",
+  "source": "https://api.github.com/repos/temporalio/temporal/releases/tags/v1.20.0",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:12:20Z",
+    "quote": "0.34 Otel release contains a breaking change.",
+    "scope": "v1.20.0",
+    "window": "2023-02-17",
+    "note": "Breaking: OpenTelemetry 0.34 appends a _total suffix to every counter."
+  },
+  "edges": []
+}

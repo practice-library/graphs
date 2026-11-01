@@ -63,6 +63,46 @@
       "minIntervalDays": 7,
       "maxBytes": 2000000,
       "timeoutSeconds": 30
+    },
+    {
+      "host": "docs.temporal.io",
+      "vendor": "temporal",
+      "robots": {
+        "url": "https://docs.temporal.io/robots.txt",
+        "checkedAt": "2026-10-31T20:15:23Z",
+        "verdict": "allowed",
+        "note": "robots.txt is User-agent: * with Allow: / and a sitemap; nothing is disallowed."
+      },
+      "terms": {
+        "url": "https://temporal.io/terms-of-service",
+        "checkedAt": "2026-10-31T20:16:30Z",
+        "quote": "PLEASE READ THESE TERMS AND CONDITIONS CAREFULLY BEFORE USING THE HOSTED SERVICES"
+      },
+      "format": "html",
+      "maxRequestsPerRun": 5,
+      "minIntervalDays": 7,
+      "maxBytes": 2000000,
+      "timeoutSeconds": 30
+    },
+    {
+      "host": "api.github.com",
+      "vendor": "temporal",
+      "robots": {
+        "url": "https://api.github.com/robots.txt",
+        "checkedAt": "2026-10-31T20:15:23Z",
+        "verdict": "absent",
+        "note": "robots.txt answers 404 with a JSON Not Found body. The cited URLs are the public releases endpoint of the temporalio/temporal repository."
+      },
+      "terms": {
+        "url": "https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies",
+        "checkedAt": "2026-10-31T20:15:24Z",
+        "quote": "Scraping does not refer to the collection of information through our API."
+      },
+      "format": "json",
+      "maxRequestsPerRun": 14,
+      "minIntervalDays": 7,
+      "maxBytes": 2000000,
+      "timeoutSeconds": 30
     }
   ]
 }

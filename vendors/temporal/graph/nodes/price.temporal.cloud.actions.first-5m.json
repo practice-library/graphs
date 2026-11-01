@@ -1,0 +1,30 @@
+{
+  "id": "price.temporal.cloud.actions.first-5m",
+  "type": "price",
+  "name": "Actions price, first 5M (Business and above)",
+  "source": "https://docs.temporal.io/cloud/pricing",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:21Z",
+    "quote": "First 5M $50 Next 5M, up to 10M $45",
+    "value": 50,
+    "unit": "USD per million Actions",
+    "scope": "Business, Enterprise and Mission Critical, first 5M Actions",
+    "note": "Pay-As-You-Go volume price; later tiers are cheaper."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "plan.temporal.cloud.business"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.temporal.cloud.enterprise"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.temporal.cloud.mission-critical"
+    }
+  ]
+}

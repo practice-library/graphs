@@ -1,0 +1,27 @@
+{
+  "id": "capability.temporal.server.worker-versioning-dec-2024-pre-release",
+  "type": "capability",
+  "name": "Worker Versioning December 2024 pre-release APIs",
+  "source": "https://api.github.com/repos/temporalio/temporal/releases/tags/v1.26.2",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:12:32Z",
+    "quote": "Versioning / safe deploy (pre-release)",
+    "note": "The v1.28.0 notes say these APIs are deprecated and no longer supported."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.temporal.server"
+    },
+    {
+      "rel": "introducedIn",
+      "to": "release.temporal.server.1-26-2"
+    },
+    {
+      "rel": "removedIn",
+      "to": "release.temporal.server.1-28-0"
+    }
+  ]
+}

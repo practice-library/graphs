@@ -1,0 +1,16 @@
+{
+  "id": "release.temporal.server.1-17-0",
+  "type": "release",
+  "name": "Temporal Server v1.17.0",
+  "source": "https://api.github.com/repos/temporalio/temporal/releases/tags/v1.17.0",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T20:12:17Z",
+    "quote": "release contains a potential shard lock issue. Do not use this release.",
+    "scope": "v1.17.0",
+    "window": "2022-06-21",
+    "note": "Marked as a pre-release on GitHub; the notes themselves say not to use it."
+  },
+  "edges": []
+}
