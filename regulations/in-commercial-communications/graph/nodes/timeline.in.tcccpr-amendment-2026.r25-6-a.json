@@ -8,7 +8,7 @@
     "verdict": "limited",
     "fetched_at": "2026-11-01T05:51:50Z",
     "quote": "for the first instance of violation, outgoing services of all telecom resources including PRI/SIP trunks, SIMs etc. allotted to the Sender shall be barred by all the Access Providers for a period of fifteen days",
-    "scope": "Senders found to have sent UCC",
+    "scope": "Senders or Telemarketers found to have sent UCC",
     "window": "2026-10-18",
     "status": "in-force",
     "value": 15,

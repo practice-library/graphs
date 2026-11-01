@@ -11,7 +11,7 @@
     "scope": "all customers, including those who registered no preference",
     "window": "2018-11-16",
     "status": "in-force",
-    "note": "Bands (i) to (iii) are 00:00 to 10:00 and band (ix) is 21:00 to 24:00, so preference-based delivery runs 10:00 to 21:00 unless the customer switches a band on."
+    "note": "Bands (i) to (iii) are 00:00 to 10:00 and band (ix) is 21:00 to 24:00, so preference-based delivery runs 10:00 to 21:00 unless the customer switches a band on. Window: the regulation 8 date, as Schedule-II states none."
   },
   "edges": [
     {

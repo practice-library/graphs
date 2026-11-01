@@ -11,7 +11,7 @@
     "scope": "Originating Access Providers, for complaints against unregistered telemarketers",
     "window": "2026-10-18",
     "status": "in-force",
-    "note": "Also at three or more complaints when any CLI of the Sender was flagged as suspected high-probability UCC by the AI system in those ten days. The OAP suspends outgoing services and investigates."
+    "note": "Also at three or more complaints if a CLI of the Sender was flagged by the AI system in those ten days. The OAP suspends and investigates. Corroboration with AI-detected senders in the opening of regulation 25 starts 2026-12-17."
   },
   "edges": [
     {

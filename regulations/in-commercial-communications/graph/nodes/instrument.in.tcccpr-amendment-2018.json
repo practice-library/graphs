@@ -19,6 +19,10 @@
     {
       "rel": "amends",
       "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.in"
     }
   ]
 }

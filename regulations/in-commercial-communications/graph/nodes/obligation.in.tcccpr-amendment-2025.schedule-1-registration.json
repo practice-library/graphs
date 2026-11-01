@@ -1,0 +1,30 @@
+{
+  "id": "obligation.in.tcccpr-amendment-2025.schedule-1-registration",
+  "type": "obligation",
+  "name": "Senders and Telemarketers registered with verification (Schedule-I item 1(4))",
+  "source": "https://egazette.gov.in/WriteReadData/2025/261096.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:50:12Z",
+    "quote": "The registration process of Sender and the Telemarketers by Access Providers shall include",
+    "scope": "Senders and Telemarketers registering with an Access Provider",
+    "window": "2025-04-13",
+    "status": "in-force",
+    "note": "Registration includes physical verification of the entity, biometric authentication of its authorised person and linking the entity to a unique mobile number. Registration is with the Access Provider, on its ledger system (regulation 13)."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-amendment-2025"
+    },
+    {
+      "rel": "amends",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2025.r1-3-late"
+    }
+  ]
+}

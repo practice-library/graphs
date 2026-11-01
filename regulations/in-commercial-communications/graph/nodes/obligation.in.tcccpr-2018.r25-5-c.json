@@ -17,6 +17,10 @@
     {
       "rel": "partOf",
       "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-amendment-2018.r1-2-e"
     }
   ]
 }

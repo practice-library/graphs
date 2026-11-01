@@ -46,6 +46,7 @@ The acceptance questions are in practice-library/graphs#55. These nodes answer t
    - Third Amendment: `provision.in.tcccpr-amendment-2026.r1-3`, plus `r1-3-a` and `r1-3-b`, which are notified but not in force on 1 November 2026.
 2. **Registration:**
    - `obligation.in.tcccpr-amendment-2025.r3-2` (Senders);
+   - `obligation.in.tcccpr-amendment-2025.schedule-1-registration` (Senders and Telemarketers, and how they are verified);
    - `obligation.in.tcccpr-2018.r32` (business and legal entities);
    - `obligation.in.tcccpr-2018.r13` (the ledger platform).
 3. **Headers and templates:**
@@ -54,13 +55,14 @@ The acceptance questions are in practice-library/graphs#55. These nodes answer t
    - `obligation.in.tcccpr-amendment-2025.schedule-1-header-suffix`.
 4. **Consent:**
    - `definition.in.tcccpr-amendment-2026.consent` and `.explicit-consent`;
-   - `timeline.in.tcccpr-2018.schedule-2-revocation`;
+   - `obligation.in.tcccpr-2018.schedule-2-revocation-modes` (how to revoke) and `timeline.in.tcccpr-2018.schedule-2-revocation` (within what time);
    - `timeline.in.tcccpr-amendment-2025.schedule-1-reacquire`;
    - `timeline.in.tcccpr-amendment-2026.service-consent`;
    - the 2025 limit on inferred consent and its deletion in 2026: `provision.in.tcccpr-amendment-2025.r2-ah` and `provision.in.tcccpr-amendment-2026.r2-ah`.
 5. **Preferences:**
    - `obligation.in.tcccpr-2018.r6`;
    - `timeline.in.tcccpr-2018.r6-3` and `.r7`;
+   - `provision.in.tcccpr-2018.schedule-2-modes` (modes) and `provision.in.tcccpr-2018.schedule-2-time-bands` (time bands);
    - `provision.in.tcccpr-amendment-2026.schedule-2-categories`;
    - `exemption.in.tcccpr-amendment-2025.government-message`.
 6. **Complaints:**

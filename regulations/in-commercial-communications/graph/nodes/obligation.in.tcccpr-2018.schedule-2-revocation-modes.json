@@ -1,0 +1,26 @@
+{
+  "id": "obligation.in.tcccpr-2018.schedule-2-revocation-modes",
+  "type": "obligation",
+  "name": "Ways to revoke consent, free of cost (Schedule-II)",
+  "source": "https://egazette.gov.in/WriteReadData/2018/187768.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:47:45Z",
+    "quote": "to provide modes, free of cost, to the customer, as per his choice, to revoke consent",
+    "scope": "Access Providers, for their customers",
+    "window": "2018-11-16",
+    "status": "in-force",
+    "note": "SMS to 1909 with Revoke and the Sender ID, or to the number in the message or call; a call to 1909 or that number; customer care; IVRS; an approved app; a web portal with OTP. Window: the regulation 8 date, as Schedule-II states none."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.tcccpr-2018"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.tcccpr-2018.r1-2-d"
+    }
+  ]
+}
