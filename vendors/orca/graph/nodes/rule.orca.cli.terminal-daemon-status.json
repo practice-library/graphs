@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.terminal-daemon-status",
+  "type": "rule",
+  "name": "Daemon status: live, exited or unverifiable",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/terminal-daemon.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:17Z",
+    "quote": "The daemon is reported live, exited, or unverifiable.",
+    "scope": "orca terminal-daemon status",
+    "note": "Orca starts a new daemon with the next terminal after one exits. A live daemon also reports its terminal process ceiling."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.terminal-daemon.status"
+    }
+  ]
+}

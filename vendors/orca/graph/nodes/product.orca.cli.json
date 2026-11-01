@@ -1,0 +1,19 @@
+{
+  "id": "product.orca.cli",
+  "type": "product",
+  "name": "Orca CLI (orca command)",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/docs/site/content/docs/cli/overview.mdx",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T08:10:13Z",
+    "quote": "The Orca CLI is the `orca` command-line interface for scripting a running Orca editor from any shell.",
+    "note": "It ships with the desktop app. On Linux the command is orca-ide. Most commands talk to the running Orca runtime."
+  },
+  "edges": [
+    {
+      "rel": "hasRelease",
+      "to": "release.orca.cli.1-4-245"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "limit.orca.cli.worker-list-rows",
+  "type": "limit",
+  "name": "worker-list returns at most 100 rows per page",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration-worker-specs.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:16Z",
+    "quote": "Returns at most 100 local rows, newest first, by default",
+    "value": 100,
+    "unit": "rows",
+    "scope": "one page of orchestration worker-list",
+    "note": "Continue with page.nextCursor."
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "capability.orca.cli.orchestration.worker-list"
+    }
+  ]
+}

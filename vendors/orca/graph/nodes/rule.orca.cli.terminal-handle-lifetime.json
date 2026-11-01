@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.terminal-handle-lifetime",
+  "type": "rule",
+  "name": "How long a terminal handle stays valid",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/cli-error.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "unknown",
+    "fetched_at": "2026-11-01T08:10:09Z",
+    "quote": "code === 'terminal_handle_stale'",
+    "scope": "terminal handles across close, rename and restart",
+    "note": "Absent: the files read name the stale-handle error but do not say how long a handle lives, or whether it survives an app or daemon restart."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.orca.cli"
+    }
+  ]
+}

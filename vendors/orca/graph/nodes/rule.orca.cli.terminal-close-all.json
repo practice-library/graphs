@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.terminal-close-all",
+  "type": "rule",
+  "name": "close --all stops every process and removes tabs and resume records",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/terminal-close.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:16Z",
+    "quote": "With --worktree <selector> --all, stops every terminal process owned by that workspace and durably removes its terminal tabs, layouts, and resume records.",
+    "scope": "orca terminal close --worktree <selector> --all",
+    "note": "The spec points to workspace Sleep when terminals and agent sessions should resume later. What close refuses is not stated in the files read."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.terminal.close"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "rule.orca.cli.gate",
+  "type": "rule",
+  "name": "A decision gate blocks a task until resolved",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/docs/site/content/docs/cli/orchestration.mdx",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:10:12Z",
+    "quote": "a coordinator-owned question that blocks a task until it is resolved.",
+    "scope": "orchestration decision gates"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.orchestration.gate-create"
+    }
+  ]
+}

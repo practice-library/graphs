@@ -1,0 +1,20 @@
+{
+  "id": "capability.orca.cli.terminal.close",
+  "type": "capability",
+  "name": "orca terminal close",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/terminal-close.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T08:16:16Z",
+    "quote": "Close one terminal, its whole tab, or every terminal in a workspace",
+    "scope": "orca terminal close ([--terminal <handle>] [--tab] | --worktree <selector> --all) [--json]",
+    "note": "Effect: removes: terminal processes and their tabs. Flags besides the global ones: --terminal, --tab, --worktree, --all. Marked destructive in its spec."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.orca.cli"
+    }
+  ]
+}

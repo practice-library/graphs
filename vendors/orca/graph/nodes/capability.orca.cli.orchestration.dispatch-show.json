@@ -1,0 +1,20 @@
+{
+  "id": "capability.orca.cli.orchestration.dispatch-show",
+  "type": "capability",
+  "name": "orca orchestration dispatch-show",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "Show dispatch context for a task",
+    "scope": "orca orchestration dispatch-show --task <task_id> [--preamble] [--from <handle>] [--json]",
+    "note": "Effect: reads. Flags besides the global ones: --task, --preamble, --from."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.orca.cli"
+    }
+  ]
+}

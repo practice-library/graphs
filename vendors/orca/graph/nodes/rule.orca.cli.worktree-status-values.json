@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.worktree-status-values",
+  "type": "rule",
+  "name": "worktree status values: active, working, permission, done, inactive",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/shared/runtime-worktree-contracts.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:12:09Z",
+    "quote": "export type RuntimeWorktreeStatus = 'active' | 'working' | 'permission' | 'done' | 'inactive'",
+    "scope": "status field of worktree ps rows",
+    "note": "There is no idle or busy value. Each agent row has its own state; a worktree row also has an optional workingMode."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.worktree.ps"
+    }
+  ]
+}

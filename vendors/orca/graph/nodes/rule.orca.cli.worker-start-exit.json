@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.worker-start-exit",
+  "type": "rule",
+  "name": "worker-start exits 0 only when the worker is ready",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration-worker-specs.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:16Z",
+    "quote": "The call exits 0 only for ready.",
+    "scope": "orca orchestration worker-start",
+    "note": "Failed or outcome_unknown exits 1, and JSON includes the failed stage, effects, residual resources and recovery commands."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.orchestration.worker-start"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.worktree-rm-dirty",
+  "type": "rule",
+  "name": "rm refuses a worktree with uncommitted or untracked changes",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/main/git/worktree-removal-preflight.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "denied",
+    "fetched_at": "2026-11-01T08:11:28Z",
+    "quote": "throw Object.assign(new Error('Worktree has uncommitted or untracked changes.'), {",
+    "scope": "Git worktrees with any git status --porcelain entry, untracked files included, without --force",
+    "note": "The check runs git status --porcelain --untracked-files=all --ignore-submodules=none, so changes inside submodules count."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.worktree.rm"
+    }
+  ]
+}

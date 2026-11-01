@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.terminal-read-stripped",
+  "type": "rule",
+  "name": "terminal read returns output with escape sequences stripped",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/core.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "By default this returns accumulated terminal output with escape sequences stripped, not the rendered screen.",
+    "scope": "orca terminal read without --screen",
+    "note": "--screen returns the rendered screen instead. The result reports source: stream, screen or screen-unavailable."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.terminal.read"
+    }
+  ]
+}

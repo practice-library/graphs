@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.terminal-wait-exit",
+  "type": "rule",
+  "name": "terminal wait exits 1 when its condition is not met",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/handlers/terminal.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:11:10Z",
+    "quote": "Chained commands such as wait && send need a failing exit for an unsatisfied condition.",
+    "scope": "orca terminal wait --for exit|tui-idle",
+    "note": "On timeout the result has satisfied false. The RPC waits --timeout-ms plus 5 seconds."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.terminal.wait"
+    }
+  ]
+}
