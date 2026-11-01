@@ -7,9 +7,10 @@
   "attrs": {
     "verdict": "allowed",
     "fetched_at": "2026-10-31T20:12:37Z",
-    "quote": "2025-06-27T21:12:27Z",
+    "quote": "This is due to breaking changes between v1.27.2 and v1.28.0.",
     "scope": "v1.28.0",
-    "window": "2025-06-27"
+    "window": "2025-06-27",
+    "note": "Breaking: Worker Versioning users on v1.27.x must delete all Worker Deployments before upgrading and recreate them after."
   },
   "edges": []
 }

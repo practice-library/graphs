@@ -9,7 +9,7 @@
     "fetched_at": "2026-10-31T20:12:48Z",
     "quote": "SDK v1.46.0 |  Java SDK v1.36.1 | .NET SDK 1.16.0 | Python SDK 1.30.0 | TypeScript SDK v1.20.2",
     "scope": "v1.32.0, minimum SDK versions",
-    "note": "Go SDK v1.46.0, Java SDK v1.36.1, .NET SDK 1.16.0, Python SDK 1.30.0, TypeScript SDK v1.20.2. The cited notes do not state which server release an SDK release needs."
+    "note": "Go SDK v1.46.0, Java SDK v1.36.1, .NET SDK 1.16.0, Python SDK 1.30.0, TypeScript SDK v1.20.2. SDKs are not modelled as products here and their release notes were not read (graphs#39)."
   },
   "edges": [
     {

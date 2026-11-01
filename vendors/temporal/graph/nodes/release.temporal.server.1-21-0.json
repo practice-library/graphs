@@ -7,9 +7,10 @@
   "attrs": {
     "verdict": "allowed",
     "fetched_at": "2026-10-31T20:12:22Z",
-    "quote": "2023-06-23T18:55:22Z",
+    "quote": "If you use defaultAuthorizer or defaultJWTClaimMapper, this is a breaking change.",
     "scope": "v1.21.0",
-    "window": "2023-06-23"
+    "window": "2023-06-23",
+    "note": "Breaking: users of defaultAuthorizer or defaultJWTClaimMapper must update their JWT generator for the new system-level role."
   },
   "edges": []
 }

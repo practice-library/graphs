@@ -11,6 +11,13 @@ This is a versioned graph:
 
 Cloud limits, plans and prices hang off `product.temporal.cloud`. Self-hosted defaults hang off `product.temporal.server`.
 
+## Coverage
+
+- **Releases:** each minor line from v1.17 to v1.32 that introduces, changes or removes a modelled capability or flags a breaking change, by its x.y.0 release, or by the first release where the line has none or the capability first appears (v1.26.2, v1.30.1). Every one whose notes flag a breaking change has a `Breaking` note. v1.18, v1.19 and v1.22 do neither and are left out. v1.29.0 announces breaking changes for the next release, v1.30.1, which is flagged.
+- **Patch releases are not covered**, including five with a "Potential Breaking Change" heading: v1.28.4, v1.29.6, v1.30.4, v1.30.6 and v1.31.2 (#39).
+- **SDKs are not products here.** The minimum SDK versions for v1.32.0 come from the server's notes; the SDKs' own release notes were not read (#39).
+- **Plans** differ in their support fee, Actions price, SCIM and included allocations: Actions, Active Storage and Retained Storage, from the pricing page's plan table (`feature.temporal.cloud.included-*`). The Cloud limits page ties no limit to a plan.
+
 ## Sources
 
 - **Release notes:** read from the public releases endpoint of the temporalio/temporal repository on api.github.com, one URL per release tag, as raw JSON text.

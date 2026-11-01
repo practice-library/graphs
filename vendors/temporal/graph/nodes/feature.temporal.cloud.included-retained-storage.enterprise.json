@@ -1,0 +1,26 @@
+{
+  "id": "feature.temporal.cloud.included-retained-storage.enterprise",
+  "type": "feature",
+  "name": "Retained Storage included with Enterprise and Mission Critical",
+  "source": "https://docs.temporal.io/cloud/pricing",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:21Z",
+    "quote": "SCIM included - 10M Actions - 10 GB Active Storage - 400 GB Retained Storage",
+    "value": 400,
+    "unit": "GB",
+    "scope": "Enterprise and Mission Critical plans, included allocation",
+    "note": "Each included GB covers 744 GBh of usage per calendar month."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "plan.temporal.cloud.enterprise"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.temporal.cloud.mission-critical"
+    }
+  ]
+}

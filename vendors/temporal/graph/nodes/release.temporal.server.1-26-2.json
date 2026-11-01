@@ -7,9 +7,10 @@
   "attrs": {
     "verdict": "allowed",
     "fetched_at": "2026-10-31T20:12:32Z",
-    "quote": "2024-12-23T18:23:06Z",
+    "quote": "BREAKING CHANGE 💥 If you provide a custom metrics handler",
     "scope": "v1.26.2",
-    "window": "2024-12-23"
+    "window": "2024-12-23",
+    "note": "Breaking: a custom metrics handler passed with WithCustomMetricsHandler must be updated to the new batch interface."
   },
   "edges": []
 }

@@ -1,0 +1,22 @@
+{
+  "id": "feature.temporal.cloud.included-retained-storage.business",
+  "type": "feature",
+  "name": "Retained Storage included with the Business plan",
+  "source": "https://docs.temporal.io/cloud/pricing",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:21Z",
+    "quote": "2.5M Actions - 2.5 GB Active Storage - 100 GB Retained Storage",
+    "value": 100,
+    "unit": "GB",
+    "scope": "Business plan, included allocation",
+    "note": "Each included GB covers 744 GBh of usage per calendar month."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "plan.temporal.cloud.business"
+    }
+  ]
+}

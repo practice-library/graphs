@@ -1,0 +1,21 @@
+{
+  "id": "feature.temporal.cloud.included-actions.business",
+  "type": "feature",
+  "name": "Actions included with the Business plan",
+  "source": "https://docs.temporal.io/cloud/pricing",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T20:16:21Z",
+    "quote": "2.5M Actions - 2.5 GB Active Storage - 100 GB Retained Storage",
+    "value": 2.5,
+    "unit": "million Actions",
+    "scope": "Business plan, included allocation"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "plan.temporal.cloud.business"
+    }
+  ]
+}

@@ -8,7 +8,7 @@
     "verdict": "unknown",
     "fetched_at": "2026-10-31T20:16:19Z",
     "quote": "The following limits apply at the Namespace level.",
-    "note": "Absent: the Cloud limits page (checked) ties no limit to a support plan; limits are stated per account, Project or Namespace. The quote is the page's nearest sentence."
+    "note": "Absent: the Cloud limits page (checked) ties no limit to a plan. Plans differ in included allocations (pricing page, feature.temporal.cloud.included-*), not in these limits."
   },
   "edges": [
     {
