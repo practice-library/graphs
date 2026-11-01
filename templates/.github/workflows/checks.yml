@@ -25,6 +25,10 @@ jobs:
           persist-credentials: false
       - name: Generated files match templates/ and policy/constants.json
         run: bash scripts/render.sh --check
+      - name: Each graph's INDEX.md is what scripts/index.sh generates
+        run: bash scripts/index.sh --check
+      - name: scripts/index.sh passes and fails where its cases say
+        run: bash scripts/index-selftest.sh
 
   selftest:
     name: selftest
