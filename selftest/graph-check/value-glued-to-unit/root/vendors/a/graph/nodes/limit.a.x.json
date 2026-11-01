@@ -1,0 +1,20 @@
+{
+  "id": "limit.a.x",
+  "type": "limit",
+  "name": "limit.a.x",
+  "source": "https://docs.a.example/p",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "GitHub Free 500MB",
+    "value": 500,
+    "unit": "MB"
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.a.p"
+    }
+  ]
+}
