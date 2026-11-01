@@ -1,0 +1,24 @@
+{
+  "id": "provision.zz.data-act-2025.s2",
+  "type": "provision",
+  "name": "provision.zz.data-act-2025.s2",
+  "source": "https://gazette.example.org/2025/1.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T04:00:00Z",
+    "quote": "Section 2 shall come into force one year after publication.",
+    "scope": "section 2",
+    "window": "2026-01-31"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.zz.data-act-2025"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "instrument.zz.data-act-2025"
+    }
+  ]
+}

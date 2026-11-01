@@ -1,0 +1,379 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/practice-library/graphs/regulations/schema.json",
+  "title": "Regulation fact node",
+  "description": "One file under regulations/<jurisdiction>-<topic>/graph/nodes/, named <id>.json: the shared fact-node envelope of practice-library/.github (spec/node/schema.json), with this domain's type values, edge relations and applicability rules. The id is <type>.<jurisdiction>.<instrument>[.<part>], or jurisdiction.<jurisdiction> for the sub-graph's root node. The source is the official text: the gazette, or the issuing ministry or regulator. That every edge target exists inside the same sub-graph, that the root and ids name the directory's jurisdiction, and that each status agrees with its window are checked by scripts/graph-check.sh, not by this schema.",
+  "$ref": "https://github.com/practice-library/.github/spec/node/schema.json",
+  "properties": {
+    "type": {
+      "enum": [
+        "jurisdiction",
+        "authority",
+        "instrument",
+        "provision",
+        "obligation",
+        "timeline",
+        "penalty",
+        "definition",
+        "exemption"
+      ]
+    },
+    "source": {
+      "maxLength": 2000,
+      "pattern": "^https://[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(\\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)+(/[!-~]*)?$",
+      "description": "https, a lower-case host name with a dot, then an optional path of printable characters without spaces."
+    },
+    "measuredAt": {
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$",
+      "description": "The day the quote was last confirmed in the text: a real calendar date, YYYY-MM-DD."
+    },
+    "attrs": {
+      "properties": {
+        "fetched_at": {
+          "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]{1,9})?Z$",
+          "description": "UTC, ending in Z."
+        },
+        "window": {
+          "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$",
+          "description": "The date from which the fact applies, YYYY-MM-DD."
+        },
+        "status": {
+          "enum": [
+            "in-force",
+            "notified-not-in-force",
+            "draft",
+            "superseded"
+          ],
+          "description": "On measuredAt: in force, notified with a later commencement date, a draft not yet notified, or replaced by a later text."
+        }
+      },
+      "if": {
+        "properties": {
+          "verdict": {
+            "const": "unknown"
+          }
+        },
+        "required": [
+          "verdict"
+        ]
+      },
+      "then": {
+        "required": [
+          "note"
+        ],
+        "description": "An unknown fact says in its note what could not be confirmed and why."
+      }
+    },
+    "edges": {
+      "uniqueItems": true,
+      "items": {
+        "properties": {
+          "rel": {
+            "enum": [
+              "issuedBy",
+              "partOf",
+              "madeUnder",
+              "imposes",
+              "appliesTo",
+              "amends",
+              "supersedes",
+              "commencedBy"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "jurisdiction"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^jurisdiction\\.[a-z]{2}$"
+          },
+          "edges": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "authority"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^authority\\.[a-z]{2}(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "instrument"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^instrument\\.[a-z]{2}(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "provision"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^provision\\.[a-z]{2}(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "obligation"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^obligation\\.[a-z]{2}(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "timeline"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^timeline\\.[a-z]{2}(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "penalty"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^penalty\\.[a-z]{2}(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "definition"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^definition\\.[a-z]{2}(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "exemption"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^exemption\\.[a-z]{2}(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "enum": [
+              "provision",
+              "obligation",
+              "timeline",
+              "penalty",
+              "exemption"
+            ]
+          },
+          "attrs": {
+            "properties": {
+              "verdict": {
+                "not": {
+                  "const": "unknown"
+                }
+              }
+            },
+            "required": [
+              "verdict"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "attrs"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attrs": {
+            "required": [
+              "scope",
+              "window",
+              "status"
+            ]
+          }
+        }
+      },
+      "description": "Applicability: a provision, obligation, timeline, penalty or exemption that the text states says whom it applies to (attrs.scope, in the text's own terms), from which date (attrs.window, YYYY-MM-DD) and its status on measuredAt. That the status agrees with the window on measuredAt is checked by scripts/graph-check.sh."
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "enum": [
+              "timeline",
+              "penalty"
+            ]
+          },
+          "attrs": {
+            "properties": {
+              "verdict": {
+                "not": {
+                  "const": "unknown"
+                }
+              }
+            },
+            "required": [
+              "verdict"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "attrs"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attrs": {
+            "required": [
+              "value",
+              "unit"
+            ]
+          }
+        }
+      },
+      "description": "A timeline or penalty that the text states carries its number in attrs.value and its unit in attrs.unit."
+    },
+    {
+      "if": {
+        "properties": {
+          "attrs": {
+            "properties": {
+              "note": {
+                "pattern": "^\\s*[Aa][Bb][Ss][Ee][Nn][Tt]([^A-Za-z]|$)"
+              }
+            },
+            "required": [
+              "note"
+            ]
+          }
+        },
+        "required": [
+          "attrs"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attrs": {
+            "properties": {
+              "verdict": {
+                "const": "unknown"
+              },
+              "note": {
+                "pattern": "^Absent: \\S"
+              }
+            }
+          }
+        }
+      },
+      "description": "A fact the official text checked does not state is recorded as absent: verdict unknown and a note starting exactly \"Absent: \" that names the text checked, as in vendors/schema.json."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "obligation.zz.data-act-2025.absent",
+  "type": "obligation",
+  "name": "obligation.zz.data-act-2025.absent",
+  "source": "https://gazette.example.org/2025/1.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "unknown",
+    "fetched_at": "2026-11-01T04:00:00Z",
+    "quote": "Section 2 shall come into force one year after publication.",
+    "note": "absent: the Act does not say."
+  },
+  "edges": []
+}

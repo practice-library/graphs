@@ -1,0 +1,18 @@
+{
+  "id": "definition.zz.data-act-2025.s1",
+  "type": "definition",
+  "name": "definition.zz.data-act-2025.s1",
+  "source": "https://gazette.example.org/2025/1.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T04:00:00Z",
+    "quote": "\"holder\" means a person who keeps data."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.zz.data-act-2025"
+    }
+  ]
+}

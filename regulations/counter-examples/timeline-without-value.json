@@ -1,0 +1,22 @@
+{
+  "id": "timeline.zz.data-act-2025.s2-2",
+  "type": "timeline",
+  "name": "timeline.zz.data-act-2025.s2-2",
+  "source": "https://gazette.example.org/2025/1.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T04:00:00Z",
+    "quote": "within six hours of noticing it",
+    "scope": "every holder",
+    "window": "2026-01-31",
+    "status": "in-force",
+    "unit": "hours"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.zz.data-act-2025"
+    }
+  ]
+}

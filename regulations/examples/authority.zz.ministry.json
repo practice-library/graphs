@@ -1,0 +1,13 @@
+{
+  "id": "authority.zz.ministry",
+  "type": "authority",
+  "name": "authority.zz.ministry",
+  "source": "https://gazette.example.org/2025/1.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T04:00:00Z",
+    "quote": "MINISTRY OF EXAMPLES"
+  },
+  "edges": []
+}
