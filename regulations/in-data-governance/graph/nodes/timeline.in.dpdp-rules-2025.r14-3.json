@@ -1,0 +1,27 @@
+{
+  "id": "timeline.in.dpdp-rules-2025.r14-3",
+  "type": "timeline",
+  "name": "Grievances answered within 90 days",
+  "source": "https://egazette.gov.in/WriteReadData/2025/267650.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T03:49:51Z",
+    "quote": "within a reasonable period not exceeding ninety days under its grievance redressal system",
+    "scope": "Data Fiduciary and Consent Manager",
+    "window": "2027-05-13",
+    "status": "notified-not-in-force",
+    "value": 90,
+    "unit": "days"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.dpdp-rules-2025"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.dpdp-rules-2025.r1-4"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "penalty.in.dpdp-act-2023.schedule-1",
+  "type": "penalty",
+  "name": "Schedule item 1: maximum penalty",
+  "source": "https://egazette.gov.in/WriteReadData/2023/248045.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T03:49:43Z",
+    "quote": "Breach in observing the obligation of Data Fiduciary to take reasonable security safeguards to prevent personal data breach under sub-section (5) of section 8.",
+    "scope": "Data Fiduciary",
+    "window": "2027-05-13",
+    "status": "notified-not-in-force",
+    "value": 250,
+    "unit": "crore rupees",
+    "note": "Schedule item 1, column (3): may extend to the value; imposed by the Board under section 33(1)."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.dpdp-act-2023"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.gsr-843-2025.c"
+    }
+  ]
+}

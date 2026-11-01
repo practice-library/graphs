@@ -1,0 +1,25 @@
+{
+  "id": "provision.in.gsr-843-2025.b",
+  "type": "provision",
+  "name": "Act provisions in force one year after publication",
+  "source": "https://egazette.gov.in/WriteReadData/2025/267647.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T04:12:39Z",
+    "quote": "one year from the date of publication of this gazette",
+    "scope": "Act sections 6(9) and 27(1)(d)",
+    "window": "2026-11-13",
+    "status": "notified-not-in-force"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.gsr-843-2025"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "instrument.in.dpdp-act-2023"
+    }
+  ]
+}

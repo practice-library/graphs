@@ -1,0 +1,27 @@
+{
+  "id": "timeline.in.dpdp-rules-2025.r8-3",
+  "type": "timeline",
+  "name": "Processing logs kept at least one year",
+  "source": "https://egazette.gov.in/WriteReadData/2025/267650.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T03:49:51Z",
+    "quote": "such personal data, associated traffic data and other logs of the processing for a minimum period of one year from the date of such processing",
+    "scope": "Data Fiduciary",
+    "window": "2027-05-13",
+    "status": "notified-not-in-force",
+    "value": 1,
+    "unit": "years"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.dpdp-rules-2025"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.dpdp-rules-2025.r1-4"
+    }
+  ]
+}

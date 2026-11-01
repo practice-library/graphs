@@ -1,0 +1,20 @@
+{
+  "id": "definition.in.cert-in-directions-2022.annexure-i",
+  "type": "definition",
+  "name": "Annexure I: the 20 incident types to report",
+  "source": "https://www.cert-in.org.in/PDF/CERT-In_Directions_70B_28.04.2022.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T03:49:39Z",
+    "quote": "Types of cyber security incidents mandatorily to be reported by service providers",
+    "window": "2022-06-27",
+    "note": "Twenty types, including targeted scanning, compromise of critical systems, unauthorised access, website defacement, malicious code, DoS and DDoS, data breach, data leak, IoT, payment, cloud and AI or ML attacks."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.cert-in-directions-2022"
+    }
+  ]
+}

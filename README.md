@@ -21,6 +21,7 @@ spec/                      contracts shared by every domain
   counter-examples/        nodes that must fail, one reason each
   check.json               examples must pass; each counter-example, on its own, must fail
   <vendor>/                one graph per vendor, such as vendors/github
+  <jurisdiction>-<topic>/  under regulations/, one graph per topic, such as regulations/in-data-governance
     check.json             {"schema": "../schema.json", "instances": "graph/nodes"}
     graph/nodes/<id>.json  one fact per file
     INDEX.md               generated
@@ -30,6 +31,24 @@ spec/                      contracts shared by every domain
 Status: the contracts, checks and source policy exist, and there are three vendor graphs under `vendors/`, each with a README naming its sources and their licence or terms. Every host they cite is in `policy/sources.json`, and `scripts/graph-check.sh` prints each graph's node count. The scheduled refresh workflow and the PR opener are planned (see `spec/README.md`).
 
 The first domain is `vendors`: limits, plans, prices, access rules and terms of public services. A new domain is a new directory with its own `schema.json`; a new vendor is a new directory under its domain. Nothing else changes: every `check.json` is found and checked.
+
+The second domain is `regulations`: dated rules from official legal texts, one graph per jurisdiction and topic. The first is `regulations/in-data-governance`: India's Digital Personal Data Protection Act, 2023 and Rules, 2025, and the CERT-In directions of 2022, from `egazette.gov.in` and `www.cert-in.org.in`. Its README maps each of its ten acceptance questions to the nodes that answer it.
+
+## A regulation fact
+
+`regulations/schema.json` uses the same envelope with its own types: `jurisdiction`, `authority`, `instrument`, `provision`, `obligation`, `timeline`, `penalty`, `definition` and `exemption`.
+- **Ids:** `<type>.<jurisdiction>.<instrument>[.<part>]`, for example `provision.in.dpdp-rules-2025.r1-4`. The root node is `jurisdiction.<jurisdiction>`.
+- **Applicability:** a provision, obligation, timeline, penalty or exemption that the text states carries:
+  - `attrs.scope`: whom it applies to, in the text's own terms;
+  - `attrs.window`: the date it applies from;
+  - `attrs.status` on `measuredAt`: `in-force`, `notified-not-in-force`, `draft` or `superseded`.
+  A timeline or penalty also carries `value` and `unit`.
+- **Edges:** `issuedBy`, `partOf`, `madeUnder`, `imposes`, `appliesTo`, `amends`, `supersedes` and `commencedBy`.
+- **graph-check** (`scripts/graph-check.sh`) checks regulation graphs as it checks vendor graphs:
+  - a regulation graph's directory is `<jurisdiction>-<topic>`, and its ids and root name that jurisdiction;
+  - its hosts are listed in `policy/sources.json` under the directory name;
+  - a status agrees with its window on `measuredAt`: `in-force` from the window on, `notified-not-in-force` before it.
+- **No auto-merge:** `regulations/` is never auto-merged. `scripts/graphs.sh` lists only `vendors/` unless another domain is named, so no regulation path reaches the allowlist or loses its CODEOWNERS owner. Every change there is reviewed.
 
 ## A fact
 
@@ -45,7 +64,7 @@ Each vendor graph's `graph/nodes/` is on the auto-merge allowlist (`.github/auto
 
 ## Checks
 
-Every pull request runs `.github/workflows/checks.yml`, which calls the reusable workflows of practice-library/.github at the release pinned in `policy/constants.json`. Its `discover` finds every tracked `check.json` and the schema check runs each target: a contract's `examples/` must pass, and with `each` every file in its `counter-examples/` must fail on its own, so an empty folder fails too. The leak scan runs on everything, and the gate passes only when its needs are exactly the jobs in `.github/required-checks.json`. Graphs-specific checks stay here: `scripts/render.sh --check` fails when a generated file differs from its template, `bump-only` and `graph-check` (below and above), and `scripts/selftest.sh` runs the cases under `selftest/` that show each script passing and failing where it should. Fixtures there keep their `check.json` as `_check.json`, so discovery never takes them for real targets. Two categories run `scripts/bump-only.sh` where it must fail: `bump-only-classify-fails/`, and `bump-only-pr/`, whose cases commit a `base/` and a `head/` tree in a temporary git repository before running `bump-only.sh pr`. `render-allowlist/` renders `.github/automerge-paths.json` before and after a graph is added and prints the lines that changed: the file keeps each path and each comma on a line of its own, so adding a graph adds its own path line and changes no other entry's line. `guards` (`python3 scripts/guards.py`) mutates each row of its GUARDS and PINS tables and requires a named self-test case to fail. Each BACKSTOPS row, an early check that only gives a clearer message, must still fail with that check removed, because a later check catches the same input.
+Every pull request runs `.github/workflows/checks.yml`, which calls the reusable workflows of practice-library/.github at the release pinned in `policy/constants.json`. Its `discover` finds every tracked `check.json` and the schema check runs each target: a contract's `examples/` must pass, and with `each` every file in its `counter-examples/` must fail on its own, so an empty folder fails too. The leak scan runs on everything, and the gate passes only when its needs are exactly the jobs in `.github/required-checks.json`. Graphs-specific checks stay here: `scripts/render.sh --check` fails when a generated file differs from its template, `bump-only` and `graph-check` (below and above), and `scripts/selftest.sh` runs the cases under `selftest/` that show each script passing and failing where it should. Fixtures there keep their `check.json` as `_check.json`, so discovery never takes them for real targets. Two categories run `scripts/bump-only.sh` where it must fail: `bump-only-classify-fails/`, and `bump-only-pr/`, whose cases commit a `base/` and a `head/` tree in a temporary git repository before running `bump-only.sh pr`. A `graphs/` case may name a domain in a `domain` file. `render-allowlist/` renders `.github/automerge-paths.json` before and after a graph is added and prints the lines that changed: the file keeps each path and each comma on a line of its own, so adding a graph adds its own path line and changes no other entry's line. `guards` (`python3 scripts/guards.py`) mutates each row of its GUARDS and PINS tables and requires a named self-test case to fail. Each BACKSTOPS row, an early check that only gives a clearer message, must still fail with that check removed, because a later check catches the same input.
 
 To change a pin, a runner, a trusted author or the gate's jobs, edit `policy/constants.json` and run `scripts/render.sh`; never edit a generated file. Dependabot (`.github/dependabot.yml`, the organisation's consumer template) proposes new pins; its pull request is finished by moving the pin into `policy/constants.json` and rendering.
 

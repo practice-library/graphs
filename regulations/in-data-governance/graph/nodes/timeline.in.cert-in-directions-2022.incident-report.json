@@ -1,0 +1,28 @@
+{
+  "id": "timeline.in.cert-in-directions-2022.incident-report",
+  "type": "timeline",
+  "name": "Cyber incidents reported to CERT-In within 6 hours",
+  "source": "https://www.cert-in.org.in/PDF/CERT-In_Directions_70B_28.04.2022.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T03:49:39Z",
+    "quote": "within 6 hours of noticing such incidents or being brought to notice about such incidents",
+    "scope": "service providers, intermediaries, data centres, body corporate and Government organisations",
+    "window": "2022-06-27",
+    "status": "in-force",
+    "value": 6,
+    "unit": "hours",
+    "note": "Incident types: Annexure I (definition.in.cert-in-directions-2022.annexure-i)."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.cert-in-directions-2022"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.cert-in-directions-2022.effective"
+    }
+  ]
+}

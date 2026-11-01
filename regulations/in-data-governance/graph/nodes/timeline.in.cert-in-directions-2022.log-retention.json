@@ -1,0 +1,27 @@
+{
+  "id": "timeline.in.cert-in-directions-2022.log-retention",
+  "type": "timeline",
+  "name": "ICT system logs kept 180 days in India",
+  "source": "https://www.cert-in.org.in/PDF/CERT-In_Directions_70B_28.04.2022.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T03:49:39Z",
+    "quote": "mandatorily enable logs of all their ICT systems and maintain them securely for a rolling period of 180 days and the same shall be maintained within the Indian jurisdiction",
+    "scope": "service providers, intermediaries, data centres, body corporate and Government organisations",
+    "window": "2022-06-27",
+    "status": "in-force",
+    "value": 180,
+    "unit": "days"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.cert-in-directions-2022"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.cert-in-directions-2022.effective"
+    }
+  ]
+}

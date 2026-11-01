@@ -1,0 +1,28 @@
+{
+  "id": "timeline.in.dpdp-rules-2025.third-schedule-2",
+  "type": "timeline",
+  "name": "Erasure after three years without engagement: online gaming intermediary",
+  "source": "https://egazette.gov.in/WriteReadData/2025/267650.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T03:49:51Z",
+    "quote": "Data Fiduciary who is an online gaming intermediary having not less than fifty lakh registered users in India.",
+    "scope": "online gaming intermediary with at least fifty lakh registered users in India",
+    "window": "2027-05-13",
+    "status": "notified-not-in-force",
+    "value": 3,
+    "unit": "years",
+    "note": "Third Schedule: three years from the last approach or exercise of rights, or the commencement of the Rules, whichever is latest. Not for access to the user account or to stored virtual tokens."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.dpdp-rules-2025"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.dpdp-rules-2025.r1-4"
+    }
+  ]
+}

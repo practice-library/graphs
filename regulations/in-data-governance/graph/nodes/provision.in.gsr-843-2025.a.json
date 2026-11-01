@@ -1,0 +1,25 @@
+{
+  "id": "provision.in.gsr-843-2025.a",
+  "type": "provision",
+  "name": "Act provisions in force on publication",
+  "source": "https://egazette.gov.in/WriteReadData/2025/267647.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T04:12:39Z",
+    "quote": "the date of publication of this notification in the Official Gazette as the date on which the provisions of sub-section (2) of section 1, section 2, sections 18 to 26 sections 35, 38, 39, 40, 41, 42, 43",
+    "scope": "Act sections 1(2), 2, 18 to 26, 35, 38 to 43, 44(1) and 44(3)",
+    "window": "2025-11-13",
+    "status": "in-force"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.gsr-843-2025"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "instrument.in.dpdp-act-2023"
+    }
+  ]
+}

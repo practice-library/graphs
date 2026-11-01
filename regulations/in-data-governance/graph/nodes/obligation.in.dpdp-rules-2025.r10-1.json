@@ -1,0 +1,26 @@
+{
+  "id": "obligation.in.dpdp-rules-2025.r10-1",
+  "type": "obligation",
+  "name": "Verifiable parental consent before processing a child's data",
+  "source": "https://egazette.gov.in/WriteReadData/2025/267650.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T03:49:51Z",
+    "quote": "verifiable consent of the parent is obtained before the processing of any personal data of a child",
+    "scope": "Data Fiduciary",
+    "window": "2027-05-13",
+    "status": "notified-not-in-force",
+    "note": "Due diligence that the parent is an identifiable adult (18 or over), by reliable identity and age details held, or provided directly or through a virtual token from an authorised entity."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.dpdp-rules-2025"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.dpdp-rules-2025.r1-4"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "provision.in.gsr-843-2025.c",
+  "type": "provision",
+  "name": "Act provisions in force eighteen months after publication",
+  "source": "https://egazette.gov.in/WriteReadData/2025/267647.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T04:12:39Z",
+    "quote": "eighteen months from the date of publication of this gazette, on which the provision of sections 3 to 5",
+    "scope": "Act sections 3 to 5, 6(1) to 6(8), 6(10), 7 to 17, 27 except 27(1)(d), 28 to 34, 36, 37 and 44(2)",
+    "window": "2027-05-13",
+    "status": "notified-not-in-force"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.gsr-843-2025"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "instrument.in.dpdp-act-2023"
+    }
+  ]
+}

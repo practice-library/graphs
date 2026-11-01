@@ -1,0 +1,19 @@
+{
+  "id": "instrument.in.so-5458-2026",
+  "type": "instrument",
+  "name": "DPDP (Removal of Difficulties) Order, 2026 (S.O. 5458(E))",
+  "source": "https://egazette.gov.in/WriteReadData/2023/248045.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "unknown",
+    "fetched_at": "2026-11-01T03:49:43Z",
+    "quote": "If any difficulty arises in giving effect to the provisions of this Act, the Central Government may, by order published in the Official Gazette",
+    "note": "Absent: S.O. 5458(E) of 5 October 2026, reported to correct wording in sections 9(1) and 10(2)(c)(ii), was not located on egazette.gov.in; quote is section 43(1) of the Act, under which it is made. Answers here use Rules 10 and 13."
+  },
+  "edges": [
+    {
+      "rel": "amends",
+      "to": "instrument.in.dpdp-act-2023"
+    }
+  ]
+}

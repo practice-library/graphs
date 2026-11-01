@@ -1,0 +1,26 @@
+{
+  "id": "exemption.in.dpdp-rules-2025.fourth-schedule-a",
+  "type": "exemption",
+  "name": "Classes exempt from section 9(1) and 9(3)",
+  "source": "https://egazette.gov.in/WriteReadData/2025/267650.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T03:49:51Z",
+    "quote": "Classes of Data Fiduciaries in respect of whom provisions of sub-sections (1) and (3) of section 9 shall not apply",
+    "scope": "clinical and mental health establishments, healthcare and allied healthcare professionals, educational institutions, creches and child day care centres, and transport engaged by them",
+    "window": "2027-05-13",
+    "status": "notified-not-in-force",
+    "note": "Each class is exempt only for the condition its row states, such as health services or the safety of enrolled children."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.dpdp-rules-2025"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.in.dpdp-rules-2025.r1-4"
+    }
+  ]
+}

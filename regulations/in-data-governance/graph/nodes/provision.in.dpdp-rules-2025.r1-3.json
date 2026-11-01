@@ -1,0 +1,21 @@
+{
+  "id": "provision.in.dpdp-rules-2025.r1-3",
+  "type": "provision",
+  "name": "Rule 4 (Consent Managers) in force after one year",
+  "source": "https://egazette.gov.in/WriteReadData/2025/267650.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T03:49:51Z",
+    "quote": "Rule 4 shall come into force one year after the date of publication of this Gazette.",
+    "scope": "rule 4",
+    "window": "2026-11-13",
+    "status": "notified-not-in-force"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.dpdp-rules-2025"
+    }
+  ]
+}

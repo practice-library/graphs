@@ -1,0 +1,13 @@
+{
+  "id": "authority.in.meity",
+  "type": "authority",
+  "name": "Ministry of Electronics and Information Technology",
+  "source": "https://egazette.gov.in/WriteReadData/2025/267650.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T03:49:51Z",
+    "quote": "MINISTRY OF ELECTRONICS AND INFORMATION TECHNOLOGY NOTIFICATION"
+  },
+  "edges": []
+}

@@ -1,0 +1,13 @@
+{
+  "id": "jurisdiction.in",
+  "type": "jurisdiction",
+  "name": "India",
+  "source": "https://egazette.gov.in/WriteReadData/2023/248045.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T03:49:43Z",
+    "quote": "apply to the processing of digital personal data within the territory of India"
+  },
+  "edges": []
+}
