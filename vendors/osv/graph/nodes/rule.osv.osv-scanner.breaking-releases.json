@@ -9,7 +9,7 @@
     "fetched_at": "2026-11-01T05:30:36Z",
     "quote": "This release includes several breaking changes aimed at future-proofing OSV-Scanner.",
     "scope": "the 30 most recent releases, v1.8.4 to v2.7.0",
-    "note": "Only v2.0.0 (2025-03-17) is flagged breaking, with its pre-releases v2.0.0-rc1 and -beta1; v1.9.1 only announces V2. None from v2.0.1 to v2.7.0 mentions breaking."
+    "note": "Only v2.0.0 (2025-03-17) and its pre-release v2.0.0-rc1 are flagged breaking; v2.0.0-beta1 says it introduces no breaking CLI changes, and v1.9.1 only announces V2. None from v2.0.1 to v2.7.0 mentions breaking."
   },
   "edges": [
     {
