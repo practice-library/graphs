@@ -1,0 +1,19 @@
+{
+  "id": "feature.osv.osv-scanner.lockfiles",
+  "type": "feature",
+  "name": "Lockfiles and manifests read",
+  "source": "https://google.github.io/osv-scanner/supported-languages-and-lockfiles/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:16:22Z",
+    "quote": "To scan the dependency versions selected for an environment, prefer a resolved lockfile.",
+    "note": "Among them: go.mod, Cargo.lock, package-lock.json, pnpm-lock.yaml, yarn.lock, bun.lock, poetry.lock, uv.lock, Pipfile.lock, requirements.txt, pom.xml, gradle.lockfile, composer.lock, Gemfile.lock, mix.lock, pubspec.lock, packages.lock.json, renv.lock."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.osv.osv-scanner"
+    }
+  ]
+}

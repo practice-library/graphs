@@ -1,0 +1,19 @@
+{
+  "id": "rule.gitleaks.breaking-releases",
+  "type": "rule",
+  "name": "Releases flagged breaking",
+  "source": "https://api.github.com/repos/gitleaks/gitleaks/releases?per_page=30",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "unknown",
+    "fetched_at": "2026-11-01T05:16:16Z",
+    "quote": "v8.30.1",
+    "note": "Absent: none of the 30 most recent releases (v8.19.1 to v8.30.1, the releases list checked) uses the word breaking in its notes. The quote is the newest tag."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.gitleaks.gitleaks"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "feature.gitleaks.ignore.gitleaksignore",
+  "type": "feature",
+  "name": "Ignore findings by fingerprint: .gitleaksignore",
+  "source": "https://raw.githubusercontent.com/gitleaks/gitleaks/master/README.md",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:16:14Z",
+    "quote": "You can ignore specific findings by creating a `.gitleaksignore` file at the root of your repo.",
+    "note": "Each finding has a Fingerprint (added in v8.10.0) that a .gitleaksignore line can list."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.gitleaks.gitleaks"
+    }
+  ]
+}

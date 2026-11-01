@@ -1,0 +1,20 @@
+{
+  "id": "term.osv.data-licensing",
+  "type": "term",
+  "name": "Data sources must permit redistribution",
+  "source": "https://google.github.io/osv.dev/data/new",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:17:36Z",
+    "quote": "the license for any contributed data source must at minimum permit OSV.dev to ingest, index, modify (enrich), and publicly redistribute the records across these channels.",
+    "scope": "contributed data sources",
+    "note": "Records keep their source licence; OSV.dev recommends CC0 1.0, CC-BY 4.0, Apache 2.0 or MIT."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.osv.osv-dev"
+    }
+  ]
+}

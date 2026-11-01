@@ -1,0 +1,19 @@
+{
+  "id": "limit.osv.api.querybatch-size",
+  "type": "limit",
+  "name": "Queries per querybatch request",
+  "source": "https://google.github.io/osv.dev/post-v1-querybatch/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "unknown",
+    "fetched_at": "2026-11-01T05:17:54Z",
+    "quote": "Query for multiple packages (by either package and version or git commit hash) at once.",
+    "note": "Absent: the querybatch page (checked) states no maximum number of queries per request; large results are paginated."
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.osv.api"
+    }
+  ]
+}

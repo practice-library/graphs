@@ -1,0 +1,22 @@
+{
+  "id": "rule.gitleaks.exit-code-leaks",
+  "type": "rule",
+  "name": "Exit code when leaks are found",
+  "source": "https://raw.githubusercontent.com/gitleaks/gitleaks/master/README.md",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:16:14Z",
+    "quote": "1 - leaks or error encountered",
+    "value": 1,
+    "unit": "exit code",
+    "scope": "default; set with --exit-code",
+    "note": "0 means no leaks present; 126 is an unknown flag."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.gitleaks.gitleaks"
+    }
+  ]
+}

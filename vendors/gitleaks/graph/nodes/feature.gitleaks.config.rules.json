@@ -1,0 +1,19 @@
+{
+  "id": "feature.gitleaks.config.rules",
+  "type": "feature",
+  "name": "Config: [[rules]] with id, regex, secretGroup, entropy, keywords, path",
+  "source": "https://raw.githubusercontent.com/gitleaks/gitleaks/master/README.md",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:16:14Z",
+    "quote": "An array of tables that contain information that define instructions",
+    "note": "Rule keys in the README example: id, description, regex, secretGroup, entropy (minimum Shannon entropy), path, keywords, tags, and allowlists."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.gitleaks.gitleaks"
+    }
+  ]
+}

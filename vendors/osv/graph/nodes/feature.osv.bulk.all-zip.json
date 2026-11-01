@@ -1,0 +1,19 @@
+{
+  "id": "feature.osv.bulk.all-zip",
+  "type": "feature",
+  "name": "Bulk download: all.zip",
+  "source": "https://google.github.io/osv.dev/data/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:15:14Z",
+    "quote": "This is the easiest way to download the entire OSV database.",
+    "note": "gs://osv-vulnerabilities/all.zip holds all ecosystems, withdrawn records included; per-ecosystem files are under gs://osv-vulnerabilities/<ECOSYSTEM>/."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.osv.osv-dev"
+    }
+  ]
+}

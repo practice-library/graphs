@@ -1,0 +1,18 @@
+{
+  "id": "feature.gitleaks.config.keywords",
+  "type": "feature",
+  "name": "Config: keywords pre-filter",
+  "source": "https://raw.githubusercontent.com/gitleaks/gitleaks/master/README.md",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:16:14Z",
+    "quote": "Keywords are used for pre-regex check filtering."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.gitleaks.gitleaks"
+    }
+  ]
+}

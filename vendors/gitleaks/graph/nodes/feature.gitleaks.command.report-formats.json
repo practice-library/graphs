@@ -1,0 +1,18 @@
+{
+  "id": "feature.gitleaks.command.report-formats",
+  "type": "feature",
+  "name": "Report formats",
+  "source": "https://raw.githubusercontent.com/gitleaks/gitleaks/master/README.md",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:16:14Z",
+    "quote": "output format (json, csv, junit, sarif, template)"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.gitleaks.gitleaks"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "release.osv.osv-scanner.2-0-0",
+  "type": "release",
+  "name": "OSV-Scanner v2.0.0",
+  "source": "https://api.github.com/repos/google/osv-scanner/releases/tags/v2.0.0",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:16:43Z",
+    "quote": "This release includes several breaking changes aimed at future-proofing OSV-Scanner.",
+    "scope": "v2.0.0",
+    "window": "2025-03-17",
+    "note": "Breaking: V2 changes the CLI and output; see its migration guide."
+  },
+  "edges": []
+}

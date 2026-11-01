@@ -1,0 +1,22 @@
+{
+  "id": "limit.osv.api.query-page-size",
+  "type": "limit",
+  "name": "Page size of POST /v1/query",
+  "source": "https://google.github.io/osv.dev/post-v1-query/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:17:37Z",
+    "quote": "For the v1/query endpoint pagination will occur when there more than 1,000 vulnerabilities in the response, or when the query has exceeded 20 seconds.",
+    "value": 1000,
+    "unit": "vulnerabilities",
+    "scope": "POST /v1/query; also paginates after 20 seconds",
+    "note": "The page says the page size can vary slightly because of threading and may change in the future; next_page_token marks more results."
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.osv.api"
+    }
+  ]
+}

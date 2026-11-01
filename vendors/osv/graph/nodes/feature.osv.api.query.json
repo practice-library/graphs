@@ -1,0 +1,18 @@
+{
+  "id": "feature.osv.api.query",
+  "type": "feature",
+  "name": "POST /v1/query",
+  "source": "https://google.github.io/osv.dev/post-v1-query/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:17:37Z",
+    "quote": "Lists vulnerabilities for given package and version."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.osv.api"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "feature.gitleaks.config.extend",
+  "type": "feature",
+  "name": "Config: [extend] the default rules",
+  "source": "https://raw.githubusercontent.com/gitleaks/gitleaks/master/README.md",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:16:14Z",
+    "quote": "useDefault will extend the default gitleaks config built in to the binary",
+    "note": "useDefault and path cannot be used together. Extending can chain configuration files to a depth of 2."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.gitleaks.gitleaks"
+    }
+  ]
+}

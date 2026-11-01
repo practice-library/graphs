@@ -143,6 +143,146 @@
       "minIntervalDays": 30,
       "maxBytes": 1000000,
       "timeoutSeconds": 30
+    },
+    {
+      "host": "api.github.com",
+      "vendor": "gitleaks",
+      "robots": {
+        "url": "https://api.github.com/robots.txt",
+        "checkedAt": "2026-11-01T05:20:23Z",
+        "verdict": "absent",
+        "note": "robots.txt returns 404."
+      },
+      "terms": {
+        "url": "https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies",
+        "checkedAt": "2026-11-01T05:20:14Z",
+        "quote": "Scraping does not refer to the collection of information through our API."
+      },
+      "format": "json",
+      "maxRequestsPerRun": 3,
+      "minIntervalDays": 7,
+      "maxBytes": 2000000,
+      "timeoutSeconds": 30
+    },
+    {
+      "host": "raw.githubusercontent.com",
+      "vendor": "gitleaks",
+      "robots": {
+        "url": "https://raw.githubusercontent.com/robots.txt",
+        "checkedAt": "2026-11-01T05:11:23Z",
+        "verdict": "absent",
+        "note": "robots.txt returns 404."
+      },
+      "terms": {
+        "url": "https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies",
+        "checkedAt": "2026-11-01T05:20:14Z",
+        "quote": "Scraping refers to extracting information from our Service via an automated process, such as a bot or webcrawler."
+      },
+      "format": "text",
+      "maxRequestsPerRun": 3,
+      "minIntervalDays": 7,
+      "maxBytes": 1000000,
+      "timeoutSeconds": 30
+    },
+    {
+      "host": "api.github.com",
+      "vendor": "osv",
+      "robots": {
+        "url": "https://api.github.com/robots.txt",
+        "checkedAt": "2026-11-01T05:20:23Z",
+        "verdict": "absent",
+        "note": "robots.txt returns 404."
+      },
+      "terms": {
+        "url": "https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies",
+        "checkedAt": "2026-11-01T05:20:14Z",
+        "quote": "Scraping does not refer to the collection of information through our API."
+      },
+      "format": "json",
+      "maxRequestsPerRun": 4,
+      "minIntervalDays": 7,
+      "maxBytes": 2000000,
+      "timeoutSeconds": 30
+    },
+    {
+      "host": "raw.githubusercontent.com",
+      "vendor": "osv",
+      "robots": {
+        "url": "https://raw.githubusercontent.com/robots.txt",
+        "checkedAt": "2026-11-01T05:11:23Z",
+        "verdict": "absent",
+        "note": "robots.txt returns 404."
+      },
+      "terms": {
+        "url": "https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies",
+        "checkedAt": "2026-11-01T05:20:14Z",
+        "quote": "Scraping refers to extracting information from our Service via an automated process, such as a bot or webcrawler."
+      },
+      "format": "text",
+      "maxRequestsPerRun": 3,
+      "minIntervalDays": 7,
+      "maxBytes": 1000000,
+      "timeoutSeconds": 30
+    },
+    {
+      "host": "google.github.io",
+      "vendor": "osv",
+      "robots": {
+        "url": "https://google.github.io/robots.txt",
+        "checkedAt": "2026-11-01T05:11:24Z",
+        "verdict": "absent",
+        "note": "robots.txt returns 404."
+      },
+      "terms": {
+        "url": "https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies",
+        "checkedAt": "2026-11-01T05:20:14Z",
+        "quote": "Scraping refers to extracting information from our Service via an automated process, such as a bot or webcrawler."
+      },
+      "format": "html",
+      "maxRequestsPerRun": 8,
+      "minIntervalDays": 7,
+      "maxBytes": 1000000,
+      "timeoutSeconds": 30
+    },
+    {
+      "host": "ossf.github.io",
+      "vendor": "osv",
+      "robots": {
+        "url": "https://ossf.github.io/robots.txt",
+        "checkedAt": "2026-11-01T05:11:25Z",
+        "verdict": "absent",
+        "note": "robots.txt returns 404."
+      },
+      "terms": {
+        "url": "https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies",
+        "checkedAt": "2026-11-01T05:20:14Z",
+        "quote": "Scraping refers to extracting information from our Service via an automated process, such as a bot or webcrawler."
+      },
+      "format": "html",
+      "maxRequestsPerRun": 2,
+      "minIntervalDays": 7,
+      "maxBytes": 1000000,
+      "timeoutSeconds": 30
+    },
+    {
+      "host": "osv.dev",
+      "vendor": "osv",
+      "robots": {
+        "url": "https://osv.dev/robots.txt",
+        "checkedAt": "2026-11-01T05:11:24Z",
+        "verdict": "allowed",
+        "note": "robots.txt holds only a Sitemap line, so no path is disallowed."
+      },
+      "terms": {
+        "url": "https://policies.google.com/terms?hl=en",
+        "checkedAt": "2026-11-01T05:15:49Z",
+        "quote": "using automated means to access content from any of our services in violation of the machine-readable instructions on our web pages (for example, robots.txt files that disallow crawling, training, or other activities)"
+      },
+      "format": "html",
+      "maxRequestsPerRun": 2,
+      "minIntervalDays": 7,
+      "maxBytes": 1000000,
+      "timeoutSeconds": 30
     }
   ]
 }

@@ -28,7 +28,7 @@ spec/                      contracts shared by every domain
     README.md              where the quotes come from, and their licence
 ```
 
-Status: the contracts, checks and source policy exist, and there are three vendor graphs under `vendors/`, each with a README naming its sources and their licence or terms. Every host they cite is in `policy/sources.json`, and `scripts/graph-check.sh` prints each graph's node count. The scheduled refresh workflow and the PR opener are planned (see `spec/README.md`).
+Status: the contracts, checks and source policy exist, and there are vendor graphs under `vendors/`, each with a README naming its sources and their licence or terms. Every host they cite is in `policy/sources.json`, and `scripts/graph-check.sh` prints each graph's node count. The scheduled refresh workflow and the PR opener are planned (see `spec/README.md`).
 
 The first domain is `vendors`: limits, plans, prices, access rules and terms of public services. A new domain is a new directory with its own `schema.json`; a new vendor is a new directory under its domain. Nothing else changes: every `check.json` is found and checked.
 

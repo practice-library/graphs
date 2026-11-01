@@ -1,0 +1,13 @@
+{
+  "id": "product.osv.osv-dev",
+  "type": "product",
+  "name": "OSV.dev vulnerability database",
+  "source": "https://osv.dev/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:15:11Z",
+    "quote": "An open, precise, and distributed approach to producing and consuming vulnerability information for open source."
+  },
+  "edges": []
+}

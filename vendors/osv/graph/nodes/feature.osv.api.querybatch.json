@@ -1,0 +1,18 @@
+{
+  "id": "feature.osv.api.querybatch",
+  "type": "feature",
+  "name": "POST /v1/querybatch",
+  "source": "https://google.github.io/osv.dev/post-v1-querybatch/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:17:54Z",
+    "quote": "Returns vulnerability ids and modified field only."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.osv.api"
+    }
+  ]
+}

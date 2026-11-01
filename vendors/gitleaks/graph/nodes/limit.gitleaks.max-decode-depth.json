@@ -1,0 +1,21 @@
+{
+  "id": "limit.gitleaks.max-decode-depth",
+  "type": "limit",
+  "name": "Recursive decoding depth",
+  "source": "https://raw.githubusercontent.com/gitleaks/gitleaks/master/README.md",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:16:14Z",
+    "quote": "allow recursive decoding up to this depth (default",
+    "value": 0,
+    "unit": "levels",
+    "scope": "--max-decode-depth; default 0, no decoding"
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.gitleaks.gitleaks"
+    }
+  ]
+}

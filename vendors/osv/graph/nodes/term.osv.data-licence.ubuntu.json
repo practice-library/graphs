@@ -1,0 +1,20 @@
+{
+  "id": "term.osv.data-licence.ubuntu",
+  "type": "term",
+  "name": "Data licence: Ubuntu (CC-BY-SA 4.0)",
+  "source": "https://google.github.io/osv.dev/data/",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:15:14Z",
+    "quote": "Ubuntu (CC-BY-SA 4.0)",
+    "scope": "Ubuntu",
+    "note": "Each data source keeps its own licence; the data page lists one per source."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.osv.osv-dev"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "rule.osv.osv-scanner.breaking-releases",
+  "type": "rule",
+  "name": "Releases flagged breaking",
+  "source": "https://api.github.com/repos/google/osv-scanner/releases?per_page=30",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:30:36Z",
+    "quote": "This release includes several breaking changes aimed at future-proofing OSV-Scanner.",
+    "scope": "the 30 most recent releases, v1.8.4 to v2.7.0",
+    "note": "Only v2.0.0 (2025-03-17) and its pre-release v2.0.0-rc1 are flagged breaking; v2.0.0-beta1 says it introduces no breaking CLI changes, and v1.9.1 only announces V2. None from v2.0.1 to v2.7.0 mentions breaking."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.osv.osv-scanner"
+    }
+  ]
+}

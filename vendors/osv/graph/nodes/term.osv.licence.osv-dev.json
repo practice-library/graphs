@@ -1,0 +1,19 @@
+{
+  "id": "term.osv.licence.osv-dev",
+  "type": "term",
+  "name": "Licence of OSV.dev code: Apache-2.0",
+  "source": "https://raw.githubusercontent.com/google/osv.dev/master/LICENSE",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T05:16:17Z",
+    "quote": "Apache License",
+    "scope": "Apache License 2.0"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.osv.osv-dev"
+    }
+  ]
+}

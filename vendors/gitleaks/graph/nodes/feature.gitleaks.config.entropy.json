@@ -1,0 +1,18 @@
+{
+  "id": "feature.gitleaks.config.entropy",
+  "type": "feature",
+  "name": "Config: entropy threshold per rule",
+  "source": "https://raw.githubusercontent.com/gitleaks/gitleaks/master/README.md",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T05:16:14Z",
+    "quote": "Float representing the minimum shannon entropy a regex group must have to be considered a secret."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.gitleaks.gitleaks"
+    }
+  ]
+}
