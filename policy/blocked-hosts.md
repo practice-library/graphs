@@ -16,4 +16,14 @@ Nothing past robots.txt was fetched from these hosts. Retry one only after somet
 | irdai.gov.in | robots.txt: `User-Agent: *` with `Disallow: /` | 2026-11-01T05:25:15Z | IRDAI guidelines (#36) |
 | www.irdai.gov.in | robots.txt: `User-Agent: *` with `Disallow: /` | 2026-11-01T05:25:15Z | as above |
 
-Acts that these regulators administer can still be cited from the Gazette of India (egazette.gov.in), which is listed in `policy/sources.json`.
+## Reproduction needs permission
+
+These hosts allow robots, but their published terms require permission before their material is reproduced. Quotes are not taken from them. The facts they would have served come from the Gazette of India instead.
+
+| host | terms | checked (UTC) | would have served |
+|---|---|---|---|
+| trai.gov.in | /website-policy: material "may be reproduced free of charge after taking proper permission by sending a mail to us" | 2026-11-01T05:29:58Z | TRAI regulations and directions on commercial communications |
+| cbic-gst.gov.in | /disclaimer.html: the same sentence | 2026-11-01T05:33:19Z | GST law and notifications |
+| einvoice1.gst.gov.in | /Others/WebsitePolicies: no reproduction or reuse "without the prior written permission of NIC" | 2026-11-01T05:33:23Z | e-invoice portal specifications and FAQs |
+
+Acts and regulations that these bodies administer can still be cited from the Gazette of India (egazette.gov.in), which is listed in `policy/sources.json`.
