@@ -2,7 +2,7 @@
   "id": "provision.zzz.act.s2",
   "type": "provision",
   "name": "provision.zzz.act.s2",
-  "source": "https://gazette.zzz.example/1.pdf",
+  "source": "https://gazette.zz.example/1.pdf",
   "measuredAt": "2026-10-31",
   "attrs": {
     "verdict": "limited",

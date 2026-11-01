@@ -2,7 +2,7 @@
   "id": "jurisdiction.zzz",
   "type": "jurisdiction",
   "name": "jurisdiction.zzz",
-  "source": "https://gazette.zzz.example/1.pdf",
+  "source": "https://gazette.zz.example/1.pdf",
   "measuredAt": "2026-10-31",
   "attrs": {
     "verdict": "allowed",
