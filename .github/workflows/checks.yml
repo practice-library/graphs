@@ -1,7 +1,7 @@
 # Generated from templates/.github/workflows/checks.yml and policy/constants.json by scripts/render.sh. Do not edit.
 name: checks
 # Every check a pull request must pass; the ruleset requires "gate / gate".
-# Reusable workflows come from practice-library/.github, pinned to the full commit of release v2.4.0.
+# Reusable workflows come from practice-library/.github, pinned to the full commit of release v2.6.0.
 # The gate's needs and .github/required-checks.json are both rendered from gate.needs in policy/constants.json.
 on:
   pull_request:
@@ -77,7 +77,7 @@ jobs:
         run: bash scripts/graph-check.sh
 
   discover:
-    uses: practice-library/.github/.github/workflows/discover.yml@75a03317883e16f7ad93f1239dc53c9d0e1c4cc1 # v2.4.0
+    uses: practice-library/.github/.github/workflows/discover.yml@1927f933ff655934a99660161efc0ca277eea8f0 # v2.6.0
     with:
       check: schema-check
 
@@ -88,7 +88,7 @@ jobs:
       fail-fast: false
       matrix:
         include: ${{ fromJSON(needs.discover.outputs.targets) }}
-    uses: practice-library/.github/.github/workflows/schema-check.yml@75a03317883e16f7ad93f1239dc53c9d0e1c4cc1 # v2.4.0
+    uses: practice-library/.github/.github/workflows/schema-check.yml@1927f933ff655934a99660161efc0ca277eea8f0 # v2.6.0
     # Every key a check.json row may carry, so none is dropped (the consumer kit of practice-library/.github).
     with:
       schema: ${{ matrix.schema }}
@@ -101,13 +101,13 @@ jobs:
       resolve-ids: ${{ matrix.resolve-ids }}
 
   leak-scan:
-    uses: practice-library/.github/.github/workflows/leak-scan.yml@75a03317883e16f7ad93f1239dc53c9d0e1c4cc1 # v2.4.0
+    uses: practice-library/.github/.github/workflows/leak-scan.yml@1927f933ff655934a99660161efc0ca277eea8f0 # v2.6.0
 
   denylist:
     permissions:
       contents: read
       pull-requests: read
-    uses: practice-library/.github/.github/workflows/guard.yml@75a03317883e16f7ad93f1239dc53c9d0e1c4cc1 # v2.4.0
+    uses: practice-library/.github/.github/workflows/guard.yml@1927f933ff655934a99660161efc0ca277eea8f0 # v2.6.0
     with:
       guard: denylist
 
@@ -115,7 +115,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: read
-    uses: practice-library/.github/.github/workflows/guard.yml@75a03317883e16f7ad93f1239dc53c9d0e1c4cc1 # v2.4.0
+    uses: practice-library/.github/.github/workflows/guard.yml@1927f933ff655934a99660161efc0ca277eea8f0 # v2.6.0
     with:
       guard: removed-paths
 
@@ -123,7 +123,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: read
-    uses: practice-library/.github/.github/workflows/guard.yml@75a03317883e16f7ad93f1239dc53c9d0e1c4cc1 # v2.4.0
+    uses: practice-library/.github/.github/workflows/guard.yml@1927f933ff655934a99660161efc0ca277eea8f0 # v2.6.0
     with:
       guard: release-note
 
@@ -131,13 +131,13 @@ jobs:
     permissions:
       contents: read
       pull-requests: read
-    uses: practice-library/.github/.github/workflows/guard.yml@75a03317883e16f7ad93f1239dc53c9d0e1c4cc1 # v2.4.0
+    uses: practice-library/.github/.github/workflows/guard.yml@1927f933ff655934a99660161efc0ca277eea8f0 # v2.6.0
     with:
       guard: schema-loosening
 
   gate:
     if: always()
     needs: ["render","selftest","guards","bump-only","graph-check","discover","schema-check","leak-scan","denylist","removed-paths","release-note","schema-loosening"]
-    uses: practice-library/.github/.github/workflows/gate.yml@75a03317883e16f7ad93f1239dc53c9d0e1c4cc1 # v2.4.0
+    uses: practice-library/.github/.github/workflows/gate.yml@1927f933ff655934a99660161efc0ca277eea8f0 # v2.6.0
     with:
       needs: ${{ toJSON(needs) }}
