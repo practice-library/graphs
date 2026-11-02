@@ -1,0 +1,15 @@
+{
+  "id": "release.java.9",
+  "type": "release",
+  "name": "JDK 9",
+  "source": "https://openjdk.org/projects/jdk9/",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "JDK 9 reached General Availability on 21 September 2017.",
+    "scope": "9",
+    "window": "2017-09-21"
+  },
+  "edges": []
+}

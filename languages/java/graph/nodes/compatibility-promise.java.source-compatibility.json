@@ -1,0 +1,15 @@
+{
+  "id": "compatibility-promise.java.source-compatibility",
+  "type": "compatibility-promise",
+  "name": "Compatibility promise",
+  "source": "https://openjdk.org/groups/csr/",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "unknown",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "empowered to review interface changes proposed within active",
+    "scope": "compatibility of releases",
+    "note": "Absent: no compatibility promise is stated on the pages read (openjdk.org/projects/jdk/, /groups/csr/, /jeps/261, /jeps/247). The quote is the sentence nearest to the question, from the Compatibility & Specification Review group page; it states what the group reviews, not a promise."
+  },
+  "edges": []
+}

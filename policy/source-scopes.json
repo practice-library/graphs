@@ -214,6 +214,20 @@
         "clause": "Permission to use, copy, modify, and distribute this software and its documentation for any purpose, without fee, and without a written agreement is hereby granted",
         "clauseUrl": "https://www.postgresql.org/about/licence/"
       }
+    },
+    {
+      "vendor": "java",
+      "host": "openjdk.org",
+      "paths": [
+        "/projects/",
+        "/jeps/",
+        "/groups/csr/",
+        "/legal/"
+      ],
+      "permission": {
+        "state": "unresolved",
+        "reason": "The terms of use bar robots, spiders and scrapers without express written permission, and exempt only crawling to build a search index and read-only access for development of the code; neither exemption names reading pages to extract facts, so no permission is established for automated refresh."
+      }
     }
   ]
 }

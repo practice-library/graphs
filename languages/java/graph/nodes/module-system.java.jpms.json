@@ -1,0 +1,19 @@
+{
+  "id": "module-system.java.jpms",
+  "type": "module-system",
+  "name": "Java Platform Module System",
+  "source": "https://openjdk.org/jeps/261",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Implement the Java Platform Module System, as specified by JSR 376",
+    "scope": "JPMS"
+  },
+  "edges": [
+    {
+      "rel": "introducedIn",
+      "to": "release.java.9"
+    }
+  ]
+}

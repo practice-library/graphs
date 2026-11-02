@@ -39,7 +39,7 @@ The first domain is `vendors`: limits, plans, prices, access rules and terms of 
 
 The second domain is `regulations`: dated rules from official legal texts, one graph per jurisdiction and topic. The first is `regulations/in-data-governance`: India's Digital Personal Data Protection Act, 2023 and Rules, 2025, and the CERT-In directions of 2022, from `egazette.gov.in` and `www.cert-in.org.in`. The second is `regulations/in-commercial-communications`: the Telecom Commercial Communications Customer Preference Regulations, 2018 and their amendments of 2018, 2025 and 2026, from `egazette.gov.in` only. The third is `regulations/in-gst-e-invoicing`: rule 48(4) of the CGST Rules, 2017 and the Central Tax notifications that set who must issue e-invoices, also from the Gazette only. Each README maps its graph's ten acceptance questions to the nodes that answer them.
 
-The third and fourth domains are `languages` and `practices`, for the language root graphs (Java, Rust, Go) and for practice graphs; their schemas and checks exist, their content is not written yet. They are never auto-merged.
+The third and fourth domains are `languages` and `practices`, for the language root graphs (Java, Rust, Go) and for practice graphs; their schemas and checks exist. The first language graph is `languages/java`, from `openjdk.org` (its host's permission for automated refresh is unresolved, see its README); the others are not written yet. They are never auto-merged.
 
 ## A language fact
 

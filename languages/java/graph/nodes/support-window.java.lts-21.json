@@ -1,0 +1,21 @@
+{
+  "id": "support-window.java.lts-21",
+  "type": "support-window",
+  "name": "JDK 21 long-term support",
+  "source": "https://openjdk.org/projects/jdk/21/",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "JDK 21 will be a long-term support (LTS) release from most vendors.",
+    "scope": "LTS",
+    "window": "2023-09-19",
+    "note": "The page states no end date; the window is the release's General Availability date."
+  },
+  "edges": [
+    {
+      "rel": "supports",
+      "to": "release.java.21"
+    }
+  ]
+}
