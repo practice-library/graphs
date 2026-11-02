@@ -2,7 +2,7 @@
   "id": "toolchain.rust.rustup",
   "type": "toolchain",
   "name": "rustup",
-  "source": "https://www.rust-lang.org/tools/install",
+  "source": "https://rust-lang.org/tools/install/",
   "measuredAt": "2026-11-02",
   "attrs": {
     "verdict": "allowed",

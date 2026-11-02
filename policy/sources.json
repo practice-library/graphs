@@ -345,17 +345,17 @@
       "timeoutSeconds": 30
     },
     {
-      "host": "www.rust-lang.org",
+      "host": "rust-lang.org",
       "vendor": "rust",
       "robots": {
-        "url": "https://www.rust-lang.org/robots.txt",
-        "checkedAt": "2026-11-02T11:10:00Z",
+        "url": "https://rust-lang.org/robots.txt",
+        "checkedAt": "2026-11-02T17:28:00Z",
         "verdict": "absent",
-        "note": "robots.txt returns 404 Not Found."
+        "note": "robots.txt returns 404 Not Found. www.rust-lang.org answers every path, robots.txt included, with a 301 to this host, so the graph cites this host directly."
       },
       "terms": {
-        "url": "https://www.rust-lang.org/policies/licenses",
-        "checkedAt": "2026-11-02T11:12:00Z",
+        "url": "https://rust-lang.org/policies/licenses/",
+        "checkedAt": "2026-11-02T17:28:00Z",
         "quote": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:"
       },
       "format": "html",
@@ -374,8 +374,8 @@
         "note": "User-agent: * disallows /0. and /1. (versioned docs) and the first-edition and second-edition books; the cited pages are under /stable/."
       },
       "terms": {
-        "url": "https://www.rust-lang.org/policies/licenses",
-        "checkedAt": "2026-11-02T11:12:00Z",
+        "url": "https://rust-lang.org/policies/licenses/",
+        "checkedAt": "2026-11-02T17:28:00Z",
         "quote": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:"
       },
       "format": "html",
@@ -394,8 +394,8 @@
         "note": "robots.txt is User-agent: * with an empty Disallow and Allow: /, and a sitemap."
       },
       "terms": {
-        "url": "https://www.rust-lang.org/policies/licenses",
-        "checkedAt": "2026-11-02T11:12:00Z",
+        "url": "https://rust-lang.org/policies/licenses/",
+        "checkedAt": "2026-11-02T17:28:00Z",
         "quote": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:"
       },
       "format": "html",
@@ -414,8 +414,8 @@
         "note": "robots.txt returns 404 Not Found."
       },
       "terms": {
-        "url": "https://www.rust-lang.org/policies/licenses",
-        "checkedAt": "2026-11-02T11:12:00Z",
+        "url": "https://rust-lang.org/policies/licenses/",
+        "checkedAt": "2026-11-02T17:28:00Z",
         "quote": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:"
       },
       "format": "html",
