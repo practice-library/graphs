@@ -7,7 +7,8 @@
   "attrs": {
     "verdict": "absent",
     "fetched_at": "2026-10-31T12:00:00Z",
-    "quote": "Requests are limited per minute."
+    "quote": "Requests are limited per minute.",
+    "note": "The page lists per-minute limits only."
   },
   "edges": [
     {
