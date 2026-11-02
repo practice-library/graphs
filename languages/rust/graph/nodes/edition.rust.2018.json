@@ -1,0 +1,20 @@
+{
+  "id": "edition.rust.2018",
+  "type": "edition",
+  "name": "Rust 2018 edition",
+  "source": "https://doc.rust-lang.org/stable/edition-guide/rust-2018/index.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "The edition system was created for the release of Rust 2018.",
+    "scope": "2018",
+    "note": "The edition guide's info box gives release version 1.31.0."
+  },
+  "edges": [
+    {
+      "rel": "introducedIn",
+      "to": "release.rust.1-31-0"
+    }
+  ]
+}

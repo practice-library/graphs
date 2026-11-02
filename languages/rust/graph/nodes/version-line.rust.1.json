@@ -1,0 +1,15 @@
+{
+  "id": "version-line.rust.1",
+  "type": "version-line",
+  "name": "Rust 1.x",
+  "source": "https://doc.rust-lang.org/stable/book/appendix-07-nightly-rust.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "Rust releases every six weeks, like clockwork.",
+    "scope": "1.x",
+    "note": "Release cadence: a new minor version every six weeks. If you know the date of one release, the next is six weeks later, per the same page."
+  },
+  "edges": []
+}

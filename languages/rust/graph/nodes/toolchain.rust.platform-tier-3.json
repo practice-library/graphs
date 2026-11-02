@@ -1,0 +1,15 @@
+{
+  "id": "toolchain.rust.platform-tier-3",
+  "type": "toolchain",
+  "name": "Platform support: Tier 3",
+  "source": "https://doc.rust-lang.org/stable/rustc/platform-support.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "Official builds are not available.",
+    "scope": "Tier 3 targets",
+    "note": "The page says the Rust project does not build or test these targets automatically, so they may or may not work."
+  },
+  "edges": []
+}

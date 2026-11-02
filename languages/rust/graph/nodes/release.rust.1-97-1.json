@@ -1,0 +1,25 @@
+{
+  "id": "release.rust.1-97-1",
+  "type": "release",
+  "name": "Rust 1.97.1",
+  "source": "https://blog.rust-lang.org/2026/07/16/Rust-1.97.1/",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "The Rust team has published a new point release of Rust, 1.97.1.",
+    "scope": "1.97.1",
+    "window": "2026-07-16",
+    "note": "Release date from the post's date in its URL."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.rust.1"
+    },
+    {
+      "rel": "supersedes",
+      "to": "release.rust.1-97-0"
+    }
+  ]
+}

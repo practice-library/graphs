@@ -1,0 +1,20 @@
+{
+  "id": "module-system.rust.crates-io",
+  "type": "module-system",
+  "name": "crates.io registry",
+  "source": "https://doc.rust-lang.org/stable/book/ch14-02-publishing-to-crates-io.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "The crate registry at crates.io distributes the source code of your packages",
+    "scope": "crates.io",
+    "note": "The page also says a publish is permanent: the version can never be overwritten, and the code cannot be deleted except in certain circumstances."
+  },
+  "edges": [
+    {
+      "rel": "requires",
+      "to": "toolchain.rust.cargo"
+    }
+  ]
+}

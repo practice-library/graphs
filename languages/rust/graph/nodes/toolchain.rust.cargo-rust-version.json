@@ -1,0 +1,19 @@
+{
+  "id": "toolchain.rust.cargo-rust-version",
+  "type": "toolchain",
+  "name": "Cargo rust-version field",
+  "source": "https://doc.rust-lang.org/stable/cargo/reference/rust-version.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "The `rust-version` field is an optional key that tells cargo what version of the Rust toolchain you support for your package.",
+    "scope": "rust-version"
+  },
+  "edges": [
+    {
+      "rel": "requires",
+      "to": "toolchain.rust.cargo"
+    }
+  ]
+}
