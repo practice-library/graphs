@@ -20,11 +20,12 @@ All from `openjdk.org`:
 - **A compatibility promise:** none is stated on the pages read. `compatibility-promise.java.source-compatibility` and `compatibility-promise.java.module-risk` are `unknown` with a note starting `Absent: `.
 - **Calendar support periods:** the pages say a release is an LTS release "from most vendors" and give no end date, so an LTS window holds only the release's General Availability date, as its note says. Vendor support terms are not recorded.
 - **JDK 8 and releases before 9:** not read.
+- **A release in development:** the page for JDK 28 states no General Availability date in a quote that could be checked, and a release not yet shipped is not a node (`policy/graph-rules.json`, `languages.reachedWindowTypes`).
 
 ## The ten questions
 
 1. **Which release is the latest, and when did it reach General Availability?** `release.java.27`: 2026-09-15.
-2. **Which release is in development, and what date does its schedule propose?** `release.java.28`: 2027-03-09, not released.
+2. **Which release came before the latest?** `release.java.26`, which `release.java.27` supersedes.
 3. **How often does a feature release ship?** `version-line.java.feature-releases`: every six months.
 4. **What is the cadence of update releases, and when does the first update of a series come?** `version-line.java.update-cadence` and `version-line.java.update-first-release`.
 5. **Which update lines are active?** `version-line.java.27-updates`, `.26-`, `.25-`, `.21-`, `.17-` and `.11-updates`; and which are retired: `version-line.java.retired-updates`.
