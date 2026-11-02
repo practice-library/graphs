@@ -1,0 +1,27 @@
+{
+  "id": "penalty.zz.act.p1",
+  "type": "penalty",
+  "name": "penalty.zz.act.p1",
+  "source": "https://gazette.zz.example/1.pdf",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "up to seven days",
+    "scope": "s",
+    "window": "2026-10-31",
+    "status": "in-force",
+    "value": 7,
+    "unit": "days"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.zz.act"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.zz.act.s1"
+    }
+  ]
+}

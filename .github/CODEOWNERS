@@ -3,8 +3,14 @@
 # touching only them is a date bump, which the bump-only check enforces, and may auto-merge.
 * @practice-library/maintainers
 /vendors/anthropic/graph/nodes/
+/vendors/anthropic/graph/refresh/
 /vendors/github/graph/nodes/
+/vendors/github/graph/refresh/
 /vendors/gitleaks/graph/nodes/
+/vendors/gitleaks/graph/refresh/
 /vendors/osv/graph/nodes/
+/vendors/osv/graph/refresh/
 /vendors/postgresql/graph/nodes/
+/vendors/postgresql/graph/refresh/
 /vendors/temporal/graph/nodes/
+/vendors/temporal/graph/refresh/

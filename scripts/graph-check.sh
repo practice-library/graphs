@@ -7,12 +7,16 @@
 #   every source's host is listed in policy/sources.json for this graph (its "vendor" is the directory name);
 #   in a regulation graph, a status agrees with its window on measuredAt: in-force from the window on,
 #   notified-not-in-force before it (draft and superseded are not compared with a date);
-#   in a vendor graph, a node whose attrs.value is a number states that number in its quote (scripts/quote-value.py).
-#   Regulation graphs are not checked for this yet (#69).
+#   a node whose attrs.value is a number states that number in its quote (scripts/quote-value.py; the
+#   regulation nodes still to be re-quoted are listed in policy/graph-rules.json);
+#   what the edges mean (scripts/graph-semantics.py, rules in policy/graph-rules.json, the checker's own
+#   copy, not the root's): endpoint types per relation, no self-edge, no loop in an acyclic relation,
+#   required provenance edges, a replaced node's status, and ids that continue their container's id.
 # Usage: scripts/graph-check.sh [root]
 set -euo pipefail
 root="${1:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+rules="$here/../policy/graph-rules.json"
 vendor_graphs="$(bash "$here/graphs.sh" "$root" vendors)"
 regulation_graphs="$(bash "$here/graphs.sh" "$root" regulations)"
 cd "$root"
@@ -58,11 +62,17 @@ check() { # <graph dir> <name the ids carry> <root id> <domain>
   fi
 }
 
+semantic_and_quotes() { # <graph dir> <domain>: what the edges mean (policy/graph-rules.json), and a value in its quote
+  local out
+  if ! out="$(python3 "$here/graph-semantics.py" "$rules" "$2" "$1")"; then echo "$out"; failed=1; fi
+  if ! out="$(python3 "$here/quote-value.py" --rules "$rules" "$2" "$1")"; then echo "$out"; failed=1; fi
+}
+
 while IFS= read -r d; do
   [ -z "$d" ] && continue # no vendor graph
   vendor="$(basename "$d")"
   check "$d" "$vendor" "vendor.$vendor" vendors
-  if ! misses="$(python3 "$here/quote-value.py" "$d")"; then echo "$misses"; failed=1; fi
+  semantic_and_quotes "$d" vendors
 done <<<"$vendor_graphs"
 while IFS= read -r d; do
   [ -n "$d" ] || continue
@@ -70,5 +80,6 @@ while IFS= read -r d; do
   if ! [[ "$name" =~ ^[a-z]{2}-[a-z0-9]+(-[a-z0-9]+)*$ ]]; then echo "FAIL $d: a regulation graph is named <jurisdiction>-<topic>, such as in-data-governance"; failed=1; continue; fi
   jurisdiction="${name%%-*}"
   check "$d" "$jurisdiction" "jurisdiction.$jurisdiction" regulations
+  semantic_and_quotes "$d" regulations
 done <<<"$regulation_graphs"
 exit "$failed"

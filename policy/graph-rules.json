@@ -1,0 +1,91 @@
+{
+  "_": "What scripts/graph-semantics.py enforces beyond the existence of an edge's target. A relation lists the [from type, to type] pairs it may join; any other pair fails. acyclic relations may not form a loop, and no relation may point a node at itself. Within a domain, a type listed under required must carry between min and max edges of that relation to the named type. supersession ties a replacement edge to the status of the node it replaces. containment ties the id of a contained node to the id of the node its edge names.",
+  "vendors": {
+    "relations": {
+      "appliesTo": [
+        ["capability", "product"], ["capability", "release"], ["feature", "plan"], ["feature", "product"],
+        ["limit", "plan"], ["limit", "product"], ["permission", "product"], ["permission", "vendor"],
+        ["plan", "plan"], ["plan", "product"], ["price", "plan"], ["price", "product"], ["price", "release"],
+        ["rate-limit", "product"], ["rule", "permission"], ["rule", "plan"], ["rule", "product"],
+        ["rule", "release"], ["rule", "rule"], ["rule", "vendor"], ["term", "plan"], ["term", "product"],
+        ["term", "vendor"]
+      ],
+      "availableOn": [
+        ["feature", "plan"], ["feature", "product"], ["product", "product"], ["rule", "plan"],
+        ["rule", "product"], ["term", "product"]
+      ],
+      "hasRelease": [["product", "release"]],
+      "offeredBy": [["product", "vendor"]],
+      "introducedIn": [["capability", "release"]],
+      "limits": [
+        ["limit", "product"], ["limit", "release"], ["plan", "product"], ["rate-limit", "product"],
+        ["rule", "product"]
+      ],
+      "removedIn": [["capability", "release"]],
+      "requires": [
+        ["feature", "feature"], ["feature", "product"], ["feature", "rule"], ["rule", "permission"],
+        ["rule", "rule"]
+      ],
+      "supersedes": [["rule", "rule"]]
+    },
+    "acyclic": ["supersedes", "requires", "hasRelease", "introducedIn", "removedIn"],
+    "required": []
+  },
+  "regulations": {
+    "relations": {
+      "issuedBy": [["instrument", "authority"]],
+      "partOf": [
+        ["definition", "instrument"], ["exemption", "instrument"], ["obligation", "instrument"],
+        ["penalty", "instrument"], ["provision", "instrument"], ["timeline", "instrument"]
+      ],
+      "madeUnder": [["instrument", "instrument"]],
+      "imposes": [
+        ["instrument", "obligation"], ["instrument", "penalty"], ["provision", "obligation"],
+        ["provision", "penalty"]
+      ],
+      "appliesTo": [["authority", "jurisdiction"], ["instrument", "jurisdiction"], ["provision", "instrument"]],
+      "amends": [
+        ["definition", "instrument"], ["exemption", "instrument"], ["instrument", "instrument"],
+        ["obligation", "instrument"], ["penalty", "instrument"], ["provision", "instrument"],
+        ["timeline", "instrument"]
+      ],
+      "supersedes": [
+        ["definition", "definition"], ["exemption", "exemption"], ["instrument", "instrument"],
+        ["obligation", "obligation"], ["penalty", "penalty"], ["provision", "provision"],
+        ["timeline", "timeline"]
+      ],
+      "commencedBy": [
+        ["definition", "provision"], ["exemption", "provision"], ["obligation", "provision"],
+        ["penalty", "provision"], ["provision", "provision"], ["timeline", "provision"]
+      ]
+    },
+    "quoteValueExceptions": [
+      "penalty.in.tcccpr-amendment-2026.r27-1-a", "penalty.in.dpdp-act-2023.schedule-1",
+      "penalty.in.dpdp-act-2023.schedule-2", "penalty.in.dpdp-act-2023.schedule-3",
+      "penalty.in.dpdp-act-2023.schedule-4", "penalty.in.dpdp-act-2023.schedule-5",
+      "penalty.in.dpdp-act-2023.schedule-7", "timeline.in.dpdp-rules-2025.r7-2-b",
+      "timeline.in.dpdp-rules-2025.r8-2", "timeline.in.dpdp-rules-2025.third-schedule-1",
+      "timeline.in.dpdp-rules-2025.third-schedule-2", "timeline.in.dpdp-rules-2025.third-schedule-3"
+    ],
+    "acyclic": ["supersedes", "madeUnder", "commencedBy", "partOf", "amends"],
+    "required": [
+      {"type": "authority", "rel": "appliesTo", "to": "jurisdiction", "min": 1, "max": 1,
+       "exceptions": ["authority.in.cert-in", "authority.in.meity"]},
+      {"type": "instrument", "rel": "issuedBy", "to": "authority", "min": 1,
+       "exceptions": ["instrument.in.dpdp-act-2023", "instrument.in.so-5458-2026"]},
+      {"type": "instrument", "rel": "appliesTo", "to": "jurisdiction", "min": 1, "max": 1,
+       "exceptions": ["instrument.in.gsr-843-2025", "instrument.in.gsr-844-2025", "instrument.in.so-5458-2026"]},
+      {"type": "provision", "rel": "partOf", "to": "instrument", "min": 1, "max": 1},
+      {"type": "obligation", "rel": "partOf", "to": "instrument", "min": 1, "max": 1},
+      {"type": "timeline", "rel": "partOf", "to": "instrument", "min": 1, "max": 1},
+      {"type": "penalty", "rel": "partOf", "to": "instrument", "min": 1, "max": 1},
+      {"type": "definition", "rel": "partOf", "to": "instrument", "min": 1, "max": 1},
+      {"type": "exemption", "rel": "partOf", "to": "instrument", "min": 1, "max": 1},
+      {"type": "obligation", "rel": "commencedBy", "to": "provision", "min": 1, "unless": {"attr": "status", "in": ["superseded"]},
+       "exceptions": ["obligation.in.ct-10-2023.threshold"]},
+      {"type": "penalty", "rel": "commencedBy", "to": "provision", "min": 1, "unless": {"attr": "status", "in": ["superseded"]}}
+    ],
+    "supersession": {"rel": "supersedes", "attr": "status", "replaced": "superseded"},
+    "containment": {"rel": "partOf", "to": "instrument", "idPrefix": true}
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "graph": "vendors/a",
+  "commit": "@@BASE@@",
+  "run": {
+    "id": 1,
+    "url": "https://github.com/x/y/actions/runs/1",
+    "startedAt": "2026-10-24T00:00:00Z",
+    "finishedAt": "2026-10-24T23:59:59Z"
+  },
+  "requests": 2,
+  "fetches": [
+    {
+      "url": "https://docs.a.example/robots.txt",
+      "kind": "robots",
+      "httpStatus": 404,
+      "bytes": 100,
+      "redirects": [],
+      "startedAt": "2026-10-24T00:00:30Z"
+    },
+    {
+      "url": "https://docs.a.example/x",
+      "kind": "page",
+      "httpStatus": 200,
+      "bytes": 5000,
+      "redirects": [],
+      "startedAt": "2026-10-24T05:00:00Z"
+    }
+  ],
+  "robots": [
+    {
+      "host": "docs.a.example",
+      "fetchedAt": "2026-10-24T00:00:30Z",
+      "httpStatus": 404,
+      "verdict": "absent"
+    }
+  ],
+  "results": [
+    {
+      "node": "limit.a.x",
+      "source": "https://docs.a.example/x",
+      "finalUrl": "https://docs.a.example/x",
+      "httpStatus": 200,
+      "fetchedAt": "2026-10-24T05:00:00Z",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "outcome": "unchanged"
+    }
+  ]
+}
