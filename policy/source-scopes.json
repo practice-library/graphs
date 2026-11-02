@@ -243,14 +243,14 @@
     },
     {
       "vendor": "rust",
-      "host": "www.rust-lang.org",
+      "host": "rust-lang.org",
       "paths": [
         "/"
       ],
       "permission": {
         "state": "established",
         "clause": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:",
-        "clauseUrl": "https://www.rust-lang.org/policies/licenses"
+        "clauseUrl": "https://rust-lang.org/policies/licenses/"
       }
     },
     {
@@ -272,7 +272,7 @@
       "permission": {
         "state": "established",
         "clause": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:",
-        "clauseUrl": "https://www.rust-lang.org/policies/licenses"
+        "clauseUrl": "https://rust-lang.org/policies/licenses/"
       }
     },
     {
@@ -288,7 +288,7 @@
       "permission": {
         "state": "established",
         "clause": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:",
-        "clauseUrl": "https://www.rust-lang.org/policies/licenses"
+        "clauseUrl": "https://rust-lang.org/policies/licenses/"
       }
     },
     {
@@ -300,7 +300,7 @@
       "permission": {
         "state": "established",
         "clause": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:",
-        "clauseUrl": "https://www.rust-lang.org/policies/licenses"
+        "clauseUrl": "https://rust-lang.org/policies/licenses/"
       }
     }
   ]

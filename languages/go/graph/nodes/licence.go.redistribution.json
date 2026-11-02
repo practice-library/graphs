@@ -6,9 +6,10 @@
   "measuredAt": "2026-11-02",
   "attrs": {
     "verdict": "allowed",
-    "fetched_at": "2026-11-02T11:30:00Z",
-    "quote": "Redistribution and use in source and binary forms, with or without modification, are permitted",
-    "scope": "BSD-3-Clause"
+    "fetched_at": "2026-11-02T16:15:27Z",
+    "quote": "modification, are permitted provided that the following conditions are",
+    "scope": "BSD-3-Clause",
+    "note": "Unchanged. The quote is line 4 of the licence; the clause starts \"Redistribution and use in source and binary forms, with or without\" on line 3 and ends \"met:\" on line 5, and the page puts a line-number element before every line."
   },
   "edges": []
 }

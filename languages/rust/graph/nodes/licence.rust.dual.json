@@ -2,7 +2,7 @@
   "id": "licence.rust.dual",
   "type": "licence",
   "name": "Licence: MIT or Apache 2.0",
-  "source": "https://www.rust-lang.org/policies/licenses",
+  "source": "https://rust-lang.org/policies/licenses/",
   "measuredAt": "2026-11-02",
   "attrs": {
     "verdict": "allowed",
