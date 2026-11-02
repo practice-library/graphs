@@ -3,14 +3,15 @@
   "type": "limit",
   "name": "gRPC message size (self-hosted)",
   "source": "https://docs.temporal.io/self-hosted-guide/defaults",
-  "measuredAt": "2026-10-31",
+  "measuredAt": "2026-11-02",
   "attrs": {
     "verdict": "limited",
-    "fetched_at": "2026-10-31T20:16:23Z",
-    "quote": "gRPC has a limit of 4 MB for each message received.",
+    "fetched_at": "2026-11-02T16:15:27Z",
+    "quote": "gRPC has a limit of 4 MB for",
     "value": 4,
     "unit": "MB",
-    "scope": "each gRPC message received"
+    "scope": "each gRPC message received",
+    "note": "Unchanged. The sentence ends in a link (\"each message received\"), which the host serves as markdown link syntax, so the quote stops before it."
   },
   "edges": [
     {

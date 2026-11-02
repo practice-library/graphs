@@ -3,11 +3,11 @@
   "type": "product",
   "name": "Claude API",
   "source": "https://platform.claude.com/docs/en/api/overview",
-  "measuredAt": "2026-10-31",
+  "measuredAt": "2026-11-02",
   "attrs": {
     "verdict": "allowed",
-    "fetched_at": "2026-10-31T15:45:03Z",
-    "quote": "The Claude API is a RESTful API at https://api.anthropic.com that provides programmatic access to Claude models and Claude Managed Agents."
+    "fetched_at": "2026-11-02T16:15:27Z",
+    "quote": "The Claude API includes the following APIs:"
   },
   "edges": [
     {

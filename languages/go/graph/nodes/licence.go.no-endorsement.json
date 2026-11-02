@@ -6,9 +6,10 @@
   "measuredAt": "2026-11-02",
   "attrs": {
     "verdict": "allowed",
-    "fetched_at": "2026-11-02T11:30:00Z",
-    "quote": "Neither the name of Google LLC nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.",
-    "scope": "BSD-3-Clause"
+    "fetched_at": "2026-11-02T16:15:27Z",
+    "quote": "Neither the name of Google LLC nor the names of its",
+    "scope": "BSD-3-Clause",
+    "note": "Unchanged. The quote is line 13 of the licence; the clause continues \"contributors may be used to endorse or promote products derived from this software without specific prior written permission.\" on lines 14 and 15, and the page puts a line-number element before every line."
   },
   "edges": []
 }
