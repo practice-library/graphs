@@ -13,7 +13,7 @@
   },
   "edges": [
     {
-      "rel": "supports",
+      "rel": "appliesTo",
       "to": "version-line.example.2"
     }
   ]

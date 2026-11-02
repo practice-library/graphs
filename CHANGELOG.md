@@ -2,6 +2,18 @@
 
 One entry per release of this repository. A release names the practice-library/.github release its own CI checked it against.
 
+## Unreleased
+
+- Pins practice-library/.github v3.1.0 (`fa14c82916585c4e3357985a0433e60123f3b91d`), after v2.6.0, taking in the breaking changes of v3.0.0. Every reusable workflow call in `.github/workflows/` moves to that commit, rendered from `policy/constants.json`.
+- The guards check out their own tooling at the pinned commit. A loosened schema, or a denylist exemption that is added or widened, now needs a maintainer's approval of the pull request's exact head; the `schema-loosening-approved` label only re-runs the check.
+- The pinned sources contract moves to `policy/upstream/practice-library-.github/v3.1.0/`, an unchanged copy of the file at that commit (the same blob as at v3.0.0), and `policy/check.json` resolves it there. At v3.0.0 a host's `terms` may carry an optional `note` (at most 300 characters) for terms with no clause on automated reading.
+- No caller input or required job changes: the caller keeps the same inputs, the required check is still `gate / gate`, and this repository used none of the paths, inputs or constants that v3.0.0 removed.
+- Checks run for pull requests to, and pushes to, the `v1` integration branch as well as `main`.
+- The `guards` job runs as six shards, with check names `guards 1/6` to `guards 6/6`; `scripts/guards.py --shard K/N` selects the rows of one shard, and the gate needs the whole matrix.
+- `languages`: the edge relation `supports`, which the shared node envelope does not have, is replaced by the envelope's `appliesTo` in `languages/schema.json`, the `languages/go` nodes, the examples and the counter-examples. A consumer that reads language edges by relation reads `appliesTo`.
+- `regulations/schema.json` no longer restates the envelope's `attrs.status` list; the pinned envelope owns it.
+- The shared node contract at v3.1.0 allows the statuses `expired`, `repealed` and `never-effective`, which the regulation graphs use; at v3.1.0 the `schema-loosening` guard also judges in a calling repository such as this one.
+
 ## v0.2.0
 
 Checked against practice-library/.github v2.4.0 (`75a03317883e16f7ad93f1239dc53c9d0e1c4cc1`).

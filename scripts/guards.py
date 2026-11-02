@@ -17,7 +17,9 @@ that a node is unchanged between the report's commit and the base: the self-test
 in policy/graph-rules.json. Not covered: index.sh (scripts/index-selftest.sh runs its own cases), the policy lists
 graph-semantics.py skips by id (`exceptions`, `unless`), render.sh (practice-library/graphs#25), the usage checks on argument counts, the
 missing-directory exit in graphs.sh (without it, find reports the missing directory and lists nothing, the same output) and the measuredAt type test in bump-only.sh, which no input reaches alone.
-Python 3.9 or later, standard library only. Run: python3 scripts/guards.py
+Python 3.9 or later, standard library only. Run: python3 scripts/guards.py [--shard K/N]
+--shard K/N runs only the rows (GUARDS, then PINS, then BACKSTOPS) whose 0-based index i has i % N == K-1,
+so N jobs with K = 1..N together run every row once. Without it every row runs.
 """
 from __future__ import annotations
 
@@ -69,6 +71,8 @@ GUARDS = [
     ("status is compared with window only in regulation graphs", GC,
      'select($dom == "regulations") | ($n.attrs.status? // null) as $st | ($n.attrs.window? // null) as $w',
      'select(true) | ($n.attrs.status? // null) as $st | ($n.attrs.window? // null) as $w', C + "vendor-status-not-compared"),
+    ("a language release's window is not after measuredAt", GC,
+     "select($w != null and $w > $n.measuredAt)", "select($w != null and $w > \"9999\")", C + "language-release-not-yet-released"),
     ("in-force needs its window on or before measuredAt", GC,
      'elif $st == $rules[0].status.inForce and ($w == null or $ws > $n.measuredAt)', "elif false", C + "regulation-in-force-a-day-early"),
     ("in force from exactly the window date", GC, "or $ws > $n.measuredAt)", "or $ws >= $n.measuredAt)", C + "regulation-complete"),
@@ -377,15 +381,42 @@ def mutated(path: str, code: str, mutant: str):
         return run(tmp)
 
 
-def main() -> int:
+def parse_shard(argv: list):
+    """(K, N) from argv, (1, 1) without --shard, or a message saying why argv is not accepted."""
+    if not argv:
+        return 1, 1
+    if len(argv) != 2 or argv[0] != "--shard":
+        return "usage: python3 scripts/guards.py [--shard K/N]"
+    k, sep, n = argv[1].partition("/")
+    if not sep or not (k.isascii() and k.isdigit() and n.isascii() and n.isdigit()):
+        return f"--shard {argv[1]}: not K/N with K and N whole numbers"
+    k, n = int(k), int(n)
+    if n < 1:
+        return f"--shard {argv[1]}: N must be at least 1"
+    if not 1 <= k <= n:
+        return f"--shard {argv[1]}: K must be between 1 and {n}"
+    return k, n
+
+
+def main(argv: list) -> int:
+    shard = parse_shard(argv)
+    if isinstance(shard, str):
+        print(shard, file=sys.stderr)
+        return 2
+    k, n = shard
+    rows = GUARDS + PINS + BACKSTOPS
+    picked = {i for i in range(len(rows)) if i % n == k - 1}
+    guards = [r for i, r in enumerate(GUARDS + PINS) if i in picked]
+    backstops = [r for i, r in enumerate(BACKSTOPS, len(GUARDS) + len(PINS)) if i in picked]
+    print(f"shard {k}/{n}: {len(picked)} of {len(rows)} rows selected")
     with tempfile.TemporaryDirectory() as tmp:
         copy(tmp)
         base = run(tmp)
-    failed = [f"{row[0]}: its mutant is its code" for row in GUARDS + PINS + BACKSTOPS if row[2] == row[3]]
+    failed = [f"{row[0]}: its mutant is its code" for row in guards + backstops if row[2] == row[3]]
     failed += [f"{row[0]}: {row[4]} does not pass before any mutation"
-              for row in GUARDS + PINS + BACKSTOPS if not passed_case(base, row[4])]
+              for row in guards + backstops if not passed_case(base, row[4])]
     if not failed:
-        for what, path, code, mutant, case in GUARDS + PINS:
+        for what, path, code, mutant, case in guards:
             lines = mutated(path, code, mutant)
             if isinstance(lines, str):
                 failed.append(f"{what}: {lines}")
@@ -393,7 +424,7 @@ def main() -> int:
                 print(f"ok   {what}: {case} fails without it")
             else:
                 failed.append(f"{what}: {case} still passes with the guard mutated")
-        for what, path, code, mutant, case, catcher in BACKSTOPS:
+        for what, path, code, mutant, case, catcher in backstops:
             lines = mutated(path, code, mutant)
             if isinstance(lines, str):
                 failed.append(f"{what}: {lines}")
@@ -403,9 +434,10 @@ def main() -> int:
                 failed.append(f"{what}: without it {case} passes, so it is a guard, not a backstop")
     for f in failed:
         print(f"FAIL {f}")
-    print(f"{len(GUARDS)} guards, {len(PINS)} pins, {len(BACKSTOPS)} backstops, {len(failed)} failing")
+    print(f"shard {k}/{n}: {len(picked)} rows run, {len(failed)} failing "
+          f"(all shards: {len(GUARDS)} guards, {len(PINS)} pins, {len(BACKSTOPS)} backstops)")
     return 1 if failed else 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(main(sys.argv[1:]))

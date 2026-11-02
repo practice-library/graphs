@@ -1,0 +1,24 @@
+{
+  "id": "release.java.27",
+  "type": "release",
+  "name": "JDK 27",
+  "source": "https://openjdk.org/projects/jdk/27/",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "JDK 27 reached General Availability on 15 September 2026.",
+    "scope": "27",
+    "window": "2026-09-15"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.java.27-updates"
+    },
+    {
+      "rel": "supersedes",
+      "to": "release.java.26"
+    }
+  ]
+}

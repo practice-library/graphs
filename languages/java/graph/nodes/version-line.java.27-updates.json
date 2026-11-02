@@ -1,0 +1,15 @@
+{
+  "id": "version-line.java.27-updates",
+  "type": "version-line",
+  "name": "JDK 27 Updates",
+  "source": "https://openjdk.org/projects/jdk-updates/",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "JDK 27 Updates",
+    "scope": "27.x",
+    "note": "Listed under the heading Active JDK Update Releases."
+  },
+  "edges": []
+}
