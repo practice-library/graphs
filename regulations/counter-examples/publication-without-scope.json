@@ -1,0 +1,19 @@
+{
+  "id": "publication.zz.data-act-2025",
+  "type": "publication",
+  "name": "publication.zz.data-act-2025",
+  "source": "https://gazette.example.org/2025/1.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T04:00:00Z",
+    "quote": "Published in the Gazette of 15 January 2025.",
+    "window": "2025-01-15"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.zz.data-act-2025"
+    }
+  ]
+}

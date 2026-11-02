@@ -21,6 +21,10 @@
     {
       "rel": "amends",
       "to": "instrument.in.cgst-rules-2017"
+    },
+    {
+      "rel": "supersedes",
+      "to": "provision.in.ct-60-2020.inv-01"
     }
   ]
 }

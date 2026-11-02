@@ -1,0 +1,15 @@
+{
+  "id": "licence.go.code",
+  "type": "licence",
+  "name": "Go code licence",
+  "source": "https://go.dev/copyright",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "and code is licensed under a BSD license.",
+    "scope": "BSD-3-Clause",
+    "note": "The page says a BSD license; the SPDX identifier is this graph's mapping of the three-clause licence text at https://go.dev/LICENSE."
+  },
+  "edges": []
+}

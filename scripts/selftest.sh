@@ -6,6 +6,8 @@
 # which finds every tracked check.json, never takes a fixture for a real target. Each root is
 # copied to a temporary directory with those files renamed before the script runs on it.
 #   selftest/graph-check/<case>/root/                     scripts/graph-check.sh <root>
+#   selftest/sources-check/<case>/root/                   scripts/sources-check.py <root> (policy files and nodes as they are)
+#   selftest/report-check/<case>/{report,sources,scopes}.json, commit   scripts/report-check.py check
 #   selftest/bump-only-file/<case>/{old,new}.json          scripts/bump-only.sh file <old> <new>
 # Other cases compare the script's output with `expect` instead:
 #   selftest/bump-only-classify/<case>/{allow.json,diff}   scripts/bump-only.sh classify (review, bump or reject)
@@ -61,6 +63,8 @@ output_case() { # <case dir> <command...>
 }
 
 for c in selftest/graph-check/*/; do run_case "${c%/}" bash scripts/graph-check.sh "$(stage "${c%/}")"; done
+for c in selftest/sources-check/*/; do run_case "${c%/}" python3 scripts/sources-check.py "${c}root"; done
+for c in selftest/report-check/*/; do run_case "${c%/}" python3 scripts/report-check.py check "${c}report.json" "${c}sources.json" "${c}scopes.json" "$(cat "${c}commit")"; done
 for c in selftest/bump-only-file/*/; do run_case "${c%/}" bash scripts/bump-only.sh file "${c}old.json" "${c}new.json"; done
 for c in selftest/bump-only-classify/*/; do output_case "${c%/}" bash scripts/bump-only.sh classify "${c}allow.json" "${c}diff"; done
 for c in selftest/graphs/*/; do output_case "${c%/}" bash scripts/graphs.sh "$(stage "${c%/}")" $(cat "${c}domain" 2>/dev/null); done
@@ -74,6 +78,9 @@ pr_repo() { # <case dir>: prints a git repository whose HEAD is head/ and HEAD^1
   git -C "$repo" -c user.name=selftest -c user.email=selftest@example.invalid -c commit.gpgsign=false -c core.hooksPath=/dev/null commit -qm base
   find "$repo" -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
   cp -R "$1/head/." "$repo/"
+  # A refresh report names the commit it read; head/ writes the base commit as @@BASE@@.
+  find "$repo" -type f -name '*.json' -not -path "$repo/.git/*" -exec sed -i.bak "s/@@BASE@@/$(git -C "$repo" rev-parse HEAD)/" {} +
+  find "$repo" -type f -name '*.bak' -not -path "$repo/.git/*" -delete
   git -C "$repo" add -A
   git -C "$repo" -c user.name=selftest -c user.email=selftest@example.invalid -c commit.gpgsign=false -c core.hooksPath=/dev/null commit -qm head
   echo "$repo"

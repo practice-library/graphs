@@ -1,0 +1,24 @@
+{
+  "userAgent": "practice-library-graphs/1 (+https://github.com/practice-library/graphs)",
+  "hosts": [
+    {
+      "host": "docs.zz.example",
+      "vendor": "other",
+      "robots": {
+        "url": "https://docs.zz.example/robots.txt",
+        "checkedAt": "2026-10-31T12:00:00Z",
+        "verdict": "absent"
+      },
+      "terms": {
+        "url": "https://docs.zz.example/terms",
+        "checkedAt": "2026-10-31T12:00:00Z",
+        "quote": "q"
+      },
+      "format": "html",
+      "maxRequestsPerRun": 5,
+      "minIntervalDays": 7,
+      "maxBytes": 100000,
+      "timeoutSeconds": 10
+    }
+  ]
+}

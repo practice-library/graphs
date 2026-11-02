@@ -1,0 +1,20 @@
+{
+  "id": "error.example.widgetctl.2",
+  "type": "error",
+  "name": "Exit code 2",
+  "source": "https://docs.example.com/",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "Exit code 2 means the command line was not understood.",
+    "value": 2,
+    "unit": "exit-code"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "command.example.widgetctl.worktree.rm"
+    }
+  ]
+}

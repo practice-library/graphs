@@ -1,0 +1,19 @@
+{
+  "id": "module-system.example.packages",
+  "type": "module-system",
+  "name": "Example packages",
+  "source": "https://docs.example.com/lang",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "Code is organised in packages.",
+    "scope": "packages"
+  },
+  "edges": [
+    {
+      "rel": "introducedIn",
+      "to": "release.example.2-0"
+    }
+  ]
+}

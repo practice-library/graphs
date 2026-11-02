@@ -1,0 +1,13 @@
+{
+  "id": "language.go",
+  "type": "language",
+  "name": "Go",
+  "source": "https://go.dev/doc/devel/release",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Go 1.27.0 is a major release of Go."
+  },
+  "edges": []
+}

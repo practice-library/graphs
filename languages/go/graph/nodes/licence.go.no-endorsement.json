@@ -1,0 +1,15 @@
+{
+  "id": "licence.go.no-endorsement",
+  "type": "licence",
+  "name": "Go licence: no endorsement",
+  "source": "https://go.dev/LICENSE",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T16:15:27Z",
+    "quote": "contributors may be used to endorse or promote products derived from",
+    "scope": "BSD-3-Clause",
+    "note": "Unchanged. The quote is line 14 of the licence; the clause starts \"Neither the name of Google LLC nor the names of its\" on line 13 and ends \"this software without specific prior written permission.\" on line 15, and the page puts a line-number element before every line."
+  },
+  "edges": []
+}

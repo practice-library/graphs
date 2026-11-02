@@ -1,0 +1,23 @@
+{
+  "id": "limit.example.widget-daily",
+  "type": "limit",
+  "name": "Widget daily request limit",
+  "source": "https://docs.example.com/limits",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "absent",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "Requests are limited per minute.",
+    "note": "The page lists per-minute limits only."
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.example.widget"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "plan.example.free"
+    }
+  ]
+}

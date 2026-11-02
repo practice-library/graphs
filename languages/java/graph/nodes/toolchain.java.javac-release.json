@@ -1,0 +1,19 @@
+{
+  "id": "toolchain.java.javac-release",
+  "type": "toolchain",
+  "name": "javac --release (compile for older versions)",
+  "source": "https://openjdk.org/jeps/247",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Enhance `javac` so that it can compile Java programs to run on selected older versions of the platform.",
+    "scope": "javac --release"
+  },
+  "edges": [
+    {
+      "rel": "requires",
+      "to": "release.java.9"
+    }
+  ]
+}

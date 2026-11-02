@@ -1,0 +1,24 @@
+{
+  "id": "release.go.1-26-1",
+  "type": "release",
+  "name": "Go 1.26.1",
+  "source": "https://go.dev/doc/devel/release",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "go1.26.1 (released 2026-03-05) includes security fixes to the crypto/x509, html/template, net/url, and os packages",
+    "scope": "1.26.1",
+    "window": "2026-03-05"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.go.1-26"
+    },
+    {
+      "rel": "supersedes",
+      "to": "release.go.1-26-0"
+    }
+  ]
+}

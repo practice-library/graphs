@@ -1,0 +1,23 @@
+{
+  "id": "anti-pattern.example.floating-tags",
+  "type": "anti-pattern",
+  "name": "Floating tags",
+  "source": "https://docs.example.com/lang",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "Do not build from a floating tag.",
+    "scope": "container images"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "practice.example"
+    },
+    {
+      "rel": "supersedes",
+      "to": "guideline.example.pin-versions"
+    }
+  ]
+}

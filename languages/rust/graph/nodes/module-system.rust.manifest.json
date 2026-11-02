@@ -1,0 +1,19 @@
+{
+  "id": "module-system.rust.manifest",
+  "type": "module-system",
+  "name": "Cargo.toml manifest",
+  "source": "https://doc.rust-lang.org/stable/cargo/reference/manifest.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "The `Cargo.toml` file for each package is called its manifest.",
+    "scope": "Cargo.toml"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "module-system.rust.packages"
+    }
+  ]
+}

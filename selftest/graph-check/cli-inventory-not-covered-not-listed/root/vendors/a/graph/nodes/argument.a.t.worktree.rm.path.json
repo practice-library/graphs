@@ -1,0 +1,19 @@
+{
+  "id": "argument.a.t.worktree.rm.path",
+  "type": "argument",
+  "name": "argument.a.t.worktree.rm.path",
+  "source": "https://docs.a.example/p",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "q",
+    "scope": "path"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "command.a.t.worktree.rm"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "toolchain.go.go-line",
+  "type": "toolchain",
+  "name": "Go toolchain: go line in go.mod",
+  "source": "https://go.dev/doc/toolchain",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "The go line declares the minimum required Go version for using the module or workspace.",
+    "scope": "go line in go.mod"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "version-line.go.1"
+    }
+  ]
+}

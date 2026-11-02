@@ -1,0 +1,14 @@
+{
+  "id": "version-line.example.2",
+  "type": "version-line",
+  "name": "Example 2.x",
+  "source": "https://docs.example.com/lang",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "The 2.x line receives bug fixes.",
+    "scope": "2.x"
+  },
+  "edges": []
+}

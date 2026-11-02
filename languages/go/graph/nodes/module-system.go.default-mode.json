@@ -1,0 +1,14 @@
+{
+  "id": "module-system.go.default-mode",
+  "type": "module-system",
+  "name": "Go module-aware mode default",
+  "source": "https://go.dev/ref/mod",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "As of Go 1.16, module-aware mode is enabled by default, regardless of whether a go.mod file is present.",
+    "scope": "module-aware mode default"
+  },
+  "edges": []
+}

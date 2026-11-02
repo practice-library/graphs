@@ -1,0 +1,19 @@
+{
+  "id": "compatibility-promise.rust.edition-migration-independent",
+  "type": "compatibility-promise",
+  "name": "Each crate migrates to a new edition independently",
+  "source": "https://doc.rust-lang.org/stable/edition-guide/editions/index.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "each crate can decide when to migrate to a new edition independently.",
+    "scope": "choosing when to move to a new edition"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.rust.1"
+    }
+  ]
+}

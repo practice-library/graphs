@@ -1,0 +1,13 @@
+{
+  "id": "vendor.a",
+  "type": "vendor",
+  "name": "A",
+  "source": "https://docs.a.example/",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "q"
+  },
+  "edges": []
+}

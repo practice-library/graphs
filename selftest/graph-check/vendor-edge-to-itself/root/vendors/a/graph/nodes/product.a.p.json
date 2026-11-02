@@ -1,0 +1,22 @@
+{
+  "id": "product.a.p",
+  "type": "product",
+  "name": "product.a.p",
+  "source": "https://docs.a.example/p",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "q"
+  },
+  "edges": [
+    {
+      "rel": "offeredBy",
+      "to": "vendor.a"
+    },
+    {
+      "rel": "availableOn",
+      "to": "product.a.p"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "practice.zz",
+  "type": "practice",
+  "name": "practice.zz",
+  "source": "https://docs.zz.example/p",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "q"
+  },
+  "edges": []
+}

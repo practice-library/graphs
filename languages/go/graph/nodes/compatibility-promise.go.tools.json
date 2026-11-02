@@ -1,0 +1,19 @@
+{
+  "id": "compatibility-promise.go.tools",
+  "type": "compatibility-promise",
+  "name": "Go compatibility: the toolchain",
+  "source": "https://go.dev/doc/go1compat",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Finally, the Go toolchain (compilers, linkers, build tools, and so on) is under active development and may change behavior.",
+    "scope": "the toolchain"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.go.1"
+    }
+  ]
+}

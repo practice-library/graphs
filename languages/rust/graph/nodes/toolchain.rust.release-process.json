@@ -1,0 +1,20 @@
+{
+  "id": "toolchain.rust.release-process",
+  "type": "toolchain",
+  "name": "Release day",
+  "source": "https://forge.rust-lang.org/release/process.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "You need to replace `YYYY-MM-DD` with the date of the release (Thursday).",
+    "scope": "release day",
+    "note": "The same page says the release process must start and finish within the release day (in UTC)."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "version-line.rust.1"
+    }
+  ]
+}

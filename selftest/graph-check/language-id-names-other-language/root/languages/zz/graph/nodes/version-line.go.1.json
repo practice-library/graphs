@@ -1,0 +1,14 @@
+{
+  "id": "version-line.go.1",
+  "type": "version-line",
+  "name": "version-line.go.1",
+  "source": "https://docs.zz.example/p",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "q",
+    "scope": "1.x"
+  },
+  "edges": []
+}

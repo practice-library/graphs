@@ -1,0 +1,14 @@
+{
+  "id": "module-system.go.go-mod",
+  "type": "module-system",
+  "name": "Go go.mod file",
+  "source": "https://go.dev/ref/mod",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "A module is defined by a UTF-8 encoded text file named go.mod in its root directory.",
+    "scope": "go.mod file"
+  },
+  "edges": []
+}

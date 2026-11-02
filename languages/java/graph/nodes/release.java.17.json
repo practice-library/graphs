@@ -1,0 +1,24 @@
+{
+  "id": "release.java.17",
+  "type": "release",
+  "name": "JDK 17",
+  "source": "https://openjdk.org/projects/jdk/17/",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "JDK 17 reached General Availability on 14 September 2021.",
+    "scope": "17",
+    "window": "2021-09-14"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.java.17-updates"
+    },
+    {
+      "rel": "supersedes",
+      "to": "release.java.16"
+    }
+  ]
+}

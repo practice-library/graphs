@@ -1,0 +1,21 @@
+{
+  "id": "release.go.1-26-10",
+  "type": "release",
+  "name": "Go 1.26.10",
+  "source": "https://go.dev/doc/devel/release",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "go1.26.10 (released 2026-10-19) includes security fixes to the crypto/x509 package.",
+    "scope": "1.26.10",
+    "window": "2026-10-19",
+    "note": "The last go1.26 minor revision listed on the release page when fetched."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.go.1-26"
+    }
+  ]
+}

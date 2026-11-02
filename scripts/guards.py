@@ -1,6 +1,6 @@
 """Each guard in the scripts, mutated, must make a named self-test case fail.
 
-GUARDS: for every row, copy scripts/ and selftest/ to a temporary directory, replace the guard's code with a
+GUARDS: for every row, copy scripts/, selftest/ and policy/ to a temporary directory, replace the guard's code with a
 mutant that removes or inverts it (the code must occur exactly once, so a row cannot silently stop applying),
 run scripts/selftest.sh there and require the named case to report FAIL. A mutant that leaves the case passing
 means the guard is untested.
@@ -12,9 +12,14 @@ must still fail, because the later check the row names catches the same input. A
 means the early check was carrying the failure alone and belongs in GUARDS.
 
 Before any mutant, one unmutated run must pass every named case. Covered: graph-check.sh, graphs.sh,
-quote-value.py and bump-only.sh. Not covered: render.sh (practice-library/graphs#25), the usage checks on argument counts, the
+quote-value.py, graph-semantics.py, inventory-check.py, sources-check.py, report-check.py and bump-only.sh (not its check
+that a node is unchanged between the report's commit and the base: the self-test builds only two commits) and the lists
+in policy/graph-rules.json. Not covered: index.sh (scripts/index-selftest.sh runs its own cases), the policy lists
+graph-semantics.py skips by id (`exceptions`, `unless`), render.sh (practice-library/graphs#25), the usage checks on argument counts, the
 missing-directory exit in graphs.sh (without it, find reports the missing directory and lists nothing, the same output) and the measuredAt type test in bump-only.sh, which no input reaches alone.
-Python 3.9 or later, standard library only. Run: python3 scripts/guards.py
+Python 3.9 or later, standard library only. Run: python3 scripts/guards.py [--shard K/N]
+--shard K/N runs only the rows (GUARDS, then PINS, then BACKSTOPS) whose 0-based index i has i % N == K-1,
+so N jobs with K = 1..N together run every row once. Without it every row runs.
 """
 from __future__ import annotations
 
@@ -26,6 +31,11 @@ import tempfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GC, BO, GR, QV = "scripts/graph-check.sh", "scripts/bump-only.sh", "scripts/graphs.sh", "scripts/quote-value.py"
+GS, SC, S = "scripts/graph-semantics.py", "scripts/sources-check.py", "selftest/sources-check/"
+RC, R = "scripts/report-check.py", "selftest/report-check/"
+IV, GRULES = "scripts/inventory-check.py", "policy/graph-rules.json"
+# Files outside scripts/ and selftest/ that the scripts read from their own checkout.
+SUPPORT = ["policy/graph-rules.json", "policy/constants.json"]
 C = "selftest/graph-check/"
 F, K, P = "selftest/bump-only-file/", "selftest/bump-only-classify/", "selftest/bump-only-pr/"
 
@@ -59,16 +69,19 @@ GUARDS = [
      C + "regulation-complete"),
     ("an empty regulation list checks no regulation graph", GC, '[ -n "$d" ] || continue', "true", C + "complete"),
     ("status is compared with window only in regulation graphs", GC,
-     'select($dom == "regulations")', "select(true)", C + "vendor-status-not-compared"),
+     'select($dom == "regulations") | ($n.attrs.status? // null) as $st | ($n.attrs.window? // null) as $w',
+     'select(true) | ($n.attrs.status? // null) as $st | ($n.attrs.window? // null) as $w', C + "vendor-status-not-compared"),
+    ("a language release's window is not after measuredAt", GC,
+     "select($w != null and $w > $n.measuredAt)", "select($w != null and $w > \"9999\")", C + "language-release-not-yet-released"),
     ("in-force needs its window on or before measuredAt", GC,
-     'if $st == "in-force" and ($w == null or $w > $n.measuredAt)', "if false", C + "regulation-in-force-a-day-early"),
-    ("in force from exactly the window date", GC, "or $w > $n.measuredAt)", "or $w >= $n.measuredAt)", C + "regulation-complete"),
-    ("in-force without a window fails", GC, "($w == null or $w > $n.measuredAt)", "($w > $n.measuredAt)",
+     'elif $st == $rules[0].status.inForce and ($w == null or $ws > $n.measuredAt)', "elif false", C + "regulation-in-force-a-day-early"),
+    ("in force from exactly the window date", GC, "or $ws > $n.measuredAt)", "or $ws >= $n.measuredAt)", C + "regulation-complete"),
+    ("in-force without a window fails", GC, "($w == null or $ws > $n.measuredAt)", "($ws > $n.measuredAt)",
      C + "regulation-in-force-without-window"),
     ("notified-not-in-force needs its window after measuredAt", GC,
-     'elif $st == "notified-not-in-force" and ($w == null or $w <= $n.measuredAt)', "elif false",
+     "elif $st != null and ($rules[0].status.pending | index($st)) != null and", "elif false and",
      C + "regulation-not-in-force-on-its-window"),
-    ("not in force on the window date itself", GC, "or $w <= $n.measuredAt)", "or $w < $n.measuredAt)",
+    ("not in force on the window date itself", GC, "or $ws <= $n.measuredAt)", "or $ws < $n.measuredAt)",
      C + "regulation-not-in-force-on-its-window"),
     ("a graph has exactly one root node", GC, '!= 1 then ["the graph needs', '> 1 then ["the graph needs',
      C + "no-root-node"),
@@ -76,9 +89,110 @@ GUARDS = [
      "if ($ids | length) != ($ids | unique | length) then", "if false then", C + "two-values-in-one-file"),
     ("a problem makes graph-check exit non-zero", GC, 'exit "$failed"', "exit 0", C + "edge-to-missing-node"),
     ("graph-check runs the quote-value check on each vendor graph", GC,
-     'if ! misses="$(python3 "$here/quote-value.py" "$d")"; then', "if false; then", C + "value-not-in-quote"),
+     'if ! out="$(python3 "$here/quote-value.py" --rules "$rules" "$2" "$1")"; then', "if false; then",
+     C + "value-not-in-quote"),
+    ("graph-check runs the quote-value check on each regulation graph", GC,
+     'if ! out="$(python3 "$here/quote-value.py" --rules "$rules" "$2" "$1")"; then', "if false; then",
+     C + "regulation-value-not-in-quote"),
+    ("graph-check runs the edge-meaning check on each vendor graph", GC,
+     'semantic_and_quotes "$d" vendors', "true", C + "vendor-edge-wrong-endpoint-types"),
+    ("graph-check runs the edge-meaning check on each regulation graph", GC,
+     'semantic_and_quotes "$d" regulations', "true", C + "regulation-issued-by-timeline"),
+    ("a failing edge-meaning check fails graph-check", GC,
+     'if ! out="$(python3 "$here/graph-semantics.py" "$rules" "$2" "$1")"; then', "if false; then",
+     C + "regulation-issued-by-timeline"),
+    ("a graph-host key is listed once", SC, "if k in keys:", "if False:", S + "duplicate-host-key"),
+    ("a robots url is the robots.txt of its own host", SC,
+     'if r.hostname != h["host"] or r.path != "/robots.txt" or r.query:', "if False:", S + "robots-url-of-another-host"),
+    ("a robots url is at the root of its host", SC, ' or r.path != "/robots.txt"', "",
+     S + "robots-url-not-at-root"),
+    ("every host entry has a scope", SC, "if k not in scope:", "if False:", S + "host-without-scope"),
+    ("every scope has a host entry", SC, "if k not in keys:", "if False:", S + "scope-without-host"),
+    ("a scope path is a directory path", SC, 'if not (p.startswith("/") and p.endswith("/")):', "if False:",
+     S + "path-without-trailing-slash"),
+    ("an unresolved permission gives its reason", SC, 'if not perm.get("reason"):', "if False:",
+     S + "unresolved-without-reason"),
+    ("an established permission gives its clause", SC,
+     'if not perm.get("clause") or not perm.get("clauseUrl"):', "if False:", S + "established-without-clause"),
+    ("a permission is established or unresolved", SC,
+     "else:\n            out.append(f\"FAIL scope {s['vendor']} {s['host']}: permission.state",
+     "elif False:\n            out.append(f\"FAIL scope {s['vendor']} {s['host']}: permission.state",
+     S + "permission-state-unknown"),
+    ("a blocked host is not approved", SC, "for h in sorted({k[1] for k in keys} & blocked):", "for h in []:",
+     S + "blocked-host-listed"),
+    ("a disallowed path is not cited", SC, 'if under(p, s.get("disallowed", [])):', "if False:",
+     S + "disallowed-path-cited"),
+    ("a cited path is inside the approved paths", SC, 'elif not under(p, s["paths"]):', "elif False:",
+     S + "path-outside-scope"),
+    ("a repository outside the approved ones is not cited", SC, 'elif not under(p, s["paths"]):', "elif False:",
+     S + "other-repository-on-shared-host"),
+    ("a bump needs its refresh report", BO, 'bound_to_report "$tmp" "$tmp/diff"', "true", P + "bump-without-report"),
+    ("a report must be valid under the base's policy", BO,
+     '|| die "$report: not valid under policy/sources.json"', "|| true", P + "report-breaks-the-byte-limit"),
+    ("a report must support the bump", BO, '|| die "$path: the report does not support this bump"', "|| true",
+     P + "report-fetched-at-differs"),
+    ("a report must support the bump (outcome)", RC, 'if r["outcome"] != "unchanged":', "if False:",
+     P + "report-outcome-changed"),
+    ("a report must support the bump (fetch time)", RC, 'if r["fetchedAt"] != (new.get("attrs") or {}).get("fetched_at"):',
+     "if False:", P + "report-fetched-at-differs"),
+    ("a report names the commit it read", RC, 'if report.get("commit") != commit:', "if False:", R + "commit-differs"),
+    ("requests is the number of fetches", RC, 'if report["requests"] != len(fetches):', "if False:",
+     R + "requests-differs-from-fetches"),
+    ("requests stays within the policy cap", RC, 'if report["requests"] > sources["maxRequestsPerRun"]:', "if False:",
+     R + "requests-over-the-policy-cap"),
+    ("robots.txt comes before any page", RC, "elif seen_page:", "elif False:", R + "robots-after-a-page"),
+    ("a robots fetch is the host's /robots.txt", RC,
+     'if f["kind"] == "robots" and urlsplit(f["url"]).path != "/robots.txt":', "if False:",
+     R + "robots-fetch-not-at-root"),
+    ("a request and its redirects stay on listed hosts", RC, "if host_of(hop) not in listed:", "if False:",
+     R + "redirect-to-unlisted-host"),
+    ("nothing is read from a host whose permission is unresolved", RC, "elif host_of(hop) in unresolved:",
+     "elif False:", R + "host-permission-unresolved"),
+    ("no response is longer than the host's maxBytes", RC, 'if entry and f["bytes"] > entry["maxBytes"]:', "if False:",
+     R + "fetch-over-max-bytes"),
+    ("no host gets more requests than its cap", RC, 'if h in listed and n > listed[h]["maxRequestsPerRun"]:',
+     "if False:", R + "host-over-its-request-cap"),
+    ("a robots record has its fetch", RC, "if h not in robots_fetched:", "if False:", R + "robots-record-without-fetch"),
+    ("a page's host has a robots record that allows it", RC,
+     'if r is None or r["verdict"] not in ("allowed", "absent"):', "if False:",
+     R + "page-without-robots-record-for-its-host"),
+    ("a refusal ends the run with an aborted record", RC, 'if "aborted" not in report:', "if False:",
+     R + "refusal-without-abort"),
+    ("a result's finalUrl is where its fetch ended", RC, 'if "finalUrl" in res and res["finalUrl"] != final:',
+     "if False:", R + "final-url-not-where-the-fetch-ended"),
+    ("a result's status is its fetch's", RC, 'if res.get("httpStatus") != f.get("httpStatus"):', "if False:",
+     R + "result-status-differs-from-fetch"),
+    ("a result lies inside the run", RC,
+     'if not report["run"]["startedAt"] <= res["fetchedAt"] <= report["run"]["finishedAt"]:', "if False:",
+     R + "result-fetched-outside-the-run"),
+    ("a node may not have an edge to itself", GS, "if to == i:", "if False:", C + "vendor-edge-to-itself"),
+    ("a relation joins only the type pairs it lists (vendor)", GS,
+     'elif (n.get("type"), nodes[to].get("type")) not in rel_pairs.get(rel, set()):', "elif False:",
+     C + "vendor-edge-wrong-endpoint-types"),
+    ("a relation joins only the type pairs it lists (issuedBy)", GS,
+     'elif (n.get("type"), nodes[to].get("type")) not in rel_pairs.get(rel, set()):', "elif False:",
+     C + "regulation-issued-by-timeline"),
+    ("a relation joins only the type pairs it lists (commencedBy)", GS,
+     'elif (n.get("type"), nodes[to].get("type")) not in rel_pairs.get(rel, set()):', "elif False:",
+     C + "regulation-commenced-by-instrument"),
+    ("an acyclic relation has no loop", GS, 'for rel in rules.get("acyclic", []):', "for rel in []:",
+     C + "regulation-supersedes-loop"),
+    ("a required edge must be there", GS, 'if count < req.get("min", 0):', "if False:",
+     C + "regulation-provision-without-part-of"),
+    ("an instrument needs its issuer", GS, 'if count < req.get("min", 0):', "if False:",
+     C + "regulation-instrument-without-issuer"),
+    ("a duty needs its commencement", GS, 'if count < req.get("min", 0):', "if False:",
+     C + "regulation-duty-without-commencement"),
+    ("a required edge is not repeated past its maximum", GS, 'elif count > req.get("max", count):', "elif False:",
+     C + "regulation-provision-part-of-twice"),
+    ("a node a replacement edge names is superseded", GS,
+     'if status is not None and status not in replaced:', "if False:",
+     C + "regulation-replaced-node-still-in-force"),
+    ("an id continues the id of the node it is part of", GS,
+     'if tail(i)[:len(tail(e["to"]))] != tail(e["to"]) or len(tail(i)) <= len(tail(e["to"])):', "if False:",
+     C + "regulation-id-does-not-continue-instrument"),
     ("a numeric value must be one of the numbers its quote states", QV,
-     "if not covers(quote, value, unit):", "if False:", C + "value-not-in-quote"),
+     "and not covers(quote, value, unit):", "and False:", C + "value-not-in-quote"),
     ("only a check.json naming graph/nodes is a graph", GR,
      '[ "$instances" = graph/nodes ] && dirname "$f"', 'dirname "$f"', "selftest/graphs/two-graphs-and-a-contract"),
     ("graphs.sh lists vendors only, unless another domain is named", GR,
@@ -90,7 +204,8 @@ GUARDS = [
     ("a path outside the allowlist goes to review", BO,
      'elif any($changes[]; allowed(.path) | not) then "review"', 'elif false then "review"', K + "outside-path"),
     ("an added or deleted node is rejected", BO,
-     'elif all($changes[]; .status == "M") then "bump"', 'elif true then "bump"', K + "added-node"),
+     'elif any($changes[]; .status == "M") and all($changes[]; .status == "M" or (.status == "A" and (.path | test($report)))) then "bump"',
+     'elif true then "bump"', K + "added-node"),
     ("a prefix entry covers only paths under it", BO,
      "then ($f | startswith($p))", 'then ($f | startswith($p | rtrimstr("/")))', K + "prefix-lookalike"),
     ("an exact entry covers only that path", BO,
@@ -120,6 +235,54 @@ GUARDS = [
      '($o[0] | del(.measuredAt, .attrs.fetched_at)) == ($n[0] | del(.measuredAt, .attrs.fetched_at))',
      '($o[0] | del(.measuredAt, (.. | .fetched_at?))) == ($n[0] | del(.measuredAt, (.. | .fetched_at?)))',
      F + "nested-fetched-at-changed"),
+    ("graph-check runs the inventory check on each vendor graph", GC,
+     'if ! uncovered="$(python3 "$here/inventory-check.py" "$d")"; then', "if false; then", C + "cli-inventory-command-missing"),
+    ("a window may not end before it starts", GC, "if $we != null and $ws > $we then", "if false then",
+     C + "regulation-interval-end-before-start"),
+    ("in-force fails after its window's end", GC,
+     'elif $st == $rules[0].status.inForce and $we != null and $we < $n.measuredAt then', "elif false then",
+     C + "regulation-in-force-after-its-end"),
+    ("in-force holds through the end day", GC, "$we != null and $we < $n.measuredAt then",
+     "$we != null and $we <= $n.measuredAt then", C + "regulation-lifecycle-complete"),
+    ("expired and repealed need a window end", GC, "($we == null or $we >= $n.measuredAt)", "($we >= $n.measuredAt)",
+     C + "regulation-expired-without-end"),
+    ("expired and repealed end before measuredAt", GC, "or $we >= $n.measuredAt)", "or $we > $n.measuredAt)",
+     C + "regulation-expired-end-not-past"),
+    ("an ended status is compared with the window's end", GC,
+     "elif $st != null and ($rules[0].status.ended | index($st)) != null and", "elif false and",
+     C + "regulation-repealed-without-end"),
+    ("a never-effective fact has no end", GC,
+     "elif $st == $rules[0].status.neverEffective and $we != null then", "elif false then",
+     C + "regulation-never-effective-with-end"),
+    ("a superseded fact has a node that supersedes it", GC,
+     "select($st != null and ($rules[0].status.needsReplacement | index($st)) != null and ($superseded | index($n.id)) == null)",
+     "select(false)", C + "regulation-superseded-without-replacement"),
+    ("a never-effective fact has a node that supersedes it", GRULES,
+     '"needsReplacement": ["superseded", "never-effective"]', '"needsReplacement": ["superseded"]',
+     C + "regulation-never-effective-without-replacement"),
+    ("a fact still pending may replace one in force", GRULES,
+     '"pendingReplacers": ["notified-not-in-force", "draft"]', '"pendingReplacers": []', C + "regulation-lifecycle-complete"),
+    ("a command, flag or argument is partOf a command or product", GC, "select($held == 0)", "select(false)",
+     C + "cli-flag-without-command"),
+    ("language and practice graphs are checked", GC,
+     'graphs="$language_graphs"; [ "$domain" = practices ] && graphs="$practice_graphs"', 'graphs=""', C + "language-no-root"),
+    ("practice graphs are listed from practices", GC, '[ "$domain" = practices ] && graphs="$practice_graphs"', "true",
+     C + "practice-no-root"),
+    ("a language graph is named in lower case", GC, 'if ! [[ "$name" =~ $name_pattern ]]', "if false",
+     C + "language-name-not-lower-case"),
+    ("the inventory names the pinned release", IV, 'if inv["release"] not in releases:', "if False:", C + "cli-inventory-release-unknown"),
+    ("a command is listed once", IV, "elif k in seen:", "elif False:", C + "cli-inventory-listed-twice"),
+    ("every listed command has a node or a notCovered entry", IV, "if k not in covered and k not in skipped:", "if False:",
+     C + "cli-inventory-command-missing"),
+    ("every command node is listed", IV, "for k, node_id in covered.items():\n        if k not in listed:",
+     "for k, node_id in covered.items():\n        if False:", C + "cli-inventory-command-not-listed"),
+    ("a notCovered entry has a reason", IV, 'if k is None or not isinstance(entry.get("reason"), str) or not entry["reason"].strip():',
+     "if k is None:", C + "cli-inventory-not-covered-without-reason"),
+    ("a notCovered entry is a listed command", IV, "elif k not in listed:", "elif False:",
+     C + "cli-inventory-not-covered-not-listed"),
+    ("a command is covered or not covered, not both", IV, "elif k in covered:", "elif False:",
+     C + "cli-inventory-covered-and-not-covered"),
+    ("a hashed entry is the digest of the salt and the path", IV, 'f"{salt}:{entry}"', 'f"{entry}"', C + "cli-inventory-complete"),
 ]
 
 PINS = [
@@ -138,8 +301,33 @@ BACKSTOPS = [
     ("a missing policy/sources.json fails", GC,
      '[ -f policy/sources.json ] || { echo "FAIL policy/sources.json is missing"; exit 1; }', "true",
      C + "no-sources-json", "jq --slurpfile on the missing file fails under set -e"),
-    ("notified-not-in-force without a window fails", GC, "($w == null or $w <= $n.measuredAt)", "($w <= $n.measuredAt)",
+    ("notified-not-in-force without a window fails", GC, "($w == null or $ws <= $n.measuredAt)", "($ws <= $n.measuredAt)",
      C + "regulation-not-in-force-without-window", "jq orders null before every string, so null <= measuredAt holds"),
+    ("an argument belongs to a command, not a product", GRULES, '"argument": ["command"]', '"argument": ["command", "product"]',
+     C + "cli-argument-partof-product", "partOf lists no argument-to-product pair, so the pair check rejects the edge"),
+    ("a report's graph is the graph the pull request touches", BO,
+     '|| die "$report: its graph is not $graph"', "|| true", P + "report-of-another-graph",
+     "report-check.py finds no listed host for the other vendor"),
+    ("a report's commit is an ancestor of the base", BO,
+     '|| die "$report: its commit $rc is not an ancestor of the base commit"', "|| true",
+     P + "report-of-another-commit", "git diff fails on the commit that does not exist"),
+    ("a report is added, never the only change", BO, 'any($changes[]; .status == "M") and ', "",
+     P + "report-only", "bound_to_report finds no modified node"),
+    ("only a report may be added beside a bump", BO, '(.status == "A" and (.path | test($report)))',
+     '.status == "A"', P + "node-added-only", "no report is added, so bound_to_report fails"),
+    ("a bump reads the node's source in the report", RC, 'if r["source"] != new.get("source"):', "if False:",
+     P + "report-reads-another-source", "report-check.py check finds that source was not fetched"),
+    ("a report has one result for the bumped node", RC, "if len(mine) != 1:", "if False:",
+     P + "report-for-another-node", "indexing the empty list raises, and the input counts as unreadable"),
+    ("every changed file is checked for its report, not only the first", BO, 'done < "$diff"',
+     'done < <(head -n1 "$diff")', P + "bump-then-value-change",
+     "the second loop's file check fails on the changed value"),
+    ("a result's source was fetched", RC, "if f is None:", "if False:", R + "result-source-not-fetched",
+     "subscripting None raises, and the input counts as unreadable"),
+    ("a refusal stops every page fetch", RC, "if page_hosts:", "if False:", R + "page-fetched-after-a-refusal",
+     "the page's host has no robots record that allows it"),
+    ("a relation outside policy/graph-rules.json is named", GS, 'if rel not in rel_pairs:', "if False:",
+     C + "vendor-relation-unknown", "an unlisted relation joins no pair, so the pair check rejects it"),
     ("a check.json that is not JSON fails", GR,
      '|| { echo "$f: not valid JSON" >&2; exit 1; }', "", C + "check-json-not-json",
      "the jq call fails inside the command substitution under set -e"),
@@ -147,6 +335,8 @@ BACKSTOPS = [
      F + "old-not-object", "the field-equality jq call fails on a non-object"),
     ("the new file must be a JSON object", BO, '|| die "$new: not a JSON object"', "|| true",
      F + "new-not-object", "the field-equality jq call fails on a non-object"),
+    ("an inventory path is lower-case words", IV, "if PATH.match(entry) else None", "if True else None",
+     C + "cli-inventory-path-not-lower-case", "the mis-cased path has no command node"),
     ("an unreadable base allowlist fails", BO,
      """|| die "main's .github/automerge-paths.json is not valid JSON\"""", "|| true",
      P + "base-allowlist-not-json", "the paths-array check and classify reject the empty list"),
@@ -162,8 +352,11 @@ def run(tmp: str) -> list:
 
 
 def copy(tmp: str) -> None:
-    for d in ("scripts", "selftest"):
+    for d in ("scripts", "selftest", "policy"):
         shutil.copytree(os.path.join(ROOT, d), os.path.join(tmp, d))
+    for f in SUPPORT:
+        os.makedirs(os.path.join(tmp, os.path.dirname(f)), exist_ok=True)
+        shutil.copy(os.path.join(ROOT, f), os.path.join(tmp, f))
 
 
 def failed_case(lines: list, case: str) -> bool:
@@ -188,15 +381,42 @@ def mutated(path: str, code: str, mutant: str):
         return run(tmp)
 
 
-def main() -> int:
+def parse_shard(argv: list):
+    """(K, N) from argv, (1, 1) without --shard, or a message saying why argv is not accepted."""
+    if not argv:
+        return 1, 1
+    if len(argv) != 2 or argv[0] != "--shard":
+        return "usage: python3 scripts/guards.py [--shard K/N]"
+    k, sep, n = argv[1].partition("/")
+    if not sep or not (k.isascii() and k.isdigit() and n.isascii() and n.isdigit()):
+        return f"--shard {argv[1]}: not K/N with K and N whole numbers"
+    k, n = int(k), int(n)
+    if n < 1:
+        return f"--shard {argv[1]}: N must be at least 1"
+    if not 1 <= k <= n:
+        return f"--shard {argv[1]}: K must be between 1 and {n}"
+    return k, n
+
+
+def main(argv: list) -> int:
+    shard = parse_shard(argv)
+    if isinstance(shard, str):
+        print(shard, file=sys.stderr)
+        return 2
+    k, n = shard
+    rows = GUARDS + PINS + BACKSTOPS
+    picked = {i for i in range(len(rows)) if i % n == k - 1}
+    guards = [r for i, r in enumerate(GUARDS + PINS) if i in picked]
+    backstops = [r for i, r in enumerate(BACKSTOPS, len(GUARDS) + len(PINS)) if i in picked]
+    print(f"shard {k}/{n}: {len(picked)} of {len(rows)} rows selected")
     with tempfile.TemporaryDirectory() as tmp:
         copy(tmp)
         base = run(tmp)
-    failed = [f"{row[0]}: its mutant is its code" for row in GUARDS + PINS + BACKSTOPS if row[2] == row[3]]
+    failed = [f"{row[0]}: its mutant is its code" for row in guards + backstops if row[2] == row[3]]
     failed += [f"{row[0]}: {row[4]} does not pass before any mutation"
-              for row in GUARDS + PINS + BACKSTOPS if not passed_case(base, row[4])]
+              for row in guards + backstops if not passed_case(base, row[4])]
     if not failed:
-        for what, path, code, mutant, case in GUARDS + PINS:
+        for what, path, code, mutant, case in guards:
             lines = mutated(path, code, mutant)
             if isinstance(lines, str):
                 failed.append(f"{what}: {lines}")
@@ -204,7 +424,7 @@ def main() -> int:
                 print(f"ok   {what}: {case} fails without it")
             else:
                 failed.append(f"{what}: {case} still passes with the guard mutated")
-        for what, path, code, mutant, case, catcher in BACKSTOPS:
+        for what, path, code, mutant, case, catcher in backstops:
             lines = mutated(path, code, mutant)
             if isinstance(lines, str):
                 failed.append(f"{what}: {lines}")
@@ -214,9 +434,10 @@ def main() -> int:
                 failed.append(f"{what}: without it {case} passes, so it is a guard, not a backstop")
     for f in failed:
         print(f"FAIL {f}")
-    print(f"{len(GUARDS)} guards, {len(PINS)} pins, {len(BACKSTOPS)} backstops, {len(failed)} failing")
+    print(f"shard {k}/{n}: {len(picked)} rows run, {len(failed)} failing "
+          f"(all shards: {len(GUARDS)} guards, {len(PINS)} pins, {len(BACKSTOPS)} backstops)")
     return 1 if failed else 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(main(sys.argv[1:]))

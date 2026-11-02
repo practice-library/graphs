@@ -21,6 +21,10 @@
     {
       "rel": "amends",
       "to": "instrument.in.ct-13-2020"
+    },
+    {
+      "rel": "supersedes",
+      "to": "provision.in.ct-13-2020.documents"
     }
   ]
 }

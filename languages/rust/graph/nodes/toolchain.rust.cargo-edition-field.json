@@ -1,0 +1,20 @@
+{
+  "id": "toolchain.rust.cargo-edition-field",
+  "type": "toolchain",
+  "name": "Cargo edition field",
+  "source": "https://doc.rust-lang.org/stable/cargo/reference/manifest.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "The `edition` key is an optional key that affects which Rust Edition your package is compiled with.",
+    "scope": "edition",
+    "note": "The page says cargo new creates a manifest with the 2024 edition currently."
+  },
+  "edges": [
+    {
+      "rel": "requires",
+      "to": "toolchain.rust.cargo"
+    }
+  ]
+}

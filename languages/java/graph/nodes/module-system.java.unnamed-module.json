@@ -1,0 +1,19 @@
+{
+  "id": "module-system.java.unnamed-module",
+  "type": "module-system",
+  "name": "Unnamed module",
+  "source": "https://openjdk.org/jeps/261",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Classes found on the class path are loaded as members of this loader's unnamed module.",
+    "scope": "unnamed module"
+  },
+  "edges": [
+    {
+      "rel": "introducedIn",
+      "to": "release.java.9"
+    }
+  ]
+}

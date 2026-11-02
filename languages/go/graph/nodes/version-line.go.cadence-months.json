@@ -1,0 +1,14 @@
+{
+  "id": "version-line.go.cadence-months",
+  "type": "version-line",
+  "name": "Go major releases are issued in August and February",
+  "source": "https://go.dev/wiki/Go-Release-Cycle",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "August / February week 2: Release issued.",
+    "scope": "August and February, week 2"
+  },
+  "edges": []
+}

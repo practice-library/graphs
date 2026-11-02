@@ -1,0 +1,20 @@
+{
+  "id": "release.zz.1-0",
+  "type": "release",
+  "name": "release.zz.1-0",
+  "source": "https://docs.zz.example/p",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "q",
+    "scope": "1.0",
+    "window": "2026-01-01"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.zz.1"
+    }
+  ]
+}

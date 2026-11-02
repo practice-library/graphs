@@ -1,0 +1,19 @@
+{
+  "id": "compatibility-promise.go.unspecified",
+  "type": "compatibility-promise",
+  "name": "Go compatibility: unspecified behaviour",
+  "source": "https://go.dev/doc/go1compat",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Programs that depend on such unspecified behavior may break in future releases.",
+    "scope": "unspecified behaviour"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.go.1"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "release.example.2-1",
+  "type": "release",
+  "name": "Example 2.1",
+  "source": "https://docs.example.com/lang",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "unknown",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "Example 2.1 was released on 3 February 2026.",
+    "scope": "2.1",
+    "window": "2026-02-03"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.example.2"
+    },
+    {
+      "rel": "supersedes",
+      "to": "release.example.2-0"
+    }
+  ]
+}

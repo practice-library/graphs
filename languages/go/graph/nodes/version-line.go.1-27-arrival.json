@@ -1,0 +1,14 @@
+{
+  "id": "version-line.go.1-27-arrival",
+  "type": "version-line",
+  "name": "Go 1.27 arrived in August 2026, six months after Go 1.26",
+  "source": "https://go.dev/doc/go1.27",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "The latest Go release, version 1.27, arrives in August 2026, six months after Go 1.26.",
+    "scope": "1.27 release timing"
+  },
+  "edges": []
+}

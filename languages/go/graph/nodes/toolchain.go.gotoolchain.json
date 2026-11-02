@@ -1,0 +1,19 @@
+{
+  "id": "toolchain.go.gotoolchain",
+  "type": "toolchain",
+  "name": "Go toolchain: GOTOOLCHAIN",
+  "source": "https://go.dev/doc/toolchain",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "The default GOTOOLCHAIN setting is auto, which enables the toolchain switching described earlier.",
+    "scope": "GOTOOLCHAIN"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "version-line.go.1"
+    }
+  ]
+}

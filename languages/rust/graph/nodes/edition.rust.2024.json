@@ -1,0 +1,19 @@
+{
+  "id": "edition.rust.2024",
+  "type": "edition",
+  "name": "Rust 2024 edition",
+  "source": "https://blog.rust-lang.org/2025/02/20/Rust-1.85.0/",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "This stabilizes the 2024 edition as well.",
+    "scope": "2024"
+  },
+  "edges": [
+    {
+      "rel": "introducedIn",
+      "to": "release.rust.1-85-0"
+    }
+  ]
+}

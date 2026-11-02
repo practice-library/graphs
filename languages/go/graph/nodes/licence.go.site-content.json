@@ -1,0 +1,14 @@
+{
+  "id": "licence.go.site-content",
+  "type": "licence",
+  "name": "Go site content licence",
+  "source": "https://go.dev/copyright",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Except as noted, the contents of this site are licensed under the Creative Commons Attribution 4.0 License,",
+    "scope": "CC-BY-4.0"
+  },
+  "edges": []
+}

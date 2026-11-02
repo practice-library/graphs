@@ -20,8 +20,10 @@ constants="policy/constants.json"
 graphs="$(bash scripts/graphs.sh)"
 values="$(jq -c --arg graphs "$graphs" '
   ($graphs | split("\n") | map(select(length > 0))) as $g
-  | . + {gen: {allowPathLines: ("\n" + ($g | map((. + "/graph/nodes/" | tojson) + "\n") | join(",\n"))),
-               unowned: ($g | map("/" + . + "/graph/nodes/") | join("\n"))}}' "$constants")"
+  | [.graphPaths.nodes, .graphPaths.reports] as $dirs
+  | [$g[] as $d | $dirs[] | $d + "/" + . + "/"] as $paths
+  | . + {gen: {allowPathLines: ("\n" + ($paths | map((. | tojson) + "\n") | join(",\n"))),
+               unowned: ($paths | map("/" + .) | join("\n"))}}' "$constants")"
 failed=0
 while IFS= read -r t; do
   out="${t#templates/}"

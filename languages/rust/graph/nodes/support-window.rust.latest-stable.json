@@ -1,0 +1,21 @@
+{
+  "id": "support-window.rust.latest-stable",
+  "type": "support-window",
+  "name": "Support and security updates in the stable channel: the most recent stable release",
+  "source": "https://rust-lang.org/policies/security/",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "The Rust project only provides support and security updates for the most recent stable release and the latest releases in our beta and nightly channels.",
+    "scope": "support and security updates",
+    "window": "2026-10-15",
+    "note": "The same sentence also covers the latest beta and nightly releases, which this graph does not model. The page names no version and no date. The window starts on the release date of 1.99.1, the most recent stable release on measuredAt; it ends when the next stable release is published."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "release.rust.1-99-1"
+    }
+  ]
+}
