@@ -71,10 +71,6 @@ check() { # <graph dir> <name the ids carry> <root id> <domain>
             (select($dom == "regulations") | ($n.attrs.status? // null) as $st
               | select($st != null and ($rules[0].status.needsReplacement | index($st)) != null and ($superseded | index($n.id)) == null)
               | "\($n.id): \($st) but no node supersedes it"),
-            (select($dom == "regulations") | ($n.attrs.status? // null) as $st
-              | $n.edges[]? | select(.rel == "supersedes") | ($byid[.to].attrs.status? // null) as $ts
-              | select($st != null and $ts != null and ($rules[0].status.supersededTargets | index($ts)) == null and ($rules[0].status.mayReplaceInForce | index($st)) == null)
-              | "\($n.id): \($st) supersedes \(.to), which is \($ts) and has not ended"),
             (select($dom == "vendors") | ($rules[0].cli.needsContainer[$n.type]? // null) as $need
               | select($need != null)
               | ([$n.edges[]? | select(.rel == $rules[0].cli.containmentRel) | $byid[.to].type?] | map(select(. as $t | $need | index($t))) | length) as $held

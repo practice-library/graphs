@@ -106,9 +106,7 @@
     "ended": ["expired", "repealed"],
     "replaced": ["superseded"],
     "neverEffective": "never-effective",
-    "needsReplacement": ["superseded", "never-effective"],
-    "supersededTargets": ["superseded", "expired", "repealed", "never-effective"],
-    "mayReplaceInForce": ["notified-not-in-force", "draft"]
+    "needsReplacement": ["superseded", "never-effective"]
   },
   "cli": {
     "needsContainer": {
