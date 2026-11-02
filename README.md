@@ -7,7 +7,8 @@ Sourced, machine-readable fact graphs, refreshed by workflows and merged only th
 ```
 policy/
   constants.json           every pin (practice-library/.github: org.sha, release org.ref), runner, timeout, trusted author
-                           and the gate's required jobs; the workflows, CODEOWNERS,
+                           and the gate's required jobs, and the JSON Schema validator scripts/jsonschema.sh runs
+                           (tools.jsonschema, sha256 per platform); the workflows, CODEOWNERS,
                            .github/required-checks.json and .github/automerge-paths.json are rendered from it
   sources.json             the hosts a source may name, with the evidence for each
   source-scopes.json       per host entry: approved paths, robots-disallowed paths, and whether permission is established
