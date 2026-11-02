@@ -68,6 +68,9 @@ check() { # <graph dir> <name the ids carry> <root id> <domain>
                 elif $st != null and ($rules[0].status.ended | index($st)) != null and ($we == null or $we >= $n.measuredAt) then "\($n.id): \($st) but its window \($w) has no end before measuredAt \($n.measuredAt)"
                 elif $st == $rules[0].status.neverEffective and $we != null then "\($n.id): \($st) never applied, so its window \($w) has no end"
                 else empty end),
+            (select($dom == "languages" and (($rules[0].languages.reachedWindowTypes | index($n.type)) != null)) | ($n.attrs.window? // null) as $w
+              | select($w != null and $w > $n.measuredAt)
+              | "\($n.id): a \($n.type) whose window \($w) is after measuredAt \($n.measuredAt) has not happened yet"),
             (select($dom == "regulations") | ($n.attrs.status? // null) as $st
               | select($st != null and ($rules[0].status.needsReplacement | index($st)) != null and ($superseded | index($n.id)) == null)
               | "\($n.id): \($st) but no node supersedes it"),

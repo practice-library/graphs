@@ -100,6 +100,10 @@
     "intervalSeparator": "/",
     "comment": "A window is a start date, or start/end with the end day inclusive."
   },
+  "languages": {
+    "reachedWindowTypes": ["release"],
+    "comment": "In a language graph a node of these types states a date that has already come: its window may not be after measuredAt, so a release not yet shipped is not a node."
+  },
   "status": {
     "inForce": "in-force",
     "pending": ["notified-not-in-force"],

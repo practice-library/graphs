@@ -1,0 +1,20 @@
+{
+  "id": "release.java.13",
+  "type": "release",
+  "name": "JDK 13",
+  "source": "https://openjdk.org/projects/jdk/",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "13 (GA 2019/09/17)",
+    "scope": "13",
+    "window": "2019-09-17"
+  },
+  "edges": [
+    {
+      "rel": "supersedes",
+      "to": "release.java.12"
+    }
+  ]
+}

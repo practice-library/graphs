@@ -1,0 +1,14 @@
+{
+  "id": "version-line.java.feature-releases",
+  "type": "version-line",
+  "name": "Feature releases",
+  "source": "https://openjdk.org/projects/jdk/",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "The Project ships a feature release every six months according to a strict, time-based model",
+    "scope": "feature releases, every six months"
+  },
+  "edges": []
+}

@@ -1,6 +1,6 @@
-# practice-library/.github v3.0.0
+# practice-library/.github v3.1.0
 
-Files copied unchanged from https://github.com/practice-library/.github at tag v3.0.0 (commit f49b1a054c45a99b5874ff4ef34f77269c621b72), so a check here can resolve them by `$id`:
+Files copied unchanged from https://github.com/practice-library/.github at tag v3.1.0 (commit fa14c82916585c4e3357985a0433e60123f3b91d), so a check here can resolve them by `$id`:
 
 - `spec/sources/schema.json`: `https://github.com/practice-library/.github/spec/sources/schema.json`, which `policy/check.json` names in `resolve` and `resolve-ids`.
 

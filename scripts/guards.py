@@ -71,6 +71,8 @@ GUARDS = [
     ("status is compared with window only in regulation graphs", GC,
      'select($dom == "regulations") | ($n.attrs.status? // null) as $st | ($n.attrs.window? // null) as $w',
      'select(true) | ($n.attrs.status? // null) as $st | ($n.attrs.window? // null) as $w', C + "vendor-status-not-compared"),
+    ("a language release's window is not after measuredAt", GC,
+     "select($w != null and $w > $n.measuredAt)", "select($w != null and $w > \"9999\")", C + "language-release-not-yet-released"),
     ("in-force needs its window on or before measuredAt", GC,
      'elif $st == $rules[0].status.inForce and ($w == null or $ws > $n.measuredAt)', "elif false", C + "regulation-in-force-a-day-early"),
     ("in force from exactly the window date", GC, "or $ws > $n.measuredAt)", "or $ws >= $n.measuredAt)", C + "regulation-complete"),
