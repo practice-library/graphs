@@ -3,11 +3,11 @@
   "type": "vendor",
   "name": "Temporal",
   "source": "https://docs.temporal.io/evaluate/cloud/limits",
-  "measuredAt": "2026-10-31",
+  "measuredAt": "2026-11-02",
   "attrs": {
     "verdict": "allowed",
-    "fetched_at": "2026-10-31T20:16:19Z",
-    "quote": "Temporal Cloud uses throttling priorities similar to the open source server."
+    "fetched_at": "2026-11-02T16:15:27Z",
+    "quote": "When you exceed your APS, RPS, or OPS limits, Temporal Cloud throttles requests:"
   },
   "edges": []
 }
