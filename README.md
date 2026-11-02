@@ -10,13 +10,15 @@ policy/
                            and the gate's required jobs; the workflows, CODEOWNERS,
                            .github/required-checks.json and .github/automerge-paths.json are rendered from it
   sources.json             the hosts a source may name, with the evidence for each
-  graph-rules.json         the lists scripts/graph-check.sh and scripts/inventory-check.py read: statuses, the window separator,
+  source-scopes.json       per host entry: approved paths, robots-disallowed paths, and whether permission is established
+  graph-rules.json         what edges may join, which are acyclic or required (scripts/graph-semantics.py), and the lists
+                           scripts/graph-check.sh and scripts/inventory-check.py read: statuses, the window separator,
                            which types a command line's nodes belong to, the inventory file name and its hash
-  check.json               sources.json is checked against spec/sources
+  check.json               sources.json is checked against the pinned sources contract in policy/upstream/
 templates/                 the files scripts/render.sh renders
 spec/                      contracts shared by every domain
   refresh-report/          what the refresh workflow reports (schema, examples, counter-examples, check.json)
-  sources/                 the source policy
+  sources/                 examples and counter-examples of the pinned sources contract
 <domain>/                  one domain, one schema
   schema.json              the node contract for the domain: the shared node envelope plus its types
   examples/                nodes that must pass
@@ -80,7 +82,7 @@ A command line is typed: a `command` (`command.<vendor>.<tool>.<path words>`; `a
 
 ## What may merge without review
 
-Each vendor graph's `graph/nodes/` is on the auto-merge allowlist (`.github/automerge-paths.json`, which the organisation's auto-merge reads on the base commit) and has no CODEOWNERS owner; both lists are generated from `scripts/graphs.sh`, one entry per graph. A pull request touching only those paths must be a date bump: the required `bump-only` check accepts it only when every changed file is a modified node whose only changed lines are `measuredAt` and `attrs.fetched_at`, the new `measuredAt` is the date of the new `fetched_at`, and `fetched_at` is later than before. Adding, removing or changing a fact therefore fails `bump-only` unless the pull request also touches a path outside the allowlist, such as the vendor's regenerated `INDEX.md`; such a pull request cannot auto-merge, so a maintainer reviews it.
+Each vendor graph's `graph/nodes/` and `graph/refresh/` are on the auto-merge allowlist (`.github/automerge-paths.json`, which the organisation's auto-merge reads on the base commit) and have no CODEOWNERS owner; both lists are generated from `scripts/graphs.sh`, two entries per graph. A pull request touching only those paths must be a date bump: the required `bump-only` check accepts it only when every changed file is a modified node whose only changed lines are `measuredAt` and `attrs.fetched_at`, the new `measuredAt` is the date of the new `fetched_at`, `fetched_at` is later than before, and the pull request adds the refresh report (`graph/refresh/<run id>.json`) that shows the fetch (see `spec/README.md`). Each `INDEX.md` leaves the measurement dates out, so a bump leaves it unchanged. Adding, removing or changing a fact therefore fails `bump-only` unless the pull request also touches a path outside the allowlist, such as the vendor's `CHANGES.md`; such a pull request cannot auto-merge, so a maintainer reviews it. The index of every domain in `indexDomains` of `policy/constants.json` is checked, regulations included.
 
 ## Checks
 

@@ -1,0 +1,25 @@
+{
+  "id": "provision.zz.act.s2",
+  "type": "provision",
+  "name": "provision.zz.act.s2",
+  "source": "https://gazette.zz.example/1.pdf",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "q",
+    "scope": "s",
+    "window": "2026-11-01",
+    "status": "notified-not-in-force"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.zz.act"
+    },
+    {
+      "rel": "supersedes",
+      "to": "provision.zz.act.s1"
+    }
+  ]
+}

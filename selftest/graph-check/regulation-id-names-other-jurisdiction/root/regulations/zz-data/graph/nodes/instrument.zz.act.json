@@ -13,6 +13,10 @@
     {
       "rel": "appliesTo",
       "to": "jurisdiction.zz"
+    },
+    {
+      "rel": "issuedBy",
+      "to": "authority.zz.gazette"
     }
   ]
 }

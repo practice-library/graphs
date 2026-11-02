@@ -1,0 +1,18 @@
+{
+  "id": "authority.zzz.gazette",
+  "type": "authority",
+  "name": "authority.zzz.gazette",
+  "source": "https://gazette.zz.example/1.pdf",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "q"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "jurisdiction.zzz"
+    }
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "entries": [
+    {
+      "vendor": "github",
+      "host": "docs.github.com",
+      "paths": [
+        "/en/"
+      ],
+      "permission": {
+        "state": "unresolved",
+        "reason": "The quoted definition of scraping does not establish the licence of the project's own documentation served from this host; that licence is not recorded."
+      }
+    },
+    {
+      "vendor": "anthropic",
+      "host": "code.claude.com",
+      "paths": [
+        "/docs/en/"
+      ],
+      "disallowed": [
+        "/cdn-cgi/",
+        "/_next/"
+      ],
+      "permission": {
+        "state": "unresolved",
+        "reason": "The quoted clause prohibits crawling other than as the terms permit and names no permission; no licence for the documentation is recorded."
+      }
+    },
+    {
+      "vendor": "anthropic",
+      "host": "platform.claude.com",
+      "paths": [
+        "/docs/en/"
+      ],
+      "disallowed": [
+        "/api/"
+      ],
+      "permission": {
+        "state": "unresolved",
+        "reason": "The quoted clause prohibits crawling other than as the terms permit and names no permission; no licence for the documentation is recorded."
+      }
+    },
+    {
+      "vendor": "temporal",
+      "host": "docs.temporal.io",
+      "paths": [
+        "/cloud/",
+        "/evaluate/",
+        "/self-hosted-guide/"
+      ],
+      "permission": {
+        "state": "unresolved",
+        "reason": "The quoted sentence introduces the terms of the hosted service; it does not govern automated reading, and the licence of the documentation itself is not recorded."
+      }
+    },
+    {
+      "vendor": "temporal",
+      "host": "api.github.com",
+      "paths": [
+        "/repos/temporalio/temporal/"
+      ],
+      "permission": {
+        "state": "established",
+        "clause": "Scraping does not refer to the collection of information through our API.",
+        "clauseUrl": "https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies"
+      }
+    },
+    {
+      "vendor": "in-data-governance",
+      "host": "egazette.gov.in",
+      "paths": [
+        "/WriteReadData/"
+      ],
+      "permission": {
+        "state": "unresolved",
+        "reason": "The quoted disclaimer limits liability; it does not say whether automated reading or reproduction of the Gazette is permitted."
+      }
+    },
+    {
+      "vendor": "in-commercial-communications",
+      "host": "egazette.gov.in",
+      "paths": [
+        "/WriteReadData/"
+      ],
+      "permission": {
+        "state": "unresolved",
+        "reason": "The quoted disclaimer limits liability; it does not say whether automated reading or reproduction of the Gazette is permitted."
+      }
+    },
+    {
+      "vendor": "in-gst-e-invoicing",
+      "host": "egazette.gov.in",
+      "paths": [
+        "/WriteReadData/"
+      ],
+      "permission": {
+        "state": "unresolved",
+        "reason": "The quoted disclaimer limits liability; it does not say whether automated reading or reproduction of the Gazette is permitted."
+      }
+    },
+    {
+      "vendor": "in-data-governance",
+      "host": "www.cert-in.org.in",
+      "paths": [
+        "/PDF/"
+      ],
+      "permission": {
+        "state": "unresolved",
+        "reason": "The quoted clause limits liability; it does not say whether automated reading or reproduction is permitted."
+      }
+    },
+    {
+      "vendor": "gitleaks",
+      "host": "api.github.com",
+      "paths": [
+        "/repos/gitleaks/gitleaks/"
+      ],
+      "permission": {
+        "state": "established",
+        "clause": "Scraping does not refer to the collection of information through our API.",
+        "clauseUrl": "https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies"
+      }
+    },
+    {
+      "vendor": "gitleaks",
+      "host": "raw.githubusercontent.com",
+      "paths": [
+        "/gitleaks/gitleaks/"
+      ],
+      "permission": {
+        "state": "unresolved",
+        "reason": "The quoted definition of scraping does not establish the licence of the project's own documentation served from this host; that licence is not recorded."
+      }
+    },
+    {
+      "vendor": "osv",
+      "host": "api.github.com",
+      "paths": [
+        "/repos/google/osv.dev/",
+        "/repos/google/osv-scanner/"
+      ],
+      "permission": {
+        "state": "established",
+        "clause": "Scraping does not refer to the collection of information through our API.",
+        "clauseUrl": "https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies"
+      }
+    },
+    {
+      "vendor": "osv",
+      "host": "raw.githubusercontent.com",
+      "paths": [
+        "/google/osv.dev/",
+        "/google/osv-scanner/"
+      ],
+      "permission": {
+        "state": "unresolved",
+        "reason": "The quoted definition of scraping does not establish the licence of the project's own documentation served from this host; that licence is not recorded."
+      }
+    },
+    {
+      "vendor": "osv",
+      "host": "google.github.io",
+      "paths": [
+        "/osv.dev/",
+        "/osv-scanner/"
+      ],
+      "permission": {
+        "state": "unresolved",
+        "reason": "The quoted definition of scraping does not establish the licence of the project's own documentation served from this host; that licence is not recorded."
+      }
+    },
+    {
+      "vendor": "osv",
+      "host": "ossf.github.io",
+      "paths": [
+        "/osv-schema/"
+      ],
+      "permission": {
+        "state": "unresolved",
+        "reason": "The quoted definition of scraping does not establish the licence of the project's own documentation served from this host; that licence is not recorded."
+      }
+    },
+    {
+      "vendor": "osv",
+      "host": "osv.dev",
+      "paths": [
+        "/"
+      ],
+      "permission": {
+        "state": "established",
+        "clause": "using automated means to access content from any of our services in violation of the machine-readable instructions on our web pages (for example, robots.txt files that disallow crawling, training, or other activities)",
+        "clauseUrl": "https://policies.google.com/terms?hl=en"
+      }
+    },
+    {
+      "vendor": "postgresql",
+      "host": "www.postgresql.org",
+      "paths": [
+        "/docs/",
+        "/about/",
+        "/support/",
+        "/developer/"
+      ],
+      "disallowed": [
+        "/admin/",
+        "/account/",
+        "/docs/devel/",
+        "/list/",
+        "/search/",
+        "/message-id/"
+      ],
+      "permission": {
+        "state": "established",
+        "clause": "Permission to use, copy, modify, and distribute this software and its documentation for any purpose, without fee, and without a written agreement is hereby granted",
+        "clauseUrl": "https://www.postgresql.org/about/licence/"
+      }
+    }
+  ]
+}

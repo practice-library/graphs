@@ -1,4 +1,0 @@
-[
-  {"schema": "schema.json", "instances": "examples"},
-  {"schema": "schema.json", "instances": "counter-examples", "expect": "fail", "each": "true"}
-]
