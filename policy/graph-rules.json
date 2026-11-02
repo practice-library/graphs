@@ -37,7 +37,8 @@
       "issuedBy": [["instrument", "authority"]],
       "partOf": [
         ["definition", "instrument"], ["exemption", "instrument"], ["obligation", "instrument"],
-        ["penalty", "instrument"], ["provision", "instrument"], ["timeline", "instrument"]
+        ["penalty", "instrument"], ["provision", "instrument"], ["publication", "instrument"],
+        ["timeline", "instrument"]
       ],
       "madeUnder": [["instrument", "instrument"]],
       "imposes": [

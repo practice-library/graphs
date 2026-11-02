@@ -260,6 +260,8 @@ GUARDS = [
     ("a never-effective fact has a node that supersedes it", GRULES,
      '"needsReplacement": ["superseded", "never-effective"]', '"needsReplacement": ["superseded"]',
      C + "regulation-never-effective-without-replacement"),
+    ("a publication is partOf its instrument", GRULES, '["publication", "instrument"],', '',
+     C + "regulation-publication-part-of-instrument"),
     ("a fact still pending may replace one in force", GRULES,
      '"pendingReplacers": ["notified-not-in-force", "draft"]', '"pendingReplacers": []', C + "regulation-lifecycle-complete"),
     ("a command, flag or argument is partOf a command or product", GC, "select($held == 0)", "select(false)",
