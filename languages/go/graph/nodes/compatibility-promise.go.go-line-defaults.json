@@ -1,0 +1,19 @@
+{
+  "id": "compatibility-promise.go.go-line-defaults",
+  "type": "compatibility-promise",
+  "name": "Go compatibility: defaults follow the go line",
+  "source": "https://go.dev/doc/godebug",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "When compiling a work module or workspace that declares an older Go version, the Go toolchain amends its defaults to match that older Go version as closely as possible.",
+    "scope": "defaults follow the go line"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.go.1"
+    }
+  ]
+}

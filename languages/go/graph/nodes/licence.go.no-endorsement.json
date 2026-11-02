@@ -1,0 +1,14 @@
+{
+  "id": "licence.go.no-endorsement",
+  "type": "licence",
+  "name": "Go licence: no endorsement",
+  "source": "https://go.dev/LICENSE",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Neither the name of Google LLC nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.",
+    "scope": "BSD-3-Clause"
+  },
+  "edges": []
+}

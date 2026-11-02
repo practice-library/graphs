@@ -423,6 +423,26 @@
       "minIntervalDays": 7,
       "maxBytes": 1000000,
       "timeoutSeconds": 30
+    },
+    {
+      "host": "go.dev",
+      "vendor": "go",
+      "robots": {
+        "url": "https://go.dev/robots.txt",
+        "checkedAt": "2026-11-02T11:25:00Z",
+        "verdict": "allowed",
+        "note": "robots.txt is User-agent: * with Allow: /; nothing is disallowed."
+      },
+      "terms": {
+        "url": "https://go.dev/copyright",
+        "checkedAt": "2026-11-02T11:26:00Z",
+        "quote": "Except as noted, the contents of this site are licensed under the Creative Commons Attribution 4.0 License, and code is licensed under a BSD license."
+      },
+      "format": "html",
+      "maxRequestsPerRun": 12,
+      "minIntervalDays": 7,
+      "maxBytes": 2000000,
+      "timeoutSeconds": 30
     }
   ]
 }

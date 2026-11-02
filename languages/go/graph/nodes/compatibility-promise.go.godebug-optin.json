@@ -1,0 +1,19 @@
+{
+  "id": "compatibility-promise.go.godebug-optin",
+  "type": "compatibility-promise",
+  "name": "Go compatibility: GODEBUG opt-in settings",
+  "source": "https://go.dev/doc/godebug",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "For the remaining programs, we define a new GODEBUG setting that allows individual programs to opt back in to the old behavior.",
+    "scope": "GODEBUG opt-in settings"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.go.1"
+    }
+  ]
+}

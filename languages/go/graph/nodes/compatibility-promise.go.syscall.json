@@ -1,0 +1,19 @@
+{
+  "id": "compatibility-promise.go.syscall",
+  "type": "compatibility-promise",
+  "name": "Go compatibility: package syscall",
+  "source": "https://go.dev/doc/go1compat",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "The syscall package is therefore outside the purview of the guarantees made here.",
+    "scope": "package syscall"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.go.1"
+    }
+  ]
+}

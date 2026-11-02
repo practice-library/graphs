@@ -1,0 +1,14 @@
+{
+  "id": "module-system.go.mvs",
+  "type": "module-system",
+  "name": "Go minimal version selection",
+  "source": "https://go.dev/ref/mod",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Go uses an algorithm called Minimal version selection (MVS) to select a set of module versions to use when building packages.",
+    "scope": "minimal version selection"
+  },
+  "edges": []
+}

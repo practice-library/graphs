@@ -1,0 +1,19 @@
+{
+  "id": "toolchain.go.go-line-mandatory",
+  "type": "toolchain",
+  "name": "Go toolchain: go line is mandatory since Go 1.21",
+  "source": "https://go.dev/doc/toolchain",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Go 1.21 changed the go line to be a mandatory requirement instead.",
+    "scope": "go line is mandatory since Go 1.21"
+  },
+  "edges": [
+    {
+      "rel": "supports",
+      "to": "version-line.go.1"
+    }
+  ]
+}

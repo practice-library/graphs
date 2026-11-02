@@ -1,0 +1,21 @@
+{
+  "id": "release.go.1-25-14",
+  "type": "release",
+  "name": "Go 1.25.14",
+  "source": "https://go.dev/doc/devel/release",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "go1.25.14 (released 2026-08-19) includes fixes to the net/http package.",
+    "scope": "1.25.14",
+    "window": "2026-08-19",
+    "note": "The last go1.25 minor revision listed on the release page when fetched."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.go.1-25"
+    }
+  ]
+}

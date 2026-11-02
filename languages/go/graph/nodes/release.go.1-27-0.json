@@ -1,0 +1,25 @@
+{
+  "id": "release.go.1-27-0",
+  "type": "release",
+  "name": "Go 1.27.0",
+  "source": "https://go.dev/doc/devel/release",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "go1.27.0 (released 2026-08-19)",
+    "scope": "1.27.0",
+    "window": "2026-08-19",
+    "note": "Major release. The release page lists it as the newest major release."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.go.1-27"
+    },
+    {
+      "rel": "supersedes",
+      "to": "release.go.1-26-0"
+    }
+  ]
+}

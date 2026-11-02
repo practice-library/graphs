@@ -1,0 +1,14 @@
+{
+  "id": "licence.go.redistribution",
+  "type": "licence",
+  "name": "Go licence: redistribution",
+  "source": "https://go.dev/LICENSE",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Redistribution and use in source and binary forms, with or without modification, are permitted",
+    "scope": "BSD-3-Clause"
+  },
+  "edges": []
+}

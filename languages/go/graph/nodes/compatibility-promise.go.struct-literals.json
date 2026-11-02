@@ -1,0 +1,19 @@
+{
+  "id": "compatibility-promise.go.struct-literals",
+  "type": "compatibility-promise",
+  "name": "Go compatibility: unkeyed struct literals",
+  "source": "https://go.dev/doc/go1compat",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Code that uses unkeyed struct literals (such as pkg.T{3, \"x\"}) to create values of these types would fail to compile after such a change.",
+    "scope": "unkeyed struct literals"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.go.1"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "compatibility-promise.go.subrepositories",
+  "type": "compatibility-promise",
+  "name": "Go compatibility: sub-repositories",
+  "source": "https://go.dev/doc/go1compat",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Code in sub-repositories of the main go tree, such as golang.org/x/net, may be developed under looser compatibility requirements.",
+    "scope": "sub-repositories"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.go.1"
+    }
+  ]
+}
