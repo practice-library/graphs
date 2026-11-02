@@ -1,0 +1,15 @@
+{
+  "id": "licence.rust.dual",
+  "type": "licence",
+  "name": "Licence: MIT or Apache 2.0",
+  "source": "https://www.rust-lang.org/policies/licenses",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:",
+    "scope": "MIT OR Apache-2.0",
+    "note": "The page lists the Apache License, Version 2.0 and the MIT license, and says specific licensing info for each project is in its GitHub repository. Third-party logos are not under the same licence."
+  },
+  "edges": []
+}

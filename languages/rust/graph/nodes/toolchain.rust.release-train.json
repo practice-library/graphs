@@ -1,0 +1,20 @@
+{
+  "id": "toolchain.rust.release-train",
+  "type": "toolchain",
+  "name": "Release train model",
+  "source": "https://doc.rust-lang.org/stable/book/appendix-07-nightly-rust.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "Releases follow a software release train model",
+    "scope": "release train",
+    "note": "Development is done in the main branch; a nightly is produced each night, and every six weeks a release leaves for the beta channel before it arrives as stable."
+  },
+  "edges": [
+    {
+      "rel": "supports",
+      "to": "version-line.rust.1"
+    }
+  ]
+}

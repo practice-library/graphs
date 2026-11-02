@@ -1,0 +1,14 @@
+{
+  "id": "toolchain.rust.rustup",
+  "type": "toolchain",
+  "name": "rustup",
+  "source": "https://www.rust-lang.org/tools/install",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "Rust is installed and managed by the `rustup` tool.",
+    "scope": "rustup"
+  },
+  "edges": []
+}

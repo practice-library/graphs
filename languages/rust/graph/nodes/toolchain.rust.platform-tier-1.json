@@ -1,0 +1,14 @@
+{
+  "id": "toolchain.rust.platform-tier-1",
+  "type": "toolchain",
+  "name": "Platform support: Tier 1",
+  "source": "https://doc.rust-lang.org/stable/rustc/platform-support.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "Tier 1 targets can be thought of as “guaranteed to work”.",
+    "scope": "Tier 1 targets"
+  },
+  "edges": []
+}

@@ -1,0 +1,20 @@
+{
+  "id": "edition.rust.2021",
+  "type": "edition",
+  "name": "Rust 2021 edition",
+  "source": "https://doc.rust-lang.org/stable/edition-guide/rust-2021/index.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "The Rust 2021 Edition contains several changes that bring new capabilities and more consistency to the language",
+    "scope": "2021",
+    "note": "The edition guide's info box gives release version 1.56.0."
+  },
+  "edges": [
+    {
+      "rel": "introducedIn",
+      "to": "release.rust.1-56-0"
+    }
+  ]
+}

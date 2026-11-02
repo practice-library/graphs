@@ -1,0 +1,19 @@
+{
+  "id": "compatibility-promise.rust.edition-interop",
+  "type": "compatibility-promise",
+  "name": "Crates of different editions interoperate",
+  "source": "https://doc.rust-lang.org/stable/edition-guide/editions/index.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "crates in one edition must seamlessly interoperate with those compiled with other editions.",
+    "scope": "crates compiled with different editions"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.rust.1"
+    }
+  ]
+}

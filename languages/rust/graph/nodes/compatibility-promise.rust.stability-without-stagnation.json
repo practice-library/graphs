@@ -1,0 +1,19 @@
+{
+  "id": "compatibility-promise.rust.stability-without-stagnation",
+  "type": "compatibility-promise",
+  "name": "Never fear upgrading stable Rust",
+  "source": "https://doc.rust-lang.org/stable/book/appendix-07-nightly-rust.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "you should never have to fear upgrading to a new version of stable Rust",
+    "scope": "upgrading between stable releases"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.rust.1"
+    }
+  ]
+}

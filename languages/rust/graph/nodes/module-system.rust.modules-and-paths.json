@@ -1,0 +1,19 @@
+{
+  "id": "module-system.rust.modules-and-paths",
+  "type": "module-system",
+  "name": "Modules and paths",
+  "source": "https://doc.rust-lang.org/stable/book/ch07-00-managing-growing-projects-with-packages-crates-and-modules.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "Let you control the organization, scope, and privacy of paths",
+    "scope": "modules and use"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "module-system.rust.overview"
+    }
+  ]
+}

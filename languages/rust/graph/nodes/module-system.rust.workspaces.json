@@ -1,0 +1,19 @@
+{
+  "id": "module-system.rust.workspaces",
+  "type": "module-system",
+  "name": "Cargo workspaces",
+  "source": "https://doc.rust-lang.org/stable/book/ch07-00-managing-growing-projects-with-packages-crates-and-modules.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "For very large projects comprising a set of interrelated packages that evolve together, Cargo provides workspaces",
+    "scope": "workspaces"
+  },
+  "edges": [
+    {
+      "rel": "requires",
+      "to": "toolchain.rust.cargo"
+    }
+  ]
+}

@@ -343,6 +343,86 @@
       "minIntervalDays": 7,
       "maxBytes": 500000,
       "timeoutSeconds": 30
+    },
+    {
+      "host": "www.rust-lang.org",
+      "vendor": "rust",
+      "robots": {
+        "url": "https://www.rust-lang.org/robots.txt",
+        "checkedAt": "2026-11-02T11:10:00Z",
+        "verdict": "absent",
+        "note": "robots.txt returns 404 Not Found."
+      },
+      "terms": {
+        "url": "https://www.rust-lang.org/policies/licenses",
+        "checkedAt": "2026-11-02T11:12:00Z",
+        "quote": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:"
+      },
+      "format": "html",
+      "maxRequestsPerRun": 4,
+      "minIntervalDays": 7,
+      "maxBytes": 1000000,
+      "timeoutSeconds": 30
+    },
+    {
+      "host": "doc.rust-lang.org",
+      "vendor": "rust",
+      "robots": {
+        "url": "https://doc.rust-lang.org/robots.txt",
+        "checkedAt": "2026-11-02T11:10:00Z",
+        "verdict": "allowed",
+        "note": "User-agent: * disallows /0. and /1. (versioned docs) and the first-edition and second-edition books; the cited pages are under /stable/."
+      },
+      "terms": {
+        "url": "https://www.rust-lang.org/policies/licenses",
+        "checkedAt": "2026-11-02T11:12:00Z",
+        "quote": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:"
+      },
+      "format": "html",
+      "maxRequestsPerRun": 20,
+      "minIntervalDays": 7,
+      "maxBytes": 2000000,
+      "timeoutSeconds": 30
+    },
+    {
+      "host": "blog.rust-lang.org",
+      "vendor": "rust",
+      "robots": {
+        "url": "https://blog.rust-lang.org/robots.txt",
+        "checkedAt": "2026-11-02T11:10:00Z",
+        "verdict": "allowed",
+        "note": "robots.txt is User-agent: * with an empty Disallow and Allow: /, and a sitemap."
+      },
+      "terms": {
+        "url": "https://www.rust-lang.org/policies/licenses",
+        "checkedAt": "2026-11-02T11:12:00Z",
+        "quote": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:"
+      },
+      "format": "html",
+      "maxRequestsPerRun": 20,
+      "minIntervalDays": 7,
+      "maxBytes": 1000000,
+      "timeoutSeconds": 30
+    },
+    {
+      "host": "forge.rust-lang.org",
+      "vendor": "rust",
+      "robots": {
+        "url": "https://forge.rust-lang.org/robots.txt",
+        "checkedAt": "2026-11-02T11:10:00Z",
+        "verdict": "absent",
+        "note": "robots.txt returns 404 Not Found."
+      },
+      "terms": {
+        "url": "https://www.rust-lang.org/policies/licenses",
+        "checkedAt": "2026-11-02T11:12:00Z",
+        "quote": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:"
+      },
+      "format": "html",
+      "maxRequestsPerRun": 2,
+      "minIntervalDays": 7,
+      "maxBytes": 1000000,
+      "timeoutSeconds": 30
     }
   ]
 }

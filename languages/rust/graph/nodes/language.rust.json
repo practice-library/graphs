@@ -1,0 +1,13 @@
+{
+  "id": "language.rust",
+  "type": "language",
+  "name": "Rust",
+  "source": "https://www.rust-lang.org/",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "A language empowering everyone to build reliable and efficient software."
+  },
+  "edges": []
+}

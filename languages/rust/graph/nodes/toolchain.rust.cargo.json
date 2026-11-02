@@ -1,0 +1,14 @@
+{
+  "id": "toolchain.rust.cargo",
+  "type": "toolchain",
+  "name": "Cargo",
+  "source": "https://doc.rust-lang.org/stable/book/ch01-03-hello-cargo.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "Cargo is Rust’s build system and package manager.",
+    "scope": "cargo"
+  },
+  "edges": []
+}

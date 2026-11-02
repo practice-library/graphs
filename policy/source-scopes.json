@@ -214,6 +214,68 @@
         "clause": "Permission to use, copy, modify, and distribute this software and its documentation for any purpose, without fee, and without a written agreement is hereby granted",
         "clauseUrl": "https://www.postgresql.org/about/licence/"
       }
+    },
+    {
+      "vendor": "rust",
+      "host": "www.rust-lang.org",
+      "paths": [
+        "/"
+      ],
+      "permission": {
+        "state": "established",
+        "clause": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:",
+        "clauseUrl": "https://www.rust-lang.org/policies/licenses"
+      }
+    },
+    {
+      "vendor": "rust",
+      "host": "doc.rust-lang.org",
+      "paths": [
+        "/stable/"
+      ],
+      "disallowed": [
+        "/book/first-edition/",
+        "/book/second-edition/",
+        "/stable/book/first-edition/",
+        "/stable/book/second-edition/",
+        "/beta/book/first-edition/",
+        "/beta/book/second-edition/",
+        "/nightly/book/first-edition/",
+        "/nightly/book/second-edition/"
+      ],
+      "permission": {
+        "state": "established",
+        "clause": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:",
+        "clauseUrl": "https://www.rust-lang.org/policies/licenses"
+      }
+    },
+    {
+      "vendor": "rust",
+      "host": "blog.rust-lang.org",
+      "paths": [
+        "/2015/",
+        "/2018/",
+        "/2021/",
+        "/2025/",
+        "/2026/"
+      ],
+      "permission": {
+        "state": "established",
+        "clause": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:",
+        "clauseUrl": "https://www.rust-lang.org/policies/licenses"
+      }
+    },
+    {
+      "vendor": "rust",
+      "host": "forge.rust-lang.org",
+      "paths": [
+        "/release/"
+      ],
+      "permission": {
+        "state": "established",
+        "clause": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:",
+        "clauseUrl": "https://www.rust-lang.org/policies/licenses"
+      }
     }
   ]
 }

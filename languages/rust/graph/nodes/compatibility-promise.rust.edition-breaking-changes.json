@@ -1,0 +1,19 @@
+{
+  "id": "compatibility-promise.rust.edition-breaking-changes",
+  "type": "compatibility-promise",
+  "name": "Breaking changes go into the next edition",
+  "source": "https://doc.rust-lang.org/stable/edition-guide/editions/index.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "When there are backwards-incompatible changes, they are pushed into the next edition.",
+    "scope": "backwards-incompatible language changes"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.rust.1"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "toolchain.rust.install-bundle",
+  "type": "toolchain",
+  "name": "rustc, cargo and rustup",
+  "source": "https://www.rust-lang.org/tools/install",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "you will find the Rust toolchain, including `rustc`, `cargo`, and `rustup`",
+    "scope": "Rust toolchain"
+  },
+  "edges": [
+    {
+      "rel": "requires",
+      "to": "toolchain.rust.rustup"
+    }
+  ]
+}
