@@ -26,7 +26,7 @@ All from hosts of the Rust project, listed for `rust` in `policy/sources.json`:
 1. **What is Rust?** `language.rust`.
 2. **Which is the latest release and when was it published?** `release.rust.1-99-1` (2026-10-15), which supersedes `release.rust.1-99-0` (2026-10-01); the chain back to `release.rust.1-92-0` gives the earlier dates.
 3. **How often does Rust release?** `version-line.rust.1` (every six weeks), `toolchain.rust.release-train`, and `toolchain.rust.release-process` (release day is a Thursday, within one UTC day).
-4. **Which release is supported?** `support-window.rust.latest-stable`: only the most recent stable release gets support and security updates; it supports `release.rust.1-99-1`.
+4. **Which release is supported?** `support-window.rust.latest-stable`: only the most recent stable release gets support and security updates; its `appliesTo` edge points at `release.rust.1-99-1`.
 5. **What is the compatibility promise?** `compatibility-promise.rust.stability-without-stagnation`, `compatibility-promise.rust.commitment-from-1-0`, and for breaking changes `compatibility-promise.rust.edition-breaking-changes`.
 6. **Which editions exist and which release introduced each?** `edition.rust.2015` (`release.rust.1-0-0`), `.2018` (`release.rust.1-31-0`), `.2021` (`release.rust.1-56-0`) and `.2024` (`release.rust.1-85-0`).
 7. **Which edition applies by default?** `edition.rust.2015` when the manifest has none, and `toolchain.rust.cargo-edition-field` (`cargo new` writes the 2024 edition).

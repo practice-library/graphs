@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/practice-library/graphs/languages/schema.json",
   "title": "Language fact node",
-  "description": "One file under languages/<language>/graph/nodes/, named <id>.json: the shared fact-node envelope of practice-library/.github (spec/node/schema.json) with the node types of a programming language: release, version-line, support-window (such as LTS), toolchain, module-system, edition, licence and compatibility-promise. The id is <type>.<language>.<slug>, or language.<language> for the graph root, which has no edges. Edges: supersedes (a release or line to the one it replaces), supports (a support window to the release or version line it covers; a toolchain to what it builds), requires (a toolchain, edition or module system to the release it needs), partOf (a release to its version line) and introducedIn (an edition or module system to its release). attrs.status is not used. That every edge target exists inside the graph is checked by scripts/graph-check.sh, not by this schema.",
+  "description": "One file under languages/<language>/graph/nodes/, named <id>.json: the shared fact-node envelope of practice-library/.github (spec/node/schema.json) with the node types of a programming language: release, version-line, support-window (such as LTS), toolchain, module-system, edition, licence and compatibility-promise. The id is <type>.<language>.<slug>, or language.<language> for the graph root, which has no edges. Edges: supersedes (a release or line to the one it replaces), appliesTo (a support window to the release or version line it covers; a toolchain to what it builds), requires (a toolchain, edition or module system to the release it needs), partOf (a release to its version line) and introducedIn (an edition or module system to its release). attrs.status is not used. That every edge target exists inside the graph is checked by scripts/graph-check.sh, not by this schema.",
   "$ref": "https://github.com/practice-library/.github/spec/node/schema.json",
   "properties": {
     "type": {
@@ -59,7 +59,7 @@
           "rel": {
             "enum": [
               "supersedes",
-              "supports",
+              "appliesTo",
               "requires",
               "partOf",
               "introducedIn"
@@ -302,7 +302,7 @@
           }
         }
       },
-      "description": "A support window names its kind (such as LTS) in attrs.scope and its period in attrs.window, YYYY-MM-DD or start/end; it supports a release or version line."
+      "description": "A support window names its kind (such as LTS) in attrs.scope and its period in attrs.window, YYYY-MM-DD or start/end; it appliesTo a release or version line."
     },
     {
       "if": {
