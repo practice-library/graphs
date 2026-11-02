@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/practice-library/graphs/vendors/schema.json",
   "title": "Vendor fact node",
-  "description": "One file under vendors/<vendor>/graph/nodes/, named <id>.json: the shared fact-node envelope of practice-library/.github (spec/node/schema.json), with this domain's type values and a few stricter rules. A product links to its releases with hasRelease; a capability points at the release that introduced or removed it with introducedIn or removedIn. The id is <type>.<vendor>.<slug>, or vendor.<vendor> for the vendor's root node. That every edge target exists, inside the same vendor graph, is checked by scripts/graph-check.sh, not by this schema.",
+  "description": "One file under vendors/<vendor>/graph/nodes/, named <id>.json: the shared fact-node envelope of practice-library/.github (spec/node/schema.json), with this domain's type values and a few stricter rules. A product links to its releases with hasRelease; a capability points at the release that introduced or removed it with introducedIn or removedIn. The id is <type>.<vendor>.<slug>, or vendor.<vendor> for the vendor's root node. A command line is modelled with command, flag, argument, configuration and error nodes joined by partOf, supersedes, requires, introducedIn and removedIn; the relations aliasOf, inherits, conflictsWith, raises, deprecatedIn and precedes need the shared envelope to add them and are not used. attrs.status is not used here. That every edge target exists, inside the same vendor graph, is checked by scripts/graph-check.sh, not by this schema.",
   "$ref": "https://github.com/practice-library/.github/spec/node/schema.json",
   "properties": {
     "type": {
@@ -18,7 +18,12 @@
         "feature",
         "term",
         "release",
-        "capability"
+        "capability",
+        "command",
+        "flag",
+        "argument",
+        "configuration",
+        "error"
       ]
     },
     "source": {
@@ -35,7 +40,8 @@
         "fetched_at": {
           "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]{1,9})?Z$",
           "description": "UTC, ending in Z."
-        }
+        },
+        "status": false
       },
       "if": {
         "properties": {
@@ -55,7 +61,27 @@
       }
     },
     "edges": {
-      "uniqueItems": true
+      "uniqueItems": true,
+      "items": {
+        "properties": {
+          "rel": {
+            "enum": [
+              "availableOn",
+              "requires",
+              "grantedBy",
+              "limits",
+              "appliesTo",
+              "prohibitedBy",
+              "supersedes",
+              "hasRelease",
+              "introducedIn",
+              "removedIn",
+              "partOf"
+            ],
+            "description": "Only the relations vendor graphs use. partOf is containment for a command line: a flag or argument to its command, a command to its parent command or to its product."
+          }
+        }
+      }
     }
   },
   "allOf": [
@@ -291,6 +317,101 @@
       "if": {
         "properties": {
           "type": {
+            "const": "command"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^command\\.[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "flag"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^flag\\.[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "argument"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^argument\\.[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "configuration"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^configuration\\.[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "error"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^error\\.[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
             "const": "price"
           }
         },
@@ -389,6 +510,117 @@
         },
         "description": "A fact the page does not state is recorded as absent: verdict unknown and a note starting exactly \"Absent: \" that names the page checked. A note that starts with the word absent in any other form is rejected, so the convention cannot drift. The envelope has no absent verdict yet (practice-library/.github#20)."
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "command"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attrs": {
+            "required": [
+              "scope",
+              "quote"
+            ]
+          }
+        }
+      },
+      "description": "A command is one invocable command, id command.<vendor>.<tool>.<path words>. attrs.scope is its usage line and attrs.quote its summary. A subcommand is partOf its parent command, a top-level command partOf the product; scripts/graph-check.sh checks that, and vendors/<vendor>/inventory.json lists the command paths a release has."
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "enum": [
+              "flag",
+              "argument",
+              "configuration",
+              "error"
+            ]
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attrs": {
+            "required": [
+              "scope"
+            ]
+          }
+        }
+      },
+      "description": "A flag (attrs.scope --name, partOf its command or the product for a global flag), an argument (attrs.scope its name, partOf its command), a configuration setting or environment variable (attrs.scope its key) and an error or exit code (attrs.scope the code) each name themselves in attrs.scope."
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "enum": [
+              "flag",
+              "error"
+            ]
+          },
+          "attrs": {
+            "required": [
+              "value"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "attrs"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attrs": {
+            "required": [
+              "unit"
+            ]
+          }
+        }
+      },
+      "description": "A default, a range or an exit code in attrs.value carries its unit in attrs.unit."
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "error"
+          },
+          "attrs": {
+            "required": [
+              "value"
+            ]
+          }
+        },
+        "required": [
+          "type",
+          "attrs"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attrs": {
+            "properties": {
+              "unit": {
+                "const": "exit-code"
+              }
+            }
+          }
+        }
+      },
+      "description": "An exit code is an error with attrs.value its number and attrs.unit exit-code."
     }
   ]
 }

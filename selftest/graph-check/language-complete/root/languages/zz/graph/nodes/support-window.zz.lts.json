@@ -1,0 +1,20 @@
+{
+  "id": "support-window.zz.lts",
+  "type": "support-window",
+  "name": "support-window.zz.lts",
+  "source": "https://docs.zz.example/p",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "q",
+    "scope": "LTS",
+    "window": "2026-01-01/2029-01-01"
+  },
+  "edges": [
+    {
+      "rel": "supports",
+      "to": "version-line.zz.1"
+    }
+  ]
+}

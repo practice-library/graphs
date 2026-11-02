@@ -1,0 +1,18 @@
+{
+  "id": "compatibility-promise.example.source",
+  "type": "compatibility-promise",
+  "name": "Example source compatibility",
+  "source": "https://docs.example.com/lang",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "Programs written for 2.0 keep compiling with every 2.x release."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.example.2"
+    }
+  ]
+}

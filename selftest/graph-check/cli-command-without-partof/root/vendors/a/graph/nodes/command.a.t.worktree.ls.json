@@ -1,0 +1,14 @@
+{
+  "id": "command.a.t.worktree.ls",
+  "type": "command",
+  "name": "command.a.t.worktree.ls",
+  "source": "https://docs.a.example/p",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "q",
+    "scope": "t worktree ls"
+  },
+  "edges": []
+}

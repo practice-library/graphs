@@ -1,0 +1,18 @@
+{
+  "id": "argument.example.widgetctl.worktree.rm.path",
+  "type": "argument",
+  "name": "path",
+  "source": "https://docs.example.com/",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "path is the worktree to remove."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "command.example.widgetctl.worktree.rm"
+    }
+  ]
+}

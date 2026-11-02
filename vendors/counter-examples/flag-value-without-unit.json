@@ -1,0 +1,24 @@
+{
+  "id": "flag.example.widgetctl.worktree.rm.timeout",
+  "type": "flag",
+  "name": "--timeout",
+  "source": "https://docs.example.com/",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "--timeout sets how long to wait, 30 seconds by default.",
+    "scope": "--timeout",
+    "value": 30
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "command.example.widgetctl.worktree.rm"
+    },
+    {
+      "rel": "requires",
+      "to": "flag.example.widgetctl.worktree.rm.force"
+    }
+  ]
+}

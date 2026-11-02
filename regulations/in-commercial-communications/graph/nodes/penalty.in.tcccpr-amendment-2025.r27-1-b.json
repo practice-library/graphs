@@ -26,6 +26,10 @@
     {
       "rel": "commencedBy",
       "to": "provision.in.tcccpr-amendment-2025.r1-3"
+    },
+    {
+      "rel": "supersedes",
+      "to": "penalty.in.tcccpr-2018.r27-1"
     }
   ]
 }

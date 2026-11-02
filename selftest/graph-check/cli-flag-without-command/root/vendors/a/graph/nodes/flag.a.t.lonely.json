@@ -1,0 +1,14 @@
+{
+  "id": "flag.a.t.lonely",
+  "type": "flag",
+  "name": "flag.a.t.lonely",
+  "source": "https://docs.a.example/p",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "q",
+    "scope": "--lonely"
+  },
+  "edges": []
+}
