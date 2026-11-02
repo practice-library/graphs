@@ -14,7 +14,7 @@
   },
   "edges": [
     {
-      "rel": "supports",
+      "rel": "appliesTo",
       "to": "release.java.25"
     }
   ]

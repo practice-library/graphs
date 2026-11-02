@@ -1,0 +1,16 @@
+{
+  "entries": [
+    {
+      "vendor": "a",
+      "host": "docs.a.example",
+      "paths": [
+        "/docs/"
+      ],
+      "permission": {
+        "state": "established",
+        "clause": "Permission is granted.",
+        "clauseUrl": "https://docs.a.example/terms"
+      }
+    }
+  ]
+}

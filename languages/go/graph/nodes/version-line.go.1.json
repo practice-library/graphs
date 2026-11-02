@@ -1,0 +1,14 @@
+{
+  "id": "version-line.go.1",
+  "type": "version-line",
+  "name": "Go 1 (the Go 1 compatibility line)",
+  "source": "https://go.dev/doc/go1compat",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "It is intended that programs written to the Go 1 specification will continue to compile and run correctly, unchanged, over the lifetime of that specification.",
+    "scope": "1.x"
+  },
+  "edges": []
+}

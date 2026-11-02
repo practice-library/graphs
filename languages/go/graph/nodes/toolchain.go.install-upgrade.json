@@ -1,0 +1,19 @@
+{
+  "id": "toolchain.go.install-upgrade",
+  "type": "toolchain",
+  "name": "Go toolchain: installing over an existing tree",
+  "source": "https://go.dev/doc/install",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Do not untar the archive into an existing /usr/local/go tree. This is known to produce broken Go installations.",
+    "scope": "installing over an existing tree"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "version-line.go.1"
+    }
+  ]
+}

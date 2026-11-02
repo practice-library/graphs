@@ -1,0 +1,14 @@
+{
+  "id": "edition.go.language-version",
+  "type": "edition",
+  "name": "Go language version (1.N)",
+  "source": "https://go.dev/doc/toolchain",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "The language version for a Go version is the result of truncating everything after the N: 1.21, 1.21rc2, and 1.21.3 all implement language version 1.21.",
+    "scope": "language version 1.N"
+  },
+  "edges": []
+}

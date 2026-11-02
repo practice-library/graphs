@@ -14,7 +14,7 @@
   },
   "edges": [
     {
-      "rel": "supports",
+      "rel": "appliesTo",
       "to": "version-line.java.update-releases"
     }
   ]

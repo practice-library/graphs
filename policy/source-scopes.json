@@ -228,6 +228,18 @@
         "state": "unresolved",
         "reason": "The terms of use bar robots, spiders and scrapers without express written permission, and exempt only crawling to build a search index and read-only access for development of the code; neither exemption names reading pages to extract facts, so no permission is established for automated refresh."
       }
+    },
+    {
+      "vendor": "go",
+      "host": "go.dev",
+      "paths": [
+        "/"
+      ],
+      "permission": {
+        "state": "established",
+        "clause": "Except as noted, the contents of this site are licensed under the Creative Commons Attribution 4.0 License, and code is licensed under a BSD license.",
+        "clauseUrl": "https://go.dev/copyright"
+      }
     }
   ]
 }

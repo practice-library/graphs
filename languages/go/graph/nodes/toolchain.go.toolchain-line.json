@@ -1,0 +1,19 @@
+{
+  "id": "toolchain.go.toolchain-line",
+  "type": "toolchain",
+  "name": "Go toolchain: toolchain line in go.mod",
+  "source": "https://go.dev/doc/toolchain",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "The toolchain line declares a suggested toolchain to use with the module or workspace.",
+    "scope": "toolchain line in go.mod"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "version-line.go.1"
+    }
+  ]
+}

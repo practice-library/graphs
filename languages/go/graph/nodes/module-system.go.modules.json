@@ -1,0 +1,14 @@
+{
+  "id": "module-system.go.modules",
+  "type": "module-system",
+  "name": "Go Go modules",
+  "source": "https://go.dev/ref/mod",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "A module is a collection of packages that are released, versioned, and distributed together.",
+    "scope": "Go modules"
+  },
+  "edges": []
+}

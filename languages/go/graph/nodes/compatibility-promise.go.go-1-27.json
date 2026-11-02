@@ -1,0 +1,19 @@
+{
+  "id": "compatibility-promise.go.go-1-27",
+  "type": "compatibility-promise",
+  "name": "Go compatibility: Go 1.27 release",
+  "source": "https://go.dev/doc/go1.27",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "As always, the release maintains the Go 1 promise of compatibility.",
+    "scope": "Go 1.27 release"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.go.1"
+    }
+  ]
+}
