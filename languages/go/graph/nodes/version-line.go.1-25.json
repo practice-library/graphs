@@ -1,0 +1,14 @@
+{
+  "id": "version-line.go.1-25",
+  "type": "version-line",
+  "name": "Go 1.25 major release line",
+  "source": "https://go.dev/doc/devel/release",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "go1.25.0 (released 2025-08-12)",
+    "scope": "1.25.x"
+  },
+  "edges": []
+}

@@ -1,0 +1,19 @@
+{
+  "id": "toolchain.go.version-syntax",
+  "type": "toolchain",
+  "name": "Go toolchain: version syntax",
+  "source": "https://go.dev/doc/toolchain",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Released versions of Go use the version syntax ‘1.N.P’, denoting the Pth release of Go 1.N.",
+    "scope": "version syntax"
+  },
+  "edges": [
+    {
+      "rel": "supports",
+      "to": "version-line.go.1"
+    }
+  ]
+}

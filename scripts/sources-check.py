@@ -91,7 +91,7 @@ def check(root: str) -> list:
     for h in sorted({k[1] for k in keys} & blocked):
         out.append(f"FAIL {h} is in policy/sources.json and in policy/blocked-hosts.md")
     domains = load(os.path.join(root, "policy", "constants.json"))["indexDomains"] \
-        if os.path.exists(os.path.join(root, "policy", "constants.json")) else ["vendors", "regulations"]
+        if os.path.exists(os.path.join(root, "policy", "constants.json")) else ["vendors", "regulations", "languages"]
     for domain in domains:
         for path in sorted(glob.glob(os.path.join(root, domain, "*", "graph", "nodes", "*.json"))):
             graph = os.path.basename(os.path.dirname(os.path.dirname(os.path.dirname(path))))

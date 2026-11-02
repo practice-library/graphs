@@ -1,0 +1,19 @@
+{
+  "id": "compatibility-promise.go.godebug-retention",
+  "type": "compatibility-promise",
+  "name": "Go compatibility: GODEBUG retention",
+  "source": "https://go.dev/doc/godebug",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "GODEBUG settings added for compatibility will be maintained for a minimum of two years (four Go releases).",
+    "scope": "GODEBUG retention"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.go.1"
+    }
+  ]
+}

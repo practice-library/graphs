@@ -1,0 +1,20 @@
+{
+  "id": "support-window.go.1-26-minor-stop",
+  "type": "support-window",
+  "name": "Minor releases for Go 1.x stop once Go 1.x+2 is released",
+  "source": "https://go.dev/wiki/Go-Release-Cycle",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Minor releases to address problems (including security issues) for Go 1.x stop once Go 1.x+2 is released.",
+    "scope": "minor releases",
+    "window": "2026-02-10"
+  },
+  "edges": [
+    {
+      "rel": "supports",
+      "to": "version-line.go.1-26"
+    }
+  ]
+}

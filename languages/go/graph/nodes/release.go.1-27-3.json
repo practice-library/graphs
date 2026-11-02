@@ -1,0 +1,24 @@
+{
+  "id": "release.go.1-27-3",
+  "type": "release",
+  "name": "Go 1.27.3",
+  "source": "https://go.dev/doc/devel/release",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "go1.27.3 (released 2026-10-19) includes security fixes to the crypto/x509 package.",
+    "scope": "1.27.3",
+    "window": "2026-10-19"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.go.1-27"
+    },
+    {
+      "rel": "supersedes",
+      "to": "release.go.1-27-2"
+    }
+  ]
+}

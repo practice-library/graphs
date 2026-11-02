@@ -1,0 +1,19 @@
+{
+  "id": "compatibility-promise.go.binary",
+  "type": "compatibility-promise",
+  "name": "Go compatibility: binary compatibility",
+  "source": "https://go.dev/doc/go1compat",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Binary compatibility for compiled packages is not guaranteed between releases.",
+    "scope": "binary compatibility"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.go.1"
+    }
+  ]
+}

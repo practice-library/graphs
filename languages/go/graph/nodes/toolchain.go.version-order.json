@@ -1,0 +1,19 @@
+{
+  "id": "toolchain.go.version-order",
+  "type": "toolchain",
+  "name": "Go toolchain: version ordering",
+  "source": "https://go.dev/doc/toolchain",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "For example, 1.21 < 1.21rc1 < 1.21rc2 < 1.21.0 < 1.21.1 < 1.21.2.",
+    "scope": "version ordering"
+  },
+  "edges": [
+    {
+      "rel": "supports",
+      "to": "version-line.go.1"
+    }
+  ]
+}

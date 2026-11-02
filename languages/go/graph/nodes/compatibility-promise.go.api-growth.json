@@ -1,0 +1,19 @@
+{
+  "id": "compatibility-promise.go.api-growth",
+  "type": "compatibility-promise",
+  "name": "Go compatibility: API growth",
+  "source": "https://go.dev/doc/go1compat",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "The APIs may grow, acquiring new packages and features, but not in a way that breaks existing Go 1 code.",
+    "scope": "API growth"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.go.1"
+    }
+  ]
+}
