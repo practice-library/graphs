@@ -6,7 +6,8 @@
 # the allowlist (such as the vendor's CHANGES.md); it then cannot auto-merge, so a maintainer
 # reviews it. The generated INDEX.md holds no measurement date, so a date bump leaves it unchanged.
 # A bump is also bound to evidence of a fetch: the pull request adds exactly one refresh report per graph
-# it touches, <graph>/graph/refresh/<run id>.json, which must name a commit that is an ancestor of the base
+# it touches, <graph>/graph/refresh/<run id>.json, which must follow spec/refresh-report/schema.json (checked with
+# the validator pinned in policy/constants.json, scripts/jsonschema.sh), name a commit that is an ancestor of the base
 # with the node unchanged since, pass scripts/report-check.py under the base's policy/sources.json, and hold
 # an unchanged result for each bumped node, for its source, fetched exactly at the node's new fetched_at.
 #
@@ -49,6 +50,10 @@ bound_to_report() { # <tmp> <diff>: the bump is supported by one valid refresh r
     report="$(awk -F'\t' -v g="$graph/$reports_dir/" '$1 == "A" && index($2, g) == 1 {print $2}' "$diff")"
     [ "$(wc -l <<<"$report" | tr -d ' ')" = 1 ] && [ -n "$report" ] || die "$path: the pull request must add exactly one refresh report under $graph/$reports_dir/"
     git show "HEAD:$report" > "$tmp/report.json"
+    # The report follows its contract before anything reads it. The contract is the checker's own: a bump touches
+    # only allowlisted paths, so the pull request cannot change spec/.
+    bash "$here/jsonschema.sh" validate "$here/../spec/refresh-report/schema.json" "$tmp/report.json" >/dev/null \
+      || die "$report: does not follow spec/refresh-report/schema.json"
     git show "HEAD^1:$path" > "$tmp/old.json"
     git show "HEAD:$path" > "$tmp/new.json"
     jq -e --arg g "$graph" '.graph == $g' "$tmp/report.json" >/dev/null || die "$report: its graph is not $graph"
