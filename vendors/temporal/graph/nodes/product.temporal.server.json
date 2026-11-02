@@ -3,11 +3,11 @@
   "type": "product",
   "name": "Temporal Server",
   "source": "https://docs.temporal.io/self-hosted-guide/upgrade-server",
-  "measuredAt": "2026-10-31",
+  "measuredAt": "2026-11-02",
   "attrs": {
     "verdict": "allowed",
-    "fetched_at": "2026-10-31T20:16:26Z",
-    "quote": "If a newer version of the Temporal Server is available, a notification appears in the Temporal Web UI."
+    "fetched_at": "2026-11-02T16:15:27Z",
+    "quote": "When upgrading your Temporal Server version, ensure that you upgrade sequentially."
   },
   "edges": [
     {
