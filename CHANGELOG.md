@@ -4,11 +4,11 @@ One entry per release of this repository. A release names the practice-library/.
 
 ## Unreleased
 
-- Pins practice-library/.github v3.0.0 (`f49b1a054c45a99b5874ff4ef34f77269c621b72`), after v2.6.0. Every reusable workflow call in `.github/workflows/` moves to that commit, rendered from `policy/constants.json`.
+- Pins practice-library/.github v3.1.0 (`fa14c82916585c4e3357985a0433e60123f3b91d`), after v2.6.0, taking in the breaking changes of v3.0.0. Every reusable workflow call in `.github/workflows/` moves to that commit, rendered from `policy/constants.json`.
 - The guards check out their own tooling at the pinned commit. A loosened schema, or a denylist exemption that is added or widened, now needs a maintainer's approval of the pull request's exact head; the `schema-loosening-approved` label only re-runs the check.
-- The pinned sources contract moves to `policy/upstream/practice-library-.github/v3.0.0/`, an unchanged copy of the file at that commit, and `policy/check.json` resolves it there. At v3.0.0 a host's `terms` may carry an optional `note` (at most 300 characters) for terms with no clause on automated reading.
+- The pinned sources contract moves to `policy/upstream/practice-library-.github/v3.1.0/`, an unchanged copy of the file at that commit (the same blob as at v3.0.0), and `policy/check.json` resolves it there. At v3.0.0 a host's `terms` may carry an optional `note` (at most 300 characters) for terms with no clause on automated reading.
 - No caller input, check name or required job changes: the v3.0.0 caller keeps the same inputs, and this repository used none of the removed paths, inputs or constants.
-- Known: regulation nodes with the status `expired`, `repealed` or `never-effective` fail the schema check until the shared envelope adds those values (practice-library/.github v3.1.0).
+- The shared node contract at v3.1.0 allows the statuses `expired`, `repealed` and `never-effective`, which the regulation graphs use; at v3.1.0 the `schema-loosening` guard also judges in a calling repository such as this one.
 
 ## v0.2.0
 

@@ -13,7 +13,7 @@ permissions:
   pull-requests: write
 jobs:
   automerge:
-    uses: practice-library/.github/.github/workflows/automerge.yml@f49b1a054c45a99b5874ff4ef34f77269c621b72 # v3.0.0
+    uses: practice-library/.github/.github/workflows/automerge.yml@fa14c82916585c4e3357985a0433e60123f3b91d # v3.1.0
     with:
       trusted-authors: '["practice-library[bot]"]'
       merge-method: merge

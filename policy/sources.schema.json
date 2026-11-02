@@ -2,6 +2,6 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/practice-library/graphs/policy/sources.schema.json",
   "title": "The allowed-host list of this repository",
-  "description": "policy/sources.json follows the sources contract of practice-library/.github, referenced by its $id. The copy that resolves it is policy/upstream/practice-library-.github/v3.0.0/spec/sources/schema.json, the file at tag v3.0.0 (commit f49b1a054c45a99b5874ff4ef34f77269c621b72) unchanged; check.json confirms its $id.",
+  "description": "policy/sources.json follows the sources contract of practice-library/.github, referenced by its $id. The copy that resolves it is policy/upstream/practice-library-.github/v3.1.0/spec/sources/schema.json, the file at tag v3.1.0 (commit fa14c82916585c4e3357985a0433e60123f3b91d) unchanged; check.json confirms its $id.",
   "$ref": "https://github.com/practice-library/.github/spec/sources/schema.json"
 }
