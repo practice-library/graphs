@@ -13,6 +13,7 @@ One entry per release of this repository. A release names the practice-library/.
 - `languages`: the edge relation `supports`, which the shared node envelope does not have, is replaced by the envelope's `appliesTo` in `languages/schema.json`, the `languages/go` nodes, the examples and the counter-examples. A consumer that reads language edges by relation reads `appliesTo`.
 - `regulations/schema.json` no longer restates the envelope's `attrs.status` list; the pinned envelope owns it.
 - The shared node contract at v3.1.0 allows the statuses `expired`, `repealed` and `never-effective`, which the regulation graphs use; at v3.1.0 the `schema-loosening` guard also judges in a calling repository such as this one.
+- `policy/sources.json`: `docs.github.com` may serve up to 4000000 bytes per page, up from 2000000. The workflow syntax reference measured 2105922 bytes on 2026-11-02 and could not be re-read under the old cap.
 
 ## v0.2.0
 
