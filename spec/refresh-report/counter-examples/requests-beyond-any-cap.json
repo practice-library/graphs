@@ -9,6 +9,40 @@
     "finishedAt": "2026-10-31T12:03:00Z"
   },
   "requests": 500,
+  "fetches": [
+    {
+      "url": "https://docs.example.com/robots.txt",
+      "kind": "robots",
+      "bytes": 120,
+      "redirects": [],
+      "startedAt": "2026-10-31T12:00:30Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://docs.example.com/pricing",
+      "kind": "page",
+      "bytes": 5000,
+      "redirects": [],
+      "startedAt": "2026-10-31T12:01:00Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://docs.example.com/limits",
+      "kind": "page",
+      "bytes": 5000,
+      "redirects": [],
+      "startedAt": "2026-10-31T12:01:05Z",
+      "httpStatus": 200
+    },
+    {
+      "url": "https://docs.example.com/plans",
+      "kind": "page",
+      "bytes": 5000,
+      "redirects": [],
+      "startedAt": "2026-10-31T12:01:10Z",
+      "httpStatus": 429
+    }
+  ],
   "robots": [
     {
       "host": "docs.example.com",

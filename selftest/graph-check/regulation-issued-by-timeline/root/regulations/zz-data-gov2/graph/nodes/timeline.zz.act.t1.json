@@ -1,0 +1,27 @@
+{
+  "id": "timeline.zz.act.t1",
+  "type": "timeline",
+  "name": "timeline.zz.act.t1",
+  "source": "https://gazette.zz.example/1.pdf",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "seven days",
+    "scope": "s",
+    "window": "2026-10-31",
+    "status": "in-force",
+    "value": 7,
+    "unit": "days"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.zz.act"
+    },
+    {
+      "rel": "commencedBy",
+      "to": "provision.zz.act.s1"
+    }
+  ]
+}

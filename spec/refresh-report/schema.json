@@ -10,6 +10,7 @@
     "commit",
     "run",
     "requests",
+    "fetches",
     "robots",
     "results"
   ],
@@ -57,14 +58,23 @@
       "type": "integer",
       "minimum": 0,
       "maximum": 200,
-      "description": "Every request the run made, robots.txt included; never more than maxRequestsPerRun in policy/sources.json."
+      "description": "Every request the run made, robots.txt included, redirect hops not counted: the length of fetches, and never more than maxRequestsPerRun in policy/sources.json (scripts/report-check.py compares it with the policy; this schema only bounds it)."
+    },
+    "fetches": {
+      "type": "array",
+      "maxItems": 200,
+      "items": {
+        "$ref": "#/$defs/fetch"
+      },
+      "description": "Every request in the order it was made: robots.txt first, then pages. scripts/report-check.py checks the order, the hosts, the per-host counts and the sizes against policy/sources.json."
     },
     "robots": {
       "type": "array",
-      "description": "robots.txt of every host the run would fetch from, fetched at the start of every run, before any page.",
+      "description": "robots.txt of every host the run would fetch from, fetched at the start of every run, before any page. A report with no robots record is invalid, even one with no result.",
       "items": {
         "$ref": "#/$defs/robots"
-      }
+      },
+      "minItems": 1
     },
     "aborted": {
       "type": "object",
@@ -79,7 +89,7 @@
           "maxLength": 300
         }
       },
-      "description": "Present when the run stopped before fetching any page: a robots.txt disallows a path we fetch, or could not be read (5xx or network error, which counts as a disallow)."
+      "description": "Present when the run stopped before fetching any page: a robots.txt disallows a path we fetch, refuses us (401, 403 or another 4xx but 404 and 410), throttles us (429), answers with a challenge page, or cannot be read (5xx or network error)."
     },
     "results": {
       "type": "array",
@@ -141,6 +151,36 @@
           "type": "integer",
           "minimum": 0,
           "description": "The Retry-After the host sent with a 429 or 503."
+        },
+        "claim": {
+          "enum": [
+            "point",
+            "latest",
+            "absence",
+            "aggregate"
+          ],
+          "description": "point: one stated fact, refreshed by finding its quote. latest, absence and aggregate claims (the newest release, nothing newer, a count over a set) are refreshed by a query over the whole relevant set, never by finding a fragment; they need a query."
+        },
+        "query": {
+          "type": "object",
+          "required": [
+            "expression",
+            "examined"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "expression": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300,
+              "description": "The query run over the set, such as the sort and filter applied to a releases list."
+            },
+            "examined": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "How many members of the set the query read."
+            }
+          }
         }
       },
       "allOf": [
@@ -186,6 +226,27 @@
               "sha256"
             ]
           }
+        },
+        {
+          "if": {
+            "properties": {
+              "claim": {
+                "enum": [
+                  "latest",
+                  "absence",
+                  "aggregate"
+                ]
+              }
+            },
+            "required": [
+              "claim"
+            ]
+          },
+          "then": {
+            "required": [
+              "query"
+            ]
+          }
         }
       ]
     },
@@ -224,9 +285,180 @@
             "allowed",
             "absent",
             "disallowed",
+            "refused",
+            "throttled",
+            "challenge",
             "unreachable"
           ],
-          "description": "allowed: robots.txt permits every path the run fetches from this host. absent: robots.txt answered 4xx, so no rule applies. disallowed: a rule forbids a path we fetch. unreachable: 5xx or a network error, treated as disallowed."
+          "description": "allowed: robots.txt answered 2xx and permits every path the run fetches from this host. absent: 404 or 410 only, so no rule applies. disallowed: a rule forbids a path we fetch. refused: 401, 403 or another 4xx but 404, 410 and 429; an explicit refusal, never absent. throttled: 429. challenge: a bot-challenge page instead of robots.txt. unreachable: 5xx or a network error. Everything but allowed and absent aborts the run."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "verdict": {
+                "const": "absent"
+              }
+            },
+            "required": [
+              "verdict"
+            ]
+          },
+          "then": {
+            "required": [
+              "httpStatus"
+            ],
+            "properties": {
+              "httpStatus": {
+                "enum": [
+                  404,
+                  410
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "verdict": {
+                "const": "allowed"
+              }
+            },
+            "required": [
+              "verdict"
+            ]
+          },
+          "then": {
+            "required": [
+              "httpStatus"
+            ],
+            "properties": {
+              "httpStatus": {
+                "minimum": 200,
+                "maximum": 299
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "verdict": {
+                "const": "refused"
+              }
+            },
+            "required": [
+              "verdict"
+            ]
+          },
+          "then": {
+            "required": [
+              "httpStatus"
+            ],
+            "properties": {
+              "httpStatus": {
+                "minimum": 400,
+                "maximum": 499,
+                "not": {
+                  "enum": [
+                    404,
+                    410,
+                    429
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "verdict": {
+                "const": "throttled"
+              }
+            },
+            "required": [
+              "verdict"
+            ]
+          },
+          "then": {
+            "required": [
+              "httpStatus"
+            ],
+            "properties": {
+              "httpStatus": {
+                "const": 429
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "verdict": {
+                "const": "unreachable"
+              }
+            },
+            "required": [
+              "verdict"
+            ]
+          },
+          "then": {
+            "properties": {
+              "httpStatus": {
+                "minimum": 500,
+                "maximum": 599
+              }
+            }
+          }
+        }
+      ]
+    },
+    "fetch": {
+      "type": "object",
+      "required": [
+        "url",
+        "kind",
+        "bytes",
+        "redirects",
+        "startedAt"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "$ref": "#/$defs/url",
+          "description": "The URL requested, before redirects."
+        },
+        "kind": {
+          "enum": [
+            "robots",
+            "page"
+          ]
+        },
+        "httpStatus": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 599,
+          "description": "Of the final response; absent after a network error."
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000000,
+          "description": "Bytes read from the final response body, counted while streaming; the fetcher stops reading at the host's maxBytes."
+        },
+        "redirects": {
+          "type": "array",
+          "maxItems": 5,
+          "items": {
+            "$ref": "#/$defs/url"
+          },
+          "description": "Every URL the request was redirected to, in order; the last is the final URL. Each is on a listed host."
+        },
+        "startedAt": {
+          "$ref": "#/$defs/time"
         }
       }
     }
@@ -239,10 +471,12 @@
             "contains": {
               "properties": {
                 "verdict": {
-                  "enum": [
-                    "disallowed",
-                    "unreachable"
-                  ]
+                  "not": {
+                    "enum": [
+                      "allowed",
+                      "absent"
+                    ]
+                  }
                 }
               },
               "required": [

@@ -72,8 +72,10 @@ jobs:
       - uses: @@actions.checkout.repo@@@@@actions.checkout.sha@@ # @@actions.checkout.version@@
         with:
           persist-credentials: false
-      - name: Edges stay inside each vendor graph; every source host is in policy/sources.json
+      - name: Edges stay inside each graph and mean what their relation says; every source host is in policy/sources.json
         run: bash scripts/graph-check.sh
+      - name: Host approval is no broader than its evidence (paths, robots url, unique keys, permission state)
+        run: python3 scripts/sources-check.py
 
   discover:
     uses: @@org.repo@@/.github/workflows/discover.yml@@@org.sha@@ # @@org.ref@@

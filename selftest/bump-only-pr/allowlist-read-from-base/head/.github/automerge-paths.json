@@ -1,6 +1,7 @@
 {
   "paths": [
     "vendors/a/graph/nodes/",
+    "vendors/a/graph/refresh/",
     ".github/automerge-paths.json"
   ]
 }

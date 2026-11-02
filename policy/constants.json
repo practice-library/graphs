@@ -16,6 +16,11 @@
       "sha": "3d3c42e5aac5ba805825da76410c181273ba90b1"
     }
   },
+  "indexDomains": ["vendors", "regulations"],
+  "graphPaths": {
+    "nodes": "graph/nodes",
+    "reports": "graph/refresh"
+  },
   "runner": {
     "image": "ubuntu-24.04",
     "timeoutMinutes": 10

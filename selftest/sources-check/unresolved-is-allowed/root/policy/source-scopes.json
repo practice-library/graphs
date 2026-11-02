@@ -1,0 +1,18 @@
+{
+  "entries": [
+    {
+      "vendor": "a",
+      "host": "docs.a.example",
+      "paths": [
+        "/docs/"
+      ],
+      "disallowed": [
+        "/docs/devel/"
+      ],
+      "permission": {
+        "state": "unresolved",
+        "reason": "The clause does not show permission."
+      }
+    }
+  ]
+}

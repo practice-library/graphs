@@ -14,8 +14,11 @@
 #   and a vendors/<vendor>/inventory.json is covered by command nodes (scripts/inventory-check.py);
 #   language and practice graphs (languages/<name>, practices/<name>) are checked like vendor graphs:
 #   ids <type>.<name>.<slug>, one root node language.<name> or practice.<name>;
-#   in a vendor graph, a node whose attrs.value is a number states that number in its quote (scripts/quote-value.py).
-#   Regulation graphs are not checked for this yet (#69).
+#   a node whose attrs.value is a number states that number in its quote (scripts/quote-value.py; the
+#   regulation nodes still to be re-quoted are listed in policy/graph-rules.json);
+#   what the edges mean (scripts/graph-semantics.py, rules in policy/graph-rules.json, the checker's own
+#   copy, not the root's): endpoint types per relation, no self-edge, no loop in an acyclic relation,
+#   required provenance edges, a replaced node's status, and ids that continue their container's id.
 # Usage: scripts/graph-check.sh [root]
 set -euo pipefail
 root="${1:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
@@ -68,10 +71,6 @@ check() { # <graph dir> <name the ids carry> <root id> <domain>
             (select($dom == "regulations") | ($n.attrs.status? // null) as $st
               | select($st != null and ($rules[0].status.needsReplacement | index($st)) != null and ($superseded | index($n.id)) == null)
               | "\($n.id): \($st) but no node supersedes it"),
-            (select($dom == "regulations") | ($n.attrs.status? // null) as $st
-              | $n.edges[]? | select(.rel == "supersedes") | ($byid[.to].attrs.status? // null) as $ts
-              | select($st != null and $ts != null and ($rules[0].status.supersededTargets | index($ts)) == null and ($rules[0].status.mayReplaceInForce | index($st)) == null)
-              | "\($n.id): \($st) supersedes \(.to), which is \($ts) and has not ended"),
             (select($dom == "vendors") | ($rules[0].cli.needsContainer[$n.type]? // null) as $need
               | select($need != null)
               | ([$n.edges[]? | select(.rel == $rules[0].cli.containmentRel) | $byid[.to].type?] | map(select(. as $t | $need | index($t))) | length) as $held
@@ -88,11 +87,17 @@ check() { # <graph dir> <name the ids carry> <root id> <domain>
   fi
 }
 
+semantic_and_quotes() { # <graph dir> <domain>: what the edges mean (policy/graph-rules.json), and a value in its quote
+  local out
+  if ! out="$(python3 "$here/graph-semantics.py" "$rules" "$2" "$1")"; then echo "$out"; failed=1; fi
+  if ! out="$(python3 "$here/quote-value.py" --rules "$rules" "$2" "$1")"; then echo "$out"; failed=1; fi
+}
+
 while IFS= read -r d; do
   [ -z "$d" ] && continue # no vendor graph
   vendor="$(basename "$d")"
   check "$d" "$vendor" "vendor.$vendor" vendors
-  if ! misses="$(python3 "$here/quote-value.py" "$d")"; then echo "$misses"; failed=1; fi
+  semantic_and_quotes "$d" vendors
   if ! uncovered="$(python3 "$here/inventory-check.py" "$d")"; then echo "$uncovered"; failed=1; fi
 done <<<"$vendor_graphs"
 while IFS= read -r d; do
@@ -101,6 +106,7 @@ while IFS= read -r d; do
   if ! [[ "$name" =~ ^[a-z]{2}-[a-z0-9]+(-[a-z0-9]+)*$ ]]; then echo "FAIL $d: a regulation graph is named <jurisdiction>-<topic>, such as in-data-governance"; failed=1; continue; fi
   jurisdiction="${name%%-*}"
   check "$d" "$jurisdiction" "jurisdiction.$jurisdiction" regulations
+  semantic_and_quotes "$d" regulations
 done <<<"$regulation_graphs"
 # Language and practice graphs: <domain>/<name>, ids <type>.<name>.<slug>, one root node of the domain's root type.
 for domain in languages practices; do

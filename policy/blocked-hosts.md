@@ -1,6 +1,8 @@
 # Blocked hosts
 
-Hosts that refused this repository's user agent (`userAgent` in `policy/sources.json`) when their robots.txt was checked. The sources contract leaves a refusing host out of `policy/sources.json`, so they are recorded here instead, so that nobody retries them without a reason.
+Hosts that refused this repository's user agent (`userAgent` in `policy/sources.json`) when their robots.txt was checked. The sources contract leaves a refusing host out of `policy/sources.json`, so they are recorded here instead, so that nobody retries them without a reason. `scripts/sources-check.py` fails when a host is both here and in `policy/sources.json`.
+
+What counts as a refusal follows the refresh specification (`spec/README.md`, rule 1): a robots.txt that answers 404 or 410 is absent and blocks nothing; one that answers 401, 403 or any other 4xx but 404, 410 and 429 is a refusal; 429 is throttling; a challenge page instead of robots.txt is a challenge; a 5xx or a network error is unreadable; a rule that disallows `/` or a path we fetch is a disallow. Each of the last five blocks the host, in the rows below and in a refresh run, which records it as `refused`, `throttled`, `challenge`, `unreachable` or `disallowed` and fetches nothing from that host.
 
 Nothing past robots.txt was fetched from these hosts. Retry one only after something changes, for example a published robots.txt that allows us, or written permission. Update its row with the new result and date.
 

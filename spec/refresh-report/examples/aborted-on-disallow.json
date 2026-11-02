@@ -9,6 +9,16 @@
     "finishedAt": "2026-10-31T12:03:00Z"
   },
   "requests": 1,
+  "fetches": [
+    {
+      "url": "https://docs.example.com/robots.txt",
+      "kind": "robots",
+      "bytes": 120,
+      "redirects": [],
+      "startedAt": "2026-10-31T12:00:30Z",
+      "httpStatus": 200
+    }
+  ],
   "robots": [
     {
       "host": "docs.example.com",

@@ -9,7 +9,9 @@ When attrs.unit begins with a scale word (crore rupees, lakh ..., thousand ..., 
 times that scale also counts: value 250 with unit "crore rupees" is stated by "two hundred and fifty crore".
 Prints FAIL <id>: value <v> is not stated in its quote for each miss and exits 1; prints nothing otherwise.
 A node file that is not JSON is left to graph-check.sh, which reports it.
-Python 3.9 or later, standard library only. Run: python3 scripts/quote-value.py <graph dir>...
+With --rules <rules.json> <domain>, the ids in that domain's quoteValueExceptions (policy/graph-rules.json) are
+skipped: content that still has to be re-quoted.
+Python 3.9 or later, standard library only. Run: python3 scripts/quote-value.py [--rules <rules.json> <domain>] <graph dir>...
 """
 from __future__ import annotations
 
@@ -69,9 +71,15 @@ def covers(quote: str, value, unit: str = "") -> bool:
     return any(math.isclose(n, t, rel_tol=1e-9, abs_tol=1e-9) for n in numbers_in(quote) for t in targets)
 
 
-def main(dirs: list) -> int:
+def main(argv: list) -> int:
+    """argv: [--rules <rules.json> <domain>] <graph dir>...; the rules' quoteValueExceptions are skipped."""
+    skip = set()
+    if argv[:1] == ["--rules"]:
+        with open(argv[1], encoding="utf-8") as f:
+            skip = set(json.load(f)[argv[2]].get("quoteValueExceptions", []))
+        argv = argv[3:]
     failed = 0
-    for d in dirs:
+    for d in argv:
         for path in sorted(glob.glob(os.path.join(d, "graph", "nodes", "*.json"))):
             try:
                 with open(path, encoding="utf-8") as f:
@@ -86,7 +94,7 @@ def main(dirs: list) -> int:
                 continue
             quote = attrs.get("quote") if isinstance(attrs.get("quote"), str) else ""
             unit = attrs.get("unit") if isinstance(attrs.get("unit"), str) else ""
-            if not covers(quote, value, unit):
+            if node.get("id") not in skip and not covers(quote, value, unit):
                 print(f"FAIL {node.get('id', path)}: value {json.dumps(value)} is not stated in its quote")
                 failed = 1
     return failed

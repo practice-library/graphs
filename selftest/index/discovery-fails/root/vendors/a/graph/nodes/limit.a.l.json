@@ -1,0 +1,21 @@
+{
+  "id": "limit.a.l",
+  "type": "limit",
+  "name": "L",
+  "source": "https://docs.a.example/",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "q",
+    "value": 10,
+    "unit": "MB",
+    "scope": "s"
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "product.a.p"
+    }
+  ]
+}
