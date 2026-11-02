@@ -1,0 +1,14 @@
+{
+  "id": "module-system.go.major-suffix",
+  "type": "module-system",
+  "name": "Go major version suffix",
+  "source": "https://go.dev/ref/mod",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Starting with major version 2, module paths must have a major version suffix like /v2 that matches the major version.",
+    "scope": "major version suffix"
+  },
+  "edges": []
+}

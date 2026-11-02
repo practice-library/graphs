@@ -1,0 +1,19 @@
+{
+  "id": "compatibility-promise.go.recompile",
+  "type": "compatibility-promise",
+  "name": "Go compatibility: recompilation after a point release",
+  "source": "https://go.dev/doc/go1compat",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "After a point release, Go source will need to be recompiled to link against the new release.",
+    "scope": "recompilation after a point release"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.go.1"
+    }
+  ]
+}

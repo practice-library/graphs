@@ -1,0 +1,19 @@
+{
+  "id": "compatibility-promise.go.security",
+  "type": "compatibility-promise",
+  "name": "Go compatibility: security exception",
+  "source": "https://go.dev/doc/go1compat",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "A security issue in the specification or implementation may come to light whose resolution requires breaking compatibility.",
+    "scope": "security exception"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.go.1"
+    }
+  ]
+}

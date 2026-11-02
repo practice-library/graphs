@@ -1,0 +1,21 @@
+{
+  "id": "support-window.go.minor-revisions",
+  "type": "support-window",
+  "name": "Critical fixes arrive as minor revisions",
+  "source": "https://go.dev/doc/devel/release",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "We fix critical problems, including critical security problems, in supported releases as needed by issuing minor revisions (for example, Go 1.6.1, Go 1.6.2, and so on).",
+    "scope": "minor revisions of supported releases",
+    "window": "2026-08-19",
+    "note": "The window start is the release date of go1.27.0, the newest major release; the rule applies to every supported release."
+  },
+  "edges": [
+    {
+      "rel": "supports",
+      "to": "version-line.go.1-27"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "toolchain.go.download",
+  "type": "toolchain",
+  "name": "Go toolchain: toolchain download",
+  "source": "https://go.dev/doc/toolchain",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Toolchains are downloaded like any other module, meaning that toolchain downloads can be proxied by setting GOPROXY and have their checksums checked by the Go checksum database.",
+    "scope": "toolchain download"
+  },
+  "edges": [
+    {
+      "rel": "supports",
+      "to": "version-line.go.1"
+    }
+  ]
+}

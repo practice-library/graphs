@@ -1,0 +1,14 @@
+{
+  "id": "module-system.go.proxy",
+  "type": "module-system",
+  "name": "Go module proxy",
+  "source": "https://go.dev/ref/mod",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "A proxy URL indicates the go command should contact a module proxy using the GOPROXY protocol.",
+    "scope": "module proxy"
+  },
+  "edges": []
+}

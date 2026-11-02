@@ -1,0 +1,21 @@
+{
+  "id": "support-window.go.1-25",
+  "type": "support-window",
+  "name": "Go 1.25 support",
+  "source": "https://go.dev/doc/devel/release",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "unknown",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Each major Go release is supported until there are two newer major releases.",
+    "scope": "supported until there are two newer major releases",
+    "window": "2025-08-12",
+    "note": "The page states the rule and lists no end date or status for Go 1.25. Go 1.26 and Go 1.27 are newer major releases, and the last go1.25 minor revision listed is go1.25.14 (released 2026-08-19); whether Go 1.25 is still supported is not stated for it."
+  },
+  "edges": [
+    {
+      "rel": "supports",
+      "to": "version-line.go.1-25"
+    }
+  ]
+}

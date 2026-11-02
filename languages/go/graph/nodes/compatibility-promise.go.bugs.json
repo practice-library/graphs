@@ -1,0 +1,19 @@
+{
+  "id": "compatibility-promise.go.bugs",
+  "type": "compatibility-promise",
+  "name": "Go compatibility: bug fixes",
+  "source": "https://go.dev/doc/go1compat",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "If a compiler or library has a bug that violates the specification, a program that depends on the buggy behavior may break if the bug is fixed.",
+    "scope": "bug fixes"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.go.1"
+    }
+  ]
+}

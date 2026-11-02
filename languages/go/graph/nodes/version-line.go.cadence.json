@@ -1,0 +1,14 @@
+{
+  "id": "version-line.go.cadence",
+  "type": "version-line",
+  "name": "Go release cadence: every six months",
+  "source": "https://go.dev/wiki/Go-Release-Cycle",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Go is released every six months.",
+    "scope": "major releases, every six months"
+  },
+  "edges": []
+}

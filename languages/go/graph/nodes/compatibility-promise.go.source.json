@@ -1,0 +1,19 @@
+{
+  "id": "compatibility-promise.go.source",
+  "type": "compatibility-promise",
+  "name": "Go compatibility: source-level compatibility",
+  "source": "https://go.dev/doc/go1compat",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "Compatibility is at the source level.",
+    "scope": "source-level compatibility"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.go.1"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "module-system.go.module-path",
+  "type": "module-system",
+  "name": "Go module path",
+  "source": "https://go.dev/ref/mod",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "A module path is the canonical name for a module, declared with the module directive in the module’s go.mod file.",
+    "scope": "module path"
+  },
+  "edges": []
+}

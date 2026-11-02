@@ -1,0 +1,15 @@
+{
+  "id": "edition.go.editions",
+  "type": "edition",
+  "name": "Go editions",
+  "source": "https://go.dev/doc/toolchain",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "unknown",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "The language version for a Go version is the result of truncating everything after the N: 1.21, 1.21rc2, and 1.21.3 all implement language version 1.21.",
+    "scope": "edition",
+    "note": "Absent: the pages checked (https://go.dev/doc/toolchain, https://go.dev/doc/go1compat) describe no edition mechanism; the language version above is the nearest statement."
+  },
+  "edges": []
+}
