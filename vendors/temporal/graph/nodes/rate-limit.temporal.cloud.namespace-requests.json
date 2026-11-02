@@ -3,11 +3,11 @@
   "type": "rate-limit",
   "name": "Requests per second per Namespace",
   "source": "https://docs.temporal.io/evaluate/cloud/limits",
-  "measuredAt": "2026-10-31",
+  "measuredAt": "2026-11-02",
   "attrs": {
     "verdict": "limited",
-    "fetched_at": "2026-10-31T20:16:19Z",
-    "quote": "Your requests per second (RPS) limit is dynamic and depends on your capacity mode.",
+    "fetched_at": "2026-11-02T16:15:27Z",
+    "quote": "With On-Demand Capacity it automatically increases (and decreases) based on the last 7 days of RPS usage and never falls below the On-Demand floor; with Provisioned Capacity it is set by the Temporal Resource Units you provision.",
     "scope": "per Namespace"
   },
   "edges": [
