@@ -41,16 +41,7 @@
           "description": "When the fact applies: a real calendar date, YYYY-MM-DD, from which it applies, or start/end with both real dates, the start not after the end (scripts/graph-check.sh) and the end day inclusive, for a fact whose period has ended or is bounded. A publication carries its publication date alone."
         },
         "status": {
-          "enum": [
-            "in-force",
-            "notified-not-in-force",
-            "draft",
-            "superseded",
-            "expired",
-            "repealed",
-            "never-effective"
-          ],
-          "description": "On measuredAt: in force; notified with a later commencement date; a draft not yet notified; replaced by a later text (superseded); ended by its own terms (expired) or by repeal (repealed), each with a window whose end is before measuredAt; or replaced before it ever commenced (never-effective). scripts/graph-check.sh checks each against the window and against the supersedes edges."
+          "description": "The values are the shared node envelope's attrs.status list, which this schema does not restate. On measuredAt: in force; notified with a later commencement date; a draft not yet notified; replaced by a later text (superseded); ended by its own terms (expired) or by repeal (repealed), each with a window whose end is before measuredAt; or replaced before it ever commenced (never-effective). scripts/graph-check.sh checks each against the window and against the supersedes edges."
         }
       },
       "if": {
