@@ -1,13 +1,14 @@
 # Generated from templates/.github/workflows/checks.yml and policy/constants.json by scripts/render.sh. Do not edit.
 name: checks
 # Every check a pull request must pass; the ruleset requires "gate / gate".
-# Reusable workflows come from practice-library/.github, pinned to the full commit of release v2.6.0.
+# Reusable workflows come from practice-library/.github, pinned to the full commit of release v3.0.0.
 # The gate's needs and .github/required-checks.json are both rendered from gate.needs in policy/constants.json.
 on:
   pull_request:
     # v1 is the integration branch for the v1.0.0 release; its pull requests get the same checks as main's.
     branches: [main, v1]
-    # labeled and unlabeled re-run schema-loosening when a maintainer adds or removes its label.
+    # labeled and unlabeled re-run schema-loosening when a maintainer adds or removes its label. The label
+    # authorizes nothing: a loosening passes only with a maintainer's approval of the exact head.
     types: [opened, synchronize, reopened, labeled, unlabeled]
   push:
     branches: [main, v1]
@@ -84,7 +85,7 @@ jobs:
         run: python3 scripts/sources-check.py
 
   discover:
-    uses: practice-library/.github/.github/workflows/discover.yml@1927f933ff655934a99660161efc0ca277eea8f0 # v2.6.0
+    uses: practice-library/.github/.github/workflows/discover.yml@f49b1a054c45a99b5874ff4ef34f77269c621b72 # v3.0.0
     with:
       check: schema-check
 
@@ -95,7 +96,7 @@ jobs:
       fail-fast: false
       matrix:
         include: ${{ fromJSON(needs.discover.outputs.targets) }}
-    uses: practice-library/.github/.github/workflows/schema-check.yml@1927f933ff655934a99660161efc0ca277eea8f0 # v2.6.0
+    uses: practice-library/.github/.github/workflows/schema-check.yml@f49b1a054c45a99b5874ff4ef34f77269c621b72 # v3.0.0
     # Every key a check.json row may carry, so none is dropped (the consumer kit of practice-library/.github).
     with:
       schema: ${{ matrix.schema }}
@@ -108,13 +109,13 @@ jobs:
       resolve-ids: ${{ matrix.resolve-ids }}
 
   leak-scan:
-    uses: practice-library/.github/.github/workflows/leak-scan.yml@1927f933ff655934a99660161efc0ca277eea8f0 # v2.6.0
+    uses: practice-library/.github/.github/workflows/leak-scan.yml@f49b1a054c45a99b5874ff4ef34f77269c621b72 # v3.0.0
 
   denylist:
     permissions:
       contents: read
       pull-requests: read
-    uses: practice-library/.github/.github/workflows/guard.yml@1927f933ff655934a99660161efc0ca277eea8f0 # v2.6.0
+    uses: practice-library/.github/.github/workflows/guard.yml@f49b1a054c45a99b5874ff4ef34f77269c621b72 # v3.0.0
     with:
       guard: denylist
 
@@ -122,7 +123,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: read
-    uses: practice-library/.github/.github/workflows/guard.yml@1927f933ff655934a99660161efc0ca277eea8f0 # v2.6.0
+    uses: practice-library/.github/.github/workflows/guard.yml@f49b1a054c45a99b5874ff4ef34f77269c621b72 # v3.0.0
     with:
       guard: removed-paths
 
@@ -130,7 +131,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: read
-    uses: practice-library/.github/.github/workflows/guard.yml@1927f933ff655934a99660161efc0ca277eea8f0 # v2.6.0
+    uses: practice-library/.github/.github/workflows/guard.yml@f49b1a054c45a99b5874ff4ef34f77269c621b72 # v3.0.0
     with:
       guard: release-note
 
@@ -138,13 +139,13 @@ jobs:
     permissions:
       contents: read
       pull-requests: read
-    uses: practice-library/.github/.github/workflows/guard.yml@1927f933ff655934a99660161efc0ca277eea8f0 # v2.6.0
+    uses: practice-library/.github/.github/workflows/guard.yml@f49b1a054c45a99b5874ff4ef34f77269c621b72 # v3.0.0
     with:
       guard: schema-loosening
 
   gate:
     if: always()
     needs: ["render","selftest","guards","bump-only","graph-check","discover","schema-check","leak-scan","denylist","removed-paths","release-note","schema-loosening"]
-    uses: practice-library/.github/.github/workflows/gate.yml@1927f933ff655934a99660161efc0ca277eea8f0 # v2.6.0
+    uses: practice-library/.github/.github/workflows/gate.yml@f49b1a054c45a99b5874ff4ef34f77269c621b72 # v3.0.0
     with:
       needs: ${{ toJSON(needs) }}

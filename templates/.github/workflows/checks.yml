@@ -6,7 +6,8 @@ on:
   pull_request:
     # v1 is the integration branch for the v1.0.0 release; its pull requests get the same checks as main's.
     branches: [main, v1]
-    # labeled and unlabeled re-run schema-loosening when a maintainer adds or removes its label.
+    # labeled and unlabeled re-run schema-loosening when a maintainer adds or removes its label. The label
+    # authorizes nothing: a loosening passes only with a maintainer's approval of the exact head.
     types: [opened, synchronize, reopened, labeled, unlabeled]
   push:
     branches: [main, v1]
