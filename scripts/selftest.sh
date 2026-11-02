@@ -9,14 +9,18 @@
 #   selftest/sources-check/<case>/root/                   scripts/sources-check.py <root> (policy files and nodes as they are)
 #   selftest/report-check/<case>/{report,sources,scopes}.json, commit   scripts/report-check.py check
 #   selftest/bump-only-file/<case>/{old,new}.json          scripts/bump-only.sh file <old> <new>
+#   selftest/render/<case>/root/                           scripts/render.sh --check <root> (templates/, policy/constants.json
+#                                                          and the generated files)
 # Other cases compare the script's output with `expect` instead:
 #   selftest/bump-only-classify/<case>/{allow.json,diff}   scripts/bump-only.sh classify (review, bump or reject)
 #   selftest/graphs/<case>/root/[domain]                   scripts/graphs.sh <root> [the domain named in `domain`]
+#   selftest/guards-shard/<case>/{args,rows}               parse_shard of scripts/guards.py on the arguments in `args`
+#       (one per line) for `rows` rows: the 0-based indices it selects, or "rejected"
 # and these run scripts/bump-only.sh where it must fail or run against a commit:
 #   selftest/bump-only-classify-fails/<case>/{allow.json,diff}  scripts/bump-only.sh classify (expect fail)
 #   selftest/bump-only-pr/<case>/{base,head}/[event]       scripts/bump-only.sh pr in a new git repository
 #       whose first commit is base/ and whose second is head/, with GITHUB_EVENT_NAME from `event`
-#       (pull_request when there is no such file)
+#       (pull_request when there is no such file) and an empty TMPDIR that must still be empty afterwards
 # and this one renders the auto-merge allowlist twice and compares the two:
 #   selftest/render-allowlist/<case>/{base,head}/          scripts/render.sh in a new git repository holding
 #       base/ (each _check.json renamed check.json), then again with head/ added; prints the lines of
@@ -69,6 +73,20 @@ for c in selftest/bump-only-file/*/; do run_case "${c%/}" bash scripts/bump-only
 for c in selftest/bump-only-classify/*/; do output_case "${c%/}" bash scripts/bump-only.sh classify "${c}allow.json" "${c}diff"; done
 for c in selftest/graphs/*/; do output_case "${c%/}" bash scripts/graphs.sh "$(stage "${c%/}")" $(cat "${c}domain" 2>/dev/null); done
 for c in selftest/bump-only-classify-fails/*/; do run_case "${c%/}" bash scripts/bump-only.sh classify "${c}allow.json" "${c}diff"; done
+for c in selftest/render/*/; do run_case "${c%/}" bash scripts/render.sh --check "$(stage "${c%/}")"; done
+shard_selection() { # <case dir>: the row indices parse_shard selects, space-separated, or "rejected"
+  python3 -B -c '
+import sys
+sys.path.insert(0, "scripts")
+from guards import parse_shard
+with open(sys.argv[1] + "/args", encoding="utf-8") as f:
+    argv = f.read().splitlines()
+with open(sys.argv[1] + "/rows", encoding="utf-8") as f:
+    rows = int(f.read())
+shard = parse_shard(argv, rows)
+print("rejected" if isinstance(shard, str) else " ".join(str(i) for i in shard[2]))' "$1"
+}
+for c in selftest/guards-shard/*/; do output_case "${c%/}" shard_selection "${c%/}"; done
 pr_repo() { # <case dir>: prints a git repository whose HEAD is head/ and HEAD^1 is base/
   local repo="$tmp/repo$count"
   mkdir -p "$repo"
@@ -91,7 +109,10 @@ for c in selftest/bump-only-pr/*/; do
   if [ -z "$repo" ] || ! git -C "$repo" rev-parse -q --verify HEAD^1 >/dev/null; then
     count=$((count + 1)); echo "FAIL ${c%/}: could not build its base and head commits"; failed=1; continue
   fi
-  run_case "${c%/}" env GITHUB_EVENT_NAME="$event" bash -c 'cd "$1" && bash "$2"/scripts/bump-only.sh pr' _ "$repo" "$root"
+  # Its own empty TMPDIR, which must still be empty afterwards, whether pr passed or failed.
+  t="$tmp/tmpdir$count"; mkdir -p "$t"
+  run_case "${c%/}" env GITHUB_EVENT_NAME="$event" TMPDIR="$t" bash -c 'cd "$1" && bash "$2"/scripts/bump-only.sh pr' _ "$repo" "$root"
+  [ -z "$(ls -A "$t")" ] || { echo "FAIL ${c%/}: bump-only.sh pr left $(ls -A "$t" | tr '\n' ' ')in its TMPDIR"; failed=1; }
 done
 
 allowlist_change() { # <case dir>: the lines of .github/automerge-paths.json added or removed by head/

@@ -6,24 +6,33 @@
 # The allowlist writes each path on a line of its own and each separating comma on a line of its
 # own, so adding a graph adds its own line (and one comma line) and changes no other entry's line.
 # @@gate.needs@@ is written both as the gate's needs and as .github/required-checks.json.
+# @@gen.guardShards@@ is the list 1..N for N = guards.shards, the guards job's matrix; the same
+# @@guards.shards@@ is its --shard K/N, so the two cannot drift apart. N must be a whole number of at least 1.
 # A rendered .json file carries no header (JSON has no comments). A placeholder whose value is
 # missing is an error.
-# Usage: scripts/render.sh          write the rendered files
-#        scripts/render.sh --check  write nothing; fail when a rendered file differs or is missing
+# Usage: scripts/render.sh [--check] [root]
+#   without --check: write the rendered files; with --check: write nothing, and fail when a rendered file
+#   differs or is missing. The root (this repository's when not given) holds templates/ and policy/constants.json.
 set -euo pipefail
-root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+mode=write
+if [ "${1:-}" = --check ]; then mode=--check; shift; fi
+case "${1:-}" in -*) echo "usage: scripts/render.sh [--check] [root]" >&2; exit 2 ;; esac
+[ $# -le 1 ] || { echo "usage: scripts/render.sh [--check] [root]" >&2; exit 2; }
+here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+root="${1:-$(cd "$here/.." && pwd)}"
 cd "$root"
-mode="${1:-write}"
-case "$mode" in write|--check) ;; *) echo "usage: scripts/render.sh [--check]" >&2; exit 2 ;; esac
 
 constants="policy/constants.json"
-graphs="$(bash scripts/graphs.sh)"
+graphs="$(bash "$here/graphs.sh" "$root")"
 values="$(jq -c --arg graphs "$graphs" '
   ($graphs | split("\n") | map(select(length > 0))) as $g
   | [.graphPaths.nodes, .graphPaths.reports] as $dirs
   | [$g[] as $d | $dirs[] | $d + "/" + . + "/"] as $paths
+  | (.guards.shards | if type == "number" and . >= 1 and . == floor then [range(1; . + 1)]
+      else error("policy/constants.json: guards.shards must be a whole number of at least 1") end) as $shards
   | . + {gen: {allowPathLines: ("\n" + ($paths | map((. | tojson) + "\n") | join(",\n"))),
-               unowned: ($paths | map("/" + .) | join("\n"))}}' "$constants")"
+               unowned: ($paths | map("/" + .) | join("\n")),
+               guardShards: $shards}}' "$constants")"
 failed=0
 while IFS= read -r t; do
   out="${t#templates/}"

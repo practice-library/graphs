@@ -76,15 +76,23 @@ file_check() { # <old> <new>
   [ -z "$bad" ] || die "a changed line is not measuredAt or fetched_at: $(head -1 <<<"$bad")"
   jq -en --slurpfile n "$new" '($n[0].measuredAt | type) == "string" and $n[0].measuredAt == ($n[0].attrs.fetched_at[0:10])' >/dev/null \
     || die "measuredAt is not the date of fetched_at"
-  jq -en --slurpfile o "$old" --slurpfile n "$new" '$n[0].attrs.fetched_at > $o[0].attrs.fetched_at' >/dev/null \
+  # Compared as times, not strings: ...:00.5Z sorts before ...:00Z as a string. A time is its whole seconds
+  # and its fraction padded to nine digits; a value not in the envelope's form yields nothing and fails.
+  jq -en --slurpfile o "$old" --slurpfile n "$new" '
+    def instant: capture("^(?<s>[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2})(\\.(?<f>[0-9]{1,9}))?Z$")
+      | [(.s + "Z" | fromdateiso8601), ((.f // "") + "000000000")[0:9]];
+    ($n[0].attrs.fetched_at | instant) > ($o[0].attrs.fetched_at | instant)' >/dev/null \
     || die "fetched_at is not later than before"
   echo "ok $new is a date bump"
 }
 
 pr() {
   [ "${GITHUB_EVENT_NAME:-}" = pull_request ] || { echo "not a pull request: nothing to check"; return 0; }
-  local tmp verdict path
-  tmp="$(mktemp -d)"
+  local verdict path
+  # Not local: the EXIT trap runs after pr has returned, and on every exit through die. Under TMPDIR on every
+  # platform (macOS mktemp -d without a template ignores it), so the self-test can see what is left behind.
+  tmp="$(mktemp -d "${TMPDIR:-/tmp}/bump-only.XXXXXX")"
+  trap 'rm -rf "$tmp"' EXIT
   # The allowlist auto-merge uses: .github/automerge-paths.json on the base commit, none when absent.
   if git cat-file -e HEAD^1:.github/automerge-paths.json 2>/dev/null; then
     git show HEAD^1:.github/automerge-paths.json | jq -c '.paths' > "$tmp/allow" || die "main's .github/automerge-paths.json is not valid JSON"
