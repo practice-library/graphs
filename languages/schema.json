@@ -1,0 +1,395 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/practice-library/graphs/languages/schema.json",
+  "title": "Language fact node",
+  "description": "One file under languages/<language>/graph/nodes/, named <id>.json: the shared fact-node envelope of practice-library/.github (spec/node/schema.json) with the node types of a programming language: release, version-line, support-window (such as LTS), toolchain, module-system, edition, licence and compatibility-promise. The id is <type>.<language>.<slug>, or language.<language> for the graph root, which has no edges. Edges: supersedes (a release or line to the one it replaces), supports (a support window to the release or version line it covers; a toolchain to what it builds), requires (a toolchain, edition or module system to the release it needs), partOf (a release to its version line) and introducedIn (an edition or module system to its release). attrs.status is not used. That every edge target exists inside the graph is checked by scripts/graph-check.sh, not by this schema.",
+  "$ref": "https://github.com/practice-library/.github/spec/node/schema.json",
+  "properties": {
+    "type": {
+      "enum": [
+        "language",
+        "release",
+        "version-line",
+        "support-window",
+        "toolchain",
+        "module-system",
+        "edition",
+        "licence",
+        "compatibility-promise"
+      ]
+    },
+    "source": {
+      "maxLength": 2000,
+      "pattern": "^https://[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(\\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)+(/[!-~]*)?$",
+      "description": "https, a lower-case host name with a dot, then an optional path of printable characters without spaces."
+    },
+    "measuredAt": {
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$",
+      "description": "The day the quote was last confirmed on the page: a real calendar date, YYYY-MM-DD."
+    },
+    "attrs": {
+      "properties": {
+        "fetched_at": {
+          "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]{1,9})?Z$",
+          "description": "UTC, ending in Z."
+        },
+        "status": false
+      },
+      "if": {
+        "properties": {
+          "verdict": {
+            "const": "unknown"
+          }
+        },
+        "required": [
+          "verdict"
+        ]
+      },
+      "then": {
+        "required": [
+          "note"
+        ],
+        "description": "An unknown fact says in its note what could not be confirmed and why."
+      }
+    },
+    "edges": {
+      "uniqueItems": true,
+      "items": {
+        "properties": {
+          "rel": {
+            "enum": [
+              "supersedes",
+              "supports",
+              "requires",
+              "partOf",
+              "introducedIn"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "language"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^language\\.[a-z0-9][a-z0-9-]*$"
+          },
+          "edges": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "release"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^release\\.[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "version-line"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^version-line\\.[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "support-window"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^support-window\\.[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "toolchain"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^toolchain\\.[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "module-system"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^module-system\\.[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "edition"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^edition\\.[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "licence"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^licence\\.[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "compatibility-promise"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^compatibility-promise\\.[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "enum": [
+              "release"
+            ]
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attrs": {
+            "required": [
+              "scope",
+              "window"
+            ],
+            "properties": {
+              "window": {
+                "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
+              }
+            }
+          }
+        }
+      },
+      "description": "A release names its version in attrs.scope and its release date in attrs.window (YYYY-MM-DD)."
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "enum": [
+              "support-window"
+            ]
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attrs": {
+            "required": [
+              "scope",
+              "window"
+            ],
+            "properties": {
+              "window": {
+                "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])(?:/[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01]))?$"
+              }
+            }
+          }
+        }
+      },
+      "description": "A support window names its kind (such as LTS) in attrs.scope and its period in attrs.window, YYYY-MM-DD or start/end; it supports a release or version line."
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "enum": [
+              "version-line",
+              "toolchain",
+              "module-system",
+              "edition",
+              "licence"
+            ]
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attrs": {
+            "required": [
+              "scope"
+            ]
+          }
+        }
+      },
+      "description": "A version line, toolchain, module system, edition or licence names itself in attrs.scope: the line (1.24.x), the tool, the module system, the edition year or the SPDX licence identifier."
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "enum": [
+              "compatibility-promise"
+            ]
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attrs": {
+            "required": [
+              "scope",
+              "quote"
+            ]
+          }
+        }
+      },
+      "description": "A compatibility promise says in attrs.scope what it covers and quotes the promise itself."
+    },
+    {
+      "if": {
+        "properties": {
+          "attrs": {
+            "properties": {
+              "note": {
+                "pattern": "^\\s*[Aa][Bb][Ss][Ee][Nn][Tt]([^A-Za-z]|$)"
+              }
+            },
+            "required": [
+              "note"
+            ]
+          }
+        },
+        "required": [
+          "attrs"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attrs": {
+            "properties": {
+              "verdict": {
+                "const": "unknown"
+              },
+              "note": {
+                "pattern": "^Absent: \\S"
+              }
+            }
+          }
+        },
+        "description": "A fact the page does not state is recorded as absent: verdict unknown and a note starting exactly \"Absent: \" that names the page checked. A note that starts with the word absent in any other form is rejected, so the convention cannot drift. The envelope has no absent verdict yet (practice-library/.github#20)."
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "edition.example.2026",
+  "type": "edition",
+  "name": "Example 2026 edition",
+  "source": "https://docs.example.com/lang",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "The 2026 edition changes keywords.",
+    "scope": "2026"
+  },
+  "edges": [
+    {
+      "rel": "requires",
+      "to": "release.example.2-1"
+    }
+  ]
+}

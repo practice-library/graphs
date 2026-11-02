@@ -8,8 +8,8 @@ For each <graph dir>/graph/nodes/*.json, under the rules of one domain in policy
     (a duty without partOf, an instrument without issuedBy), unless the node's attribute is one of the
     rule's `unless` values or its id is one of the rule's `exceptions` (gaps in the content, listed in
     policy/graph-rules.json until the content closes them);
-  - supersession: a node that a supersedes edge replaces, and that carries a status, has the replaced
-    status (superseded). The reverse is not required: a repeal leaves a superseded node with no replacement;
+  - supersession: a node that a supersedes edge replaces, and that carries a status, has an ended status
+    (superseded, expired, repealed, never-effective) unless the replacing node is still pending. The reverse is not required: a repeal leaves a superseded node with no replacement;
   - containment: the id of a contained node continues the id of the node its partOf edge names
     (provision.in.act-2018.r5 is part of instrument.in.act-2018).
 Prints FAIL <id>: <problem> for each and exits 1; prints nothing otherwise. A node file that is not JSON is
@@ -114,8 +114,11 @@ def problems(rules: dict, nodes: dict) -> list:
                     continue
                 old = nodes[e["to"]]
                 status = (old.get("attrs") or {}).get(sup["attr"])
-                if status is not None and status != sup["replaced"]:
-                    out.append(f"FAIL {e['to']}: replaced by {i} but its {sup['attr']} is {status}, not {sup['replaced']}")
+                replaced = sup["replaced"] if isinstance(sup["replaced"], list) else [sup["replaced"]]
+                if (n.get("attrs") or {}).get(sup["attr"]) in sup.get("pendingReplacers", []):
+                    continue  # a replacement not yet in force leaves the old node as it is
+                if status is not None and status not in replaced:
+                    out.append(f"FAIL {e['to']}: replaced by {i} but its {sup['attr']} is {status}, not {' or '.join(replaced)}")
     con = rules.get("containment")
     if con:
         for i, n in sorted(nodes.items()):

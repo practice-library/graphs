@@ -16,6 +16,7 @@
       ],
       "hasRelease": [["product", "release"]],
       "offeredBy": [["product", "vendor"]],
+      "partOf": [["argument", "command"], ["command", "command"], ["command", "product"], ["flag", "command"], ["flag", "product"]],
       "introducedIn": [["capability", "release"]],
       "limits": [
         ["limit", "product"], ["limit", "release"], ["plan", "product"], ["rate-limit", "product"],
@@ -85,7 +86,42 @@
        "exceptions": ["obligation.in.ct-10-2023.threshold"]},
       {"type": "penalty", "rel": "commencedBy", "to": "provision", "min": 1, "unless": {"attr": "status", "in": ["superseded"]}}
     ],
-    "supersession": {"rel": "supersedes", "attr": "status", "replaced": "superseded"},
+    "supersession": {"rel": "supersedes", "attr": "status",
+                     "replaced": ["superseded", "expired", "repealed", "never-effective"],
+                     "pendingReplacers": ["notified-not-in-force", "draft"]},
     "containment": {"rel": "partOf", "to": "instrument", "idPrefix": true}
+  },
+  "description": "The lists and separators scripts/graph-check.sh and scripts/inventory-check.py use, kept here so no script carries them inline. The scripts read this file from their own repository, not from the root they check.",
+  "domains": {
+    "languages": {"rootType": "language", "graphName": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+    "practices": {"rootType": "practice", "graphName": "^[a-z0-9]+(-[a-z0-9]+)*$"}
+  },
+  "windows": {
+    "intervalSeparator": "/",
+    "comment": "A window is a start date, or start/end with the end day inclusive."
+  },
+  "status": {
+    "inForce": "in-force",
+    "pending": ["notified-not-in-force"],
+    "ended": ["expired", "repealed"],
+    "replaced": ["superseded"],
+    "neverEffective": "never-effective",
+    "needsReplacement": ["superseded", "never-effective"],
+    "supersededTargets": ["superseded", "expired", "repealed", "never-effective"],
+    "mayReplaceInForce": ["notified-not-in-force", "draft"]
+  },
+  "cli": {
+    "needsContainer": {
+      "command": ["command", "product"],
+      "flag": ["command", "product"],
+      "argument": ["command"]
+    },
+    "containmentRel": "partOf"
+  },
+  "inventory": {
+    "file": "inventory.json",
+    "commandType": "command",
+    "releaseType": "release",
+    "hash": "sha256"
   }
 }

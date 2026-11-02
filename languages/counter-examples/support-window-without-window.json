@@ -1,0 +1,19 @@
+{
+  "id": "support-window.example.lts",
+  "type": "support-window",
+  "name": "Example 2.x long-term support",
+  "source": "https://docs.example.com/lang",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "Version 2.x is supported until 31 August 2028.",
+    "scope": "LTS"
+  },
+  "edges": [
+    {
+      "rel": "supports",
+      "to": "version-line.example.2"
+    }
+  ]
+}
