@@ -4,11 +4,12 @@ name: checks
 # The gate's needs and .github/required-checks.json are both rendered from gate.needs in policy/constants.json.
 on:
   pull_request:
-    branches: [main]
+    # v1 is the integration branch for the v1.0.0 release; its pull requests get the same checks as main's.
+    branches: [main, v1]
     # labeled and unlabeled re-run schema-loosening when a maintainer adds or removes its label.
     types: [opened, synchronize, reopened, labeled, unlabeled]
   push:
-    branches: [main]
+    branches: [main, v1]
 permissions:
   contents: read
 concurrency:
