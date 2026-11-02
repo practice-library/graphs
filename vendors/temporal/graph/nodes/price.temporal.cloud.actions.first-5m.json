@@ -11,7 +11,7 @@
     "value": 50,
     "unit": "USD per million Actions",
     "scope": "Business, Enterprise and Mission Critical, first 5M Actions",
-    "note": "Pay-As-You-Go volume price; later tiers are cheaper. The quote gives the value and unit only. The tier comes from the table header \"Actions (Business, Enterprise, and Mission Critical)\" and the band from its \"First 5M\" row; the table is not quoted because the host serves it as a markdown table, which the refresher reads as text with pipes and the browser shows as cells."
+    "note": "Pay-As-You-Go volume price; later tiers are cheaper. The quote gives the value and unit only; the tier is from the table header \"Actions (Business, Enterprise, and Mission Critical)\" and the band from its \"First 5M\" row."
   },
   "edges": [
     {
