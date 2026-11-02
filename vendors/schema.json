@@ -508,8 +508,22 @@
             }
           }
         },
-        "description": "A fact the page does not state is recorded as absent: verdict unknown and a note starting exactly \"Absent: \" that names the page checked. A note that starts with the word absent in any other form is rejected, so the convention cannot drift. The envelope has no absent verdict yet (practice-library/.github#20)."
+        "description": "A fact the page does not state is recorded as absent: verdict unknown and a note starting exactly \"Absent: \" that names the page checked. A note that starts with the word absent in any other form is rejected, so the convention cannot drift. The envelope's own verdict absent is not used in vendor graphs (see the next rule)."
       }
+    },
+    {
+      "properties": {
+        "attrs": {
+          "properties": {
+            "verdict": {
+              "not": {
+                "const": "absent"
+              }
+            }
+          }
+        }
+      },
+      "description": "A vendor graph records a fact the page does not state with verdict unknown and an \"Absent: \" note, never with the envelope's verdict absent, so a consumer reads one convention (#44)."
     },
     {
       "if": {

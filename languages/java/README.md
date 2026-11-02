@@ -14,6 +14,8 @@ All from `openjdk.org`:
 
 **Host evidence:** `policy/sources.json` records that `openjdk.org/robots.txt` answers 404, so no path is disallowed. The terms of use (`/legal/tou/terms`, clause 5.a) bar robots, spiders and scrapers without express written permission, and exempt only crawling for a search index and read-only access for development of the code. That does not establish permission to refresh this graph automatically, so the scope in `policy/source-scopes.json` is `unresolved` and a refresh run reads nothing from this host until that is resolved.
 
+**How these facts were read:** the pages were read once, on 2026-11-02 at about 11:30 UTC, by an automated agent working for the maintainers. The terms had been read five minutes earlier, so this reading was not covered by the permission those terms require. The maintainers decided to publish the facts with this statement rather than withhold them. Every node carries that single `fetched_at`. No further automated reading of openjdk.org takes place unless permission is established, and a person checks any correction by hand.
+
 ## Not in this graph
 
 - **Editions:** the pages read describe no edition or language level of Java, so there is no `edition` node.
