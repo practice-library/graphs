@@ -1,0 +1,13 @@
+{
+  "id": "licence.example.bsd",
+  "type": "licence",
+  "name": "Example licence",
+  "source": "https://docs.example.com/lang",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "Example is released under a BSD-style licence."
+  },
+  "edges": []
+}

@@ -1,0 +1,19 @@
+{
+  "id": "flag.example.widgetctl.worktree.rm.force",
+  "type": "flag",
+  "name": "--force",
+  "source": "https://docs.example.com/",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "--force removes a worktree that has changes.",
+    "scope": "--force"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "command.example.widgetctl.worktree.rm"
+    }
+  ]
+}

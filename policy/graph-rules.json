@@ -1,0 +1,35 @@
+{
+  "description": "The lists and separators scripts/graph-check.sh and scripts/inventory-check.py use, kept here so no script carries them inline. The scripts read this file from their own repository, not from the root they check.",
+  "domains": {
+    "languages": {"rootType": "language", "graphName": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+    "practices": {"rootType": "practice", "graphName": "^[a-z0-9]+(-[a-z0-9]+)*$"}
+  },
+  "windows": {
+    "intervalSeparator": "/",
+    "comment": "A window is a start date, or start/end with the end day inclusive."
+  },
+  "status": {
+    "inForce": "in-force",
+    "pending": ["notified-not-in-force"],
+    "ended": ["expired", "repealed"],
+    "replaced": ["superseded"],
+    "neverEffective": "never-effective",
+    "needsReplacement": ["superseded", "never-effective"],
+    "supersededTargets": ["superseded", "expired", "repealed", "never-effective"],
+    "mayReplaceInForce": ["notified-not-in-force", "draft"]
+  },
+  "cli": {
+    "needsContainer": {
+      "command": ["command", "product"],
+      "flag": ["command", "product"],
+      "argument": ["command"]
+    },
+    "containmentRel": "partOf"
+  },
+  "inventory": {
+    "file": "inventory.json",
+    "commandType": "command",
+    "releaseType": "release",
+    "hash": "sha256"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "language.example",
+  "type": "language",
+  "name": "Example language",
+  "source": "https://docs.example.com/lang",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "Example is a programming language."
+  },
+  "edges": [
+    {
+      "rel": "supports",
+      "to": "release.example.2-0"
+    }
+  ]
+}

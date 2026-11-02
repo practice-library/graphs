@@ -1,0 +1,19 @@
+{
+  "id": "flag.example.widgetctl.verbose",
+  "type": "flag",
+  "name": "--verbose",
+  "source": "https://docs.example.com/",
+  "measuredAt": "2026-10-31",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-10-31T12:00:00Z",
+    "quote": "--verbose prints more output for every command.",
+    "scope": "--verbose"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "product.example.widget"
+    }
+  ]
+}

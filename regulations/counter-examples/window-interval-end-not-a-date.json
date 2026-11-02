@@ -1,0 +1,23 @@
+{
+  "id": "timeline.zz.data-act-2025.interim-limit",
+  "type": "timeline",
+  "name": "timeline.zz.data-act-2025.interim-limit",
+  "source": "https://gazette.example.org/2025/1.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T04:00:00Z",
+    "quote": "within thirty days of the invoice",
+    "scope": "every holder",
+    "window": "2025-03-01/2025-13-31",
+    "status": "expired",
+    "value": 30,
+    "unit": "days"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.zz.data-act-2025"
+    }
+  ]
+}

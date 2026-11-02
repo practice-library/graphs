@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/practice-library/graphs/practices/schema.json",
+  "title": "Practice fact node",
+  "description": "One file under practices/<practice>/graph/nodes/, named <id>.json: the shared fact-node envelope of practice-library/.github (spec/node/schema.json) with a minimal set of node types for v1.1: guideline and anti-pattern under a practice root. The id is <type>.<practice>.<slug>, or practice.<practice> for the graph root, which has no edges. Edges: partOf, requires, supersedes and appliesTo. attrs.status is not used. That every edge target exists inside the graph is checked by scripts/graph-check.sh, not by this schema.",
+  "$ref": "https://github.com/practice-library/.github/spec/node/schema.json",
+  "properties": {
+    "type": {
+      "enum": [
+        "practice",
+        "guideline",
+        "anti-pattern"
+      ]
+    },
+    "source": {
+      "maxLength": 2000,
+      "pattern": "^https://[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?(\\.[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?)+(/[!-~]*)?$",
+      "description": "https, a lower-case host name with a dot, then an optional path of printable characters without spaces."
+    },
+    "measuredAt": {
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$",
+      "description": "The day the quote was last confirmed on the page: a real calendar date, YYYY-MM-DD."
+    },
+    "attrs": {
+      "properties": {
+        "fetched_at": {
+          "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]{1,9})?Z$",
+          "description": "UTC, ending in Z."
+        },
+        "status": false
+      },
+      "if": {
+        "properties": {
+          "verdict": {
+            "const": "unknown"
+          }
+        },
+        "required": [
+          "verdict"
+        ]
+      },
+      "then": {
+        "required": [
+          "note"
+        ],
+        "description": "An unknown fact says in its note what could not be confirmed and why."
+      }
+    },
+    "edges": {
+      "uniqueItems": true,
+      "items": {
+        "properties": {
+          "rel": {
+            "enum": [
+              "partOf",
+              "requires",
+              "supersedes",
+              "appliesTo"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "practice"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^practice\\.[a-z0-9][a-z0-9-]*$"
+          },
+          "edges": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "guideline"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^guideline\\.[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "anti-pattern"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "id": {
+            "pattern": "^anti-pattern\\.[a-z0-9][a-z0-9-]*(\\.[a-z0-9][a-z0-9-]*)+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "enum": [
+              "guideline",
+              "anti-pattern"
+            ]
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attrs": {
+            "required": [
+              "scope"
+            ]
+          }
+        }
+      },
+      "description": "A guideline or anti-pattern says in attrs.scope what it applies to."
+    },
+    {
+      "if": {
+        "properties": {
+          "attrs": {
+            "properties": {
+              "note": {
+                "pattern": "^\\s*[Aa][Bb][Ss][Ee][Nn][Tt]([^A-Za-z]|$)"
+              }
+            },
+            "required": [
+              "note"
+            ]
+          }
+        },
+        "required": [
+          "attrs"
+        ]
+      },
+      "then": {
+        "properties": {
+          "attrs": {
+            "properties": {
+              "verdict": {
+                "const": "unknown"
+              },
+              "note": {
+                "pattern": "^Absent: \\S"
+              }
+            }
+          }
+        },
+        "description": "A fact the page does not state is recorded as absent: verdict unknown and a note starting exactly \"Absent: \" that names the page checked. A note that starts with the word absent in any other form is rejected, so the convention cannot drift. The envelope has no absent verdict yet (practice-library/.github#20)."
+      }
+    }
+  ]
+}

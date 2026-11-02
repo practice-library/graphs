@@ -1,0 +1,21 @@
+{
+  "id": "provision.zz.data-act-2025.s8",
+  "type": "provision",
+  "name": "provision.zz.data-act-2025.s8",
+  "source": "https://gazette.example.org/2025/1.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T04:00:00Z",
+    "quote": "This section shall come into force on 1 January 2026.",
+    "scope": "every holder",
+    "window": "2026-01-01",
+    "status": "never-effective"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.zz.data-act-2025"
+    }
+  ]
+}

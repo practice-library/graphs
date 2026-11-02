@@ -1,0 +1,23 @@
+{
+  "id": "timeline.in.ct-73-2020.october-2020-limit",
+  "type": "timeline",
+  "name": "Thirty-day upload limit for invoices of October 2020",
+  "source": "https://egazette.gov.in/WriteReadData/2020/222200.pdf",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T06:04:59Z",
+    "quote": "within thirty days from the date of such invoice, failing which the same shall not be treated as an invoice",
+    "scope": "invoices of 1 to 31 October 2020 not prepared under rule 48(4)",
+    "window": "2020-10-01/2020-10-31",
+    "status": "expired",
+    "value": 30,
+    "unit": "days"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "instrument.in.ct-73-2020"
+    }
+  ]
+}
