@@ -1,0 +1,19 @@
+{
+  "id": "rule.orca.cli.terminal-close-unverifiable",
+  "type": "rule",
+  "name": "Bulk close fails if it cannot confirm every terminal stopped",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/docs/site/content/docs/cli/reference.mdx",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:41:22Z",
+    "quote": "If the execution host cannot confirm that every PTY stopped, bulk close returns a failing `unverifiable` result rather than claiming the processes exited.",
+    "scope": "orca terminal close --worktree <selector> --all"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.terminal.close"
+    }
+  ]
+}

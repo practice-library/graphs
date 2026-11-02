@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.worktree-set-fields",
+  "type": "rule",
+  "name": "worktree set changes Orca metadata, one field per flag",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/worktree-set.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:18Z",
+    "quote": "Each link flag updates its own field and leaves unrelated links unchanged.",
+    "scope": "orca worktree set",
+    "note": "Display name, links, comment, board status, read state and parent. Where the host stores this metadata is not stated in src/cli/specs/worktree-set.ts."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.worktree.set"
+    }
+  ]
+}

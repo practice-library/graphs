@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.worktree-create-parent",
+  "type": "rule",
+  "name": "Records the new worktree as a child of the caller",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/core.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "By default, Orca records the new worktree as a child of the caller context when it can infer one from the Orca terminal or current directory.",
+    "scope": "orca worktree create",
+    "note": "--no-parent makes it independent; this affects Orca lineage only, not Git."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.worktree.create"
+    }
+  ]
+}

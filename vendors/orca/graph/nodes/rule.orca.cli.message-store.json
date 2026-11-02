@@ -1,0 +1,24 @@
+{
+  "id": "rule.orca.cli.message-store",
+  "type": "rule",
+  "name": "Where messages are stored and how long they are kept",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/docs/site/content/docs/cli/orchestration.mdx",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "unknown",
+    "fetched_at": "2026-11-01T08:10:12Z",
+    "quote": "durable namespace and home inbox",
+    "scope": "orchestration messages, inbox and ask questions",
+    "note": "Absent: docs/site/content/docs/cli/orchestration.mdx and src/cli/specs/orchestration.ts (checked) say Runs and relays are durable but name no storage location, retention period or what marks a message read beyond check."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.orchestration.inbox"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.orchestration.ask"
+    }
+  ]
+}

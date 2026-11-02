@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.worktree-rm-unmerged",
+  "type": "rule",
+  "name": "A user delete keeps unmerged commits",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/main/git/worktree-removal.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:11:28Z",
+    "quote": "Reserve forceBranchDelete for failed-creation rollback so user deletes preserve unmerged commits.",
+    "scope": "branch deletion on orca worktree rm",
+    "note": "Forced branch deletion is used only to roll back a failed creation."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.worktree.rm"
+    }
+  ]
+}

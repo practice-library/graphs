@@ -1,0 +1,20 @@
+{
+  "id": "capability.orca.cli.orchestration.worker-stop",
+  "type": "capability",
+  "name": "orca orchestration worker-stop",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration-worker-specs.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T08:16:16Z",
+    "quote": "Fence one Dispatch and stop its supervised agent terminal",
+    "scope": "orca orchestration worker-stop --dispatch <dispatch_id> [--retry-request <id>] [--json]",
+    "note": "Effect: removes: the supervised agent terminal. Flags besides the global ones: --dispatch, --retry-request. Marked destructive in its spec."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.orca.cli"
+    }
+  ]
+}

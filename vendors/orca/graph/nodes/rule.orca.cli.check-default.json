@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.check-default",
+  "type": "rule",
+  "name": "check returns the oldest unacknowledged FIFO batch",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "default: return the bound Run's oldest unacknowledged FIFO batch.",
+    "scope": "orca orchestration check",
+    "note": "--peek returns unread messages without marking them read; --all returns every message for the handle and marks none read."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.orchestration.check"
+    }
+  ]
+}

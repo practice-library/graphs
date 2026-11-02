@@ -1,0 +1,14 @@
+{
+  "id": "vendor.orca",
+  "type": "vendor",
+  "name": "Orca",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/LICENSE",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T08:12:53Z",
+    "quote": "Copyright (c) 2026 Lovecast Inc.",
+    "note": "Orca is published as the open-source repository stablyai/orca. This graph cites that repository at tag v1.4.245 only."
+  },
+  "edges": []
+}

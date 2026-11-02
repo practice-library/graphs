@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.worktree-create-branch",
+  "type": "rule",
+  "name": "Branch name and base ref",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/core.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "Pass --branch to name the Git branch without the configured prefix (a taken name gets a numeric suffix); --base-branch selects the starting ref instead.",
+    "scope": "orca worktree create",
+    "note": "Without --base-branch the repo default base is used. A taken branch name gets a numeric suffix rather than an error."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.worktree.create"
+    }
+  ]
+}

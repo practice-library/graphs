@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.check-replay",
+  "type": "rule",
+  "name": "A Delivery is replayed until acknowledged",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "A bound Run replays the same Delivery until --ack or all its messages are marked read, even with --types; process every message before acknowledging.",
+    "scope": "orca orchestration check",
+    "note": "To drain, repeat check with --ack of the previous deliveryId until deliveryId is null. --peek and --all do not drain."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.orchestration.check"
+    }
+  ]
+}

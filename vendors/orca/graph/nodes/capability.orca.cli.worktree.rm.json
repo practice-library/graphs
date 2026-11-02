@@ -1,0 +1,20 @@
+{
+  "id": "capability.orca.cli.worktree.rm",
+  "type": "capability",
+  "name": "orca worktree rm",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/core.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "Remove a Git worktree or a folder workspace entry from Orca",
+    "scope": "orca worktree rm --worktree <selector> [--force] [--run-hooks] [--allow-failed-archive-hook] [--json]",
+    "note": "Effect: removes: the checkout, its sessions, and the local branch where safe. Flags besides the global ones: --worktree, --force, --run-hooks, --allow-failed-archive-hook. Marked destructive in its spec."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.orca.cli"
+    }
+  ]
+}

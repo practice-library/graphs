@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.terminal-send-retry",
+  "type": "rule",
+  "name": "Retry a lost send only with --retry-request",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/terminal-send.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:17Z",
+    "quote": "After an ambiguous transport failure, reissue the exact command with the reported --retry-request ID.",
+    "scope": "orca terminal send",
+    "note": "The ID is bound to the prompt payload and the exact terminal process incarnation."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.terminal.send"
+    }
+  ]
+}

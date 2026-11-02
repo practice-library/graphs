@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.json-output",
+  "type": "rule",
+  "name": "With --json, the result is printed as indented JSON",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/format.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:10:10Z",
+    "quote": "console.log(JSON.stringify(prepareComputerCliJsonResult(response), null, 2))",
+    "scope": "every command that prints through printResult",
+    "note": "Without --json a per-command formatter prints text. This repository reads it as valid JSON because JSON.stringify escapes U+0000 to U+001F; no upstream promise of valid JSON was found."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.orca.cli"
+    }
+  ]
+}

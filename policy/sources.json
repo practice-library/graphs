@@ -343,6 +343,46 @@
       "minIntervalDays": 7,
       "maxBytes": 500000,
       "timeoutSeconds": 30
+    },
+    {
+      "host": "raw.githubusercontent.com",
+      "vendor": "orca",
+      "robots": {
+        "url": "https://raw.githubusercontent.com/robots.txt",
+        "checkedAt": "2026-11-01T08:12:53Z",
+        "verdict": "absent",
+        "note": "robots.txt returns 404. The cited URLs are files of the stablyai/orca repository at commit 1c6ac8c3 (tag v1.4.245)."
+      },
+      "terms": {
+        "url": "https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies",
+        "checkedAt": "2026-11-01T05:20:14Z",
+        "quote": "Scraping refers to extracting information from our Service via an automated process, such as a bot or webcrawler."
+      },
+      "format": "text",
+      "maxRequestsPerRun": 28,
+      "minIntervalDays": 7,
+      "maxBytes": 200000,
+      "timeoutSeconds": 30
+    },
+    {
+      "host": "api.github.com",
+      "vendor": "orca",
+      "robots": {
+        "url": "https://api.github.com/robots.txt",
+        "checkedAt": "2026-11-01T08:12:53Z",
+        "verdict": "absent",
+        "note": "robots.txt returns 404. The cited URL is the commit endpoint for tag v1.4.245 of stablyai/orca."
+      },
+      "terms": {
+        "url": "https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies",
+        "checkedAt": "2026-11-01T05:20:14Z",
+        "quote": "Scraping does not refer to the collection of information through our API."
+      },
+      "format": "json",
+      "maxRequestsPerRun": 2,
+      "minIntervalDays": 7,
+      "maxBytes": 2000000,
+      "timeoutSeconds": 30
     }
   ]
 }

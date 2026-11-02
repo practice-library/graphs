@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.worktree-ps-terminal-verdict",
+  "type": "rule",
+  "name": "Terminal verdict: live, unverifiable or none",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/worktree-ps-terminal-verdict.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:12:01Z",
+    "quote": "type TerminalVerdict = 'live' | 'unverifiable' | 'none'",
+    "scope": "terminalVerdict in worktree ps --json rows",
+    "note": "none means the host reports no terminal; it never means exited. A host too old to report the count gives unverifiable."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.worktree.ps"
+    }
+  ]
+}

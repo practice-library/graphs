@@ -1,0 +1,20 @@
+{
+  "id": "capability.orca.cli.terminal.create",
+  "type": "capability",
+  "name": "orca terminal create",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/core.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "Create a terminal session in the current worktree",
+    "scope": "orca terminal create [--worktree <selector>] [--title <name>] [--command <text>] [--shell <shell>] [--focus] [--json]",
+    "note": "Effect: writes: a new terminal and process. Flags besides the global ones: --worktree, --command, --shell, --title, --focus."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.orca.cli"
+    }
+  ]
+}

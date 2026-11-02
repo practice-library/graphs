@@ -1,0 +1,19 @@
+{
+  "id": "rule.orca.cli.worker-start-setup",
+  "type": "rule",
+  "name": "Existing worktrees never rerun setup",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration-worker-specs.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:16Z",
+    "quote": "Current and existing worktrees never rerun setup; a fresh agent terminal is created unless --terminal is explicit.",
+    "scope": "orca orchestration worker-start"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.orchestration.worker-start"
+    }
+  ]
+}

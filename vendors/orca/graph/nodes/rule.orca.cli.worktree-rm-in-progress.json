@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.worktree-rm-in-progress",
+  "type": "rule",
+  "name": "A timed-out rm may still be deleting",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/handlers/worktree-removal-request.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:11:11Z",
+    "quote": "The host keeps deleting after this client stops waiting.",
+    "scope": "orca worktree rm",
+    "note": "The CLI then reports error code worktree_removal_in_progress and says to check worktree show before retrying."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.worktree.rm"
+    }
+  ]
+}

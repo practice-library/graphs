@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.send-types",
+  "type": "rule",
+  "name": "Message types",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "Valid --type values: status, dispatch, worker_done, merge_ready, escalation, handoff, decision_gate, question, heartbeat.",
+    "scope": "orca orchestration send --type",
+    "note": "worker_done requires --outcome succeeded or failed. From an active Dispatch an omitted recipient defaults to its Run mailbox."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.orchestration.send"
+    }
+  ]
+}

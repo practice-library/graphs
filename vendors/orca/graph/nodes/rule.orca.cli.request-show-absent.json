@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.request-show-absent",
+  "type": "rule",
+  "name": "request-show absent does not prove nothing happened",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "Absent is not proof that nothing happened.",
+    "scope": "orca orchestration request-show",
+    "note": "completed: the mutation landed. pending: still running, or Orca restarted before recording it. It is read-only."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.orchestration.request-show"
+    }
+  ]
+}

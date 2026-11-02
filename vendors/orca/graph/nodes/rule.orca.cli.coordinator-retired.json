@@ -1,0 +1,23 @@
+{
+  "id": "rule.orca.cli.coordinator-retired",
+  "type": "rule",
+  "name": "coordinator-start and coordinator-stop have no effect",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "denied",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "This command performs no effects and returns the exact `skills get orchestration --full` recovery action.",
+    "scope": "orca orchestration coordinator-start and coordinator-stop, and their aliases run and run-stop"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.orchestration.coordinator-start"
+    },
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.orchestration.coordinator-stop"
+    }
+  ]
+}

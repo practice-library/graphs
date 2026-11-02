@@ -1,0 +1,21 @@
+{
+  "id": "limit.orca.cli.check-peek-rows",
+  "type": "limit",
+  "name": "check --all and Run --peek show at most 100 rows",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "--all and a Run --peek show at most 100 rows",
+    "value": 100,
+    "unit": "rows",
+    "scope": "orchestration check --all, and --peek on a Run"
+  },
+  "edges": [
+    {
+      "rel": "limits",
+      "to": "capability.orca.cli.orchestration.check"
+    }
+  ]
+}

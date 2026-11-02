@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.local-error-envelope",
+  "type": "rule",
+  "name": "Errors raised before the runtime answers use id local",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/cli-error.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:10:09Z",
+    "quote": "(error instanceof RuntimeClientError ? error.code : 'runtime_error')",
+    "scope": "--json errors raised in the CLI process",
+    "note": "The CLI prints a failure envelope with id local and _meta.runtimeId null; an error without its own code is reported as runtime_error."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.orca.cli"
+    }
+  ]
+}

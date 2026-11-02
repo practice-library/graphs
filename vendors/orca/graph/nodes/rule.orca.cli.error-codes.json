@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.error-codes",
+  "type": "rule",
+  "name": "No single catalogue of error codes",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/cli-error.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "unknown",
+    "fetched_at": "2026-11-01T08:10:09Z",
+    "quote": "if (code === 'selector_not_found' && context.worktreeSelector) {",
+    "scope": "error.code values",
+    "note": "Absent: no catalogue in src/cli/cli-error.ts, index.ts, runtime/types.ts, handlers/terminal.ts or handlers/worktree-removal-request.ts (checked). Codes these name include selector_not_found, terminal_handle_stale, runtime_unavailable, incompatible_runtime, worktree_removal_in_progress."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.orca.cli"
+    }
+  ]
+}

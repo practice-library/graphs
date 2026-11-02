@@ -1,0 +1,19 @@
+{
+  "id": "rule.orca.cli.worktree-create-retry",
+  "type": "rule",
+  "name": "A lost agent launch reply is retried with --retry-launch",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/core.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "Never retry as a fresh launch; older hosts require inspecting the workspace first.",
+    "scope": "orca worktree create --agent"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.worktree.create"
+    }
+  ]
+}

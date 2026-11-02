@@ -1,0 +1,19 @@
+{
+  "id": "rule.orca.cli.terminal-handle-lifetime",
+  "type": "rule",
+  "name": "Handles are runtime-scoped; reacquire them after a restart",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/docs/site/content/docs/cli/reference.mdx",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:41:22Z",
+    "quote": "Terminal handles are runtime-scoped. If Orca restarts or a command reports a stale terminal handle, run `orca terminal list --json` and reacquire the handle.",
+    "scope": "terminal handles across an Orca restart"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.orca.cli"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.worker-stop-keeps",
+  "type": "rule",
+  "name": "worker-stop never deletes the worktree",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration-worker-specs.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:16Z",
+    "quote": "Never deletes the worktree, setup terminal, configured tabs, or unrelated processes.",
+    "scope": "orca orchestration worker-stop",
+    "note": "It fences the Dispatch and stops its supervised agent terminal. stop_unknown exits 1 when the agent exit was not proven."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.orchestration.worker-stop"
+    }
+  ]
+}

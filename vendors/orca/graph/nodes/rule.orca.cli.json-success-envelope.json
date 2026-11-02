@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.json-success-envelope",
+  "type": "rule",
+  "name": "Success envelope: id, ok true, result, _meta.runtimeId",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/shared/runtime-rpc-envelope.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:10:56Z",
+    "quote": "export type RuntimeRpcSuccess<TResult> = {",
+    "scope": "--json output of a successful command",
+    "note": "Fields: id (string), ok (true), result (the command payload), _meta.runtimeId (string). Peers strip unknown envelope fields while validating known ones."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.orca.cli"
+    }
+  ]
+}

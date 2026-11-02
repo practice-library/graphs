@@ -1,0 +1,16 @@
+{
+  "id": "release.orca.cli.1-4-245",
+  "type": "release",
+  "name": "Orca 1.4.245 (pinned)",
+  "source": "https://api.github.com/repos/stablyai/orca/commits/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T08:12:54Z",
+    "quote": "2026-10-30T04:58:28Z",
+    "scope": "v1.4.245",
+    "window": "2026-10-30",
+    "note": "Tag v1.4.245 is commit 1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3, the commit every quote in this graph is read at. Its agent-context lists 288 commands."
+  },
+  "edges": []
+}

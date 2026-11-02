@@ -5,6 +5,8 @@
 ,
 "vendors/gitleaks/graph/nodes/"
 ,
+"vendors/orca/graph/nodes/"
+,
 "vendors/osv/graph/nodes/"
 ,
 "vendors/postgresql/graph/nodes/"

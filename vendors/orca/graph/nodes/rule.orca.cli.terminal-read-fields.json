@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.terminal-read-fields",
+  "type": "rule",
+  "name": "terminal read --json fields",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/core.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "With --json, fields are under result.terminal: handle, status (running | exited | unknown), tail (output lines)",
+    "scope": "orca terminal read --json",
+    "note": "Always present: handle, status, tail, truncated, nextCursor. Others may be absent. truncated: older output is gone; limited: a line or size limit cut it."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.terminal.read"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "rule.orca.cli.terminal-create-tab",
+  "type": "rule",
+  "name": "terminal create opens a visible tab without stealing focus",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/core.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "Creates a visible terminal tab without switching focus when possible; falls back to a background handle if the UI cannot adopt it.",
+    "scope": "orca terminal create"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.terminal.create"
+    }
+  ]
+}

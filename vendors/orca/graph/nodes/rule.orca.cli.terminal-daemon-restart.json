@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.terminal-daemon-restart",
+  "type": "rule",
+  "name": "Restarting the terminal daemon ends every process in its terminals",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/terminal-daemon.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:17Z",
+    "quote": "Restarting ENDS every process running in its terminals.",
+    "scope": "orca terminal-daemon restart --yes",
+    "note": "Agents that support resume can be resumed afterwards; shells and other jobs must be started again. It requires --yes."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.terminal-daemon.restart"
+    }
+  ]
+}

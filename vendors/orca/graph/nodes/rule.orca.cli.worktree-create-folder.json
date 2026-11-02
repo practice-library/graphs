@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.worktree-create-folder",
+  "type": "rule",
+  "name": "Folder location of a new worktree",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/core.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "unknown",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "Create a new Orca-managed worktree",
+    "scope": "orca worktree create",
+    "note": "Absent: src/cli/specs/core.ts (checked), docs/site/content/docs/cli/overview.mdx and reference.mdx (checked) do not state where the checkout folder is placed. The quote does not support a location."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.worktree.create"
+    }
+  ]
+}

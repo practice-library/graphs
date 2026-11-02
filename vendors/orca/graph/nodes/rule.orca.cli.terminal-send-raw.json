@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.terminal-send-raw",
+  "type": "rule",
+  "name": "Without --enter, text is written to the PTY verbatim",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/terminal-send.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:17Z",
+    "quote": "Without --enter, --text is written to the PTY verbatim, so control bytes pass through",
+    "scope": "orca terminal send",
+    "note": "With --enter and without --interrupt, a prompt to a recognised agent is bracketed-pasted and embedded Escape bytes are made inert."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.terminal.send"
+    }
+  ]
+}

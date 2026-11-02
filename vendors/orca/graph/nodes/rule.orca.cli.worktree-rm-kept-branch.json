@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.worktree-rm-kept-branch",
+  "type": "rule",
+  "name": "A branch Git cannot safely delete is kept and reported",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/handlers/worktree-removal-warnings.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:11:12Z",
+    "quote": "was kept because Git could not safely delete it",
+    "scope": "orca worktree rm, text output",
+    "note": "Without --json this is a warning on stderr naming the branch; the JSON result carries it as preservedBranch."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.worktree.rm"
+    }
+  ]
+}

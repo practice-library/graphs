@@ -1,0 +1,20 @@
+{
+  "id": "capability.orca.cli.orchestration.ask",
+  "type": "capability",
+  "name": "orca orchestration ask",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/orchestration.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "Ask the coordinator a question and block until answered",
+    "scope": "orca orchestration ask (--question <text> | --resume <message_id>) [--to <run:id>] [--run <run_id>] [--options <csv>] [--timeout-ms <n>] [--from <handle>] [--retry-request <id>] [--json]",
+    "note": "Effect: writes: a question message, then waits. Flags besides the global ones: --to, --run, --question, --resume, --dispatch-capability, --options, --timeout-ms, --from, --retry-request."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.orca.cli"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.worktree-create-terminal",
+  "type": "rule",
+  "name": "Creates a first terminal without switching the view",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/core.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "By default this creates the worktree and its first terminal without switching the active Orca view.",
+    "scope": "orca worktree create",
+    "note": "--activate reveals the new worktree. --agent also starts an agent in it."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.worktree.create"
+    }
+  ]
+}

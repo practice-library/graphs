@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.terminal-handle-server",
+  "type": "rule",
+  "name": "A terminal handle belongs to the server that issued it",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/cli-error.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:10:09Z",
+    "quote": "Terminal handles belong to the Orca server that issued them.",
+    "scope": "terminal handles",
+    "note": "A handle used against another server is reported as terminal_handle_stale."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "product.orca.cli"
+    }
+  ]
+}

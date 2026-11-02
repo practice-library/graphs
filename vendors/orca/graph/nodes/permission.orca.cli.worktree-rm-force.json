@@ -1,0 +1,20 @@
+{
+  "id": "permission.orca.cli.worktree-rm-force",
+  "type": "permission",
+  "name": "--force skips the uncommitted-changes check",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/main/git/worktree-removal-preflight.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:11:28Z",
+    "quote": "if (force) { return }",
+    "scope": "orca worktree rm --force",
+    "note": "With --force the dirty check returns at once and git worktree remove is run with --force, so uncommitted and untracked work in the checkout is lost."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.worktree.rm"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "rule.orca.cli.worktree-rm-folder",
+  "type": "rule",
+  "name": "Folder workspaces: rm removes the Orca entry only",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/specs/core.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:16:15Z",
+    "quote": "For a non-root folder workspace, removes its Orca entry and stops its sessions without deleting the folder or touching Git.",
+    "scope": "orca worktree rm, folder workspaces",
+    "note": "The folder project root cannot be removed with this command."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.worktree.rm"
+    }
+  ]
+}

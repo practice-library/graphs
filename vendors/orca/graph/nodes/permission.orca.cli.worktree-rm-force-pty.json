@@ -1,0 +1,20 @@
+{
+  "id": "permission.orca.cli.worktree-rm-force-pty",
+  "type": "permission",
+  "name": "--force also waives proof that its terminals stopped",
+  "source": "https://raw.githubusercontent.com/stablyai/orca/1c6ac8c3c4d2c3dec2cb5966d225ca2a0e0471d3/src/cli/handlers/worktree-removal-request.ts",
+  "measuredAt": "2026-11-01",
+  "attrs": {
+    "verdict": "limited",
+    "fetched_at": "2026-11-01T08:11:11Z",
+    "quote": "--force also waives PTY-stop proof.",
+    "scope": "orca worktree rm --force",
+    "note": "The request sets allowUnverifiedPtyStop to the value of --force."
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "capability.orca.cli.worktree.rm"
+    }
+  ]
+}
