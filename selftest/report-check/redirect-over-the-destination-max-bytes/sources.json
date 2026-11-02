@@ -1,0 +1,18 @@
+{
+  "userAgent": "u",
+  "maxRequestsPerRun": 10,
+  "hosts": [
+    {
+      "host": "docs.a.example",
+      "vendor": "a",
+      "maxRequestsPerRun": 5,
+      "maxBytes": 100000
+    },
+    {
+      "host": "docs2.a.example",
+      "vendor": "a",
+      "maxRequestsPerRun": 5,
+      "maxBytes": 1000
+    }
+  ]
+}
