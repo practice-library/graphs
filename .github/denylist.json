@@ -22,6 +22,34 @@
       "terms": [
         "4223500be1e62b1ace4e10381cba51c0df85565e4651821b4642e2a5bebc42d8"
       ]
+    },
+    {
+      "glob": "vendors/a?thropic/**",
+      "terms": [
+        "c12ae719f2f2026718453aa5510b35641a2343ea8282ece0006d209af6a57a68",
+        "ee137ca14b2b82e0260af847c00da288a537e04d976690626093f5a2821f170d"
+      ]
+    },
+    {
+      "glob": "policy/source-scopes.json",
+      "terms": [
+        "c12ae719f2f2026718453aa5510b35641a2343ea8282ece0006d209af6a57a68",
+        "ee137ca14b2b82e0260af847c00da288a537e04d976690626093f5a2821f170d"
+      ]
+    },
+    {
+      "glob": ".github/CODEOWNERS",
+      "terms": [
+        "c12ae719f2f2026718453aa5510b35641a2343ea8282ece0006d209af6a57a68",
+        "ee137ca14b2b82e0260af847c00da288a537e04d976690626093f5a2821f170d"
+      ]
+    },
+    {
+      "glob": ".github/automerge-paths.json",
+      "terms": [
+        "c12ae719f2f2026718453aa5510b35641a2343ea8282ece0006d209af6a57a68",
+        "ee137ca14b2b82e0260af847c00da288a537e04d976690626093f5a2821f170d"
+      ]
     }
   ],
   "allowAuthorNames": [
