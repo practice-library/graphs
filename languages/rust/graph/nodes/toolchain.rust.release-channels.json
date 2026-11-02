@@ -1,0 +1,19 @@
+{
+  "id": "toolchain.rust.release-channels",
+  "type": "toolchain",
+  "name": "Release channels: nightly, beta, stable",
+  "source": "https://doc.rust-lang.org/stable/book/appendix-07-nightly-rust.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "Most Rust developers primarily use the stable channel, but those who want to try out experimental new features may use nightly or beta.",
+    "scope": "release channels"
+  },
+  "edges": [
+    {
+      "rel": "appliesTo",
+      "to": "version-line.rust.1"
+    }
+  ]
+}

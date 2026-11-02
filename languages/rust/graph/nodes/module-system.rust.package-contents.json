@@ -1,0 +1,19 @@
+{
+  "id": "module-system.rust.package-contents",
+  "type": "module-system",
+  "name": "Crates in a package",
+  "source": "https://doc.rust-lang.org/stable/book/ch07-01-packages-and-crates.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "A package can contain as many binary crates as you like, but at most only one library crate.",
+    "scope": "binary and library crates in a package"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "module-system.rust.packages"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "release.rust.1-92-0",
+  "type": "release",
+  "name": "Rust 1.92.0",
+  "source": "https://blog.rust-lang.org/2025/12/11/Rust-1.92.0/",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "The Rust team is happy to announce a new version of Rust, 1.92.0.",
+    "scope": "1.92.0",
+    "window": "2025-12-11",
+    "note": "Release date from the post's date in its URL."
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.rust.1"
+    }
+  ]
+}

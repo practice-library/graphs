@@ -1,0 +1,19 @@
+{
+  "id": "toolchain.rust.edition-migration",
+  "type": "toolchain",
+  "name": "Automatic edition migration",
+  "source": "https://doc.rust-lang.org/stable/edition-guide/editions/index.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "When a new edition releases, crate authors may use automatic migration tooling within `cargo` to migrate.",
+    "scope": "edition migration"
+  },
+  "edges": [
+    {
+      "rel": "requires",
+      "to": "toolchain.rust.cargo"
+    }
+  ]
+}

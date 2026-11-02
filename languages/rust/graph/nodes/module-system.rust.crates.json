@@ -1,0 +1,19 @@
+{
+  "id": "module-system.rust.crates",
+  "type": "module-system",
+  "name": "Crates",
+  "source": "https://doc.rust-lang.org/stable/book/ch07-01-packages-and-crates.html",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:29:50Z",
+    "quote": "A crate is the smallest amount of code that the Rust compiler considers at a time.",
+    "scope": "crates"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "module-system.rust.overview"
+    }
+  ]
+}

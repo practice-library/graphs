@@ -240,6 +240,68 @@
         "clause": "Except as noted, the contents of this site are licensed under the Creative Commons Attribution 4.0 License, and code is licensed under a BSD license.",
         "clauseUrl": "https://go.dev/copyright"
       }
+    },
+    {
+      "vendor": "rust",
+      "host": "rust-lang.org",
+      "paths": [
+        "/"
+      ],
+      "permission": {
+        "state": "established",
+        "clause": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:",
+        "clauseUrl": "https://rust-lang.org/policies/licenses/"
+      }
+    },
+    {
+      "vendor": "rust",
+      "host": "doc.rust-lang.org",
+      "paths": [
+        "/stable/"
+      ],
+      "disallowed": [
+        "/book/first-edition/",
+        "/book/second-edition/",
+        "/stable/book/first-edition/",
+        "/stable/book/second-edition/",
+        "/beta/book/first-edition/",
+        "/beta/book/second-edition/",
+        "/nightly/book/first-edition/",
+        "/nightly/book/second-edition/"
+      ],
+      "permission": {
+        "state": "established",
+        "clause": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:",
+        "clauseUrl": "https://rust-lang.org/policies/licenses/"
+      }
+    },
+    {
+      "vendor": "rust",
+      "host": "blog.rust-lang.org",
+      "paths": [
+        "/2015/",
+        "/2018/",
+        "/2021/",
+        "/2025/",
+        "/2026/"
+      ],
+      "permission": {
+        "state": "established",
+        "clause": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:",
+        "clauseUrl": "https://rust-lang.org/policies/licenses/"
+      }
+    },
+    {
+      "vendor": "rust",
+      "host": "forge.rust-lang.org",
+      "paths": [
+        "/release/"
+      ],
+      "permission": {
+        "state": "established",
+        "clause": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:",
+        "clauseUrl": "https://rust-lang.org/policies/licenses/"
+      }
     }
   ]
 }

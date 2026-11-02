@@ -345,23 +345,83 @@
       "timeoutSeconds": 30
     },
     {
-      "host": "openjdk.org",
-      "vendor": "java",
+      "host": "rust-lang.org",
+      "vendor": "rust",
       "robots": {
-        "url": "https://openjdk.org/robots.txt",
-        "checkedAt": "2026-11-02T11:20:00Z",
+        "url": "https://rust-lang.org/robots.txt",
+        "checkedAt": "2026-11-02T17:28:00Z",
+        "verdict": "absent",
+        "note": "robots.txt returns 404 Not Found. www.rust-lang.org answers every path, robots.txt included, with a 301 to this host, so the graph cites this host directly."
+      },
+      "terms": {
+        "url": "https://rust-lang.org/policies/licenses/",
+        "checkedAt": "2026-11-02T17:28:00Z",
+        "quote": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:"
+      },
+      "format": "html",
+      "maxRequestsPerRun": 4,
+      "minIntervalDays": 7,
+      "maxBytes": 1000000,
+      "timeoutSeconds": 30
+    },
+    {
+      "host": "doc.rust-lang.org",
+      "vendor": "rust",
+      "robots": {
+        "url": "https://doc.rust-lang.org/robots.txt",
+        "checkedAt": "2026-11-02T11:10:00Z",
+        "verdict": "allowed",
+        "note": "User-agent: * disallows /0. and /1. (versioned docs) and the first-edition and second-edition books; the cited pages are under /stable/."
+      },
+      "terms": {
+        "url": "https://rust-lang.org/policies/licenses/",
+        "checkedAt": "2026-11-02T17:28:00Z",
+        "quote": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:"
+      },
+      "format": "html",
+      "maxRequestsPerRun": 20,
+      "minIntervalDays": 7,
+      "maxBytes": 2000000,
+      "timeoutSeconds": 30
+    },
+    {
+      "host": "blog.rust-lang.org",
+      "vendor": "rust",
+      "robots": {
+        "url": "https://blog.rust-lang.org/robots.txt",
+        "checkedAt": "2026-11-02T11:10:00Z",
+        "verdict": "allowed",
+        "note": "robots.txt is User-agent: * with an empty Disallow and Allow: /, and a sitemap."
+      },
+      "terms": {
+        "url": "https://rust-lang.org/policies/licenses/",
+        "checkedAt": "2026-11-02T17:28:00Z",
+        "quote": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:"
+      },
+      "format": "html",
+      "maxRequestsPerRun": 20,
+      "minIntervalDays": 7,
+      "maxBytes": 1000000,
+      "timeoutSeconds": 30
+    },
+    {
+      "host": "forge.rust-lang.org",
+      "vendor": "rust",
+      "robots": {
+        "url": "https://forge.rust-lang.org/robots.txt",
+        "checkedAt": "2026-11-02T11:10:00Z",
         "verdict": "absent",
         "note": "robots.txt returns 404 Not Found."
       },
       "terms": {
-        "url": "https://openjdk.org/legal/tou/terms",
-        "checkedAt": "2026-11-02T11:25:00Z",
-        "quote": "You agree not to use any robot, spider, scraper or other automated means to access the Site or any Oracle accounts, computer systems or networks without Oracle's express written permission."
+        "url": "https://rust-lang.org/policies/licenses/",
+        "checkedAt": "2026-11-02T17:28:00Z",
+        "quote": "The Rust Programming Language and all other official projects, including this website, are generally dual-licensed:"
       },
       "format": "html",
-      "maxRequestsPerRun": 30,
-      "minIntervalDays": 30,
-      "maxBytes": 500000,
+      "maxRequestsPerRun": 2,
+      "minIntervalDays": 7,
+      "maxBytes": 1000000,
       "timeoutSeconds": 30
     },
     {
@@ -382,6 +442,26 @@
       "maxRequestsPerRun": 12,
       "minIntervalDays": 7,
       "maxBytes": 2000000,
+      "timeoutSeconds": 30
+    },
+    {
+      "host": "openjdk.org",
+      "vendor": "java",
+      "robots": {
+        "url": "https://openjdk.org/robots.txt",
+        "checkedAt": "2026-11-02T11:20:00Z",
+        "verdict": "absent",
+        "note": "robots.txt returns 404 Not Found."
+      },
+      "terms": {
+        "url": "https://openjdk.org/legal/tou/terms",
+        "checkedAt": "2026-11-02T11:25:00Z",
+        "quote": "You agree not to use any robot, spider, scraper or other automated means to access the Site or any Oracle accounts, computer systems or networks without Oracle's express written permission."
+      },
+      "format": "html",
+      "maxRequestsPerRun": 30,
+      "minIntervalDays": 30,
+      "maxBytes": 500000,
       "timeoutSeconds": 30
     }
   ]
