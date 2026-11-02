@@ -1,0 +1,24 @@
+{
+  "id": "release.java.11",
+  "type": "release",
+  "name": "JDK 11",
+  "source": "https://openjdk.org/projects/jdk/11/",
+  "measuredAt": "2026-11-02",
+  "attrs": {
+    "verdict": "allowed",
+    "fetched_at": "2026-11-02T11:30:00Z",
+    "quote": "JDK 11 reached General Availability on 25 September 2018.",
+    "scope": "11",
+    "window": "2018-09-25"
+  },
+  "edges": [
+    {
+      "rel": "partOf",
+      "to": "version-line.java.11-updates"
+    },
+    {
+      "rel": "supersedes",
+      "to": "release.java.10"
+    }
+  ]
+}

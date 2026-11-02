@@ -345,6 +345,26 @@
       "timeoutSeconds": 30
     },
     {
+      "host": "openjdk.org",
+      "vendor": "java",
+      "robots": {
+        "url": "https://openjdk.org/robots.txt",
+        "checkedAt": "2026-11-02T11:20:00Z",
+        "verdict": "absent",
+        "note": "robots.txt returns 404 Not Found."
+      },
+      "terms": {
+        "url": "https://openjdk.org/legal/tou/terms",
+        "checkedAt": "2026-11-02T11:25:00Z",
+        "quote": "You agree not to use any robot, spider, scraper or other automated means to access the Site or any Oracle accounts, computer systems or networks without Oracle's express written permission."
+      },
+      "format": "html",
+      "maxRequestsPerRun": 30,
+      "minIntervalDays": 30,
+      "maxBytes": 500000,
+      "timeoutSeconds": 30
+    },
+    {
       "host": "go.dev",
       "vendor": "go",
       "robots": {
