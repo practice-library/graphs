@@ -7,7 +7,7 @@
   "attrs": {
     "verdict": "allowed",
     "fetched_at": "2026-11-02T11:29:50Z",
-    "quote": "The Rust team is happy to announce a new version of Rust, 1.31.0.",
+    "quote": "The Rust team is happy to announce a new version of Rust, 1.31.0, and \"Rust 2018\" as well.",
     "scope": "1.31.0",
     "window": "2018-12-06",
     "note": "Release date from the post's date in its URL."

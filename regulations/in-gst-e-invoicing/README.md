@@ -78,12 +78,12 @@ The acceptance questions are in practice-library/graphs#57. These nodes answer t
    - `provision.in.ct-60-2020.irn` (the portal generates the IRN);
    - `provision.in.ct-72-2020.r46-r` (the QR code carrying the IRN).
 8. **Consequence:** `provision.in.ct-68-2019.r48-5`: the invoice is not treated as an invoice. Persons above the threshold who are not required to issue e-invoices declare so under `provision.in.ct-14-2022.r46-s`.
-9. **Time limits:** `timeline.in.ct-73-2020.upload-time-limit` is absent, and its note names the texts checked. This narrows #57's question. 73/2020 did set a limit, thirty days, but only for October 2020 invoices not prepared under rule 48(4). The schema has no status for a period that has ended, so that limit is given in the note rather than as its own timeline node (#61).
+9. **Time limits:** `timeline.in.ct-73-2020.upload-time-limit` is absent, and its note names the texts checked. This narrows #57's question. 73/2020 did set a limit, thirty days, but only for October 2020 invoices not prepared under rule 48(4). That limit is its own node, `timeline.in.ct-73-2020.october-2020-limit`, with status `expired` and window `2020-10-01/2020-10-31` (#61).
 10. **Amendments:** each amending notification has an instrument node with an `amends` edge, to `instrument.in.ct-13-2020` or to `instrument.in.cgst-rules-2017`.
     - Notification 13/2020 `supersedes` 70/2019.
     - The thresholds form a `supersedes` chain.
     - The 60/2020 form supersedes the 02/2020 form.
-    - The 2027 changes are `notified-not-in-force`. Their notes name the nodes they will replace. When they come into force, those nodes become `superseded` and gain `supersedes` edges.
+    - The 2027 changes are `notified-not-in-force`. Each already has a `supersedes` edge to the node it will replace: `provision.in.ct-04-2026.supplies` to `provision.in.ct-13-2020.documents`, and `provision.in.ct-05-2026.inv-01-v1-2` to `provision.in.ct-60-2020.inv-01`. The replaced nodes stay `in-force` until the new ones come into force, and then become `superseded`.
 
 ## Conventions
 

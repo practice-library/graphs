@@ -1,0 +1,17 @@
+{
+  "entries": [
+    {
+      "vendor": "a",
+      "host": "docs.a.example",
+      "paths": [
+        "/"
+      ],
+      "permission": {
+        "state": "established"
+      },
+      "disallowed": [
+        "/docs/private/"
+      ]
+    }
+  ]
+}

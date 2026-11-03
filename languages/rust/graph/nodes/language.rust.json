@@ -2,7 +2,7 @@
   "id": "language.rust",
   "type": "language",
   "name": "Rust",
-  "source": "https://www.rust-lang.org/",
+  "source": "https://rust-lang.org/",
   "measuredAt": "2026-11-02",
   "attrs": {
     "verdict": "allowed",

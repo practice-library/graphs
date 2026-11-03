@@ -7,9 +7,12 @@
         - robots.txt of a host is fetched before any page, and from that host;
         - every fetch and every redirect hop is on a host listed for the graph's vendor, and no host's
           entry is unresolved in source-scopes.json (the run reads nothing from it);
-        - no host gets more requests than its maxRequestsPerRun, and no response is longer than its maxBytes;
-        - every host a page was fetched from has a robots record that allows it (allowed or absent), and a robots
-          record that does not allow it ends the run: no page fetch and an aborted record;
+        - a page fetch and each of its redirect hops lies under a path source-scopes.json approves for that hop's
+          host, and under none of the paths it disallows;
+        - each hop is a request to its own host, and no host gets more requests than its maxRequestsPerRun;
+        - no response is longer than the maxBytes of the host the fetch ended on;
+        - every host a page fetch or one of its redirects reached has a robots record that allows it (allowed or
+          absent), and a robots record that does not allow it ends the run: no page fetch and an aborted record;
         - a result's source was fetched, its finalUrl is where that fetch ended, and its time lies inside the run.
   python3 scripts/report-check.py bump <report> <old node> <new node>
       The date bump of one node is supported by the report: the report has an unchanged result for the node, for
@@ -33,6 +36,13 @@ def host_of(url: str) -> str:
     return urlsplit(url).hostname or ""
 
 
+def in_scope(url: str, entry) -> bool:
+    path = urlsplit(url).path or "/"
+    if entry is None or not any(path.startswith(p) for p in entry["paths"]):
+        return False
+    return not any(path.startswith(p) for p in entry.get("disallowed", []))
+
+
 def check(report: dict, sources: dict, scopes: dict, commit: str) -> list:
     out = []
     if report.get("commit") != commit:
@@ -41,6 +51,7 @@ def check(report: dict, sources: dict, scopes: dict, commit: str) -> list:
     listed = {h["host"]: h for h in sources["hosts"] if h["vendor"] == vendor}
     unresolved = {s["host"] for s in scopes["entries"]
                   if s["vendor"] == vendor and s["permission"]["state"] == "unresolved"}
+    scope = {s["host"]: s for s in scopes["entries"] if s["vendor"] == vendor}
     fetches = report["fetches"]
     if report["requests"] != len(fetches):
         out.append(f"FAIL requests is {report['requests']} but the report lists {len(fetches)} fetches")
@@ -50,21 +61,25 @@ def check(report: dict, sources: dict, scopes: dict, commit: str) -> list:
     per_host = {}
     for i, f in enumerate(fetches):
         h = host_of(f["url"])
-        per_host[h] = per_host.get(h, 0) + 1
+        hops = [f["url"]] + f["redirects"]
         if f["kind"] == "page":
             seen_page = True
         elif seen_page:
             out.append(f"FAIL fetch {i}: robots.txt of {h} is fetched after a page")
         if f["kind"] == "robots" and urlsplit(f["url"]).path != "/robots.txt":
             out.append(f"FAIL fetch {i}: {f['url']} is not the host's /robots.txt")
-        for hop in [f["url"]] + f["redirects"]:
+        for hop in hops:
+            per_host[host_of(hop)] = per_host.get(host_of(hop), 0) + 1
             if host_of(hop) not in listed:
                 out.append(f"FAIL fetch {i}: {hop} is on a host not listed for {vendor}")
             elif host_of(hop) in unresolved:
                 out.append(f"FAIL fetch {i}: {hop} is on a host whose permission is unresolved")
-        entry = listed.get(h)
+            elif f["kind"] == "page" and not in_scope(hop, scope.get(host_of(hop))):
+                out.append(f"FAIL fetch {i}: {hop} is outside the paths approved for its host, or under one it disallows")
+        ended = host_of(hops[-1])
+        entry = listed.get(ended)
         if entry and f["bytes"] > entry["maxBytes"]:
-            out.append(f"FAIL fetch {i}: {f['bytes']} bytes from {h} is over its maxBytes {entry['maxBytes']}")
+            out.append(f"FAIL fetch {i}: {f['bytes']} bytes from {ended} is over its maxBytes {entry['maxBytes']}")
     for h, n in sorted(per_host.items()):
         if h in listed and n > listed[h]["maxRequestsPerRun"]:
             out.append(f"FAIL {n} requests to {h} are over its maxRequestsPerRun {listed[h]['maxRequestsPerRun']}")
@@ -73,7 +88,7 @@ def check(report: dict, sources: dict, scopes: dict, commit: str) -> list:
     for h in robots:
         if h not in robots_fetched:
             out.append(f"FAIL robots record for {h} has no robots.txt fetch")
-    page_hosts = {host_of(f["url"]) for f in fetches if f["kind"] == "page"}
+    page_hosts = {host_of(hop) for f in fetches if f["kind"] == "page" for hop in [f["url"]] + f["redirects"]}
     for h in sorted(page_hosts):
         r = robots.get(h)
         if r is None or r["verdict"] not in ("allowed", "absent"):

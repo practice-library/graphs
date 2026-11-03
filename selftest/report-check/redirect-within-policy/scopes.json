@@ -1,0 +1,24 @@
+{
+  "entries": [
+    {
+      "vendor": "a",
+      "host": "docs.a.example",
+      "paths": [
+        "/"
+      ],
+      "permission": {
+        "state": "established"
+      }
+    },
+    {
+      "vendor": "a",
+      "host": "docs2.a.example",
+      "paths": [
+        "/"
+      ],
+      "permission": {
+        "state": "established"
+      }
+    }
+  ]
+}

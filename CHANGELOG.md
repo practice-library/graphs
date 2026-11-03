@@ -2,7 +2,19 @@
 
 One entry per release of this repository. A release names the practice-library/.github release its own CI checked it against.
 
-## Unreleased
+## v1.0.0
+
+Checked against practice-library/.github v3.1.0 (`fa14c82916585c4e3357985a0433e60123f3b91d`). No backward compatibility with v0.2.0 is kept: the vendor schema, the regulation schema and the sources policy all change shape.
+
+- `languages/`, a new domain with two root graphs, each with a README that maps ten acceptance questions to nodes: `languages/go` (59 nodes, from go.dev; #96) and `languages/rust` (51 nodes, from rust-lang.org and its subdomains; #97). `practices/` is a declared graph kind with no graph yet. A Java graph was prepared (#95, #97) but is not in this release. Its pages came from a site whose terms bar automated reading, and most of its facts have no equivalent in the project's own source repositories, so it is withdrawn and its host removed from the source policy.
+- `vendors/schema.json` (#93): the node types `command`, `flag`, `argument`, `configuration` and `error` for a command-line tool, with `scripts/inventory-check.py` checking a vendor's `inventory.json` coverage; `edges[].rel` is limited to the vendor relations plus `partOf`; `attrs.status` and the envelope's `absent` verdict are forbidden (#44, #84).
+- `regulations/schema.json` (#93): a node's `window` may be an interval, and a regulation may be `expired`, `repealed` or `never-effective`; the node type `publication` (with `scope` and a single-date `window`) is new; the thirty-day upload limit of October 2020 is its own `expired` timeline node; `supersedes` links are completed (#75, #76).
+- Checks (#94): `scripts/graph-semantics.py` and `policy/graph-rules.json` check relation endpoints, loops, provenance and supersession (#77); every domain in `indexDomains` is indexed and checked (#78); a date bump needs the refresh report that shows its fetch, and `INDEX.md` carries no measurement dates (#69, #79); `policy/source-scopes.json` is new and required: every host in `policy/sources.json` needs a scope there, which limits it to approved paths and records whether permission is established (#80, #83); robots refusals and throttles are verdicts of the refresh report, with `fetches` provenance checked by `scripts/report-check.py` (#81, #82); `spec/sources/schema.json` is removed in favour of the pinned upstream copy (#58).
+- Six `vendors/temporal` quotes that had left their pages are re-quoted (#102).
+- Refresh reports (found in review): `bump-only` validates a report against `spec/refresh-report/schema.json` before the report can support a bump. It uses jsonschema 17.2.1, pinned by sha256 in `policy/constants.json` (`tools.jsonschema`) and run by `scripts/jsonschema.sh`. `scripts/report-check.py` holds every redirect hop to its own host's policy: approved and disallowed paths, request cap, robots record, and the size cap of the host where the fetch ended.
+- `policy/graph-rules.json`: a `publication` may be `partOf` an `instrument`, as `regulations/schema.json` describes it (found in review).
+
+Also in this release:
 
 - Pins practice-library/.github v3.1.0 (`fa14c82916585c4e3357985a0433e60123f3b91d`), after v2.6.0, taking in the breaking changes of v3.0.0. Every reusable workflow call in `.github/workflows/` moves to that commit, rendered from `policy/constants.json`.
 - The guards check out their own tooling at the pinned commit. A loosened schema, or a denylist exemption that is added or widened, now needs a maintainer's approval of the pull request's exact head; the `schema-loosening-approved` label only re-runs the check.
@@ -10,7 +22,6 @@ One entry per release of this repository. A release names the practice-library/.
 - No caller input or required job changes: the caller keeps the same inputs, the required check is still `gate / gate`, and this repository used none of the paths, inputs or constants that v3.0.0 removed.
 - Checks run for pull requests to, and pushes to, the `v1` integration branch as well as `main`.
 - The `guards` job runs as six shards, with check names `guards 1/6` to `guards 6/6`; `scripts/guards.py --shard K/N` selects the rows of one shard, and the gate needs the whole matrix.
-- `languages`: the edge relation `supports`, which the shared node envelope does not have, is replaced by the envelope's `appliesTo` in `languages/schema.json`, the `languages/go` nodes, the examples and the counter-examples. A consumer that reads language edges by relation reads `appliesTo`.
 - `regulations/schema.json` no longer restates the envelope's `attrs.status` list; the pinned envelope owns it.
 - The shared node contract at v3.1.0 allows the statuses `expired`, `repealed` and `never-effective`, which the regulation graphs use; at v3.1.0 the `schema-loosening` guard also judges in a calling repository such as this one.
 - `policy/sources.json`: `docs.github.com` may serve up to 4000000 bytes per page, up from 2000000. The workflow syntax reference measured 2105922 bytes on 2026-11-02 and could not be re-read under the old cap.

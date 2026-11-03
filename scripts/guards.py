@@ -15,7 +15,7 @@ Before any mutant, one unmutated run must pass every named case. Covered: graph-
 quote-value.py, graph-semantics.py, inventory-check.py, sources-check.py, report-check.py, render.sh, parse_shard below
 and bump-only.sh (not its check that a node is unchanged between the report's commit and the base: the self-test builds
 only two commits) and the lists in policy/graph-rules.json. Not covered: index.sh (scripts/index-selftest.sh runs its own
-cases), the policy lists graph-semantics.py skips by id (`exceptions`, `unless`), the usage checks on argument counts, the
+cases), jsonschema.sh (it fetches the pinned validator; a sha256 mismatch stops every run that needs it), the policy lists graph-semantics.py skips by id (`exceptions`, `unless`), the usage checks on argument counts, the
 missing-directory exit in graphs.sh (without it, find reports the missing directory and lists nothing, the same output) and the measuredAt type test in bump-only.sh, which no input reaches alone.
 Python 3.9 or later, standard library only. Run: python3 scripts/guards.py [--shard K/N]
 --shard K/N runs only the rows (GUARDS, then PINS, then BACKSTOPS) whose 0-based index i has i % N == K-1,
@@ -36,7 +36,7 @@ GS, SC, S = "scripts/graph-semantics.py", "scripts/sources-check.py", "selftest/
 RC, R = "scripts/report-check.py", "selftest/report-check/"
 IV, GRULES = "scripts/inventory-check.py", "policy/graph-rules.json"
 # Files outside scripts/ and selftest/ that the scripts read from their own checkout.
-SUPPORT = ["policy/graph-rules.json", "policy/constants.json"]
+SUPPORT = ["policy/graph-rules.json", "policy/constants.json", "spec/refresh-report/schema.json"]
 C = "selftest/graph-check/"
 F, K, P = "selftest/bump-only-file/", "selftest/bump-only-classify/", "selftest/bump-only-pr/"
 RS, RN = "scripts/render.sh", "selftest/render/"
@@ -132,6 +132,8 @@ GUARDS = [
     ("a repository outside the approved ones is not cited", SC, 'elif not under(p, s["paths"]):', "elif False:",
      S + "other-repository-on-shared-host"),
     ("a bump needs its refresh report", BO, 'bound_to_report "$tmp" "$tmp/diff"', "true", P + "bump-without-report"),
+    ("a refresh report follows its schema", BO, '|| die "$report: does not follow spec/refresh-report/schema.json"',
+     "|| true", P + "report-breaks-its-schema"),
     ("a report must be valid under the base's policy", BO,
      '|| die "$report: not valid under policy/sources.json"', "|| true", P + "report-breaks-the-byte-limit"),
     ("a report must support the bump", BO, '|| die "$path: the report does not support this bump"', "|| true",
@@ -150,11 +152,29 @@ GUARDS = [
      'if f["kind"] == "robots" and urlsplit(f["url"]).path != "/robots.txt":', "if False:",
      R + "robots-fetch-not-at-root"),
     ("a request and its redirects stay on listed hosts", RC, "if host_of(hop) not in listed:", "if False:",
-     R + "redirect-to-unlisted-host"),
+     R + "robots-redirect-to-unlisted-host"),
     ("nothing is read from a host whose permission is unresolved", RC, "elif host_of(hop) in unresolved:",
      "elif False:", R + "host-permission-unresolved"),
     ("no response is longer than the host's maxBytes", RC, 'if entry and f["bytes"] > entry["maxBytes"]:', "if False:",
      R + "fetch-over-max-bytes"),
+    ("a response is held to the maxBytes of the host it ended on", RC, "ended = host_of(hops[-1])", "ended = h",
+     R + "redirect-over-the-destination-max-bytes"),
+    ("each redirect hop is a request to its own host", RC,
+     "per_host[host_of(hop)] = per_host.get(host_of(hop), 0) + 1",
+     'per_host[host_of(hop)] = per_host.get(host_of(hop), 0) + (hop == f["url"])',
+     R + "redirects-over-the-destination-request-cap"),
+    ("a page and its redirects stay inside the paths approved for their hosts", RC,
+     'elif f["kind"] == "page" and not in_scope(hop, scope.get(host_of(hop))):', "elif False:",
+     R + "page-outside-approved-paths"),
+    ("a path must start with one the host's scope approves", RC,
+     'if entry is None or not any(path.startswith(p) for p in entry["paths"]):', "if entry is None:",
+     R + "page-outside-approved-paths"),
+    ("a path under one the host's scope disallows is refused", RC,
+     'return not any(path.startswith(p) for p in entry.get("disallowed", []))', "return True",
+     R + "redirect-into-a-disallowed-path"),
+    ("every host a page's redirects reach needs a robots record that allows it", RC,
+     'for hop in [f["url"]] + f["redirects"]}', 'for hop in [f["url"]]}',
+     R + "redirect-to-host-without-robots-record"),
     ("no host gets more requests than its cap", RC, 'if h in listed and n > listed[h]["maxRequestsPerRun"]:',
      "if False:", R + "host-over-its-request-cap"),
     ("a robots record has its fetch", RC, "if h not in robots_fetched:", "if False:", R + "robots-record-without-fetch"),
@@ -279,6 +299,8 @@ GUARDS = [
     ("a never-effective fact has a node that supersedes it", GRULES,
      '"needsReplacement": ["superseded", "never-effective"]', '"needsReplacement": ["superseded"]',
      C + "regulation-never-effective-without-replacement"),
+    ("a publication is partOf its instrument", GRULES, '["publication", "instrument"],', '',
+     C + "regulation-publication-part-of-instrument"),
     ("a fact still pending may replace one in force", GRULES,
      '"pendingReplacers": ["notified-not-in-force", "draft"]', '"pendingReplacers": []', C + "regulation-lifecycle-complete"),
     ("a command, flag or argument is partOf a command or product", GC, "select($held == 0)", "select(false)",

@@ -28,6 +28,18 @@
   "guards": {
     "shards": 6
   },
+  "tools": {
+    "jsonschema": {
+      "repo": "sourcemeta/jsonschema",
+      "version": "17.2.1",
+      "sha256": {
+        "linux-x86_64": "9ffee3cfbe0fe1343d9d36bcce9e6036ec4d73e4b29f656c039fca6118da2f35",
+        "linux-arm64": "76025c6ab41be85361838152b31a2f23bfb87ee20babfbeec4045fb81e8c6f78",
+        "darwin-arm64": "8e864f898a6479f2ae50f9f0030e0d5fbc05e67ebbeefa1b29afb72f163f542f",
+        "darwin-x86_64": "6cd0b1ea9ea5442caa18459d64db4c9e8d8aee1bd79c5944a6cb185ba6d2292b"
+      }
+    }
+  },
   "gate": {
     "needs": [
       "render",
