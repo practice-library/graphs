@@ -19,7 +19,8 @@ if [ "${1:-}" = --check ]; then mode=--check; shift; fi
 case "${1:-}" in -*) echo "usage: scripts/render.sh [--check] [root]" >&2; exit 2 ;; esac
 [ $# -le 1 ] || { echo "usage: scripts/render.sh [--check] [root]" >&2; exit 2; }
 here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-root="${1:-$(cd "$here/.." && pwd)}"
+# A relative root is resolved once, here, before the cd: graphs.sh is handed the absolute path.
+root="$(cd "${1:-$here/..}" && pwd)"
 cd "$root"
 
 constants="policy/constants.json"

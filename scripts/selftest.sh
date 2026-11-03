@@ -11,6 +11,7 @@
 #   selftest/bump-only-file/<case>/{old,new}.json          scripts/bump-only.sh file <old> <new>
 #   selftest/render/<case>/root/                           scripts/render.sh --check <root> (templates/, policy/constants.json
 #                                                          and the generated files)
+#   selftest/render-relative/<case>/root/                  the same, with the root given as a path relative to its parent
 # Other cases compare the script's output with `expect` instead:
 #   selftest/bump-only-classify/<case>/{allow.json,diff}   scripts/bump-only.sh classify (review, bump or reject)
 #   selftest/graphs/<case>/root/[domain]                   scripts/graphs.sh <root> [the domain named in `domain`]
@@ -74,6 +75,10 @@ for c in selftest/bump-only-classify/*/; do output_case "${c%/}" bash scripts/bu
 for c in selftest/graphs/*/; do output_case "${c%/}" bash scripts/graphs.sh "$(stage "${c%/}")" $(cat "${c}domain" 2>/dev/null); done
 for c in selftest/bump-only-classify-fails/*/; do run_case "${c%/}" bash scripts/bump-only.sh classify "${c}allow.json" "${c}diff"; done
 for c in selftest/render/*/; do run_case "${c%/}" bash scripts/render.sh --check "$(stage "${c%/}")"; done
+for c in selftest/render-relative/*/; do
+  staged="$(stage "${c%/}")"
+  run_case "${c%/}" bash -c 'cd "$(dirname "$1")" && bash "$2/scripts/render.sh" --check "$(basename "$1")"' _ "$staged" "$root"
+done
 shard_selection() { # <case dir>: the row indices parse_shard selects, space-separated, or "rejected"
   python3 -B -c '
 import sys
