@@ -1,0 +1,2 @@
+value: @@a.b@@
+shards: @@gen.guardShards@@ of @@guards.shards@@

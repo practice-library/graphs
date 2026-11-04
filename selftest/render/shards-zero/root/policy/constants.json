@@ -1,0 +1,5 @@
+{
+  "graphPaths": {"nodes": "graph/nodes", "reports": "graph/refresh"},
+  "guards": {"shards": 0},
+  "a": {"b": "one", "c": [1, 2]}
+}

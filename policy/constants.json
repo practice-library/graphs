@@ -25,6 +25,9 @@
     "image": "ubuntu-24.04",
     "timeoutMinutes": 10
   },
+  "guards": {
+    "shards": 6
+  },
   "tools": {
     "jsonschema": {
       "repo": "sourcemeta/jsonschema",

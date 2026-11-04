@@ -1,0 +1,3 @@
+# Generated from templates/notes.txt and policy/constants.json by scripts/render.sh. Do not edit.
+value: one
+shards: [1,2] of 2

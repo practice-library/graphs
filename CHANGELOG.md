@@ -2,6 +2,14 @@
 
 One entry per release of this repository. A release names the practice-library/.github release its own CI checked it against.
 
+## Unreleased
+
+- `scripts/bump-only.sh pr` removes its temporary directory on every exit; each `bump-only-pr` self-test case checks that its own `TMPDIR` is left empty (#28).
+- `scripts/bump-only.sh` compares `fetched_at` as times, not strings, so `...:00.5Z` is later than `...:00Z` and `...:00.50Z` is not later than `...:00.5Z` (#26).
+- `scripts/graphs.sh` lists a graph whose `check.json` names `graph/nodes/` with a trailing slash, so it is checked, auto-merge allowlisted and left without a CODEOWNERS owner like any other (#30).
+- `scripts/render.sh [--check] [root]` takes a root as `scripts/index.sh` does; `selftest/render/` has a case for each of its guards, and `scripts/guards.py` a row for each (#25).
+- The guards shard count is `guards.shards` in `policy/constants.json`, rendered into the job's matrix and its `--shard K/N`; `--shard` fails a shard that selects no row, and `selftest/guards-shard/` holds the hostile inputs (#103).
+
 ## v1.0.0
 
 Checked against practice-library/.github v3.1.0 (`fa14c82916585c4e3357985a0433e60123f3b91d`). No backward compatibility with v0.2.0 is kept: the vendor schema, the regulation schema and the sources policy all change shape.

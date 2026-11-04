@@ -12,15 +12,15 @@ must still fail, because the later check the row names catches the same input. A
 means the early check was carrying the failure alone and belongs in GUARDS.
 
 Before any mutant, one unmutated run must pass every named case. Covered: graph-check.sh, graphs.sh,
-quote-value.py, graph-semantics.py, inventory-check.py, sources-check.py, report-check.py and bump-only.sh (not its check
-that a node is unchanged between the report's commit and the base: the self-test builds only two commits) and the lists
-in policy/graph-rules.json. Not covered: index.sh (scripts/index-selftest.sh runs its own cases), jsonschema.sh (it fetches the pinned
-validator; a sha256 mismatch stops every run that needs it), the policy lists
-graph-semantics.py skips by id (`exceptions`, `unless`), render.sh (practice-library/graphs#25), the usage checks on argument counts, the
+quote-value.py, graph-semantics.py, inventory-check.py, sources-check.py, report-check.py, render.sh, parse_shard below
+and bump-only.sh (not its check that a node is unchanged between the report's commit and the base: the self-test builds
+only two commits) and the lists in policy/graph-rules.json. Not covered: index.sh (scripts/index-selftest.sh runs its own
+cases), jsonschema.sh (it fetches the pinned validator; a sha256 mismatch stops every run that needs it), the policy lists graph-semantics.py skips by id (`exceptions`, `unless`), the usage checks on argument counts, the
 missing-directory exit in graphs.sh (without it, find reports the missing directory and lists nothing, the same output) and the measuredAt type test in bump-only.sh, which no input reaches alone.
 Python 3.9 or later, standard library only. Run: python3 scripts/guards.py [--shard K/N]
 --shard K/N runs only the rows (GUARDS, then PINS, then BACKSTOPS) whose 0-based index i has i % N == K-1,
-so N jobs with K = 1..N together run every row once. Without it every row runs.
+so N jobs with K = 1..N together run every row once; a shard that selects no row fails. Without it every row runs.
+CI's N is guards.shards in policy/constants.json, rendered into both the guards job's matrix and its --shard.
 """
 from __future__ import annotations
 
@@ -39,6 +39,10 @@ IV, GRULES = "scripts/inventory-check.py", "policy/graph-rules.json"
 SUPPORT = ["policy/graph-rules.json", "policy/constants.json", "spec/refresh-report/schema.json"]
 C = "selftest/graph-check/"
 F, K, P = "selftest/bump-only-file/", "selftest/bump-only-classify/", "selftest/bump-only-pr/"
+RS, RN = "scripts/render.sh", "selftest/render/"
+# parse_shard is in this file, which also holds these rows: each code ends at a line break, which a row writes as \n,
+# so the code occurs once.
+GU, SH = "scripts/guards.py", "selftest/guards-shard/"
 
 GUARDS = [
     # (what the guard keeps true, file, code, mutant, the case that must then fail)
@@ -215,7 +219,9 @@ GUARDS = [
     ("a numeric value must be one of the numbers its quote states", QV,
      "and not covers(quote, value, unit):", "and False:", C + "value-not-in-quote"),
     ("only a check.json naming graph/nodes is a graph", GR,
-     '[ "$instances" = graph/nodes ] && dirname "$f"', 'dirname "$f"', "selftest/graphs/two-graphs-and-a-contract"),
+     '[ "${instances%/}" = graph/nodes ] && dirname "$f"', 'dirname "$f"', "selftest/graphs/two-graphs-and-a-contract"),
+    ("a check.json naming graph/nodes/ with a trailing slash is a graph", GR,
+     '"${instances%/}"', '"$instances"', "selftest/graphs/trailing-slash"),
     ("graphs.sh lists vendors only, unless another domain is named", GR,
      'domain="${2:-vendors}"', 'domain="${2:-.}"', "selftest/graphs/regulations-not-in-default"),
     ("graphs.sh lists only inside the domain directory", GR,
@@ -241,8 +247,24 @@ GUARDS = [
     ("measuredAt is the date of fetched_at", BO,
      '|| die "measuredAt is not the date of fetched_at"', "|| true", F + "measured-at-not-fetch-date"),
     ("fetched_at moves forward", BO,
-     "$n[0].attrs.fetched_at > $o[0].attrs.fetched_at", "$n[0].attrs.fetched_at >= $o[0].attrs.fetched_at",
-     F + "fetched-at-unchanged"),
+     "| instant) > ($o[0]", "| instant) >= ($o[0]", F + "fetched-at-unchanged"),
+    ("fetched_at is compared as a time: a later fraction of the same second is later", BO,
+     "($n[0].attrs.fetched_at | instant) > ($o[0].attrs.fetched_at | instant)",
+     "$n[0].attrs.fetched_at > $o[0].attrs.fetched_at", F + "fetched-at-later-by-a-fraction"),
+    ("fetched_at is compared as a time: an earlier fraction of the same second is earlier", BO,
+     "($n[0].attrs.fetched_at | instant) > ($o[0].attrs.fetched_at | instant)",
+     "$n[0].attrs.fetched_at > $o[0].attrs.fetched_at", F + "fetched-at-earlier-by-a-fraction"),
+    ("fetched_at is compared as a time: dropping a zero fraction is not later", BO,
+     "($n[0].attrs.fetched_at | instant) > ($o[0].attrs.fetched_at | instant)",
+     "$n[0].attrs.fetched_at > $o[0].attrs.fetched_at", F + "fetched-at-same-time-fewer-digits"),
+    ("a fraction is padded to nine digits before it is compared", BO,
+     '((.f // "") + "000000000")[0:9]', '(.f // "")', F + "fetched-at-same-time-more-digits"),
+    ("an impossible date in fetched_at is refused, not rolled over into a later one", BO,
+     'if ($t | todateiso8601) == $z then [$t, ((.f // "") + "000000000")[0:9]] else empty end',
+     '[$t, ((.f // "") + "000000000")[0:9]]', F + "fetched-at-impossible-date"),
+    ("fetched_at ends at its Z, with no trailing newline", BO, ')?Z\\\\z")', ')?Z$")', F + "fetched-at-trailing-newline"),
+    ("pr removes its temporary directory when it passes", BO, "trap 'rm -rf \"$tmp\"' EXIT", "true", P + "date-bump"),
+    ("pr removes its temporary directory when it fails", BO, "trap 'rm -rf \"$tmp\"' EXIT", "true", P + "bump-without-report"),
     ("the allowlist is read from the base commit", BO,
      "git show HEAD^1:.github/automerge-paths.json", "git show HEAD:.github/automerge-paths.json",
      P + "head-shrinks-allowlist"),
@@ -306,6 +328,30 @@ GUARDS = [
     ("a command is covered or not covered, not both", IV, "elif k in covered:", "elif False:",
      C + "cli-inventory-covered-and-not-covered"),
     ("a hashed entry is the digest of the salt and the path", IV, 'f"{salt}:{entry}"', 'f"{entry}"', C + "cli-inventory-complete"),
+    ("render renders the root it is given", RS, 'root="$(cd "${1:-$here/..}" && pwd)"', 'root="$(cd "$here/.." && pwd)"',
+     RN + "stale-file"),
+    ("render resolves a relative root once, before it changes directory", RS, 'root="$(cd "${1:-$here/..}" && pwd)"',
+     'root="${1:-$(cd "$here/.." && pwd)}"', "selftest/render-relative/current"),
+    ("a placeholder with no value in policy/constants.json fails render", RS, "if $v == null then error(",
+     "if false then error(", RN + "missing-value"),
+    ("a rendered .json file must parse", RS, 'jq -e . >/dev/null <<<"$rendered" ||', "true ||", RN + "invalid-json"),
+    ("render --check fails on a generated file that differs", RS, ' || [ "$(cat "$out")" != "$content" ]', "",
+     RN + "stale-file"),
+    ("a failing render --check exits non-zero", RS, 'exit "$failed"', "exit 0", RN + "stale-file"),
+    ("guards.shards is a whole number of at least 1", RS, 'if type == "number" and . >= 1 and . == floor then',
+     "if true then", RN + "shards-zero"),
+    ("--shard takes exactly one K/N", GU, 'if len(argv) != 2 or argv[0] != "--shard":\n', "if False:\n",
+     SH + "bare-shard"),
+    ("K and N are whole numbers", GU,
+     "if not sep or not (k.isascii() and k.isdigit() and n.isascii() and n.isdigit()):\n", "if False:\n",
+     SH + "k-not-a-number"),
+    ("K is written in ASCII digits", GU, "not (k.isascii() and k.isdigit() and n.isascii() and n.isdigit()):\n",
+     "not (k.isdigit() and n.isascii() and n.isdigit()):\n", SH + "non-ascii-k"),
+    ("N is written in ASCII digits", GU, "and n.isascii() and n.isdigit()):\n", "and n.isdigit()):\n",
+     SH + "non-ascii-n"),
+    ("shard K of N selects the rows whose index i has i % N == K-1", GU, "if i % n == k - 1]\n", "if i % n == k]\n",
+     SH + "second-of-three"),
+    ("a shard that selects no row fails", GU, "if not picked:\n", "if False:\n", SH + "selects-no-row"),
 ]
 
 PINS = [
@@ -366,6 +412,11 @@ BACKSTOPS = [
     ("a base allowlist without a paths array fails", BO,
      """|| die "main's .github/automerge-paths.json has no paths array\"""", "|| true",
      P + "base-allowlist-no-paths", "classify fails on a list that is not an array"),
+    ("render --check fails on a missing generated file", RS, '[ ! -f "$out" ] || ', "", RN + "missing-file",
+     "cat prints nothing for the missing file, which differs from the rendered content"),
+    ("N is at least 1", GU, "if n < 1:\n", "if False:\n", SH + "n-zero", "K cannot be between 1 and 0"),
+    ("K is between 1 and N", GU, "if not 1 <= k <= n:\n", "if False:\n", SH + "k-over-n",
+     "no index i has i % N == K-1 when K > N, so the shard selects no row"),
 ]
 
 
@@ -404,10 +455,11 @@ def mutated(path: str, code: str, mutant: str):
         return run(tmp)
 
 
-def parse_shard(argv: list):
-    """(K, N) from argv, (1, 1) without --shard, or a message saying why argv is not accepted."""
+def parse_shard(argv: list, total: int):
+    """(K, N, the 0-based indices of the total rows that shard K of N runs) from argv, (1, 1, every row) without
+    --shard, or a message saying why argv is not accepted. A shard that selects no row is not accepted."""
     if not argv:
-        return 1, 1
+        return 1, 1, list(range(total))
     if len(argv) != 2 or argv[0] != "--shard":
         return "usage: python3 scripts/guards.py [--shard K/N]"
     k, sep, n = argv[1].partition("/")
@@ -418,17 +470,20 @@ def parse_shard(argv: list):
         return f"--shard {argv[1]}: N must be at least 1"
     if not 1 <= k <= n:
         return f"--shard {argv[1]}: K must be between 1 and {n}"
-    return k, n
+    picked = [i for i in range(total) if i % n == k - 1]
+    if not picked:
+        return f"--shard {argv[1]}: selects none of the {total} rows"
+    return k, n, picked
 
 
 def main(argv: list) -> int:
-    shard = parse_shard(argv)
+    rows = GUARDS + PINS + BACKSTOPS
+    shard = parse_shard(argv, len(rows))
     if isinstance(shard, str):
         print(shard, file=sys.stderr)
         return 2
-    k, n = shard
-    rows = GUARDS + PINS + BACKSTOPS
-    picked = {i for i in range(len(rows)) if i % n == k - 1}
+    k, n, picked = shard
+    picked = set(picked)
     guards = [r for i, r in enumerate(GUARDS + PINS) if i in picked]
     backstops = [r for i, r in enumerate(BACKSTOPS, len(GUARDS) + len(PINS)) if i in picked]
     print(f"shard {k}/{n}: {len(picked)} of {len(rows)} rows selected")
